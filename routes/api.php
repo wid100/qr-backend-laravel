@@ -20,3 +20,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('qrcreate', [QrgenController::class, 'store']);
 Route::get('information/{slug}', [QrgenController::class, 'show']);
+Route::get('/getqr/{user}', [QrgenController::class, 'getGetqrByUser']);
+
+Route::post('/updateqr/{id}', [QrgenController::class, 'update']);
+Route::get('/editqr/{id}', [QrgenController::class, 'edit']);
+Route::delete('/deleteqr/{id}', [QrgenController::class, 'destroy']);

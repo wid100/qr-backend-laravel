@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Qrgen;
 use Illuminate\Http\Request;
 
+use App\Models\User;
+
 class QrgenController extends Controller
 {
     /**
@@ -22,7 +24,12 @@ class QrgenController extends Controller
     {
         //
     }
+    public function getGetqrByUser(User $user)
+    {
+        $getqr = Qrgen::where('user_id', $user->id)->get();
 
+        return response()->json(['getqr' => $getqr]);
+    }
     /**
      * Store a newly created resource in storage.
      */
@@ -102,24 +109,113 @@ class QrgenController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Qrgen $qrgen)
+    public function edit($id)
     {
-        //
+        $qrgen = Qrgen::find($id);
+
+        if (!$qrgen) {
+            return response()->json(['error' => 'Qrgen not found'], 404);
+        }
+
+        return response()->json(['qrgen' => $qrgen]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Qrgen $qrgen)
+    public function update(Request $request, $id)
     {
-        //
+        $qrgen = Qrgen::find($id);
+
+
+        if (!$qrgen) {
+            return response()->json(['error' => 'Qrgen not found'], 404);
+        }
+
+        // Update the resource with the provided data
+        $qrgen->fill([
+            'user_id' => $request->input('user_id'),
+            'cardname' => $request->input('cardname'),
+            'firstname' => $request->input('firstname'),
+            'lastname' => $request->input('lastname'),
+            'email1' => $request->input('email1'),
+            'email2' => $request->input('email2'),
+            'phone1' => $request->input('phone1'),
+            'phone2' => $request->input('phone2'),
+            'mobile1' => $request->input('mobile1'),
+            'mobile2' => $request->input('mobile2'),
+            'mobile3' => $request->input('mobile3'),
+            'mobile4' => $request->input('mobile4'),
+            'fax' => $request->input('fax'),
+            'fax2' => $request->input('fax2'),
+            'address1' => $request->input('address1'),
+            'address2' => $request->input('address2'),
+            'webaddress1' => $request->input('webaddress1'),
+            'webaddress2' => $request->input('webaddress2'),
+            'companyname' => $request->input('companyname'),
+            'jobtitle' => $request->input('jobtitle'),
+            'maincolor' => $request->input('maincolor'),
+            'gradientcolor' => $request->input('gradientcolor'),
+            'buttoncolor' => $request->input('buttoncolor'),
+            'checkgradient' => $request->input('checkgradient'),
+            'summary' => $request->input('summary'),
+            'cardType' => $request->input('cardtype'),
+            'slug' => $request->input('slug'),
+            'facebook' => $request->input('facebook'),
+            'twitter' => $request->input('twitter'),
+            'instagram' => $request->input('instagram'),
+            'youtube' => $request->input('youtube'),
+            'github' => $request->input('github'),
+            'qrcodeimage' => $request->input('qrCodeImage'),
+        ]);
+
+        // Handle file uploads (similar to your store method)
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = uniqid() . '-' . $image->getClientOriginalName();
+            $image->move(public_path('image/qrgen/'), $imageName);
+            $qrgen->image = 'image/qrgen/' . $imageName;
+        }
+
+        if ($request->hasFile('welcomeimage')) {
+            $image = $request->file('welcomeimage');
+            $imageName = uniqid() . '-' . $image->getClientOriginalName();
+            $image->move(public_path('image/qrgen/'), $imageName);
+            $qrgen->welcome = 'image/qrgen/' . $imageName;
+        }
+
+        // Save the updated resource
+        $qrgen->save();
+
+        return response()->json(['status' => 200, 'message' => 'Qrgen updated successfully']);
     }
+
+
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Qrgen $qrgen)
+    public function destroy($id)
     {
-        //
+        $qrgen = Qrgen::find($id);
+
+        if (!$qrgen) {
+            return response()->json(['error' => 'Qrgen not found'], 404);
+        }
+
+        $imagePath = $qrgen->image;
+        $welcomeImagePath = $qrgen->welcome;
+
+        $qrgen->delete();
+
+        if ($imagePath && file_exists($imagePath)) {
+            unlink($imagePath);
+        }
+
+        if ($welcomeImagePath && file_exists($welcomeImagePath)) {
+            unlink($welcomeImagePath);
+        }
+
+        return response()->json(['message' => 'Qrgen deleted successfully']);
     }
 }
