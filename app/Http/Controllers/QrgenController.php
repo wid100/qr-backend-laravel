@@ -9,21 +9,52 @@ use App\Models\User;
 
 class QrgenController extends Controller
 {
+
+
+
+
+    public function getPauseeQr($userId)
+    {
+        $pauseQr = Qrgen::where('user_id', $userId)
+            ->where('status', 'paused')
+            ->get();
+
+        return response()->json(['pauseQr' => $pauseQr]);
+    }
+
+
+    public function getActiveQr($userId)
+    {
+        $activeQr = Qrgen::where('user_id', $userId)
+            ->where('status', 'active')
+            ->get();
+
+        return response()->json(['activeQr' => $activeQr]);
+    }
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        //
-    }
 
+    public function toggleStatus($id)
+    {
+        $qrgen = Qrgen::find($id);
+
+        if (!$qrgen) {
+            return response()->json(['error' => 'Qrgen not found'], 404);
+        }
+
+        // Toggle the status
+        $qrgen->status = $qrgen->status === 'active' ? 'paused' : 'active';
+        $qrgen->save();
+
+        $message = $qrgen->status === 'active' ? 'Qrgen activated successfully' : 'Qrgen paused successfully';
+
+        return response()->json(['message' => $message]);
+    }
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
-    {
-        //
-    }
+
     public function getGetqrByUser(User $user)
     {
         $getqr = Qrgen::where('user_id', $user->id)->get();
@@ -70,6 +101,7 @@ class QrgenController extends Controller
         $qrgen->github = $request->input('github');
         $qrgen->facebook = $request->input('facebook');
         $qrgen->qrcodeimage = $request->input('qrCodeImage');
+        $qrgen->status = $request->input('status');
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');
@@ -98,13 +130,21 @@ class QrgenController extends Controller
     public function show($slug)
     {
         $showpost = Qrgen::where('slug', $slug)->first();
+        if (!$showpost) {
+            return response()->json(['error' => 'Qrgen not found'], 404);
+        }
 
-        if ($showpost) {
+
+        if ($showpost->status === 'active') {
+            $showpost->increment('viewcount');
             return response()->json($showpost);
         } else {
-            return response()->json(['error' => 'Post not found'], 404);
+            return response()->json(['error' => 'Qrgen is paused'], 403);
         }
     }
+
+
+
 
     /**
      * Show the form for editing the specified resource.
@@ -118,6 +158,23 @@ class QrgenController extends Controller
         }
 
         return response()->json(['qrgen' => $qrgen]);
+    }
+
+
+
+    public function pause($id)
+    {
+        $qrgen = Qrgen::find($id);
+
+        if (!$qrgen) {
+            return response()->json(['error' => 'Qrgen not found'], 404);
+        }
+
+        // Update the status to 'paused'
+        $qrgen->status = 'paused';
+        $qrgen->save();
+
+        return response()->json(['message' => 'Qrgen paused successfully']);
     }
 
     /**
@@ -167,6 +224,7 @@ class QrgenController extends Controller
             'youtube' => $request->input('youtube'),
             'github' => $request->input('github'),
             'qrcodeimage' => $request->input('qrCodeImage'),
+            'status' => $request->input('status'),
         ]);
 
         // Handle file uploads (similar to your store method)

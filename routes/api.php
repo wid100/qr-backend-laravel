@@ -25,3 +25,8 @@ Route::get('/getqr/{user}', [QrgenController::class, 'getGetqrByUser']);
 Route::post('/updateqr/{id}', [QrgenController::class, 'update']);
 Route::get('/editqr/{id}', [QrgenController::class, 'edit']);
 Route::delete('/deleteqr/{id}', [QrgenController::class, 'destroy']);
+Route::put('/qrgen/toggle-status/{id}', [QrgenController::class, 'toggleStatus']);
+// routes/web.php
+
+Route::get('/getActiveQr/{userId}', [QrgenController::class, 'getActiveQr']);
+Route::get('/getpauseQr/{userId}', [QrgenController::class, 'getPauseeQr']);

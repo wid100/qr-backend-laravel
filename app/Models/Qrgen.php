@@ -14,5 +14,6 @@ class Qrgen extends Model
         'cardname',
         'firstname',
         'lastname',
+        'status',
     ];
 }

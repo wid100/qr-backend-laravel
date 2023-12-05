@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('email2')->nullable();
             $table->string('phone1')->nullable();
             $table->string('slug');
-
+            $table->string('status')->default('active');
             $table->string('phone2')->nullable();
             $table->string('mobile1')->nullable();
             $table->string('mobile2')->nullable();
