@@ -15,5 +15,8 @@ class Qrgen extends Model
         'firstname',
         'lastname',
         'status',
+        'maincolor',
+        'gradientcolor',
+        'buttoncolor',
     ];
 }

@@ -6,6 +6,7 @@ use App\Models\Qrgen;
 use Illuminate\Http\Request;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Log;
 
 class QrgenController extends Controller
 {
@@ -183,8 +184,8 @@ class QrgenController extends Controller
     public function update(Request $request, $id)
     {
         $qrgen = Qrgen::find($id);
-
-
+        Log::info('Received Request Data: ', $request->all());
+        Log::info('Updated Qrgen Data: ', $qrgen->toArray());
         if (!$qrgen) {
             return response()->json(['error' => 'Qrgen not found'], 404);
         }
@@ -214,6 +215,7 @@ class QrgenController extends Controller
             'maincolor' => $request->input('maincolor'),
             'gradientcolor' => $request->input('gradientcolor'),
             'buttoncolor' => $request->input('buttoncolor'),
+
             'checkgradient' => $request->input('checkgradient'),
             'summary' => $request->input('summary'),
             'cardType' => $request->input('cardtype'),
