@@ -30,3 +30,4 @@ Route::put('/qrgen/toggle-status/{id}', [QrgenController::class, 'toggleStatus']
 
 Route::get('/getActiveQr/{userId}', [QrgenController::class, 'getActiveQr']);
 Route::get('/getpauseQr/{userId}', [QrgenController::class, 'getPauseeQr']);
+Route::get('/qr-details/{id}', [QrgenController::class, 'getQrDetails']);

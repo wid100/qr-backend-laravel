@@ -144,6 +144,16 @@ class QrgenController extends Controller
         }
     }
 
+    public function getQrDetails($id)
+    {
+        $qrDetails = Qrgen::find($id);
+
+        if (!$qrDetails) {
+            return response()->json(['error' => 'Qrgen not found'], 404);
+        }
+
+        return response()->json(['qrDetails' => $qrDetails]);
+    }
 
 
 
