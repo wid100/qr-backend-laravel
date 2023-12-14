@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Validation\ValidationException;
 
 class QrgenController extends Controller
 {
@@ -67,62 +68,80 @@ class QrgenController extends Controller
      */
     public function store(Request $request)
     {
-        $qrgen = new Qrgen();
-        $qrgen->user_id = $request->input('user_id');
-        $qrgen->cardname = $request->input('cardname');
-        $qrgen->firstname = $request->input('firstname');
-        $qrgen->lastname = $request->input('lastname');
-        $qrgen->email1 = $request->input('email1');
-        $qrgen->email2 = $request->input('email2');
-        $qrgen->phone1 = $request->input('phone1');
-        $qrgen->phone2 = $request->input('phone2');
-        $qrgen->mobile1 = $request->input('mobile1');
-        $qrgen->mobile2 = $request->input('mobile2');
-        $qrgen->mobile3 = $request->input('mobile3');
-        $qrgen->mobile4 = $request->input('mobile4');
-        $qrgen->fax = $request->input('fax');
-        $qrgen->fax2 = $request->input('fax2');
-        $qrgen->address1 = $request->input('address1');
-        $qrgen->address2 = $request->input('address2');
-        $qrgen->webaddress1 = $request->input('webaddress1');
-        $qrgen->webaddress2 = $request->input('webaddress2');
-        $qrgen->companyname = $request->input('companyname');
-        $qrgen->jobtitle = $request->input('jobtitle');
-        $qrgen->maincolor = $request->input('maincolor');
-        $qrgen->gradientcolor = $request->input('gradientcolor');
-        $qrgen->buttoncolor = $request->input('buttoncolor');
-        $qrgen->checkgradient = $request->input('checkgradient');
-        $qrgen->summary = $request->input('summary');
-        $qrgen->cardType = $request->input('cardtype');
-        $qrgen->slug = $request->input('slug');
-        $qrgen->facebook = $request->input('facebook');
-        $qrgen->twitter = $request->input('twitter');
-        $qrgen->instagram = $request->input('instagram');
-        $qrgen->youtube = $request->input('youtube');
-        $qrgen->github = $request->input('github');
-        $qrgen->facebook = $request->input('facebook');
-        $qrgen->qrcodeimage = $request->input('qrCodeImage');
-        $qrgen->status = $request->input('status');
+        try {
+            $validatedData = $request->validate([
+                'user_id' => 'required|integer',
+                'cardname' => 'required|string',
+                'firstname' => 'required|string',
+                'lastname' => 'required|string',
+                'email1' => 'required|email',
+                'phone1' => 'required|numeric',
+                'mobile1' => 'required|numeric',
+                'address1' => 'required|string',
+                'webaddress1' => 'required|url',
+                'companyname' => 'required|string',
+                'jobtitle' => 'required|string',
+                'maincolor' => 'required|string',
+                'gradientcolor' => 'required|string',
+                'buttoncolor' => 'required|string',
+                'summary' => 'required|string',
+                'cardtype' => 'required|string',
+                'status' => 'required|string',
 
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $imageName = uniqid() . '-' . $image->getClientOriginalName();
-            $image->move(public_path('image/qrgen/'), $imageName);
-            $qrgen->image = 'image/qrgen/' . $imageName;
+                // Example: nullable status field
+                'email2' => 'nullable|email',
+                'slug' => 'nullable|string',
+                'phone2' => 'nullable|numeric',
+                'mobile2' => 'nullable|numeric',
+                'mobile3' => 'nullable|numeric',
+                'mobile4' => 'nullable|numeric',
+                'fax' => 'nullable|numeric',
+                'fax2' => 'nullable|numeric',
+                'address2' => 'nullable|string',
+                'webaddress2' => 'nullable|url',
+                'checkgradient' => 'nullable|string',
+                'facebook' => 'nullable|url',
+                'twitter' => 'nullable|url',
+                'instagram' => 'nullable|url',
+                'youtube' => 'nullable|url',
+                'github' => 'nullable|url',
+                'qrcodeimage' => 'nullable',
+                // ... other fields and validation rules
+                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5120',
+                'welcomeimage' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            ]);
+
+
+            $qrgen = new Qrgen($validatedData);
+
+            if ($request->hasFile('image')) {
+                $image = $request->file('image');
+                $imageName = uniqid() . '-' . $image->getClientOriginalName();
+                $image->move(public_path('image/qrgen/'), $imageName);
+                $qrgen->image = 'image/qrgen/' . $imageName;
+            }
+
+            if ($request->hasFile('welcomeimage')) {
+                $image = $request->file('welcomeimage');
+                $imageName = uniqid() . '-' . $image->getClientOriginalName();
+                $image->move(public_path('image/qrgen/'), $imageName);
+                $qrgen->welcome = 'image/qrgen/' . $imageName;
+            }
+
+            $qrgen->save();
+            Log::info('Qrgen created successfully', ['id' => $qrgen->id]);
+
+            return response()->json([
+                'status' => 200,
+                'message' => 'Qrgen created successfully',
+            ]);
+        } catch (ValidationException $e) {
+            // Return validation errors
+            return response()->json(['status' => 422, 'errors' => $e->errors()]);
+        } catch (\Throwable $e) {
+            Log::error('Error creating Qrgen', ['error' => $e->getMessage()]);
+            return response()->json(['status' => 500, 'error' => $e->getMessage()]);
         }
-
-        if ($request->hasFile('welcomeimage')) {
-            $image = $request->file('welcomeimage');
-            $imageName = uniqid() . '-' . $image->getClientOriginalName();
-            $image->move(public_path('image/qrgen/'), $imageName);
-            $qrgen->welcome = 'image/qrgen/' . $imageName;
-        }
-
-        $qrgen->save();
-        return response()->json([
-            'status' => 200,
-            'message' => 'qrgen created successfully',
-        ]);
     }
 
     /**
@@ -191,76 +210,146 @@ class QrgenController extends Controller
     /**
      * Update the specified resource in storage.
      */
+    // public function update(Request $request, $id)
+    // {
+    //     $qrgen = Qrgen::find($id);
+    //     Log::info('Received Request Data: ', $request->all());
+    //     Log::info('Updated Qrgen Data: ', $qrgen->toArray());
+    //     if (!$qrgen) {
+    //         return response()->json(['error' => 'Qrgen not found'], 404);
+    //     }
+
+    //     // Update the resource with the provided data
+    //     $qrgen->user_id = $request->input('user_id');
+    //     $qrgen->cardname = $request->input('cardname');
+    //     $qrgen->firstname = $request->input('firstname');
+    //     $qrgen->lastname = $request->input('lastname');
+    //     $qrgen->email1 = $request->input('email1');
+    //     $qrgen->email2 = $request->input('email2');
+    //     $qrgen->phone1 = $request->input('phone1');
+    //     $qrgen->phone2 = $request->input('phone2');
+    //     $qrgen->mobile1 = $request->input('mobile1');
+    //     $qrgen->mobile2 = $request->input('mobile2');
+    //     $qrgen->mobile3 = $request->input('mobile3');
+    //     $qrgen->mobile4 = $request->input('mobile4');
+    //     $qrgen->fax = $request->input('fax');
+    //     $qrgen->fax2 = $request->input('fax2');
+    //     $qrgen->address1 = $request->input('address1');
+    //     $qrgen->address2 = $request->input('address2');
+    //     $qrgen->webaddress1 = $request->input('webaddress1');
+    //     $qrgen->webaddress2 = $request->input('webaddress2');
+    //     $qrgen->companyname = $request->input('companyname');
+    //     $qrgen->jobtitle = $request->input('jobtitle');
+    //     $qrgen->maincolor = $request->input('maincolor');
+    //     $qrgen->gradientcolor = $request->input('gradientcolor');
+    //     $qrgen->buttoncolor = $request->input('buttoncolor');
+    //     $qrgen->checkgradient = $request->input('checkgradient');
+    //     $qrgen->summary = $request->input('summary');
+    //     $qrgen->cardType = $request->input('cardtype');
+    //     $qrgen->facebook = $request->input('facebook');
+    //     $qrgen->twitter = $request->input('twitter');
+    //     $qrgen->instagram = $request->input('instagram');
+    //     $qrgen->youtube = $request->input('youtube');
+    //     $qrgen->github = $request->input('github');
+    //     $qrgen->facebook = $request->input('facebook');
+    //     $qrgen->qrcodeimage = $request->input('qrCodeImage');
+    //     $qrgen->status = $request->input('status');
+
+    //     // Handle file uploads (similar to your store method)
+    //     if ($request->hasFile('image')) {
+    //         $image = $request->file('image');
+    //         $imageName = uniqid() . '-' . $image->getClientOriginalName();
+    //         $image->move(public_path('image/qrgen/'), $imageName);
+    //         $qrgen->image = 'image/qrgen/' . $imageName;
+    //     }
+
+    //     if ($request->hasFile('welcomeimage')) {
+    //         $image = $request->file('welcomeimage');
+    //         $imageName = uniqid() . '-' . $image->getClientOriginalName();
+    //         $image->move(public_path('image/qrgen/'), $imageName);
+    //         $qrgen->welcome = 'image/qrgen/' . $imageName;
+    //     }
+
+    //     // Save the updated resource
+    //     $qrgen->save();
+
+    //     return response()->json(['status' => 200, 'message' => 'Qrgen updated successfully']);
+    // }
+
     public function update(Request $request, $id)
     {
-        $qrgen = Qrgen::find($id);
-        Log::info('Received Request Data: ', $request->all());
-        Log::info('Updated Qrgen Data: ', $qrgen->toArray());
-        if (!$qrgen) {
-            return response()->json(['error' => 'Qrgen not found'], 404);
+        try {
+            $validatedData = $request->validate([
+                'user_id' => 'required|integer',
+                'cardname' => 'required|string',
+                'firstname' => 'required|string',
+                'lastname' => 'required|string',
+                'email1' => 'required|email',
+                'phone1' => 'required|numeric',
+                'mobile1' => 'required|numeric',
+                'address1' => 'required|string',
+                'webaddress1' => 'required|url',
+                'companyname' => 'required|string',
+                'jobtitle' => 'required|string',
+                'maincolor' => 'required|string',
+                'gradientcolor' => 'required|string',
+                'buttoncolor' => 'required|string',
+                'summary' => 'required|string',
+                'cardtype' => 'required|string',
+                'status' => 'required|string',
+                // Example: nullable status field
+                'email2' => 'nullable|email',
+                'slug' => 'nullable|string',
+                'phone2' => 'nullable|numeric',
+                'mobile2' => 'nullable|numeric',
+                'mobile3' => 'nullable|numeric',
+                'mobile4' => 'nullable|numeric',
+                'fax' => 'nullable|numeric',
+                'fax2' => 'nullable|numeric',
+                'address2' => 'nullable|string',
+                'webaddress2' => 'nullable|url',
+                'checkgradient' => 'nullable|string',
+                'facebook' => 'nullable|url',
+                'twitter' => 'nullable|url',
+                'instagram' => 'nullable|url',
+                'youtube' => 'nullable|url',
+                'github' => 'nullable|url',
+                'qrcodeimage' => 'nullable',
+                // ... other fields and validation rules
+                'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:5120',
+                'welcomeimage' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            ]);
+            $qrgen = Qrgen::findOrFail($id);
+            $qrgen->update($validatedData);
+            if ($request->hasFile('image')) {
+                $image = $request->file('image');
+                $imageName = uniqid() . '-' . $image->getClientOriginalName();
+                $image->move(public_path('image/qrgen/'), $imageName);
+                $qrgen->image = 'image/qrgen/' . $imageName;
+            }
+            if ($request->hasFile('welcomeimage')) {
+                $image = $request->file('welcomeimage');
+                $imageName = uniqid() . '-' . $image->getClientOriginalName();
+                $image->move(public_path('image/qrgen/'), $imageName);
+                $qrgen->welcome = 'image/qrgen/' . $imageName;
+            }
+            $qrgen->save();
+            Log::info('Qrgen updated successfully', ['id' => $qrgen->id]);
+            return response()->json([
+                'status' => 200,
+                'message' => 'Qrgen updated successfully',
+            ]);
+        } catch (ValidationException $e) {
+            // Return validation errors
+            return response()->json(['status' => 422, 'errors' => $e->errors()]);
+        } catch (\Throwable $e) {
+            Log::error(
+                'Error updating Qrgen',
+                ['error' => $e->getMessage()]
+            );
+            return response()->json(['status' => 500, 'error' => $e->getMessage()]);
         }
-
-        // Update the resource with the provided data
-        $qrgen->fill([
-            'user_id' => $request->input('user_id'),
-            'cardname' => $request->input('cardname'),
-            'firstname' => $request->input('firstname'),
-            'lastname' => $request->input('lastname'),
-            'email1' => $request->input('email1'),
-            'email2' => $request->input('email2'),
-            'phone1' => $request->input('phone1'),
-            'phone2' => $request->input('phone2'),
-            'mobile1' => $request->input('mobile1'),
-            'mobile2' => $request->input('mobile2'),
-            'mobile3' => $request->input('mobile3'),
-            'mobile4' => $request->input('mobile4'),
-            'fax' => $request->input('fax'),
-            'fax2' => $request->input('fax2'),
-            'address1' => $request->input('address1'),
-            'address2' => $request->input('address2'),
-            'webaddress1' => $request->input('webaddress1'),
-            'webaddress2' => $request->input('webaddress2'),
-            'companyname' => $request->input('companyname'),
-            'jobtitle' => $request->input('jobtitle'),
-            'maincolor' => $request->input('maincolor'),
-            'gradientcolor' => $request->input('gradientcolor'),
-            'buttoncolor' => $request->input('buttoncolor'),
-
-            'checkgradient' => $request->input('checkgradient'),
-            'summary' => $request->input('summary'),
-            'cardType' => $request->input('cardtype'),
-            'slug' => $request->input('slug'),
-            'facebook' => $request->input('facebook'),
-            'twitter' => $request->input('twitter'),
-            'instagram' => $request->input('instagram'),
-            'youtube' => $request->input('youtube'),
-            'github' => $request->input('github'),
-            'qrcodeimage' => $request->input('qrCodeImage'),
-            'status' => $request->input('status'),
-        ]);
-
-        // Handle file uploads (similar to your store method)
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $imageName = uniqid() . '-' . $image->getClientOriginalName();
-            $image->move(public_path('image/qrgen/'), $imageName);
-            $qrgen->image = 'image/qrgen/' . $imageName;
-        }
-
-        if ($request->hasFile('welcomeimage')) {
-            $image = $request->file('welcomeimage');
-            $imageName = uniqid() . '-' . $image->getClientOriginalName();
-            $image->move(public_path('image/qrgen/'), $imageName);
-            $qrgen->welcome = 'image/qrgen/' . $imageName;
-        }
-
-        // Save the updated resource
-        $qrgen->save();
-
-        return response()->json(['status' => 200, 'message' => 'Qrgen updated successfully']);
     }
-
-
 
     /**
      * Remove the specified resource from storage.
