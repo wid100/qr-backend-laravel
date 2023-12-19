@@ -78,7 +78,7 @@ class QrgenController extends Controller
                 'phone1' => 'required|numeric',
                 'mobile1' => 'required|numeric',
                 'address1' => 'required|string',
-                'webaddress1' => 'required|url',
+                'webaddress1' => 'required',
                 'companyname' => 'required|string',
                 'jobtitle' => 'required|string',
                 'maincolor' => 'required|string',
@@ -109,6 +109,23 @@ class QrgenController extends Controller
                 // ... other fields and validation rules
                 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5120',
                 'welcomeimage' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            ], [
+                'phone1.required' => 'The Phone field is required.',
+                'phone1.numeric' => 'The Phone field accepet only number.',
+                'cardname.required' => 'The card name field is required.',
+                'firstname.required' => 'The first name field is required.',
+                'lastname.required' => 'The last name field is required.',
+                'email1.required' => 'The email field is required.',
+                'email1.email' => 'The email field must be an image.',
+                // ... other custom error messages
+                'image.required' => 'The image field is required.',
+                'image.image' => 'The file must be an image.',
+                'image.mimes' => 'The image must be a file of type: jpeg, png, jpg, gif, svg.',
+                'image.max' => 'The image may not be greater than 5MB.',
+                'welcomeimage.required' => 'The welcome image field is required.',
+                'welcomeimage.image' => 'The file must be an image.',
+                'welcomeimage.mimes' => 'The welcome image must be a file of type: jpeg, png, jpg, gif, svg.',
+                'welcomeimage.max' => 'The welcome image may not be greater than 2MB.',
             ]);
 
 
