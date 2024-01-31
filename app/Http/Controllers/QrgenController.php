@@ -98,7 +98,7 @@ class QrgenController extends Controller
                 'fax' => 'nullable|numeric',
                 'fax2' => 'nullable|numeric',
                 'address2' => 'nullable|string',
-                'webaddress2' => 'nullable|url',
+                'webaddress2' => 'nullable',
                 'checkgradient' => 'nullable|string',
                 'facebook' => 'nullable|url',
                 'twitter' => 'nullable|url',
@@ -140,7 +140,7 @@ class QrgenController extends Controller
 
             if ($request->hasFile('welcomeimage')) {
                 $image = $request->file('welcomeimage');
-                $imageName = uniqid() . '-' . $image->getClientOriginalName();
+                $imageName = $image->getClientOriginalName();
                 $image->move(public_path('image/qrgen/'), $imageName);
                 $qrgen->welcome = 'image/qrgen/' . $imageName;
             }
@@ -305,7 +305,7 @@ class QrgenController extends Controller
                 'phone1' => 'required|numeric',
                 'mobile1' => 'required|numeric',
                 'address1' => 'required|string',
-                'webaddress1' => 'required|url',
+                'webaddress1' => 'required',
                 'companyname' => 'required|string',
                 'jobtitle' => 'required|string',
                 'maincolor' => 'required|string',
@@ -324,7 +324,7 @@ class QrgenController extends Controller
                 'fax' => 'nullable|numeric',
                 'fax2' => 'nullable|numeric',
                 'address2' => 'nullable|string',
-                'webaddress2' => 'nullable|url',
+                'webaddress2' => 'nullable',
                 'checkgradient' => 'nullable|string',
                 'facebook' => 'nullable|url',
                 'twitter' => 'nullable|url',
@@ -346,7 +346,7 @@ class QrgenController extends Controller
             }
             if ($request->hasFile('welcomeimage')) {
                 $image = $request->file('welcomeimage');
-                $imageName = uniqid() . '-' . $image->getClientOriginalName();
+                $imageName = $image->getClientOriginalName();
                 $image->move(public_path('image/qrgen/'), $imageName);
                 $qrgen->welcome = 'image/qrgen/' . $imageName;
             }
