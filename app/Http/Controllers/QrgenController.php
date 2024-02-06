@@ -135,12 +135,7 @@ class QrgenController extends Controller
                 $qrgen->image = 'image/qrgen/' . $imageName;
             }
 
-            // if ($request->hasFile('welcomeimage')) {
-            //     $image = $request->file('welcomeimage');
-            //     $imageName = $image->getClientOriginalName();
-            //     $image->move(public_path('image/qrgen/'), $imageName);
-            //     $qrgen->welcome = 'image/qrgen/' . $imageName;
-            // }
+
 
             if ($request->hasFile('welcomeimage')) {
                 $image = $request->file('welcomeimage');
