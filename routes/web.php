@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\DashboardController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,7 +25,7 @@ Route::namespace('App\Http\Controllers')->group(
         Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth', 'admin']], function () {
             Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
-            Route::resource('/business', 'BusinessTypeController');
+            Route::resource('/users', 'UserController');
         });
     }
 );

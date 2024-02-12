@@ -4,17 +4,18 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\User;
+use Carbon\Carbon;
 
 class DashboardController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        return view('admin.dashboard');
+        $today = Carbon::today();
+        $newUsersCount = User::whereDate('created_at', $today)->count();
+        $user = User::all()->count();
+        return view('admin.dashboard', compact('user', 'newUsersCount'));
     }
 
     /**
