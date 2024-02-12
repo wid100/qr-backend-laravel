@@ -25,18 +25,18 @@
                     <span class="link-title">Users</span>
                 </a>
             </li>
-            <li class="nav-item nav-category">web apps</li>
+            <li class="nav-item nav-category">Smart Card</li>
             <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="collapse" href="#emails" role="button" aria-expanded="false"
-                    aria-controls="emails">
+                <a class="nav-link" data-bs-toggle="collapse" href="#qrapp" role="button" aria-expanded="false"
+                    aria-controls="qrapp">
                     <i class="link-icon" data-feather="mail"></i>
-                    <span class="link-title">Email</span>
+                    <span class="link-title">Smart Card</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
-                <div class="collapse" id="emails">
+                <div class="collapse" id="qrapp">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
-                            <a href="pages/email/inbox.html" class="nav-link">Inbox</a>
+                            <a href="{{ route('admin.card.index') }}" class="nav-link">All Cards</a>
                         </li>
                         <li class="nav-item">
                             <a href="pages/email/read.html" class="nav-link">Read</a>
