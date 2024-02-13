@@ -29,7 +29,7 @@
             <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="collapse" href="#qrapp" role="button" aria-expanded="false"
                     aria-controls="qrapp">
-                    <i class="link-icon" data-feather="mail"></i>
+                    <i class="link-icon" data-feather="credit-card"></i>
                     <span class="link-title">Smart Card</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>

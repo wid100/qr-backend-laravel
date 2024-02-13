@@ -71,7 +71,7 @@
                                                     <i data-feather="edit"></i></a>
 
                                                 <button type="button" class="btn btn-primary btn-icon">
-                                                    <i data-feather="check-square"></i>
+                                                    <i data-feather="trash-2"></i>
                                                 </button>
                                         </tr>
                                     @endforeach

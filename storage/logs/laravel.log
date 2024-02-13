@@ -2855,3 +2855,4 @@
 #56 D:\\WWW\\full compleate\\qr-backend\\server.php(21): require_once('D:\\\\WWW\\\\full com...')
 #57 {main}
 "} 
+[2024-02-13 05:23:39] local.INFO: Qrgen created successfully {"id":106} 
