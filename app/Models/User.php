@@ -22,7 +22,10 @@ class User extends Authenticatable
         'email',
         'password',
     ];
-
+    public function subscriptions()
+    {
+        return $this->hasMany('App\Models\Subscriptions');
+    }
 
     public function role()
     {

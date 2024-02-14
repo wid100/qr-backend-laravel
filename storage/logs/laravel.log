@@ -2856,3 +2856,19 @@
 #57 {main}
 "} 
 [2024-02-13 05:23:39] local.INFO: Qrgen created successfully {"id":106} 
+[2024-02-13 10:36:03] local.ERROR: rename(D:\WWW\full compleate\qr-backend\bootstrap\cache\pac65CF.tmp,D:\WWW\full compleate\qr-backend\bootstrap\cache\packages.php): Access is denied (code: 5) {"exception":"[object] (ErrorException(code: 0): rename(D:\\WWW\\full compleate\\qr-backend\\bootstrap\\cache\\pac65CF.tmp,D:\\WWW\\full compleate\\qr-backend\\bootstrap\\cache\\packages.php): Access is denied (code: 5) at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php:211)
+[stacktrace]
+#0 [internal function]: Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(2, 'rename(D:\\\\WWW\\\\f...', 'D:\\\\WWW\\\\full com...', 211)
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(211): rename('D:\\\\WWW\\\\full com...', 'D:\\\\WWW\\\\full com...')
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\PackageManifest.php(181): Illuminate\\Filesystem\\Filesystem->replace('D:\\\\WWW\\\\full com...', '<?php return ar...')
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\PackageManifest.php(136): Illuminate\\Foundation\\PackageManifest->write(Array)
+#4 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\PackageManifest.php(106): Illuminate\\Foundation\\PackageManifest->build()
+#5 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\PackageManifest.php(89): Illuminate\\Foundation\\PackageManifest->getManifest()
+#6 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\PackageManifest.php(78): Illuminate\\Foundation\\PackageManifest->config('aliases')
+#7 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterFacades.php(26): Illuminate\\Foundation\\PackageManifest->aliases()
+#8 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\RegisterFacades->bootstrap(Object(Illuminate\\Foundation\\Application))
+#9 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#10 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#11 D:\\WWW\\full compleate\\qr-backend\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#12 {main}
+"} 
