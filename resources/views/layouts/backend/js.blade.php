@@ -18,3 +18,6 @@
   <!-- Custom js for this page -->
   <script src="{{ asset('assets/js/dashboard-dark.js') }}"></script>
   <!-- End custom js for this page -->
+  <script src="{{ asset('assets/vendors/easymde/easymde.min.js') }}"></script>
+
+  <script src="{{ asset('assets/js/easymde.js') }}"></script>

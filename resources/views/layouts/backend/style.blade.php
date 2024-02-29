@@ -17,3 +17,4 @@
 <!-- End layout styles -->
 
 <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}" />
+<link rel="stylesheet" href="{{ asset('assets/vendors/easymde/easymde.min.css') }}" />

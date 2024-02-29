@@ -27,6 +27,7 @@ Route::namespace('App\Http\Controllers')->group(
 
             Route::resource('/users', 'UserController');
             Route::resource('/card', 'CardsController');
+            Route::resource('/package', 'PackagesController');
         });
     }
 );

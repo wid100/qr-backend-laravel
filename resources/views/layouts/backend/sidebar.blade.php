@@ -48,6 +48,13 @@
                 </div>
             </li>
 
+            <li class="nav-item">
+                <a href="{{ route('admin.package.index') }}" class="nav-link">
+                    <i class="link-icon" data-feather="box"></i>
+                    <span class="link-title">Packages</span>
+                </a>
+            </li>
+
         </ul>
     </div>
 </nav>
