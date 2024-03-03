@@ -21,6 +21,7 @@ class CreatePackagesTable extends Migration
             $table->string('website_qr_limit')->nullable();
             $table->string('ecommerch_limit')->nullable();
             $table->string('card')->nullable();
+            $table->string('country_id');
             $table->decimal('price', 8, 2)->nullable();
             $table->text('description')->nullable();
             $table->boolean('status')->default(0);
