@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Country;
 use App\Models\Package;
 use Illuminate\Http\Request;
 
@@ -27,7 +28,8 @@ class PackagesController extends Controller
      */
     public function create()
     {
-        return view('admin.package.create');
+        $countres = Country::all();
+        return view('admin.package.create', compact('countres'));
     }
 
     /**
@@ -42,6 +44,7 @@ class PackagesController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'qr_qt' => 'nullable|string|max:255',
+            'country' => 'nullable|string|max:255',
             'scan_limit' => 'nullable|string|max:255',
             'website_qr_limit' => 'nullable|string|max:255',
             'ecommerch_limit' => 'nullable|string|max:255',
@@ -50,9 +53,10 @@ class PackagesController extends Controller
             'description' => 'nullable|string',
         ]);
 
-
+        $status = $request->has('status') ? 1 : 0;
         $package = new Package();
         $package->name = $validatedData['name'];
+        $package->country_id = $validatedData['country'];
         $package->qr_qt = $validatedData['qr_qt'];
         $package->scan_limit = $validatedData['scan_limit'];
         $package->website_qr_limit = $validatedData['website_qr_limit'];
@@ -60,7 +64,7 @@ class PackagesController extends Controller
         $package->card = $validatedData['card'];
         $package->price = $validatedData['price'];
         $package->description = $validatedData['description'];
-        $package->status = $request->has('status');
+        $package->status = $status;
 
         $package->save();
 
@@ -84,9 +88,11 @@ class PackagesController extends Controller
      * @param  \App\Models\Package  $package
      * @return \Illuminate\Http\Response
      */
-    public function edit(Package $package)
+    public function edit($id)
     {
-        //
+        $package = Package::find($id);
+        $countres = Country::all();
+        return view('admin.package.edit', compact('countres', 'package'));
     }
 
     /**
@@ -96,10 +102,39 @@ class PackagesController extends Controller
      * @param  \App\Models\Package  $package
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Package $package)
+    public function update(Request $request, $id)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'qr_qt' => 'nullable|string|max:255',
+            'country' => 'nullable|string|max:255',
+            'scan_limit' => 'nullable|string|max:255',
+            'website_qr_limit' => 'nullable|string|max:255',
+            'ecommerch_limit' => 'nullable|string|max:255',
+            'card' => 'nullable|string|max:255',
+            'price' => 'required',
+            'description' => 'nullable|string',
+        ]);
+
+        $status = $request->has('status') ? 1 : 0;
+
+        $package = Package::findOrFail($id);
+        $package->name = $validatedData['name'];
+        $package->country_id = $validatedData['country'];
+        $package->qr_qt = $validatedData['qr_qt'];
+        $package->scan_limit = $validatedData['scan_limit'];
+        $package->website_qr_limit = $validatedData['website_qr_limit'];
+        $package->ecommerch_limit = $validatedData['ecommerch_limit'];
+        $package->card = $validatedData['card'];
+        $package->price = $validatedData['price'];
+        $package->description = $validatedData['description'];
+        $package->status = $status;
+
+        $package->save();
+
+        return redirect()->route('admin.package.index')->with('success', 'Package updated successfully.');
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -109,6 +144,7 @@ class PackagesController extends Controller
      */
     public function destroy(Package $package)
     {
-        //
+        $package->delete();
+        return redirect()->back()->with('success', 'Package Delete Success');
     }
 }

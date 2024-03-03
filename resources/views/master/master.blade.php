@@ -24,7 +24,7 @@
 
 <body>
     <div class="main-wrapper">
-
+        @include('sweetalert::alert')
         @include('layouts.backend.sidebar')
 
         <!-- partial -->

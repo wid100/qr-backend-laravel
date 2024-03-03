@@ -1,5 +1,7 @@
 <!-- core:css -->
 <link rel="stylesheet" href="{{ asset('assets/vendors/core/core.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/vendors/select2/select2.min.css') }}" />
+
 <!-- endinject -->
 <link rel="stylesheet" href="{{ asset('assets/vendors/datatables.net-bs5/dataTables.bootstrap5.css') }}">
 

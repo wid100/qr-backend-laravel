@@ -27,7 +27,7 @@
                                         <th>Name</th>
                                         <th>Price</th>
                                         <th>Country</th>
-                                        <th>Plan Type</th>
+                                        {{-- <th>Plan Type</th> --}}
                                         <th>QR Limit</th>
                                         <th>Scan Limit</th>
                                         <th>Website QR</th>
@@ -38,14 +38,14 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($packages as $package)
+                                    @foreach ($packages as $key => $package)
                                         <tr>
-                                            <td>{{ $package->id }}</td>
+                                            <td>{{ $key + 1 }}</td>
 
                                             <td>{{ $package->name }}</td>
                                             <td>{{ $package->price }}</td>
-                                            <td>{{ $package->country }}</td>
-                                            <td>{{ $package->plan_type }}</td>
+                                            <td>{{ $package->country->name }}</td>
+                                            {{-- <td>{{ $package->plan_type }}</td> --}}
                                             <td>{{ $package->qr_qt }}</td>
                                             <td>{{ $package->scan_limit }}</td>
                                             <td>{{ $package->website_qr_limit }}</td>
@@ -65,9 +65,18 @@
                                                     class="btn btn-primary btn-icon">
                                                     <i data-feather="edit"></i></a>
 
-                                                <button type="button" class="btn btn-danger btn-icon">
-                                                    <i data-feather="trash"></i>
-                                                </button>
+                                                @if (Auth::user()->role_id == 1)
+                                                    <form id="delete_form_{{ $package->id }}"
+                                                        action="{{ route('admin.package.destroy', $package->id) }}"
+                                                        method="post" class="d-inline">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="button" class="btn btn-danger btn-icon delete-button"
+                                                            onclick="deleteId({{ $package->id }})">
+                                                            <i data-feather="trash"></i>
+                                                        </button>
+                                                    </form>
+                                                @endif
 
                                         </tr>
                                     @endforeach
