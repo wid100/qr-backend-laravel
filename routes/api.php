@@ -3,6 +3,9 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QrgenController;
+use App\Http\Controllers\Api\CountryController;
+use App\Http\Controllers\Api\PackageController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -31,3 +34,6 @@ Route::put('/qrgen/toggle-status/{id}', [QrgenController::class, 'toggleStatus']
 Route::get('/getActiveQr/{userId}', [QrgenController::class, 'getActiveQr']);
 Route::get('/getpauseQr/{userId}', [QrgenController::class, 'getPauseeQr']);
 Route::get('/qr-details/{id}', [QrgenController::class, 'getQrDetails']);
+//country
+Route::get('/country', [CountryController::class, 'allCountry']);
+Route::get('/packages/filter', [PackageController::class, 'filterByCountry']);

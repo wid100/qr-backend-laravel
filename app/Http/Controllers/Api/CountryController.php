@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
+
+use App\Http\Controllers\Controller;
 
 use App\Models\Country;
 use Illuminate\Http\Request;
@@ -12,9 +14,10 @@ class CountryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function allCountry()
     {
-        //
+        $countries = Country::where('status', '1')->get();
+        return response()->json($countries);
     }
 
     /**
