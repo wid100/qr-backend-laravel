@@ -37,3 +37,4 @@ Route::get('/qr-details/{id}', [QrgenController::class, 'getQrDetails']);
 //country
 Route::get('/country', [CountryController::class, 'allCountry']);
 Route::get('/packages/filter', [PackageController::class, 'filterByCountry']);
+Route::get('/packages/{id}', [PackageController::class, 'show']);

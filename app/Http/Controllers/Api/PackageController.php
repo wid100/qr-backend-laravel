@@ -17,4 +17,20 @@ class PackageController extends Controller
         $packages = Package::where('country_id', $countryId)->get();
         return response()->json($packages);
     }
+
+
+    public function show($id)
+    {
+        $package = Package::where('id', $id)->first();
+        if (!$package) {
+            return response()->json(['error' => 'Qrgen not found'], 404);
+        }
+
+
+        if ($package->status == 1) {
+            return response()->json($package);
+        } else {
+            return response()->json(['error' => 'Qrgen is paused'], 403);
+        }
+    }
 }
