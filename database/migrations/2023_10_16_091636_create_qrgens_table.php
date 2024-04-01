@@ -42,11 +42,17 @@ return new class extends Migration
             $table->string('viewcount')->default(0);
             $table->text('summary')->nullable();
             $table->string('cardtype')->nullable();
+
+
+
+
             $table->string('facebook')->nullable();
             $table->string('twitter')->nullable();
             $table->string('instagram')->nullable();
             $table->string('youtube')->nullable();
             $table->string('github')->nullable();
+
+
             $table->string('image')->nullable();
             $table->string('qrcodeimage')->nullable();
             $table->string('welcome')->nullable();

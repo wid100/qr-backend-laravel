@@ -6193,3 +6193,61 @@
 [2024-03-13 07:12:08] local.DEBUG: Country Name: {"name":"Bangladesh"} 
 [2024-03-13 07:12:12] local.DEBUG: Country Name: {"name":"Afghanistan"} 
 [2024-03-13 07:12:14] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-03-14 04:00:05] local.DEBUG: Country Name: {"name":"Afghanistan"} 
+[2024-03-14 04:00:06] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-03-14 04:00:38] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-03-14 04:00:42] local.DEBUG: Country Name: {"name":"Afghanistan"} 
+[2024-03-14 04:00:45] local.DEBUG: Country Name: {"name":"France"} 
+[2024-03-14 04:01:03] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-03-14 04:01:05] local.DEBUG: Country Name: {"name":"France"} 
+[2024-03-14 04:01:08] local.DEBUG: Country Name: {"name":"Afghanistan"} 
+[2024-03-14 04:01:10] local.DEBUG: Country Name: {"name":"Albania"} 
+[2024-03-14 04:01:11] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-03-14 04:01:13] local.DEBUG: Country Name: {"name":"Albania"} 
+[2024-03-14 04:01:33] local.DEBUG: Country Name: {"name":"Albania"} 
+[2024-03-14 04:02:00] local.DEBUG: Country Name: {"name":"Afghanistan"} 
+[2024-03-14 04:02:02] local.DEBUG: Country Name: {"name":"France"} 
+[2024-03-14 04:02:04] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-03-14 04:02:22] local.DEBUG: Country Name: {"name":"Afghanistan"} 
+[2024-03-14 04:02:23] local.DEBUG: Country Name: {"name":"France"} 
+[2024-03-14 04:02:25] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-03-14 04:02:57] local.DEBUG: Country Name: {"name":"Afghanistan"} 
+[2024-03-14 04:02:58] local.DEBUG: Country Name: {"name":"France"} 
+[2024-03-14 04:03:03] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-03-14 04:03:35] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-03-14 04:04:00] local.DEBUG: Country Name: {"name":"Afghanistan"} 
+[2024-03-14 04:04:01] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-03-28 08:55:46] local.INFO: Qrgen created successfully {"id":107} 
+[2024-03-31 04:47:57] local.DEBUG: Country Name: {"name":"Afghanistan"} 
+[2024-03-31 04:47:58] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-03-31 04:48:05] local.DEBUG: Country Name: {"name":"Afghanistan"} 
+[2024-03-31 04:48:06] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-03-31 04:48:09] local.DEBUG: Country Name: {"name":"Afghanistan"} 
+[2024-03-31 04:48:10] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-03-31 04:52:20] local.DEBUG: Country Name: {"name":"Afghanistan"} 
+[2024-03-31 04:52:21] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-03-31 09:12:44] local.DEBUG: Country Name: {"name":"Afghanistan"} 
+[2024-03-31 09:12:45] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-03-31 10:06:38] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-04-01 05:45:16] local.DEBUG: Country Name: {"name":"Afghanistan"} 
+[2024-04-01 05:45:18] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-04-01 06:23:50] local.DEBUG: Country Name: {"name":"Afghanistan"} 
+[2024-04-01 06:23:55] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-04-01 06:24:06] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-04-01 06:44:35] local.DEBUG: Country Name: {"name":"Afghanistan"} 
+[2024-04-01 06:44:36] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-04-01 09:00:24] local.INFO: Qrgen created successfully {"id":108} 
+[2024-04-01 09:03:20] local.INFO: Qrgen created successfully {"id":109} 
+[2024-04-01 09:07:28] local.INFO: Qrgen created successfully {"id":110} 
+[2024-04-01 09:08:09] local.INFO: Qrgen created successfully {"id":111} 
+[2024-04-01 09:09:13] local.INFO: Qrgen created successfully {"id":112} 
+[2024-04-01 09:21:19] local.INFO: Qrgen created successfully {"id":113} 
+[2024-04-01 09:42:35] local.INFO: Qrgen updated successfully {"id":113} 
+[2024-04-01 09:42:41] local.INFO: Qrgen updated successfully {"id":113} 
+[2024-04-01 09:42:48] local.INFO: Qrgen updated successfully {"id":113} 
+[2024-04-01 09:45:15] local.INFO: Qrgen updated successfully {"id":113} 
+[2024-04-01 09:49:58] local.INFO: Qrgen updated successfully {"id":113} 
+[2024-04-01 09:50:03] local.INFO: Qrgen updated successfully {"id":113} 
+[2024-04-01 10:12:00] local.INFO: Qrgen updated successfully {"id":113} 
+[2024-04-01 10:19:57] local.ERROR: Error creating Qrgen {"error":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'behance' in 'field list' (SQL: insert into `qrgens` (`user_id`, `cardname`, `firstname`, `lastname`, `email1`, `mobile1`, `address1`, `maincolor`, `gradientcolor`, `buttoncolor`, `summary`, `cardtype`, `status`, `companyname`, `jobtitle`, `webaddress1`, `phone1`, `email2`, `slug`, `phone2`, `mobile2`, `mobile3`, `mobile4`, `fax`, `fax2`, `address2`, `webaddress2`, `checkgradient`, `facebook`, `twitter`, `instagram`, `youtube`, `github`, `behance`, `linkedin`, `spotify`, `tumblr`, `telegram`, `pinterest`, `snapchat`, `reddit`, `google`, `apple`, `figma`, `discord`, `tiktok`, `whatsapp`, `skype`, `image`, `welcome`, `updated_at`, `created_at`) values (1, Test Card A, Helal, Uddin, helal69889@gmail.com, 01792892198, Natore, #851DD7, #00d5d2, #555555, fdsgsdfg, Home, active, ?, ?, https://devhelal.com, 2224121123123, ?, helaluddin-3276748, ?, ?, ?, ?, ?, ?, ?, ?, true, https://www.facebook.com/, https://www.facebook.com/ddd, https://www.facebook.com/ddd, https://www.facebook.com/ddd, https://www.facebook.com/ddd, https://www.facebook.com/ddd, https://www.facebook.com/ddd, https://www.facebook.com/ddd, https://www.facebook.com/ddd, https://www.facebook.com/ddd, https://www.facebook.com/ddd, https://www.facebook.com/ddd, https://www.facebook.com/ddd, https://www.facebook.com/ddd, https://www.facebook.com/ddd, https://www.facebook.com/ddd, https://www.facebook.com/ddd, https://www.facebook.com/ddd, https://www.facebook.com/ddd, https://www.facebook.com/ddd, image/qrgen/660a8a4d7c5fe-my-image-name (1).png, image/qrgen/logo_dhrim_footer.png, 2024-04-01 10:19:57, 2024-04-01 10:19:57))"} 
+[2024-04-01 10:21:20] local.INFO: Qrgen created successfully {"id":121} 

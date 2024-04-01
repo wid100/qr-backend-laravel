@@ -44,5 +44,22 @@ class Qrgen extends Model
         'instagram',
         'youtube',
         'github',
+
+        'behance',
+        'linkedin',
+        'spotify',
+        'tumblr',
+        'telegram',
+        'pinterest',
+        'snapchat',
+        'reddit',
+        'google',
+        'apple',
+        'figma',
+        'discord',
+        'tiktok',
+        'whatsapp',
+        'skype',
+
     ];
 }

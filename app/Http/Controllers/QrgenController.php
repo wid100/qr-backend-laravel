@@ -101,11 +101,34 @@ class QrgenController extends Controller
                 'address2' => 'nullable|string',
                 'webaddress2' => 'nullable',
                 'checkgradient' => 'nullable|string',
-                'facebook' => 'nullable|url',
-                'twitter' => 'nullable|url',
-                'instagram' => 'nullable|url',
-                'youtube' => 'nullable|url',
-                'github' => 'nullable|url',
+
+                //social id
+                'facebook' => 'nullable',
+                'twitter' => 'nullable',
+                'instagram' => 'nullable',
+                'youtube' => 'nullable',
+                'github' => 'nullable',
+
+                'behance' => 'nullable',
+                'linkedin' => 'nullable',
+                'spotify' => 'nullable',
+                'tumblr' => 'nullable',
+                'telegram' => 'nullable',
+                'pinterest' => 'nullable',
+                'snapchat' => 'nullable',
+                'reddit' => 'nullable',
+                'google' => 'nullable',
+                'apple' => 'nullable',
+                'figma' => 'nullable',
+                'discord' => 'nullable',
+                'tiktok' => 'nullable',
+                'whatsapp' => 'nullable',
+                'skype' => 'nullable',
+
+
+
+                //social id end
+
                 'qrcodeimage' => 'nullable',
                 // ... other fields and validation rules
                 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5120',
@@ -124,7 +147,6 @@ class QrgenController extends Controller
                 'image.max' => 'The image may not be greater than 5MB.',
 
             ]);
-
 
             $qrgen = new Qrgen($validatedData);
 
@@ -325,11 +347,32 @@ class QrgenController extends Controller
                 'address2' => 'nullable|string',
                 'webaddress2' => 'nullable',
                 'checkgradient' => 'nullable|string',
+
+
                 'facebook' => 'nullable|url',
                 'twitter' => 'nullable|url',
                 'instagram' => 'nullable|url',
                 'youtube' => 'nullable|url',
                 'github' => 'nullable|url',
+
+                'behance' => 'nullable|url',
+                'linkedin' => 'nullable|url',
+                'spotify' => 'nullable|url',
+                'tumblr' => 'nullable|url',
+                'telegram' => 'nullable|url',
+                'pinterest' => 'nullable|url',
+                'snapchat' => 'nullable|url',
+                'reddit' => 'nullable|url',
+                'google' => 'nullable|url',
+                'apple' => 'nullable|url',
+                'figma' => 'nullable|url',
+                'discord' => 'nullable|url',
+                'tiktok' => 'nullable|url',
+                'whatsapp' => 'nullable|url',
+                'skype' => 'nullable|url',
+
+
+
                 'qrcodeimage' => 'nullable',
                 // ... other fields and validation rules
                 'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:5120',
