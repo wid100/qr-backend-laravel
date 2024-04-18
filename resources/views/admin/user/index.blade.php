@@ -48,22 +48,31 @@
                                             <td>{{ $user->city }}</td>
                                             <td>{{ $user->created_at }}</td>
                                             <td>
-                                                @if ($user->status === 1)
+                                                @if ($user->status == 1)
                                                     <span class="badge bg-success">Active</span>
-                                                @elseif($user->status === 0)
-                                                    <span class="badge bg-danger">Block User</span>
+                                                @elseif($user->status == 0)
+                                                    <span class="badge bg-danger">Unvarified</span>
                                                 @else
                                                     <span class="badge bg-danger">No Status</span>
                                                 @endif
                                             </td>
                                             <td>
                                                 <a href="{{ route('admin.users.edit', $user->id) }}"
-                                                    class="btn btn-danger btn-icon">
+                                                    class="btn btn-primary btn-icon">
                                                     <i data-feather="edit"></i></a>
 
-                                                <button type="button" class="btn btn-primary btn-icon">
-                                                    <i data-feather="check-square"></i>
-                                                </button>
+                                                @if (Auth::user()->role_id == 1)
+                                                    <form id="delete_form_{{ $user->id }}"
+                                                        action="{{ route('admin.users.destroy', $user->id) }}"
+                                                        method="post" class="d-inline">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="button" class="btn btn-danger btn-icon delete-button"
+                                                            onclick="deleteId({{ $user->id }})">
+                                                            <i data-feather="trash"></i>
+                                                        </button>
+                                                    </form>
+                                                @endif
 
                                         </tr>
                                     @endforeach
