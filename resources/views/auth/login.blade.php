@@ -7,19 +7,17 @@
             <div class="page-content d-flex align-items-center justify-content-center">
 
                 <div class="row w-100 mx-0 auth-page">
-                    <div class="col-md-8 col-xl-6 mx-auto">
+                    <div class="col-md-6 col-xl-4 mx-auto">
                         <div class="card">
-                            <div class="row">
-                                <div class="col-md-4 pe-md-0">
-                                    <div class="auth-side-wrapper">
-
-                                    </div>
-                                </div>
-                                <div class="col-md-8 ps-md-0">
+                            <div class="row align-items-center">
+                               
+                                <div class="col-md-12 ps-md-0">
                                     <div class="auth-form-wrapper px-4 py-5">
                                         <a href="#"
-                                            class="noble-ui-logo logo-light d-block mb-2">Noble<span>UI</span></a>
-                                        <h5 class="text-muted fw-normal mb-4">Welcome back! Log in to your account.</h5>
+                                            class="noble-ui-logo logo-light d-block mb-3  align-center d-flex justify-content-center ">
+                                      <img class="w-50" src="{{asset('assets/images/logo.png') }}" alt="">
+                                        </a>
+                                        <h5 class="text-muted fw-normal mb-4 text-center">Welcome back! Log in to your account.</h5>
                                         <form class="forms-sample"method="POST" action="{{ route('login') }}">
                                             @csrf
 
