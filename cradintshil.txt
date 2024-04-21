@@ -1,0 +1,2 @@
+$store_id = "smartcardgenerator";
+$signature_key = "4e9f074f4232a743e899bde462e750d9";

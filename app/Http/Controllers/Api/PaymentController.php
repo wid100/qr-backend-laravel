@@ -3,9 +3,14 @@
 
 namespace App\Http\Controllers\Api;
 
+use Carbon\Carbon;
+use App\Models\Order;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Http;
+use App\Models\Payment; // Import the Payment model
+use App\Models\Subscription; // Import the Subscription model
 
 class PaymentController extends Controller
 {
@@ -16,174 +21,128 @@ class PaymentController extends Controller
 
     public function makePayment(Request $request)
     {
-        $tran_id = "test" . rand(1111111, 9999999);
+        // Generate a unique transaction ID
+        $tran_id = "smartcardgenerator" . rand(1111111, 9999999);
+
+        // Define payment details
         $currency = "BDT";
-        $amount = $request->input('amount');
         $store_id = "aamarpaytest";
         $signature_key = "dbb74894e82415a2f7ff0ec3a97e4183";
 
         $url = "https://sandbox.aamarpay.com/jsonpost.php";
 
-        $response = \Illuminate\Support\Facades\Http::withHeaders([
-            'Access-Control-Allow-Origin' => '*',
-            'Access-Control-Allow-Methods' => 'GET, POST, PUT, DELETE, OPTIONS',
-            'Access-Control-Allow-Headers' => 'Content-Type, Authorization',
-        ])->post($url, [
+        $response = \Illuminate\Support\Facades\Http::post($url, [
             'store_id' => $store_id,
             'tran_id' => $tran_id,
             'success_url' => route('success'),
             'fail_url' => route('fail'),
             'cancel_url' => route('cancel'),
-            'amount' => $amount,
+            'amount' => $request->input('amount'),
             'currency' => $currency,
             'signature_key' => $signature_key,
             'desc' => "Merchant Registration Payment",
-            'cus_name' => "Name",
-            'cus_email' => "payer@merchantcusomter.com",
-            'cus_add1' => "House B-158 Road 22",
-            'cus_add2' => "Mohakhali DOHS",
-            'cus_city' => "Dhaka",
-            'cus_state' => "Dhaka",
-            'cus_postcode' => "1206",
-            'cus_country' => "Bangladesh",
-            'cus_phone' => "+88017928921",
-            'type' => "json"
+            'cus_name' => $request->input('name'),
+            'cus_email' => $request->input('email'),
+            'cus_add1' => $request->input('address'),
+            'cus_add2' => $request->input('district'),
+            'cus_city' => $request->input('city'),
+            'cus_state' => $request->input('city'),
+            'cus_postcode' => $request->input('1207'),
+            'cus_country' => $request->input('country'),
+            'cus_phone' => $request->input('phone'),
+            'type' => "json",
+            'opt_a' => $request->input('user_id'),
+            'opt_b' => $request->input('package_id'),
+            'opt_c' => $request->input('end_date'),
         ]);
 
         $responseData = $response->json();
 
         if (isset($responseData['payment_url']) && !empty($responseData['payment_url'])) {
-            return redirect()->away($responseData['payment_url']);
+            return response()->json(['payment_url' => $responseData['payment_url']]);
         } else {
-            return $response->body();
+            return response()->json(['error' => 'Failed to generate payment URL'], 400);
         }
     }
-
-
-
-    // public function makePayment(Request $request)
-    // {
-    //     $client = new Client();
-
-    //     $response = $client->post('https://sandbox.aamarpay.com/jsonpost.php', [
-    //         'form_params' => [
-    //             'store_id' => 'aamarpaytest',
-    //             'signature_key' => 'dbb74894e82415a2f7ff0ec3a97e4183',
-    //             'amount' => $request->input('amount'),
-    //             'currency' => 'BDT', // Change to your currency code
-    //             // Add other required parameters as per aamarPay documentation
-    //             // e.g., tran_id, success_url, fail_url, etc.
-    //         ]
-    //     ]);
-
-    //     return $response->getBody();
-    // }
-
-
-
-
-    // public function makePayment()
-    // {
-
-    //     $tran_id = "test" . rand(1111111, 9999999); //unique transection id for every transection
-
-    //     $currency = "BDT"; //aamarPay support Two type of currency USD & BDT
-
-    //     $amount = "10";   //10 taka is the minimum amount for show card option in aamarPay payment gateway
-
-    //     //For live Store Id & Signature Key please mail to support@aamarpay.com
-    //     $store_id = "aamarpaytest";
-
-    //     $signature_key = "dbb74894e82415a2f7ff0ec3a97e4183";
-
-    //     $url = "https://​sandbox​.aamarpay.com/jsonpost.php"; // for Live Transection use "https://secure.aamarpay.com/jsonpost.php"
-
-    //     $curl = curl_init();
-
-    //     curl_setopt_array($curl, array(
-    //         CURLOPT_URL => $url,
-    //         CURLOPT_RETURNTRANSFER => true,
-    //         CURLOPT_ENCODING => '',
-    //         CURLOPT_MAXREDIRS => 10,
-    //         CURLOPT_TIMEOUT => 0,
-    //         CURLOPT_FOLLOWLOCATION => true,
-    //         CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-    //         CURLOPT_CUSTOMREQUEST => 'POST',
-    //         CURLOPT_POSTFIELDS => '{
-    //         "store_id": "' . $store_id . '",
-    //         "tran_id": "' . $tran_id . '",
-    //         "success_url": "' . route('success') . '",
-    //         "fail_url": "' . route('fail') . '",
-    //         "cancel_url": "' . route('cancel') . '",
-    //         "amount": "' . $amount . '",
-    //         "currency": "' . $currency . '",
-    //         "signature_key": "' . $signature_key . '",
-    //         "desc": "Merchant Registration Payment",
-    //         "cus_name": "Name",
-    //         "cus_email": "payer@merchantcusomter.com",
-    //         "cus_add1": "House B-158 Road 22",
-    //         "cus_add2": "Mohakhali DOHS",
-    //         "cus_city": "Dhaka",
-    //         "cus_state": "Dhaka",
-    //         "cus_postcode": "1206",
-    //         "cus_country": "Bangladesh",
-    //         "cus_phone": "+8801704",
-    //         "type": "json"
-    //     }',
-    //         CURLOPT_HTTPHEADER => array(
-    //             'Content-Type: application/json'
-    //         ),
-    //     ));
-
-    //     $response = curl_exec($curl);
-
-    //     curl_close($curl);
-    //     // dd($response);
-
-    //     $responseObj = json_decode($response);
-
-    //     if (isset($responseObj->payment_url) && !empty($responseObj->payment_url)) {
-
-    //         $paymentUrl = $responseObj->payment_url;
-    //         // dd($paymentUrl);
-    //         return redirect()->away($paymentUrl);
-    //     } else {
-    //         echo $response;
-    //     }
-    // }
-
-
-
 
     public function success(Request $request)
     {
 
-        $request_id = $request->mer_txnid;
+        $requestId = $request->mer_txnid;
 
-        //verify the transection using Search Transection API
+        // Verify the transaction using Search Transaction API
+        $url = "http://sandbox.aamarpay.com/api/v1/trxcheck/request.php?request_id=$requestId&store_id=aamarpaytest&signature_key=dbb74894e82415a2f7ff0ec3&type=json";
 
-        $url = "http://sandbox.aamarpay.com/api/v1/trxcheck/request.php?request_id=$request_id&store_id=aamarpaytest&signature_key=dbb74894e82415a2f7ff0ec3a97e4183&type=json";
+        $responsedd = Http::get($url);
+        $responseDatadd = $responsedd->json();
+        // dd($responseDatadd);
+        $responseData = $request->all();
+        // Initialize payment data array
+        $paymentData = [
+            'user_id' => $responseData['opt_a'] ?? null,
+            'transaction_id' => $responseData['bank_txn'] ?? null,
+            'amount' => $responseData['amount'] ?? null,
+            'cus_name' => $responseData['cus_name'] ?? null,
+            'payment_method' => $responseData['card_type'] ?? null,
+            'package_id' => $responseData['opt_b'] ?? null,
+            'cus_phone' => $responseData['cus_phone'] ?? null,
+            'cus_email' => $responseData['cus_email'] ?? null,
+            'country' => $responseDatadd['cus_country'] ?? null,
+            'cus_add1' => $responseDatadd['cus_add1'] ?? null,
+            'cus_postcode' => $responseDatadd['cus_postcode'] ?? null,
+            'cus_add2' => $responseDatadd['cus_add2'] ?? null,
+            'status' => $responseData['pay_status'] ?? null,
+        ];
 
-        //For Live Transection Use "http://secure.aamarpay.com/api/v1/trxcheck/request.php"
+        // Check if the end date key exists in the response data
+        $endDate = isset($responseData['opt_c']) ? Carbon::now()->addMonths((int)$responseData['opt_c']) : null;
 
-        $curl = curl_init();
+        // Create a new Payment instance and save it to the database
+        $payment = new Payment();
+        $payment->user_id = $paymentData['user_id'];
+        $payment->transaction_id = $paymentData['transaction_id'];
+        $payment->amount = $paymentData['amount'];
+        $payment->payment_method = $paymentData['payment_method'];
+        $payment->package_id = $paymentData['package_id'];
+        $payment->save();
+        $paymentId = $payment->id;
+        // Create a new Subscription instance and save it to the database
+        $subscription = new Subscription();
+        $subscription->user_id = $paymentData['user_id'];
+        $subscription->payment_id = $paymentData['transaction_id'];
+        $subscription->package_id = $paymentData['package_id'];
+        $subscription->start_date = Carbon::now();
+        $subscription->end_date = $endDate;
+        $subscription->status = true;
+        $subscription->save();
 
-        curl_setopt_array($curl, array(
-            CURLOPT_URL => $url,
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_ENCODING => '',
-            CURLOPT_MAXREDIRS => 10,
-            CURLOPT_TIMEOUT => 0,
-            CURLOPT_FOLLOWLOCATION => true,
-            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_CUSTOMREQUEST => 'GET',
-        ));
+        // Create a new Order instance and save it to the database
+        $order = new Order();
+        $order->user_id = $paymentData['user_id'];
+        $order->payment_id = $paymentId;
+        $order->package_id = $paymentData['package_id'];
+        $order->phone = $paymentData['cus_phone'];
+        $order->name = $paymentData['cus_phone'];
+        $order->email = $paymentData['cus_name'];
+        $order->country = $paymentData['country'];
+        $order->address = $paymentData['cus_add1'];
+        $order->zip = $paymentData['cus_postcode'];
+        $order->district = $paymentData['cus_add2'];
+        $order->amount = $paymentData['amount'];
+        $order->payment_method = $paymentData['payment_method'];
+        $order->status = true;
+        $order->save();
 
-        $response = curl_exec($curl);
-
-        curl_close($curl);
-        echo $response;
+        // You may return a response or redirect the user to another page
+        return response()->json($responseData);
     }
+
+
+
+
+
+
+
 
     public function fail(Request $request)
     {
