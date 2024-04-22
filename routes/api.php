@@ -7,6 +7,7 @@ use App\Http\Controllers\QrgenController;
 use App\Http\Controllers\Api\CountryController;
 use App\Http\Controllers\Api\PackageController;
 use App\Http\Controllers\Api\PaymentController;
+use App\Http\Controllers\Api\SubscriptionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,3 +55,6 @@ Route::post('success', [paymentController::class, 'success'])->name('success');
 Route::post('fail', [paymentController::class, 'fail'])->name('fail');
 Route::get('cancel', [paymentController::class, 'cancel'])->name('cancel');
 
+
+// Chaker Payment
+Route::post('/check-subscription', [SubscriptionController::class, 'checkSubscription'])->name('checkSubscription');
