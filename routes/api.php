@@ -1,11 +1,13 @@
 <?php
 
+use App\Http\Controllers\Admin\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QrgenController;
 use App\Http\Controllers\Api\CountryController;
 use App\Http\Controllers\Api\PackageController;
 use App\Http\Controllers\Api\PaymentController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -20,6 +22,10 @@ use App\Http\Controllers\Api\PaymentController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return response()->json($request->user());
 });
+// User
+
+Route::post('/users/{id}', [UserController::class, 'update']);
+
 
 Route::post('qrcreate', [QrgenController::class, 'store']);
 Route::get('information/{slug}', [QrgenController::class, 'show']);
@@ -47,3 +53,4 @@ Route::post('/verify-payment', [PaymentController::class, 'verifyPayment']);
 Route::post('success', [paymentController::class, 'success'])->name('success');
 Route::post('fail', [paymentController::class, 'fail'])->name('fail');
 Route::get('cancel', [paymentController::class, 'cancel'])->name('cancel');
+

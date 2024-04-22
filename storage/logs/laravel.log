@@ -597,6 +597,7 @@
 [2024-04-15 12:14:56] local.DEBUG: Country Name: {"name":"Afghanistan"} 
 [2024-04-15 12:14:57] local.DEBUG: Country Name: {"name":"Bangladesh"} 
 [2024-04-15 12:16:55] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+<<<<<<< HEAD
 [2024-04-17 12:05:11] local.DEBUG: Country Name: {"name":"Afghanistan"} 
 [2024-04-17 12:05:12] local.DEBUG: Country Name: {"name":"Bangladesh"} 
 [2024-04-17 12:05:43] local.DEBUG: Country Name: {"name":"Bangladesh"} 
@@ -5304,3 +5305,329 @@
 "} 
 [2024-04-22 06:31:51] local.DEBUG: Country Name: {"name":"Afghanistan"} 
 [2024-04-22 06:31:52] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+=======
+[2024-04-21 08:43:51] local.INFO: Profile updated successfully {"id":5} 
+[2024-04-21 08:46:43] local.INFO: Profile updated successfully {"id":5} 
+[2024-04-21 08:49:03] local.INFO: Profile updated successfully {"id":5} 
+[2024-04-21 09:06:55] local.ERROR: Error updating Qrgen {"error":"The given data was invalid."} 
+[2024-04-21 09:22:30] local.ERROR: Error updating Qrgen {"error":"The given data was invalid."} 
+[2024-04-21 09:26:13] local.ERROR: Error updating Qrgen {"error":"The given data was invalid."} 
+[2024-04-21 09:32:08] local.ERROR: Error updating Qrgen {"error":"The given data was invalid."} 
+[2024-04-21 09:32:12] local.ERROR: Error updating Qrgen {"error":"The given data was invalid."} 
+[2024-04-21 09:40:10] local.INFO: Profile updated successfully {"id":5} 
+[2024-04-21 09:46:31] local.INFO: Profile updated successfully {"id":5} 
+[2024-04-21 09:49:42] local.INFO: Profile updated successfully {"id":5} 
+[2024-04-21 09:49:54] local.INFO: Profile updated successfully {"id":5} 
+[2024-04-21 10:06:31] local.ERROR: Error updating Qrgen {"error":"The given data was invalid."} 
+[2024-04-21 10:06:38] local.ERROR: Error updating Qrgen {"error":"The given data was invalid."} 
+[2024-04-21 10:07:01] local.ERROR: Error updating Qrgen {"error":"The given data was invalid."} 
+[2024-04-21 10:10:57] local.ERROR: Error updating Qrgen {"error":"The given data was invalid."} 
+[2024-04-21 10:11:10] local.INFO: Profile updated successfully {"id":5} 
+[2024-04-21 10:13:08] local.ERROR: Error updating Qrgen {"error":"The given data was invalid."} 
+[2024-04-21 10:14:36] local.ERROR: Error updating Qrgen {"error":"The given data was invalid."} 
+[2024-04-21 10:14:53] local.ERROR: Error updating Qrgen {"error":"The given data was invalid."} 
+[2024-04-21 10:22:16] local.ERROR: Error updating Qrgen {"error":"The given data was invalid."} 
+[2024-04-21 10:22:34] local.ERROR: Error updating Qrgen {"error":"The given data was invalid."} 
+[2024-04-21 10:35:40] local.ERROR: Error updating Qrgen {"error":"The given data was invalid."} 
+[2024-04-21 10:35:46] local.INFO: Profile updated successfully {"id":5} 
+[2024-04-21 10:36:02] local.ERROR: Error updating Qrgen {"error":"The given data was invalid."} 
+[2024-04-21 10:43:11] local.ERROR: Error updating Qrgen {"error":"The given data was invalid."} 
+[2024-04-21 10:43:23] local.ERROR: Error updating Qrgen {"error":"The given data was invalid."} 
+[2024-04-21 10:43:38] local.ERROR: Error updating Qrgen {"error":"The given data was invalid."} 
+[2024-04-21 10:43:45] local.ERROR: Error updating Qrgen {"error":"The given data was invalid."} 
+[2024-04-21 10:43:51] local.ERROR: Error updating Qrgen {"error":"The given data was invalid."} 
+[2024-04-21 11:02:16] local.INFO: Profile updated successfully {"id":5} 
+[2024-04-21 11:02:25] local.ERROR: Error updating Qrgen {"error":"The given data was invalid."} 
+[2024-04-21 11:02:30] local.ERROR: Error updating Qrgen {"error":"The given data was invalid."} 
+[2024-04-21 11:11:05] local.ERROR: Error updating Qrgen {"error":"The given data was invalid."} 
+[2024-04-21 11:14:20] local.ERROR: Error updating Qrgen {"error":"The given data was invalid."} 
+[2024-04-21 11:14:32] local.ERROR: Error updating Qrgen {"error":"The given data was invalid."} 
+[2024-04-21 11:16:00] local.ERROR: Error updating Qrgen {"error":"The given data was invalid."} 
+[2024-04-21 11:25:21] local.ERROR: Error updating Qrgen {"error":"The given data was invalid."} 
+[2024-04-21 11:25:25] local.ERROR: Error updating Qrgen {"error":"The given data was invalid."} 
+[2024-04-21 11:28:01] local.ERROR: Error updating Qrgen {"error":"The given data was invalid."} 
+[2024-04-21 11:28:09] local.ERROR: Error updating Qrgen {"error":"The given data was invalid."} 
+[2024-04-21 11:33:43] local.ERROR: Error updating Qrgen {"error":"The given data was invalid."} 
+[2024-04-21 11:43:01] local.ERROR: Error updating Qrgen {"error":"The given data was invalid."} 
+[2024-04-21 11:44:49] local.ERROR: Error updating Qrgen {"error":"The given data was invalid."} 
+[2024-04-21 11:44:56] local.ERROR: Error updating Qrgen {"error":"The given data was invalid."} 
+[2024-04-21 12:11:26] local.ERROR: Error updating Qrgen {"error":"The given data was invalid."} 
+[2024-04-21 12:21:42] local.ERROR: Error updating Qrgen {"error":"The given data was invalid."} 
+[2024-04-22 05:07:53] local.ERROR: Error updating Qrgen {"error":"The given data was invalid."} 
+[2024-04-22 05:39:09] local.ERROR: Error updating Qrgen {"error":"The given data was invalid."} 
+[2024-04-22 05:39:20] local.INFO: Profile updated successfully {"id":6} 
+[2024-04-22 05:39:30] local.ERROR: Error updating Qrgen {"error":"The given data was invalid."} 
+[2024-04-22 05:42:32] local.ERROR: Error updating Qrgen {"error":"The given data was invalid."} 
+[2024-04-22 06:26:11] local.INFO: Profile updated successfully {"id":6} 
+[2024-04-22 06:33:11] local.ERROR: Error updating Qrgen {"error":"The given data was invalid."} 
+>>>>>>> monoj
+[2024-04-22 06:55:50] local.ERROR: syntax error, unexpected token "<<", expecting end of file {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \"<<\", expecting end of file at D:\\WWW\\qr-backend-laravel\\routes\\api.php:47)
+[stacktrace]
+#0 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(425): Illuminate\\Routing\\RouteFileRegistrar->register('D:\\\\WWW\\\\qr-backe...')
+#1 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(382): Illuminate\\Routing\\Router->loadRoutes('D:\\\\WWW\\\\qr-backe...')
+#2 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteRegistrar.php(163): Illuminate\\Routing\\Router->group(Array, 'D:\\\\WWW\\\\qr-backe...')
+#3 D:\\WWW\\qr-backend-laravel\\app\\Providers\\RouteServiceProvider.php(44): Illuminate\\Routing\\RouteRegistrar->group('D:\\\\WWW\\\\qr-backe...')
+#4 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): App\\Providers\\RouteServiceProvider->App\\Providers\\{closure}()
+#5 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(40): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#6 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(81): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#7 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Object(Closure), Object(Closure))
+#8 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(653): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Object(Closure), Array, NULL)
+#9 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider.php(120): Illuminate\\Container\\Container->call(Object(Closure))
+#10 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider.php(45): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->loadRoutes()
+#11 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->Illuminate\\Foundation\\Support\\Providers\\{closure}()
+#12 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(40): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#13 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(81): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#14 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Object(Closure), Object(Closure))
+#15 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(653): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Object(Closure), Array, NULL)
+#16 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\ServiceProvider.php(119): Illuminate\\Container\\Container->call(Object(Closure))
+#17 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(927): Illuminate\\Support\\ServiceProvider->callBootedCallbacks()
+#18 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(905): Illuminate\\Foundation\\Application->bootProvider(Object(App\\Providers\\RouteServiceProvider))
+#19 [internal function]: Illuminate\\Foundation\\Application->Illuminate\\Foundation\\{closure}(Object(App\\Providers\\RouteServiceProvider), 26)
+#20 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(906): array_walk(Array, Object(Closure))
+#21 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\BootProviders.php(17): Illuminate\\Foundation\\Application->boot()
+#22 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\BootProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#23 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#24 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#25 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#26 {main}
+"} 
+[2024-04-22 06:55:50] local.ERROR: syntax error, unexpected token "<<", expecting end of file {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \"<<\", expecting end of file at D:\\WWW\\qr-backend-laravel\\routes\\api.php:47)
+[stacktrace]
+#0 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(425): Illuminate\\Routing\\RouteFileRegistrar->register('D:\\\\WWW\\\\qr-backe...')
+#1 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(382): Illuminate\\Routing\\Router->loadRoutes('D:\\\\WWW\\\\qr-backe...')
+#2 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteRegistrar.php(163): Illuminate\\Routing\\Router->group(Array, 'D:\\\\WWW\\\\qr-backe...')
+#3 D:\\WWW\\qr-backend-laravel\\app\\Providers\\RouteServiceProvider.php(44): Illuminate\\Routing\\RouteRegistrar->group('D:\\\\WWW\\\\qr-backe...')
+#4 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): App\\Providers\\RouteServiceProvider->App\\Providers\\{closure}()
+#5 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(40): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#6 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(81): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#7 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Object(Closure), Object(Closure))
+#8 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(653): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Object(Closure), Array, NULL)
+#9 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider.php(120): Illuminate\\Container\\Container->call(Object(Closure))
+#10 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider.php(45): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->loadRoutes()
+#11 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->Illuminate\\Foundation\\Support\\Providers\\{closure}()
+#12 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(40): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#13 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(81): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#14 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Object(Closure), Object(Closure))
+#15 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(653): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Object(Closure), Array, NULL)
+#16 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\ServiceProvider.php(119): Illuminate\\Container\\Container->call(Object(Closure))
+#17 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(927): Illuminate\\Support\\ServiceProvider->callBootedCallbacks()
+#18 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(905): Illuminate\\Foundation\\Application->bootProvider(Object(App\\Providers\\RouteServiceProvider))
+#19 [internal function]: Illuminate\\Foundation\\Application->Illuminate\\Foundation\\{closure}(Object(App\\Providers\\RouteServiceProvider), 26)
+#20 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(906): array_walk(Array, Object(Closure))
+#21 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\BootProviders.php(17): Illuminate\\Foundation\\Application->boot()
+#22 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\BootProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#23 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#24 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#25 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#26 {main}
+"} 
+[2024-04-22 06:55:54] local.ERROR: syntax error, unexpected token "<<", expecting end of file {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \"<<\", expecting end of file at D:\\WWW\\qr-backend-laravel\\routes\\api.php:47)
+[stacktrace]
+#0 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(425): Illuminate\\Routing\\RouteFileRegistrar->register('D:\\\\WWW\\\\qr-backe...')
+#1 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(382): Illuminate\\Routing\\Router->loadRoutes('D:\\\\WWW\\\\qr-backe...')
+#2 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteRegistrar.php(163): Illuminate\\Routing\\Router->group(Array, 'D:\\\\WWW\\\\qr-backe...')
+#3 D:\\WWW\\qr-backend-laravel\\app\\Providers\\RouteServiceProvider.php(44): Illuminate\\Routing\\RouteRegistrar->group('D:\\\\WWW\\\\qr-backe...')
+#4 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): App\\Providers\\RouteServiceProvider->App\\Providers\\{closure}()
+#5 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(40): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#6 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(81): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#7 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Object(Closure), Object(Closure))
+#8 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(653): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Object(Closure), Array, NULL)
+#9 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider.php(120): Illuminate\\Container\\Container->call(Object(Closure))
+#10 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider.php(45): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->loadRoutes()
+#11 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->Illuminate\\Foundation\\Support\\Providers\\{closure}()
+#12 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(40): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#13 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(81): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#14 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Object(Closure), Object(Closure))
+#15 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(653): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Object(Closure), Array, NULL)
+#16 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\ServiceProvider.php(119): Illuminate\\Container\\Container->call(Object(Closure))
+#17 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(927): Illuminate\\Support\\ServiceProvider->callBootedCallbacks()
+#18 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(905): Illuminate\\Foundation\\Application->bootProvider(Object(App\\Providers\\RouteServiceProvider))
+#19 [internal function]: Illuminate\\Foundation\\Application->Illuminate\\Foundation\\{closure}(Object(App\\Providers\\RouteServiceProvider), 26)
+#20 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(906): array_walk(Array, Object(Closure))
+#21 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\BootProviders.php(17): Illuminate\\Foundation\\Application->boot()
+#22 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\BootProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#23 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#24 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#25 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#26 {main}
+"} 
+[2024-04-22 06:55:54] local.ERROR: syntax error, unexpected token "<<", expecting end of file {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \"<<\", expecting end of file at D:\\WWW\\qr-backend-laravel\\routes\\api.php:47)
+[stacktrace]
+#0 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(425): Illuminate\\Routing\\RouteFileRegistrar->register('D:\\\\WWW\\\\qr-backe...')
+#1 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(382): Illuminate\\Routing\\Router->loadRoutes('D:\\\\WWW\\\\qr-backe...')
+#2 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteRegistrar.php(163): Illuminate\\Routing\\Router->group(Array, 'D:\\\\WWW\\\\qr-backe...')
+#3 D:\\WWW\\qr-backend-laravel\\app\\Providers\\RouteServiceProvider.php(44): Illuminate\\Routing\\RouteRegistrar->group('D:\\\\WWW\\\\qr-backe...')
+#4 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): App\\Providers\\RouteServiceProvider->App\\Providers\\{closure}()
+#5 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(40): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#6 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(81): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#7 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Object(Closure), Object(Closure))
+#8 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(653): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Object(Closure), Array, NULL)
+#9 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider.php(120): Illuminate\\Container\\Container->call(Object(Closure))
+#10 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider.php(45): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->loadRoutes()
+#11 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->Illuminate\\Foundation\\Support\\Providers\\{closure}()
+#12 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(40): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#13 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(81): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#14 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Object(Closure), Object(Closure))
+#15 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(653): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Object(Closure), Array, NULL)
+#16 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\ServiceProvider.php(119): Illuminate\\Container\\Container->call(Object(Closure))
+#17 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(927): Illuminate\\Support\\ServiceProvider->callBootedCallbacks()
+#18 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(905): Illuminate\\Foundation\\Application->bootProvider(Object(App\\Providers\\RouteServiceProvider))
+#19 [internal function]: Illuminate\\Foundation\\Application->Illuminate\\Foundation\\{closure}(Object(App\\Providers\\RouteServiceProvider), 26)
+#20 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(906): array_walk(Array, Object(Closure))
+#21 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\BootProviders.php(17): Illuminate\\Foundation\\Application->boot()
+#22 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\BootProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#23 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#24 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#25 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#26 {main}
+"} 
+[2024-04-22 06:56:33] local.ERROR: syntax error, unexpected token "<<", expecting end of file {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \"<<\", expecting end of file at D:\\WWW\\qr-backend-laravel\\routes\\api.php:47)
+[stacktrace]
+#0 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(425): Illuminate\\Routing\\RouteFileRegistrar->register('D:\\\\WWW\\\\qr-backe...')
+#1 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(382): Illuminate\\Routing\\Router->loadRoutes('D:\\\\WWW\\\\qr-backe...')
+#2 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteRegistrar.php(163): Illuminate\\Routing\\Router->group(Array, 'D:\\\\WWW\\\\qr-backe...')
+#3 D:\\WWW\\qr-backend-laravel\\app\\Providers\\RouteServiceProvider.php(44): Illuminate\\Routing\\RouteRegistrar->group('D:\\\\WWW\\\\qr-backe...')
+#4 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): App\\Providers\\RouteServiceProvider->App\\Providers\\{closure}()
+#5 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(40): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#6 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(81): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#7 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Object(Closure), Object(Closure))
+#8 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(653): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Object(Closure), Array, NULL)
+#9 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider.php(120): Illuminate\\Container\\Container->call(Object(Closure))
+#10 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider.php(45): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->loadRoutes()
+#11 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->Illuminate\\Foundation\\Support\\Providers\\{closure}()
+#12 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(40): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#13 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(81): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#14 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Object(Closure), Object(Closure))
+#15 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(653): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Object(Closure), Array, NULL)
+#16 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\ServiceProvider.php(119): Illuminate\\Container\\Container->call(Object(Closure))
+#17 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(927): Illuminate\\Support\\ServiceProvider->callBootedCallbacks()
+#18 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(905): Illuminate\\Foundation\\Application->bootProvider(Object(App\\Providers\\RouteServiceProvider))
+#19 [internal function]: Illuminate\\Foundation\\Application->Illuminate\\Foundation\\{closure}(Object(App\\Providers\\RouteServiceProvider), 26)
+#20 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(906): array_walk(Array, Object(Closure))
+#21 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\BootProviders.php(17): Illuminate\\Foundation\\Application->boot()
+#22 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\BootProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#23 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#24 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#25 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#26 {main}
+"} 
+[2024-04-22 06:56:41] local.ERROR: syntax error, unexpected token "<<", expecting end of file {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \"<<\", expecting end of file at D:\\WWW\\qr-backend-laravel\\routes\\api.php:47)
+[stacktrace]
+#0 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(425): Illuminate\\Routing\\RouteFileRegistrar->register('D:\\\\WWW\\\\qr-backe...')
+#1 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(382): Illuminate\\Routing\\Router->loadRoutes('D:\\\\WWW\\\\qr-backe...')
+#2 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteRegistrar.php(163): Illuminate\\Routing\\Router->group(Array, 'D:\\\\WWW\\\\qr-backe...')
+#3 D:\\WWW\\qr-backend-laravel\\app\\Providers\\RouteServiceProvider.php(44): Illuminate\\Routing\\RouteRegistrar->group('D:\\\\WWW\\\\qr-backe...')
+#4 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): App\\Providers\\RouteServiceProvider->App\\Providers\\{closure}()
+#5 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(40): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#6 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(81): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#7 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Object(Closure), Object(Closure))
+#8 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(653): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Object(Closure), Array, NULL)
+#9 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider.php(120): Illuminate\\Container\\Container->call(Object(Closure))
+#10 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider.php(45): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->loadRoutes()
+#11 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->Illuminate\\Foundation\\Support\\Providers\\{closure}()
+#12 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(40): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#13 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(81): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#14 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Object(Closure), Object(Closure))
+#15 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(653): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Object(Closure), Array, NULL)
+#16 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\ServiceProvider.php(119): Illuminate\\Container\\Container->call(Object(Closure))
+#17 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(927): Illuminate\\Support\\ServiceProvider->callBootedCallbacks()
+#18 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(905): Illuminate\\Foundation\\Application->bootProvider(Object(App\\Providers\\RouteServiceProvider))
+#19 [internal function]: Illuminate\\Foundation\\Application->Illuminate\\Foundation\\{closure}(Object(App\\Providers\\RouteServiceProvider), 26)
+#20 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(906): array_walk(Array, Object(Closure))
+#21 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\BootProviders.php(17): Illuminate\\Foundation\\Application->boot()
+#22 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\BootProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#23 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#24 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#25 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#26 {main}
+"} 
+[2024-04-22 06:56:49] local.ERROR: syntax error, unexpected token "<<", expecting end of file {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \"<<\", expecting end of file at D:\\WWW\\qr-backend-laravel\\routes\\api.php:47)
+[stacktrace]
+#0 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(425): Illuminate\\Routing\\RouteFileRegistrar->register('D:\\\\WWW\\\\qr-backe...')
+#1 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(382): Illuminate\\Routing\\Router->loadRoutes('D:\\\\WWW\\\\qr-backe...')
+#2 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteRegistrar.php(163): Illuminate\\Routing\\Router->group(Array, 'D:\\\\WWW\\\\qr-backe...')
+#3 D:\\WWW\\qr-backend-laravel\\app\\Providers\\RouteServiceProvider.php(44): Illuminate\\Routing\\RouteRegistrar->group('D:\\\\WWW\\\\qr-backe...')
+#4 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): App\\Providers\\RouteServiceProvider->App\\Providers\\{closure}()
+#5 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(40): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#6 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(81): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#7 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Object(Closure), Object(Closure))
+#8 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(653): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Object(Closure), Array, NULL)
+#9 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider.php(120): Illuminate\\Container\\Container->call(Object(Closure))
+#10 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider.php(45): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->loadRoutes()
+#11 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->Illuminate\\Foundation\\Support\\Providers\\{closure}()
+#12 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(40): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#13 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(81): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#14 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Object(Closure), Object(Closure))
+#15 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(653): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Object(Closure), Array, NULL)
+#16 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\ServiceProvider.php(119): Illuminate\\Container\\Container->call(Object(Closure))
+#17 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(927): Illuminate\\Support\\ServiceProvider->callBootedCallbacks()
+#18 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(905): Illuminate\\Foundation\\Application->bootProvider(Object(App\\Providers\\RouteServiceProvider))
+#19 [internal function]: Illuminate\\Foundation\\Application->Illuminate\\Foundation\\{closure}(Object(App\\Providers\\RouteServiceProvider), 26)
+#20 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(906): array_walk(Array, Object(Closure))
+#21 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\BootProviders.php(17): Illuminate\\Foundation\\Application->boot()
+#22 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\BootProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#23 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#24 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#25 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#26 {main}
+"} 
+[2024-04-22 06:56:54] local.ERROR: syntax error, unexpected token "<<", expecting end of file {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \"<<\", expecting end of file at D:\\WWW\\qr-backend-laravel\\routes\\api.php:47)
+[stacktrace]
+#0 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(425): Illuminate\\Routing\\RouteFileRegistrar->register('D:\\\\WWW\\\\qr-backe...')
+#1 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(382): Illuminate\\Routing\\Router->loadRoutes('D:\\\\WWW\\\\qr-backe...')
+#2 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteRegistrar.php(163): Illuminate\\Routing\\Router->group(Array, 'D:\\\\WWW\\\\qr-backe...')
+#3 D:\\WWW\\qr-backend-laravel\\app\\Providers\\RouteServiceProvider.php(44): Illuminate\\Routing\\RouteRegistrar->group('D:\\\\WWW\\\\qr-backe...')
+#4 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): App\\Providers\\RouteServiceProvider->App\\Providers\\{closure}()
+#5 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(40): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#6 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(81): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#7 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Object(Closure), Object(Closure))
+#8 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(653): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Object(Closure), Array, NULL)
+#9 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider.php(120): Illuminate\\Container\\Container->call(Object(Closure))
+#10 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider.php(45): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->loadRoutes()
+#11 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->Illuminate\\Foundation\\Support\\Providers\\{closure}()
+#12 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(40): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#13 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(81): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#14 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Object(Closure), Object(Closure))
+#15 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(653): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Object(Closure), Array, NULL)
+#16 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\ServiceProvider.php(119): Illuminate\\Container\\Container->call(Object(Closure))
+#17 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(927): Illuminate\\Support\\ServiceProvider->callBootedCallbacks()
+#18 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(905): Illuminate\\Foundation\\Application->bootProvider(Object(App\\Providers\\RouteServiceProvider))
+#19 [internal function]: Illuminate\\Foundation\\Application->Illuminate\\Foundation\\{closure}(Object(App\\Providers\\RouteServiceProvider), 26)
+#20 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(906): array_walk(Array, Object(Closure))
+#21 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\BootProviders.php(17): Illuminate\\Foundation\\Application->boot()
+#22 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\BootProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#23 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#24 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#25 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#26 {main}
+"} 
+[2024-04-22 06:56:54] local.ERROR: syntax error, unexpected token "<<", expecting end of file {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \"<<\", expecting end of file at D:\\WWW\\qr-backend-laravel\\routes\\api.php:47)
+[stacktrace]
+#0 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(425): Illuminate\\Routing\\RouteFileRegistrar->register('D:\\\\WWW\\\\qr-backe...')
+#1 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(382): Illuminate\\Routing\\Router->loadRoutes('D:\\\\WWW\\\\qr-backe...')
+#2 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteRegistrar.php(163): Illuminate\\Routing\\Router->group(Array, 'D:\\\\WWW\\\\qr-backe...')
+#3 D:\\WWW\\qr-backend-laravel\\app\\Providers\\RouteServiceProvider.php(44): Illuminate\\Routing\\RouteRegistrar->group('D:\\\\WWW\\\\qr-backe...')
+#4 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): App\\Providers\\RouteServiceProvider->App\\Providers\\{closure}()
+#5 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(40): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#6 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(81): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#7 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Object(Closure), Object(Closure))
+#8 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(653): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Object(Closure), Array, NULL)
+#9 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider.php(120): Illuminate\\Container\\Container->call(Object(Closure))
+#10 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider.php(45): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->loadRoutes()
+#11 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->Illuminate\\Foundation\\Support\\Providers\\{closure}()
+#12 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(40): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#13 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(81): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#14 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Object(Closure), Object(Closure))
+#15 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(653): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Object(Closure), Array, NULL)
+#16 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\ServiceProvider.php(119): Illuminate\\Container\\Container->call(Object(Closure))
+#17 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(927): Illuminate\\Support\\ServiceProvider->callBootedCallbacks()
+#18 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(905): Illuminate\\Foundation\\Application->bootProvider(Object(App\\Providers\\RouteServiceProvider))
+#19 [internal function]: Illuminate\\Foundation\\Application->Illuminate\\Foundation\\{closure}(Object(App\\Providers\\RouteServiceProvider), 26)
+#20 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(906): array_walk(Array, Object(Closure))
+#21 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\BootProviders.php(17): Illuminate\\Foundation\\Application->boot()
+#22 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\BootProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#23 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#24 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#25 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#26 {main}
+"} 
