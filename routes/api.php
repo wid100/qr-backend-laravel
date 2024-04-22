@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QrgenController;
@@ -20,6 +21,10 @@ use App\Http\Controllers\Api\PackageController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return response()->json($request->user());
 });
+// User
+
+Route::post('/users/{id}', [UserController::class, 'update']);
+
 
 Route::post('qrcreate', [QrgenController::class, 'store']);
 Route::get('information/{slug}', [QrgenController::class, 'show']);
@@ -38,3 +43,4 @@ Route::get('/qr-details/{id}', [QrgenController::class, 'getQrDetails']);
 Route::get('/country', [CountryController::class, 'allCountry']);
 Route::get('/packages/filter', [PackageController::class, 'filterByCountry']);
 Route::get('/packages/{id}', [PackageController::class, 'show']);
+

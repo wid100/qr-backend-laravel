@@ -20,6 +20,13 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'image',
+        'city',
+        'country',
+        'phone',
+        'address',
+        'country_code',
+        'gender',
         'password',
     ];
     public function subscriptions()
