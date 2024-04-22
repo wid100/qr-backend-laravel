@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,6 +17,26 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return redirect('/login');
 });
+
+Route::get('/clear-cache', function () {
+    // Clear route cache
+    Artisan::call('route:clear');
+
+    // Optimize class loading
+    Artisan::call('optimize');
+
+    // Optimize configuration loading
+    Artisan::call('config:cache');
+
+    // Optimize views loading
+    Artisan::call('view:cache');
+
+    // Additional optimizations you may want to run
+
+    return "Cache cleared and optimizations done successfully.";
+});
+
+
 
 Auth::routes();
 

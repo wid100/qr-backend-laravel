@@ -71,7 +71,9 @@ class PaymentController extends Controller
         $requestId = $request->mer_txnid;
 
         // Verify the transaction using Search Transaction API
-        $url = "http://sandbox.aamarpay.com/api/v1/trxcheck/request.php?request_id=$requestId&store_id=aamarpaytest&signature_key=dbb74894e82415a2f7ff0ec3&type=json";
+        $requestIdEncoded = urlencode($requestId);
+        $url = "http://sandbox.aamarpay.com/api/v1/trxcheck/request.php?request_id=$requestIdEncoded&store_id=aamarpaytest&signature_key=dbb74894e82415a2f7ff0ec3a97e4183&type=json";
+
 
         $responsedd = Http::get($url);
         $responseDatadd = $responsedd->json();
@@ -109,7 +111,7 @@ class PaymentController extends Controller
         // Create a new Subscription instance and save it to the database
         $subscription = new Subscription();
         $subscription->user_id = $paymentData['user_id'];
-        $subscription->payment_id = $paymentData['transaction_id'];
+        $subscription->payment_id = $paymentId;
         $subscription->package_id = $paymentData['package_id'];
         $subscription->start_date = Carbon::now();
         $subscription->end_date = $endDate;
