@@ -7,6 +7,7 @@ use App\Http\Controllers\QrgenController;
 use App\Http\Controllers\Api\CountryController;
 use App\Http\Controllers\Api\PackageController;
 use App\Http\Controllers\Api\PaymentController;
+use App\Http\Controllers\InstagramController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,3 +55,9 @@ Route::post('success', [paymentController::class, 'success'])->name('success');
 Route::post('fail', [paymentController::class, 'fail'])->name('fail');
 Route::get('cancel', [paymentController::class, 'cancel'])->name('cancel');
 
+
+// QR Instagram 
+
+Route::post('create-instagram', [InstagramController::class, 'store']);
+// Route::post('qrcreate', [InstagramController::class, 'store']);
+// Route::post('qrcreate', [InstagramController::class, 'store']);

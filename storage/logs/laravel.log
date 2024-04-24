@@ -5631,3 +5631,42 @@
 #25 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
 #26 {main}
 "} 
+[2024-04-22 09:32:00] local.ERROR: syntax error, unexpected token "}", expecting "," or ";" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \",\" or \";\" at D:\\WWW\\qr-backend-laravel\\app\\Models\\Instagram.php:13)
+[stacktrace]
+#0 {main}
+"} 
+[2024-04-22 11:59:38] local.ERROR: Error creating Instagram {"error":"SQLSTATE[42S02]: Base table or view not found: 1146 Table 'qr-database.instagrams' doesn't exist (SQL: select count(*) as aggregate from `instagrams` where `username` = asdf)"} 
+[2024-04-22 12:01:05] local.ERROR: Error creating Instagram {"error":"The given data was invalid."} 
+[2024-04-22 12:03:42] local.ERROR: Error creating Instagram {"error":"The given data was invalid."} 
+[2024-04-24 06:40:03] local.INFO: Instagram created successfully {"id":1} 
+[2024-04-24 06:42:13] local.INFO: Instagram created successfully {"id":2} 
+[2024-04-24 06:42:25] local.INFO: Instagram created successfully {"id":3} 
+[2024-04-24 06:44:06] local.INFO: Instagram created successfully {"id":4} 
+[2024-04-24 06:48:49] local.INFO: Instagram created successfully {"id":5} 
+[2024-04-24 06:55:55] local.ERROR: Error creating Instagram {"error":"The given data was invalid."} 
+[2024-04-24 06:56:12] local.ERROR: Error creating Instagram {"error":"The given data was invalid."} 
+[2024-04-24 07:11:25] local.ERROR: Error creating Instagram {"error":"The given data was invalid."} 
+[2024-04-24 08:28:56] local.INFO: Qrgen created successfully {"id":1} 
+[2024-04-24 09:31:56] local.ERROR: Error creating Instagram {"error":"The given data was invalid."} 
+[2024-04-24 09:34:49] local.ERROR: Error creating Instagram {"error":"The given data was invalid."} 
+[2024-04-24 09:35:19] local.ERROR: Error creating Instagram {"error":"The given data was invalid."} 
+[2024-04-24 09:35:35] local.ERROR: Error creating Instagram {"error":"The given data was invalid."} 
+[2024-04-24 10:04:25] local.ERROR: Error creating Instagram {"error":"The given data was invalid."} 
+[2024-04-24 10:43:05] local.ERROR: Error creating Instagram {"error":"The given data was invalid."} 
+[2024-04-24 10:47:56] local.ERROR: Error creating Instagram {"error":"The given data was invalid."} 
+[2024-04-24 10:48:04] local.ERROR: Error creating Instagram {"error":"The given data was invalid."} 
+[2024-04-24 10:48:11] local.INFO: Instagram created successfully {"id":6} 
+[2024-04-24 10:48:24] local.INFO: Instagram created successfully {"id":7} 
+[2024-04-24 10:48:33] local.ERROR: Error creating Instagram {"error":"The given data was invalid."} 
+[2024-04-24 10:48:38] local.INFO: Instagram created successfully {"id":8} 
+[2024-04-24 10:49:07] local.INFO: Instagram created successfully {"id":9} 
+[2024-04-24 10:50:05] local.ERROR: Error creating Instagram {"error":"The given data was invalid."} 
+[2024-04-24 10:52:03] local.ERROR: Error creating Instagram {"error":"The given data was invalid."} 
+[2024-04-24 10:57:07] local.INFO: Instagram created successfully {"id":10} 
+[2024-04-24 11:00:09] local.INFO: Instagram created successfully {"id":11} 
+[2024-04-24 11:03:36] local.INFO: Instagram created successfully {"id":12} 
+[2024-04-24 11:04:42] local.ERROR: Error creating Instagram {"error":"The given data was invalid."} 
+[2024-04-24 11:07:14] local.ERROR: Error creating Instagram {"error":"The given data was invalid."} 
+[2024-04-24 11:08:05] local.ERROR: Error creating Instagram {"error":"The given data was invalid."} 
+[2024-04-24 11:09:33] local.ERROR: Error creating Instagram {"error":"The given data was invalid."} 
+[2024-04-24 11:11:52] local.INFO: Instagram created successfully  
