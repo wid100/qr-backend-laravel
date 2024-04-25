@@ -19,9 +19,6 @@ class UserController extends Controller
         return view('admin.user.index', compact('users'));
     }
 
-
-
-
     public function update(Request $request, $id)
     {
         try {
@@ -68,11 +65,4 @@ class UserController extends Controller
         }
     }
 
-
-
-    public function destroy(User $user)
-    {
-        $user->delete();
-        return redirect()->back()->with('success', 'User Delete Success');
-    }
 }
