@@ -35,6 +35,7 @@ class PaymentController extends Controller
             'store_id' => $store_id,
             'tran_id' => $tran_id,
             'success_url' => route('success'),
+            // 'success_url' => env('FRONTEND_URL'),
             'fail_url' => route('fail'),
             'cancel_url' => route('cancel'),
             'amount' => $request->input('amount'),
@@ -67,18 +68,17 @@ class PaymentController extends Controller
 
     public function success(Request $request)
     {
-
         $requestId = $request->mer_txnid;
 
         // Verify the transaction using Search Transaction API
         $requestIdEncoded = urlencode($requestId);
         $url = "http://sandbox.aamarpay.com/api/v1/trxcheck/request.php?request_id=$requestIdEncoded&store_id=aamarpaytest&signature_key=dbb74894e82415a2f7ff0ec3a97e4183&type=json";
 
-
         $responsedd = Http::get($url);
         $responseDatadd = $responsedd->json();
-        // dd($responseDatadd);
+
         $responseData = $request->all();
+
         // Initialize payment data array
         $paymentData = [
             'user_id' => $responseData['opt_a'] ?? null,
@@ -108,6 +108,7 @@ class PaymentController extends Controller
         $payment->package_id = $paymentData['package_id'];
         $payment->save();
         $paymentId = $payment->id;
+
         // Create a new Subscription instance and save it to the database
         $subscription = new Subscription();
         $subscription->user_id = $paymentData['user_id'];
@@ -135,9 +136,13 @@ class PaymentController extends Controller
         $order->status = true;
         $order->save();
 
-        // You may return a response or redirect the user to another page
-        return response()->json($responseData);
+        // Close the current window
+        echo "<script>window.close();</script>";
+
+        // Redirect the parent window to the dashboard URL
+        echo "<script>window.opener.location.href = 'https://smartcardgenerator.net/dashboard';</script>";
     }
+
 
 
 

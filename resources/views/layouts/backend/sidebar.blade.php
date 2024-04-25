@@ -1,7 +1,7 @@
 <nav class="sidebar">
     <div class="sidebar-header">
         <a href="#" class="sidebar-brand">
-             <img class="w-50" src="{{asset('assets/images/logo.png') }}" alt="">
+            <img class="w-50" src="{{ asset('assets/images/logo.png') }}" alt="">
         </a>
         <div class="sidebar-toggler not-active">
             <span></span>
@@ -52,6 +52,19 @@
                 <a href="{{ route('admin.package.index') }}" class="nav-link">
                     <i class="link-icon" data-feather="box"></i>
                     <span class="link-title">Packages</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="{{ route('admin.subscription.index') }}" class="nav-link">
+                    <i class="link-icon" data-feather="box"></i>
+                    <span class="link-title">Subscription</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('admin.payment.index') }}" class="nav-link">
+                    <i class="link-icon" data-feather="box"></i>
+                    <span class="link-title">Payment</span>
                 </a>
             </li>
 

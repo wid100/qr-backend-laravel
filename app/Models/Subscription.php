@@ -18,4 +18,10 @@ class Subscription extends Model
     {
         return $this->belongsTo(Package::class);
     }
+
+
+    public function payment()
+    {
+        return $this->belongsTo(Payment::class);
+    }
 }
