@@ -8109,3 +8109,60 @@
 #26 {main}
 "} 
 >>>>>>> 3cb6e197c9b2e0d6c35605b9090f01e7577f7988
+[2024-04-25 04:27:30] local.ERROR: Error updating Qrgen {"error":"Illuminate\\Database\\Eloquent\\Model::update(): Argument #1 ($attributes) must be of type array, App\\Models\\User given, called in D:\\WWW\\qr-backend-laravel\\app\\Http\\Controllers\\Admin\\UserController.php on line 50"} 
+[2024-04-25 04:28:53] local.ERROR: Error updating Qrgen {"error":"Illuminate\\Database\\Eloquent\\Model::update(): Argument #1 ($attributes) must be of type array, App\\Models\\User given, called in D:\\WWW\\qr-backend-laravel\\app\\Http\\Controllers\\Admin\\UserController.php on line 50"} 
+[2024-04-25 04:29:03] local.ERROR: Error updating Qrgen {"error":"The given data was invalid."} 
+[2024-04-25 04:41:45] local.INFO: Profile updated successfully {"id":5} 
+[2024-04-25 04:42:17] local.INFO: Profile updated successfully {"id":5} 
+[2024-04-25 04:42:36] local.INFO: Profile updated successfully {"id":5} 
+[2024-04-25 04:42:56] local.INFO: Profile updated successfully {"id":5} 
+[2024-04-25 04:43:34] local.INFO: Profile updated successfully {"id":5} 
+[2024-04-25 05:33:12] local.INFO: Profile updated successfully {"id":5} 
+[2024-04-25 05:33:19] local.INFO: Profile updated successfully {"id":5} 
+[2024-04-25 05:33:25] local.INFO: Profile updated successfully {"id":5} 
+[2024-04-25 05:34:07] local.INFO: Profile updated successfully {"id":5} 
+[2024-04-25 05:53:19] local.INFO: Profile updated successfully {"id":5} 
+[2024-04-25 05:53:30] local.INFO: Profile updated successfully {"id":5} 
+[2024-04-25 05:53:33] local.INFO: Profile updated successfully {"id":5} 
+[2024-04-25 05:53:57] local.INFO: Profile updated successfully {"id":5} 
+[2024-04-25 05:54:06] local.INFO: Profile updated successfully {"id":5} 
+[2024-04-25 05:56:13] local.INFO: Profile updated successfully {"id":5} 
+[2024-04-25 05:59:14] local.ERROR: Error updating Profile {"error":"The given data was invalid."} 
+[2024-04-25 05:59:37] local.INFO: Profile updated successfully {"id":5} 
+[2024-04-25 06:00:40] local.INFO: Profile updated successfully {"id":5} 
+[2024-04-25 06:02:55] local.INFO: Profile updated successfully {"id":5} 
+[2024-04-25 06:03:33] local.INFO: Profile updated successfully {"id":5} 
+[2024-04-25 06:03:42] local.INFO: Profile updated successfully {"id":5} 
+[2024-04-25 06:05:01] local.ERROR: Error updating Profile {"error":"Could not move the file \"C:\\Users\\monoj\\AppData\\Local\\Temp\\phpAF97.tmp\" to \"D:\\WWW\\qr-backend-laravel\\public\\image/user\\6629f28d4e48c-smartcardgenerator (12).png\" (move_uploaded_file(): Unable to move &quot;C:\\Users\\monoj\\AppData\\Local\\Temp\\phpAF97.tmp&quot; to &quot;D:\\WWW\\qr-backend-laravel\\public\\image/user\\6629f28d4e48c-smartcardgenerator (12).png&quot;)."} 
+[2024-04-25 06:06:25] local.ERROR: Error updating Profile {"error":"Could not move the file \"C:\\Users\\monoj\\AppData\\Local\\Temp\\phpF8C1.tmp\" to \"D:\\WWW\\qr-backend-laravel\\public\\image/user\\6629f2e189ad2-smartcardgenerator (12).png\" (move_uploaded_file(): Unable to move &quot;C:\\Users\\monoj\\AppData\\Local\\Temp\\phpF8C1.tmp&quot; to &quot;D:\\WWW\\qr-backend-laravel\\public\\image/user\\6629f2e189ad2-smartcardgenerator (12).png&quot;)."} 
+[2024-04-25 06:10:39] local.ERROR: Error updating Profile {"error":"Could not move the file \"C:\\Users\\monoj\\AppData\\Local\\Temp\\phpD7F8.tmp\" to \"D:\\WWW\\qr-backend-laravel\\public\\image/user\\6629f3df6987f-smartcardgenerator (12).png\" (move_uploaded_file(): Unable to move &quot;C:\\Users\\monoj\\AppData\\Local\\Temp\\phpD7F8.tmp&quot; to &quot;D:\\WWW\\qr-backend-laravel\\public\\image/user\\6629f3df6987f-smartcardgenerator (12).png&quot;)."} 
+[2024-04-25 06:11:36] local.ERROR: Error updating Profile {"error":"Could not move the file \"C:\\Users\\monoj\\AppData\\Local\\Temp\\phpB922.tmp\" to \"D:\\WWW\\qr-backend-laravel\\public\\image/user\\6629f418e406b-smartcardgenerator (11).png\" (move_uploaded_file(): Unable to move &quot;C:\\Users\\monoj\\AppData\\Local\\Temp\\phpB922.tmp&quot; to &quot;D:\\WWW\\qr-backend-laravel\\public\\image/user\\6629f418e406b-smartcardgenerator (11).png&quot;)."} 
+[2024-04-25 06:12:18] local.INFO: Profile updated successfully {"id":5} 
+[2024-04-25 06:14:30] local.INFO: Profile updated successfully {"id":5} 
+[2024-04-25 06:16:03] local.ERROR: Error updating Profile {"error":"Could not move the file \"C:\\Users\\monoj\\AppData\\Local\\Temp\\phpCB42.tmp\" to \"D:\\WWW\\qr-backend-laravel\\public\\image/user\\6629f523b8ce9-smartcardgenerator (11).png\" (move_uploaded_file(): Unable to move &quot;C:\\Users\\monoj\\AppData\\Local\\Temp\\phpCB42.tmp&quot; to &quot;D:\\WWW\\qr-backend-laravel\\public\\image/user\\6629f523b8ce9-smartcardgenerator (11).png&quot;)."} 
+[2024-04-25 06:16:39] local.INFO: Profile updated successfully {"id":5} 
+[2024-04-25 06:17:39] local.INFO: Profile updated successfully {"id":5} 
+[2024-04-25 06:18:03] local.INFO: Profile updated successfully {"id":5} 
+[2024-04-25 06:18:15] local.INFO: Profile updated successfully {"id":5} 
+[2024-04-25 06:19:00] local.INFO: Profile updated successfully {"id":5} 
+[2024-04-25 06:19:14] local.INFO: Profile updated successfully {"id":5} 
+[2024-04-25 06:20:16] local.ERROR: Error updating Profile {"error":"The given data was invalid."} 
+[2024-04-25 06:20:20] local.ERROR: Error updating Profile {"error":"The given data was invalid."} 
+[2024-04-25 06:20:20] local.ERROR: Error updating Profile {"error":"The given data was invalid."} 
+[2024-04-25 06:20:34] local.INFO: Profile updated successfully {"id":5} 
+[2024-04-25 06:21:41] local.INFO: Profile updated successfully {"id":5} 
+[2024-04-25 06:22:54] local.INFO: Profile updated successfully {"id":5} 
+[2024-04-25 06:23:04] local.INFO: Profile updated successfully {"id":5} 
+[2024-04-25 06:25:36] local.ERROR: Error updating Profile {"error":"The given data was invalid."} 
+[2024-04-25 06:27:10] local.INFO: Profile updated successfully {"id":5} 
+[2024-04-25 06:28:29] local.INFO: Profile updated successfully {"id":5} 
+[2024-04-25 06:28:37] local.ERROR: Error updating Profile {"error":"The given data was invalid."} 
+[2024-04-25 06:28:46] local.ERROR: Error updating Profile {"error":"The given data was invalid."} 
+[2024-04-25 06:28:53] local.ERROR: Error updating Profile {"error":"The given data was invalid."} 
+[2024-04-25 06:29:10] local.ERROR: Error updating Profile {"error":"The given data was invalid."} 
+[2024-04-25 06:29:44] local.ERROR: Error updating Profile {"error":"The given data was invalid."} 
+[2024-04-25 06:30:58] local.ERROR: Error updating Profile {"error":"The given data was invalid."} 
+[2024-04-25 06:31:57] local.ERROR: Error updating Profile {"error":"The given data was invalid."} 
+[2024-04-25 06:32:33] local.ERROR: Error updating Profile {"error":"The given data was invalid."} 
+[2024-04-25 06:33:45] local.INFO: Profile updated successfully {"id":5} 
+[2024-04-25 06:39:43] local.ERROR: Error updating Profile {"error":"The given data was invalid."} 
