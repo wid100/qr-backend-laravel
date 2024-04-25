@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\CountryController;
 use App\Http\Controllers\Api\PackageController;
 use App\Http\Controllers\Api\PaymentController;
 use App\Http\Controllers\Api\SubscriptionController;
+use App\Http\Controllers\InstagramController;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,3 +59,8 @@ Route::get('cancel', [paymentController::class, 'cancel'])->name('cancel');
 
 // Chaker Payment
 Route::post('/check-subscription', [SubscriptionController::class, 'checkSubscription'])->name('checkSubscription');
+// QR Instagram 
+
+Route::post('create-instagram', [InstagramController::class, 'store']);
+// Route::post('qrcreate', [InstagramController::class, 'store']);
+// Route::post('qrcreate', [InstagramController::class, 'store']);
