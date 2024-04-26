@@ -14,26 +14,22 @@ class UpdateQRGenStatus extends Command
 
     public function handle()
     {
-        // Get all QRGen rows
         $qrgenRows = Qrgen::all();
 
         foreach ($qrgenRows as $row) {
-            // Check if the user has a subscription
             $subscription = Subscription::where('user_id', $row->user_id)->first();
 
-            // If the user has a subscription
             if ($subscription) {
-                // Check if the subscription has expired
                 if ($subscription->end_date < Carbon::now()) {
-                    // Update status to 3
-                    $row->status = 3;
+                    $row->status = 'paused';
+                    $row->save();
+                } else {
+                    $row->status = 'active';
                     $row->save();
                 }
             } else {
-                // If the user doesn't have a subscription, check if the QR was created more than 5 days ago
-                if ($row->created_at->diffInDays(Carbon::now()) >= 1) {
-                    // Update status to 4
-                    $row->status = 0;
+                if ($row->created_at->diffInDays(Carbon::now()) >= 5) {
+                    $row->status = 'expired';
                     $row->save();
                 }
             }

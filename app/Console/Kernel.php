@@ -13,10 +13,18 @@ class Kernel extends ConsoleKernel
      * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
      * @return void
      */
+    // protected function schedule(Schedule $schedule)
+    // {
+    //     $schedule->command('qrgen:update-status')->daily();
+    // }
+
+
+
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('qrgen:update-status')->daily();
+        $schedule->command('qrgen:update-status')->everyMinute();
     }
+
 
 
     /**
