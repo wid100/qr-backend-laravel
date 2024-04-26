@@ -21,7 +21,7 @@ class UpdateQRGenStatus extends Command
 
             if ($subscription) {
                 if ($subscription->end_date < Carbon::now()) {
-                    $row->status = 'paused';
+                    $row->status = 'expired';
                     $row->save();
                 } else {
                     $row->status = 'active';
