@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Instagram;
-use Dotenv\Exception\ValidationException;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 class InstagramController extends Controller
@@ -12,11 +12,54 @@ class InstagramController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function getPauseeInstagram($userId)
     {
-        //
+        $pauseInstagram = Instagram::where('user_id', $userId)
+            ->where('status', 'paused')
+            ->get();
+
+        return response()->json(['pauseInstagram' => $pauseInstagram]);
     }
 
+
+    public function getActiveInstagram($userId)
+    {
+        $activeInstagram = Instagram::where('user_id', $userId)
+            ->where('status', 'active')
+            ->get();
+
+        return response()->json(['activeInstagram' => $activeInstagram]);
+    }
+    /**
+     * Display a listing of the resource.
+     */
+
+    public function toggleStatusInstagram($id)
+    {
+        $instagram = Instagram::find($id);
+
+        if (!$instagram) {
+            return response()->json(['error' => 'Instagram not found'], 404);
+        }
+
+        // Toggle the status
+        $instagram->status = $instagram->status === 'active' ? 'paused' : 'active';
+        $instagram->save();
+
+        $message = $instagram->status === 'active' ? 'Instagram activated successfully' : 'Qrgen paused successfully';
+
+        return response()->json(['message' => $message]);
+    }
+    /**
+     * Show the form for creating a new resource.
+     */
+
+    public function getInstagram(User $user)
+    {
+        $getInstagram = Instagram::where('user_id', $user->id)->get();
+
+        return response()->json(['getInstagram' => $getInstagram]);
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -87,9 +130,15 @@ class InstagramController extends Controller
      * @param  \App\Models\Instagram  $instagram
      * @return \Illuminate\Http\Response
      */
-    public function edit(Instagram $instagram)
+    public function edit($id)
     {
-        //
+        $instagram = Instagram::find($id);
+
+        if (!$instagram) {
+            return response()->json(['error' => 'Instagram not found'], 404);
+        }
+
+        return response()->json(['instagram' => $instagram]);
     }
 
     /**
@@ -99,9 +148,45 @@ class InstagramController extends Controller
      * @param  \App\Models\Instagram  $instagram
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Instagram $instagram)
+    // Backend: InstagramController@update method
+
+    public function update(Request $request, $id)
     {
-        //
+        try {
+            // Validate the request data
+            $validatedData = $request->validate([
+                'user_id' => 'required|integer',
+                'cardname' => 'required|string',
+                'username' => 'required|unique:instagrams,username,' . $id,
+                'image' => 'image|max:10240', // Maximum file size: 10MB
+            ]);
+
+            $instagram = Instagram::findOrFail($id);
+
+            // Update only the fields that are provided in the request
+            $instagram->update(array_filter($validatedData));
+
+            // Handle file upload for the image
+            if ($request->hasFile('image')) {
+                $image = $request->file('image');
+                $imageName = time() . '-' . $image->getClientOriginalName();
+                $image->move(public_path('image/qrgen/'), $imageName);
+                $instagram->image = 'image/qrgen/' . $imageName;
+                $instagram->save();
+            }
+
+            Log::info('Instagram updated successfully');
+
+            return response()->json([
+                'status' => 200,
+                'message' => 'Instagram updated successfully',
+            ]);
+        } catch (\Throwable $e) {
+            // Log error
+            Log::error('Error updating Instagram', ['error' => $e->getMessage()]);
+            // Return internal server error
+            return response()->json(['status' => 500, 'error' => 'Internal Server Error'], 500);
+        }
     }
 
     /**

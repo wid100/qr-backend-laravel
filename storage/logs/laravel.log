@@ -8166,3 +8166,28 @@
 [2024-04-25 06:32:33] local.ERROR: Error updating Profile {"error":"The given data was invalid."} 
 [2024-04-25 06:33:45] local.INFO: Profile updated successfully {"id":5} 
 [2024-04-25 06:39:43] local.ERROR: Error updating Profile {"error":"The given data was invalid."} 
+[2024-04-25 09:48:12] local.INFO: Profile updated successfully {"id":5} 
+[2024-04-25 10:28:44] local.INFO: Instagram created successfully  
+[2024-04-25 10:30:48] local.ERROR: Error creating Instagram {"error":"The given data was invalid."} 
+[2024-04-25 10:30:57] local.INFO: Instagram created successfully  
+[2024-04-25 10:38:27] local.DEBUG: Country Name: {"name":"Afghanistan"} 
+[2024-04-25 10:38:28] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-04-25 10:38:30] local.DEBUG: Country Name: {"name":"Afghanistan"} 
+[2024-04-25 10:38:31] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-04-25 10:38:37] local.DEBUG: Country Name: {"name":"Afghanistan"} 
+[2024-04-25 10:38:37] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-04-25 10:38:42] local.DEBUG: Country Name: {"name":"Afghanistan"} 
+[2024-04-25 10:38:43] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-04-25 10:39:24] local.INFO: Qrgen created successfully {"id":2} 
+[2024-04-25 10:39:50] local.INFO: Qrgen updated successfully {"id":2} 
+[2024-04-25 11:55:08] local.INFO: Instagram created successfully  
+[2024-04-25 11:57:18] local.ERROR: Error creating Instagram {"error":"The given data was invalid."} 
+[2024-04-29 08:30:39] local.DEBUG: Country Name: {"name":"Afghanistan"} 
+[2024-04-29 08:30:40] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-04-29 08:41:56] local.INFO: Qrgen created successfully {"id":3} 
+[2024-04-29 08:43:36] local.INFO: Qrgen updated successfully {"id":3} 
+[2024-04-29 09:07:16] local.INFO: Qrgen updated successfully {"id":3} 
+[2024-04-29 09:30:13] local.INFO: Qrgen updated successfully {"id":3} 
+[2024-04-29 09:31:14] local.INFO: Qrgen updated successfully {"id":3} 
+[2024-04-29 09:41:26] local.INFO: Qrgen updated successfully {"id":3} 
+[2024-04-29 09:45:02] local.INFO: Qrgen updated successfully {"id":3} 
