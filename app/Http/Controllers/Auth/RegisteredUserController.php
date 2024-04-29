@@ -26,16 +26,20 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
+        // Create a new user instance
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
 
+        // Trigger the event to send the verification email
         event(new Registered($user));
 
+        // Automatically log in the user after registration
         Auth::login($user);
 
+        // Return a response (typically, a successful registration returns no content)
         return response()->noContent();
     }
 }
