@@ -27,7 +27,7 @@ class VerifyEmailController extends Controller
         }
 
         return redirect()->intended(
-            config('app.frontend_url') . '/login'
+            config('app.frontend_url') . 'login'
         );
     }
 }

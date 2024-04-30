@@ -2616,3 +2616,120 @@
 [2024-04-29 09:45:02] local.INFO: Qrgen updated successfully {"id":3} 
 =======
 >>>>>>> main
+[2024-04-30 11:30:19] local.ERROR: include(D:\WWW\full compleate\qr-backend\vendor\composer/../laravel/breeze/src/BreezeServiceProvider.php): Failed to open stream: No such file or directory {"exception":"[object] (ErrorException(code: 0): include(D:\\WWW\\full compleate\\qr-backend\\vendor\\composer/../laravel/breeze/src/BreezeServiceProvider.php): Failed to open stream: No such file or directory at D:\\WWW\\full compleate\\qr-backend\\vendor\\composer\\ClassLoader.php:576)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\composer\\ClassLoader.php(576): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(2, 'include(D:\\\\WWW\\\\...', 'D:\\\\WWW\\\\full com...', 576)
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\composer\\ClassLoader.php(576): include()
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\composer\\ClassLoader.php(427): Composer\\Autoload\\{closure}('D:\\\\WWW\\\\full com...')
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(816): Composer\\Autoload\\ClassLoader->loadClass('Laravel\\\\Breeze\\\\...')
+#4 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(796): Illuminate\\Foundation\\Application->registerDeferredProvider('Laravel\\\\Breeze\\\\...', 'Laravel\\\\Breeze\\\\...')
+#5 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(772): Illuminate\\Foundation\\Application->loadDeferredProvider('Laravel\\\\Breeze\\\\...')
+#6 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(313): Illuminate\\Foundation\\Application->loadDeferredProviders()
+#7 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#8 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#9 {main}
+"} 
+[2024-04-30 11:30:19] local.ERROR: include(D:\WWW\full compleate\qr-backend\vendor\composer/../laravel/breeze/src/BreezeServiceProvider.php): Failed to open stream: No such file or directory {"exception":"[object] (ErrorException(code: 0): include(D:\\WWW\\full compleate\\qr-backend\\vendor\\composer/../laravel/breeze/src/BreezeServiceProvider.php): Failed to open stream: No such file or directory at D:\\WWW\\full compleate\\qr-backend\\vendor\\composer\\ClassLoader.php:576)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\composer\\ClassLoader.php(576): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(2, 'include(D:\\\\WWW\\\\...', 'D:\\\\WWW\\\\full com...', 576)
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\composer\\ClassLoader.php(576): include()
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\composer\\ClassLoader.php(427): Composer\\Autoload\\{closure}('D:\\\\WWW\\\\full com...')
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(816): Composer\\Autoload\\ClassLoader->loadClass('Laravel\\\\Breeze\\\\...')
+#4 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(796): Illuminate\\Foundation\\Application->registerDeferredProvider('Laravel\\\\Breeze\\\\...', 'Laravel\\\\Breeze\\\\...')
+#5 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(772): Illuminate\\Foundation\\Application->loadDeferredProvider('Laravel\\\\Breeze\\\\...')
+#6 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(313): Illuminate\\Foundation\\Application->loadDeferredProviders()
+#7 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#8 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#9 {main}
+"} 
+[2024-04-30 11:31:19] local.ERROR: include(D:\WWW\full compleate\qr-backend\vendor\composer/../laravel/breeze/src/BreezeServiceProvider.php): Failed to open stream: No such file or directory {"exception":"[object] (ErrorException(code: 0): include(D:\\WWW\\full compleate\\qr-backend\\vendor\\composer/../laravel/breeze/src/BreezeServiceProvider.php): Failed to open stream: No such file or directory at D:\\WWW\\full compleate\\qr-backend\\vendor\\composer\\ClassLoader.php:576)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\composer\\ClassLoader.php(576): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(2, 'include(D:\\\\WWW\\\\...', 'D:\\\\WWW\\\\full com...', 576)
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\composer\\ClassLoader.php(576): include()
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\composer\\ClassLoader.php(427): Composer\\Autoload\\{closure}('D:\\\\WWW\\\\full com...')
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(816): Composer\\Autoload\\ClassLoader->loadClass('Laravel\\\\Breeze\\\\...')
+#4 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(796): Illuminate\\Foundation\\Application->registerDeferredProvider('Laravel\\\\Breeze\\\\...', 'Laravel\\\\Breeze\\\\...')
+#5 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(772): Illuminate\\Foundation\\Application->loadDeferredProvider('Laravel\\\\Breeze\\\\...')
+#6 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(313): Illuminate\\Foundation\\Application->loadDeferredProviders()
+#7 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#8 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#9 {main}
+"} 
+[2024-04-30 11:31:19] local.ERROR: include(D:\WWW\full compleate\qr-backend\vendor\composer/../laravel/breeze/src/BreezeServiceProvider.php): Failed to open stream: No such file or directory {"exception":"[object] (ErrorException(code: 0): include(D:\\WWW\\full compleate\\qr-backend\\vendor\\composer/../laravel/breeze/src/BreezeServiceProvider.php): Failed to open stream: No such file or directory at D:\\WWW\\full compleate\\qr-backend\\vendor\\composer\\ClassLoader.php:576)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\composer\\ClassLoader.php(576): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(2, 'include(D:\\\\WWW\\\\...', 'D:\\\\WWW\\\\full com...', 576)
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\composer\\ClassLoader.php(576): include()
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\composer\\ClassLoader.php(427): Composer\\Autoload\\{closure}('D:\\\\WWW\\\\full com...')
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(816): Composer\\Autoload\\ClassLoader->loadClass('Laravel\\\\Breeze\\\\...')
+#4 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(796): Illuminate\\Foundation\\Application->registerDeferredProvider('Laravel\\\\Breeze\\\\...', 'Laravel\\\\Breeze\\\\...')
+#5 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(772): Illuminate\\Foundation\\Application->loadDeferredProvider('Laravel\\\\Breeze\\\\...')
+#6 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(313): Illuminate\\Foundation\\Application->loadDeferredProviders()
+#7 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#8 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#9 {main}
+"} 
+[2024-04-30 11:32:19] local.ERROR: include(D:\WWW\full compleate\qr-backend\vendor\composer/../laravel/breeze/src/BreezeServiceProvider.php): Failed to open stream: No such file or directory {"exception":"[object] (ErrorException(code: 0): include(D:\\WWW\\full compleate\\qr-backend\\vendor\\composer/../laravel/breeze/src/BreezeServiceProvider.php): Failed to open stream: No such file or directory at D:\\WWW\\full compleate\\qr-backend\\vendor\\composer\\ClassLoader.php:576)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\composer\\ClassLoader.php(576): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(2, 'include(D:\\\\WWW\\\\...', 'D:\\\\WWW\\\\full com...', 576)
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\composer\\ClassLoader.php(576): include()
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\composer\\ClassLoader.php(427): Composer\\Autoload\\{closure}('D:\\\\WWW\\\\full com...')
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(816): Composer\\Autoload\\ClassLoader->loadClass('Laravel\\\\Breeze\\\\...')
+#4 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(796): Illuminate\\Foundation\\Application->registerDeferredProvider('Laravel\\\\Breeze\\\\...', 'Laravel\\\\Breeze\\\\...')
+#5 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(772): Illuminate\\Foundation\\Application->loadDeferredProvider('Laravel\\\\Breeze\\\\...')
+#6 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(313): Illuminate\\Foundation\\Application->loadDeferredProviders()
+#7 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#8 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#9 {main}
+"} 
+[2024-04-30 11:32:19] local.ERROR: include(D:\WWW\full compleate\qr-backend\vendor\composer/../laravel/breeze/src/BreezeServiceProvider.php): Failed to open stream: No such file or directory {"exception":"[object] (ErrorException(code: 0): include(D:\\WWW\\full compleate\\qr-backend\\vendor\\composer/../laravel/breeze/src/BreezeServiceProvider.php): Failed to open stream: No such file or directory at D:\\WWW\\full compleate\\qr-backend\\vendor\\composer\\ClassLoader.php:576)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\composer\\ClassLoader.php(576): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(2, 'include(D:\\\\WWW\\\\...', 'D:\\\\WWW\\\\full com...', 576)
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\composer\\ClassLoader.php(576): include()
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\composer\\ClassLoader.php(427): Composer\\Autoload\\{closure}('D:\\\\WWW\\\\full com...')
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(816): Composer\\Autoload\\ClassLoader->loadClass('Laravel\\\\Breeze\\\\...')
+#4 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(796): Illuminate\\Foundation\\Application->registerDeferredProvider('Laravel\\\\Breeze\\\\...', 'Laravel\\\\Breeze\\\\...')
+#5 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(772): Illuminate\\Foundation\\Application->loadDeferredProvider('Laravel\\\\Breeze\\\\...')
+#6 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(313): Illuminate\\Foundation\\Application->loadDeferredProviders()
+#7 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#8 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#9 {main}
+"} 
+[2024-04-30 11:33:19] local.ERROR: include(D:\WWW\full compleate\qr-backend\vendor\composer/../laravel/breeze/src/BreezeServiceProvider.php): Failed to open stream: No such file or directory {"exception":"[object] (ErrorException(code: 0): include(D:\\WWW\\full compleate\\qr-backend\\vendor\\composer/../laravel/breeze/src/BreezeServiceProvider.php): Failed to open stream: No such file or directory at D:\\WWW\\full compleate\\qr-backend\\vendor\\composer\\ClassLoader.php:576)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\composer\\ClassLoader.php(576): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(2, 'include(D:\\\\WWW\\\\...', 'D:\\\\WWW\\\\full com...', 576)
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\composer\\ClassLoader.php(576): include()
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\composer\\ClassLoader.php(427): Composer\\Autoload\\{closure}('D:\\\\WWW\\\\full com...')
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(816): Composer\\Autoload\\ClassLoader->loadClass('Laravel\\\\Breeze\\\\...')
+#4 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(796): Illuminate\\Foundation\\Application->registerDeferredProvider('Laravel\\\\Breeze\\\\...', 'Laravel\\\\Breeze\\\\...')
+#5 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(772): Illuminate\\Foundation\\Application->loadDeferredProvider('Laravel\\\\Breeze\\\\...')
+#6 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(313): Illuminate\\Foundation\\Application->loadDeferredProviders()
+#7 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#8 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#9 {main}
+"} 
+[2024-04-30 11:33:19] local.ERROR: include(D:\WWW\full compleate\qr-backend\vendor\composer/../laravel/breeze/src/BreezeServiceProvider.php): Failed to open stream: No such file or directory {"exception":"[object] (ErrorException(code: 0): include(D:\\WWW\\full compleate\\qr-backend\\vendor\\composer/../laravel/breeze/src/BreezeServiceProvider.php): Failed to open stream: No such file or directory at D:\\WWW\\full compleate\\qr-backend\\vendor\\composer\\ClassLoader.php:576)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\composer\\ClassLoader.php(576): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(2, 'include(D:\\\\WWW\\\\...', 'D:\\\\WWW\\\\full com...', 576)
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\composer\\ClassLoader.php(576): include()
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\composer\\ClassLoader.php(427): Composer\\Autoload\\{closure}('D:\\\\WWW\\\\full com...')
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(816): Composer\\Autoload\\ClassLoader->loadClass('Laravel\\\\Breeze\\\\...')
+#4 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(796): Illuminate\\Foundation\\Application->registerDeferredProvider('Laravel\\\\Breeze\\\\...', 'Laravel\\\\Breeze\\\\...')
+#5 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(772): Illuminate\\Foundation\\Application->loadDeferredProvider('Laravel\\\\Breeze\\\\...')
+#6 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(313): Illuminate\\Foundation\\Application->loadDeferredProviders()
+#7 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#8 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#9 {main}
+"} 
+[2024-04-30 11:33:19] local.ERROR: include(D:\WWW\full compleate\qr-backend\vendor\composer/../laravel/breeze/src/BreezeServiceProvider.php): Failed to open stream: No such file or directory {"exception":"[object] (ErrorException(code: 0): include(D:\\WWW\\full compleate\\qr-backend\\vendor\\composer/../laravel/breeze/src/BreezeServiceProvider.php): Failed to open stream: No such file or directory at D:\\WWW\\full compleate\\qr-backend\\vendor\\composer\\ClassLoader.php:576)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\composer\\ClassLoader.php(576): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(2, 'include(D:\\\\WWW\\\\...', 'D:\\\\WWW\\\\full com...', 576)
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\composer\\ClassLoader.php(576): include()
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\composer\\ClassLoader.php(427): Composer\\Autoload\\{closure}('D:\\\\WWW\\\\full com...')
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(816): Composer\\Autoload\\ClassLoader->loadClass('Laravel\\\\Breeze\\\\...')
+#4 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(796): Illuminate\\Foundation\\Application->registerDeferredProvider('Laravel\\\\Breeze\\\\...', 'Laravel\\\\Breeze\\\\...')
+#5 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(772): Illuminate\\Foundation\\Application->loadDeferredProvider('Laravel\\\\Breeze\\\\...')
+#6 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(313): Illuminate\\Foundation\\Application->loadDeferredProviders()
+#7 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#8 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#9 {main}
+"} 
