@@ -2733,3 +2733,934 @@
 #8 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
 #9 {main}
 "} 
+[2024-04-30 11:34:14] local.ERROR: include(D:\WWW\full compleate\qr-backend\vendor\composer/../laravel/breeze/src/BreezeServiceProvider.php): Failed to open stream: No such file or directory {"exception":"[object] (ErrorException(code: 0): include(D:\\WWW\\full compleate\\qr-backend\\vendor\\composer/../laravel/breeze/src/BreezeServiceProvider.php): Failed to open stream: No such file or directory at D:\\WWW\\full compleate\\qr-backend\\vendor\\composer\\ClassLoader.php:576)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\composer\\ClassLoader.php(576): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(2, 'include(D:\\\\WWW\\\\...', 'D:\\\\WWW\\\\full com...', 576)
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\composer\\ClassLoader.php(576): include()
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\composer\\ClassLoader.php(427): Composer\\Autoload\\{closure}('D:\\\\WWW\\\\full com...')
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(816): Composer\\Autoload\\ClassLoader->loadClass('Laravel\\\\Breeze\\\\...')
+#4 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(796): Illuminate\\Foundation\\Application->registerDeferredProvider('Laravel\\\\Breeze\\\\...', 'Laravel\\\\Breeze\\\\...')
+#5 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(772): Illuminate\\Foundation\\Application->loadDeferredProvider('Laravel\\\\Breeze\\\\...')
+#6 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(313): Illuminate\\Foundation\\Application->loadDeferredProviders()
+#7 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#8 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#9 {main}
+"} 
+[2024-04-30 11:34:19] local.ERROR: include(D:\WWW\full compleate\qr-backend\vendor\composer/../laravel/breeze/src/BreezeServiceProvider.php): Failed to open stream: No such file or directory {"exception":"[object] (ErrorException(code: 0): include(D:\\WWW\\full compleate\\qr-backend\\vendor\\composer/../laravel/breeze/src/BreezeServiceProvider.php): Failed to open stream: No such file or directory at D:\\WWW\\full compleate\\qr-backend\\vendor\\composer\\ClassLoader.php:576)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\composer\\ClassLoader.php(576): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(2, 'include(D:\\\\WWW\\\\...', 'D:\\\\WWW\\\\full com...', 576)
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\composer\\ClassLoader.php(576): include()
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\composer\\ClassLoader.php(427): Composer\\Autoload\\{closure}('D:\\\\WWW\\\\full com...')
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(816): Composer\\Autoload\\ClassLoader->loadClass('Laravel\\\\Breeze\\\\...')
+#4 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(796): Illuminate\\Foundation\\Application->registerDeferredProvider('Laravel\\\\Breeze\\\\...', 'Laravel\\\\Breeze\\\\...')
+#5 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(772): Illuminate\\Foundation\\Application->loadDeferredProvider('Laravel\\\\Breeze\\\\...')
+#6 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(313): Illuminate\\Foundation\\Application->loadDeferredProviders()
+#7 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#8 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#9 {main}
+"} 
+[2024-04-30 11:34:19] local.ERROR: include(D:\WWW\full compleate\qr-backend\vendor\composer/../laravel/breeze/src/BreezeServiceProvider.php): Failed to open stream: No such file or directory {"exception":"[object] (ErrorException(code: 0): include(D:\\WWW\\full compleate\\qr-backend\\vendor\\composer/../laravel/breeze/src/BreezeServiceProvider.php): Failed to open stream: No such file or directory at D:\\WWW\\full compleate\\qr-backend\\vendor\\composer\\ClassLoader.php:576)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\composer\\ClassLoader.php(576): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(2, 'include(D:\\\\WWW\\\\...', 'D:\\\\WWW\\\\full com...', 576)
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\composer\\ClassLoader.php(576): include()
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\composer\\ClassLoader.php(427): Composer\\Autoload\\{closure}('D:\\\\WWW\\\\full com...')
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(816): Composer\\Autoload\\ClassLoader->loadClass('Laravel\\\\Breeze\\\\...')
+#4 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(796): Illuminate\\Foundation\\Application->registerDeferredProvider('Laravel\\\\Breeze\\\\...', 'Laravel\\\\Breeze\\\\...')
+#5 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(772): Illuminate\\Foundation\\Application->loadDeferredProvider('Laravel\\\\Breeze\\\\...')
+#6 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(313): Illuminate\\Foundation\\Application->loadDeferredProviders()
+#7 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#8 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#9 {main}
+"} 
+[2024-04-30 11:35:18] local.ERROR: include(D:\WWW\full compleate\qr-backend\vendor\composer/../laravel/breeze/src/BreezeServiceProvider.php): Failed to open stream: No such file or directory {"exception":"[object] (ErrorException(code: 0): include(D:\\WWW\\full compleate\\qr-backend\\vendor\\composer/../laravel/breeze/src/BreezeServiceProvider.php): Failed to open stream: No such file or directory at D:\\WWW\\full compleate\\qr-backend\\vendor\\composer\\ClassLoader.php:576)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\composer\\ClassLoader.php(576): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(2, 'include(D:\\\\WWW\\\\...', 'D:\\\\WWW\\\\full com...', 576)
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\composer\\ClassLoader.php(576): include()
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\composer\\ClassLoader.php(427): Composer\\Autoload\\{closure}('D:\\\\WWW\\\\full com...')
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(816): Composer\\Autoload\\ClassLoader->loadClass('Laravel\\\\Breeze\\\\...')
+#4 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(796): Illuminate\\Foundation\\Application->registerDeferredProvider('Laravel\\\\Breeze\\\\...', 'Laravel\\\\Breeze\\\\...')
+#5 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(772): Illuminate\\Foundation\\Application->loadDeferredProvider('Laravel\\\\Breeze\\\\...')
+#6 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(313): Illuminate\\Foundation\\Application->loadDeferredProviders()
+#7 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#8 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#9 {main}
+"} 
+[2024-04-30 11:35:19] local.ERROR: include(D:\WWW\full compleate\qr-backend\vendor\composer/../laravel/breeze/src/BreezeServiceProvider.php): Failed to open stream: No such file or directory {"exception":"[object] (ErrorException(code: 0): include(D:\\WWW\\full compleate\\qr-backend\\vendor\\composer/../laravel/breeze/src/BreezeServiceProvider.php): Failed to open stream: No such file or directory at D:\\WWW\\full compleate\\qr-backend\\vendor\\composer\\ClassLoader.php:576)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\composer\\ClassLoader.php(576): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(2, 'include(D:\\\\WWW\\\\...', 'D:\\\\WWW\\\\full com...', 576)
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\composer\\ClassLoader.php(576): include()
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\composer\\ClassLoader.php(427): Composer\\Autoload\\{closure}('D:\\\\WWW\\\\full com...')
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(816): Composer\\Autoload\\ClassLoader->loadClass('Laravel\\\\Breeze\\\\...')
+#4 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(796): Illuminate\\Foundation\\Application->registerDeferredProvider('Laravel\\\\Breeze\\\\...', 'Laravel\\\\Breeze\\\\...')
+#5 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(772): Illuminate\\Foundation\\Application->loadDeferredProvider('Laravel\\\\Breeze\\\\...')
+#6 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(313): Illuminate\\Foundation\\Application->loadDeferredProviders()
+#7 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#8 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#9 {main}
+"} 
+[2024-04-30 11:35:19] local.ERROR: include(D:\WWW\full compleate\qr-backend\vendor\composer/../laravel/breeze/src/BreezeServiceProvider.php): Failed to open stream: No such file or directory {"exception":"[object] (ErrorException(code: 0): include(D:\\WWW\\full compleate\\qr-backend\\vendor\\composer/../laravel/breeze/src/BreezeServiceProvider.php): Failed to open stream: No such file or directory at D:\\WWW\\full compleate\\qr-backend\\vendor\\composer\\ClassLoader.php:576)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\composer\\ClassLoader.php(576): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(2, 'include(D:\\\\WWW\\\\...', 'D:\\\\WWW\\\\full com...', 576)
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\composer\\ClassLoader.php(576): include()
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\composer\\ClassLoader.php(427): Composer\\Autoload\\{closure}('D:\\\\WWW\\\\full com...')
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(816): Composer\\Autoload\\ClassLoader->loadClass('Laravel\\\\Breeze\\\\...')
+#4 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(796): Illuminate\\Foundation\\Application->registerDeferredProvider('Laravel\\\\Breeze\\\\...', 'Laravel\\\\Breeze\\\\...')
+#5 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(772): Illuminate\\Foundation\\Application->loadDeferredProvider('Laravel\\\\Breeze\\\\...')
+#6 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(313): Illuminate\\Foundation\\Application->loadDeferredProviders()
+#7 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#8 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#9 {main}
+"} 
+[2024-04-30 11:35:54] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php:816)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(796): Illuminate\\Foundation\\Application->registerDeferredProvider('Laravel\\\\Breeze\\\\...', 'Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(772): Illuminate\\Foundation\\Application->loadDeferredProvider('Laravel\\\\Breeze\\\\...')
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(313): Illuminate\\Foundation\\Application->loadDeferredProviders()
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#4 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2024-04-30 11:36:19] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php:816)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(796): Illuminate\\Foundation\\Application->registerDeferredProvider('Laravel\\\\Breeze\\\\...', 'Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(772): Illuminate\\Foundation\\Application->loadDeferredProvider('Laravel\\\\Breeze\\\\...')
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(313): Illuminate\\Foundation\\Application->loadDeferredProviders()
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#4 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2024-04-30 11:36:19] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php:816)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(796): Illuminate\\Foundation\\Application->registerDeferredProvider('Laravel\\\\Breeze\\\\...', 'Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(772): Illuminate\\Foundation\\Application->loadDeferredProvider('Laravel\\\\Breeze\\\\...')
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(313): Illuminate\\Foundation\\Application->loadDeferredProviders()
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#4 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2024-04-30 11:37:00] local.DEBUG: Country Name: {"name":"Afghanistan"} 
+[2024-04-30 11:37:01] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-04-30 11:37:19] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php:816)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(796): Illuminate\\Foundation\\Application->registerDeferredProvider('Laravel\\\\Breeze\\\\...', 'Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(772): Illuminate\\Foundation\\Application->loadDeferredProvider('Laravel\\\\Breeze\\\\...')
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(313): Illuminate\\Foundation\\Application->loadDeferredProviders()
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#4 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2024-04-30 11:37:19] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php:816)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(796): Illuminate\\Foundation\\Application->registerDeferredProvider('Laravel\\\\Breeze\\\\...', 'Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(772): Illuminate\\Foundation\\Application->loadDeferredProvider('Laravel\\\\Breeze\\\\...')
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(313): Illuminate\\Foundation\\Application->loadDeferredProviders()
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#4 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2024-04-30 11:38:19] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php:816)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(796): Illuminate\\Foundation\\Application->registerDeferredProvider('Laravel\\\\Breeze\\\\...', 'Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(772): Illuminate\\Foundation\\Application->loadDeferredProvider('Laravel\\\\Breeze\\\\...')
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(313): Illuminate\\Foundation\\Application->loadDeferredProviders()
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#4 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2024-04-30 11:38:19] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php:816)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(796): Illuminate\\Foundation\\Application->registerDeferredProvider('Laravel\\\\Breeze\\\\...', 'Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(772): Illuminate\\Foundation\\Application->loadDeferredProvider('Laravel\\\\Breeze\\\\...')
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(313): Illuminate\\Foundation\\Application->loadDeferredProviders()
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#4 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2024-04-30 11:39:19] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php:816)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(796): Illuminate\\Foundation\\Application->registerDeferredProvider('Laravel\\\\Breeze\\\\...', 'Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(772): Illuminate\\Foundation\\Application->loadDeferredProvider('Laravel\\\\Breeze\\\\...')
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(313): Illuminate\\Foundation\\Application->loadDeferredProviders()
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#4 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2024-04-30 11:39:19] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php:816)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(796): Illuminate\\Foundation\\Application->registerDeferredProvider('Laravel\\\\Breeze\\\\...', 'Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(772): Illuminate\\Foundation\\Application->loadDeferredProvider('Laravel\\\\Breeze\\\\...')
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(313): Illuminate\\Foundation\\Application->loadDeferredProviders()
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#4 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2024-04-30 11:40:19] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php:816)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(796): Illuminate\\Foundation\\Application->registerDeferredProvider('Laravel\\\\Breeze\\\\...', 'Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(772): Illuminate\\Foundation\\Application->loadDeferredProvider('Laravel\\\\Breeze\\\\...')
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(313): Illuminate\\Foundation\\Application->loadDeferredProviders()
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#4 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2024-04-30 11:40:19] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php:816)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(796): Illuminate\\Foundation\\Application->registerDeferredProvider('Laravel\\\\Breeze\\\\...', 'Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(772): Illuminate\\Foundation\\Application->loadDeferredProvider('Laravel\\\\Breeze\\\\...')
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(313): Illuminate\\Foundation\\Application->loadDeferredProviders()
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#4 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2024-04-30 11:40:41] local.DEBUG: Country Name: {"name":"Afghanistan"} 
+[2024-04-30 11:40:43] local.DEBUG: Country Name: {"name":"Afghanistan"} 
+[2024-04-30 11:40:44] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-04-30 11:41:19] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php:816)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(796): Illuminate\\Foundation\\Application->registerDeferredProvider('Laravel\\\\Breeze\\\\...', 'Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(772): Illuminate\\Foundation\\Application->loadDeferredProvider('Laravel\\\\Breeze\\\\...')
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(313): Illuminate\\Foundation\\Application->loadDeferredProviders()
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#4 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2024-04-30 11:41:19] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php:816)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(796): Illuminate\\Foundation\\Application->registerDeferredProvider('Laravel\\\\Breeze\\\\...', 'Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(772): Illuminate\\Foundation\\Application->loadDeferredProvider('Laravel\\\\Breeze\\\\...')
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(313): Illuminate\\Foundation\\Application->loadDeferredProviders()
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#4 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2024-04-30 11:41:37] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-04-30 11:42:19] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php:816)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(796): Illuminate\\Foundation\\Application->registerDeferredProvider('Laravel\\\\Breeze\\\\...', 'Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(772): Illuminate\\Foundation\\Application->loadDeferredProvider('Laravel\\\\Breeze\\\\...')
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(313): Illuminate\\Foundation\\Application->loadDeferredProviders()
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#4 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2024-04-30 11:42:19] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php:816)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(796): Illuminate\\Foundation\\Application->registerDeferredProvider('Laravel\\\\Breeze\\\\...', 'Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(772): Illuminate\\Foundation\\Application->loadDeferredProvider('Laravel\\\\Breeze\\\\...')
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(313): Illuminate\\Foundation\\Application->loadDeferredProviders()
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#4 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2024-04-30 11:43:19] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php:816)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(796): Illuminate\\Foundation\\Application->registerDeferredProvider('Laravel\\\\Breeze\\\\...', 'Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(772): Illuminate\\Foundation\\Application->loadDeferredProvider('Laravel\\\\Breeze\\\\...')
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(313): Illuminate\\Foundation\\Application->loadDeferredProviders()
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#4 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2024-04-30 11:43:19] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php:816)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(796): Illuminate\\Foundation\\Application->registerDeferredProvider('Laravel\\\\Breeze\\\\...', 'Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(772): Illuminate\\Foundation\\Application->loadDeferredProvider('Laravel\\\\Breeze\\\\...')
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(313): Illuminate\\Foundation\\Application->loadDeferredProviders()
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#4 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2024-04-30 11:43:19] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php:816)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(796): Illuminate\\Foundation\\Application->registerDeferredProvider('Laravel\\\\Breeze\\\\...', 'Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(772): Illuminate\\Foundation\\Application->loadDeferredProvider('Laravel\\\\Breeze\\\\...')
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(313): Illuminate\\Foundation\\Application->loadDeferredProviders()
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#4 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2024-04-30 11:44:19] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php:816)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(796): Illuminate\\Foundation\\Application->registerDeferredProvider('Laravel\\\\Breeze\\\\...', 'Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(772): Illuminate\\Foundation\\Application->loadDeferredProvider('Laravel\\\\Breeze\\\\...')
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(313): Illuminate\\Foundation\\Application->loadDeferredProviders()
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#4 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2024-04-30 11:45:19] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php:816)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(796): Illuminate\\Foundation\\Application->registerDeferredProvider('Laravel\\\\Breeze\\\\...', 'Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(772): Illuminate\\Foundation\\Application->loadDeferredProvider('Laravel\\\\Breeze\\\\...')
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(313): Illuminate\\Foundation\\Application->loadDeferredProviders()
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#4 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2024-04-30 11:45:19] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php:816)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(796): Illuminate\\Foundation\\Application->registerDeferredProvider('Laravel\\\\Breeze\\\\...', 'Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(772): Illuminate\\Foundation\\Application->loadDeferredProvider('Laravel\\\\Breeze\\\\...')
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(313): Illuminate\\Foundation\\Application->loadDeferredProviders()
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#4 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2024-04-30 11:46:19] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php:816)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(796): Illuminate\\Foundation\\Application->registerDeferredProvider('Laravel\\\\Breeze\\\\...', 'Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(772): Illuminate\\Foundation\\Application->loadDeferredProvider('Laravel\\\\Breeze\\\\...')
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(313): Illuminate\\Foundation\\Application->loadDeferredProviders()
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#4 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2024-04-30 11:46:19] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php:816)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(796): Illuminate\\Foundation\\Application->registerDeferredProvider('Laravel\\\\Breeze\\\\...', 'Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(772): Illuminate\\Foundation\\Application->loadDeferredProvider('Laravel\\\\Breeze\\\\...')
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(313): Illuminate\\Foundation\\Application->loadDeferredProviders()
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#4 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2024-04-30 11:47:19] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php:816)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(796): Illuminate\\Foundation\\Application->registerDeferredProvider('Laravel\\\\Breeze\\\\...', 'Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(772): Illuminate\\Foundation\\Application->loadDeferredProvider('Laravel\\\\Breeze\\\\...')
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(313): Illuminate\\Foundation\\Application->loadDeferredProviders()
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#4 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2024-04-30 11:47:19] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php:816)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(796): Illuminate\\Foundation\\Application->registerDeferredProvider('Laravel\\\\Breeze\\\\...', 'Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(772): Illuminate\\Foundation\\Application->loadDeferredProvider('Laravel\\\\Breeze\\\\...')
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(313): Illuminate\\Foundation\\Application->loadDeferredProviders()
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#4 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2024-04-30 11:48:19] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php:816)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(796): Illuminate\\Foundation\\Application->registerDeferredProvider('Laravel\\\\Breeze\\\\...', 'Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(772): Illuminate\\Foundation\\Application->loadDeferredProvider('Laravel\\\\Breeze\\\\...')
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(313): Illuminate\\Foundation\\Application->loadDeferredProviders()
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#4 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2024-04-30 11:48:19] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php:816)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(796): Illuminate\\Foundation\\Application->registerDeferredProvider('Laravel\\\\Breeze\\\\...', 'Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(772): Illuminate\\Foundation\\Application->loadDeferredProvider('Laravel\\\\Breeze\\\\...')
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(313): Illuminate\\Foundation\\Application->loadDeferredProviders()
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#4 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2024-04-30 11:49:19] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php:816)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(796): Illuminate\\Foundation\\Application->registerDeferredProvider('Laravel\\\\Breeze\\\\...', 'Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(772): Illuminate\\Foundation\\Application->loadDeferredProvider('Laravel\\\\Breeze\\\\...')
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(313): Illuminate\\Foundation\\Application->loadDeferredProviders()
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#4 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2024-04-30 11:49:19] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php:816)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(796): Illuminate\\Foundation\\Application->registerDeferredProvider('Laravel\\\\Breeze\\\\...', 'Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(772): Illuminate\\Foundation\\Application->loadDeferredProvider('Laravel\\\\Breeze\\\\...')
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(313): Illuminate\\Foundation\\Application->loadDeferredProviders()
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#4 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2024-04-30 11:50:19] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php:816)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(796): Illuminate\\Foundation\\Application->registerDeferredProvider('Laravel\\\\Breeze\\\\...', 'Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(772): Illuminate\\Foundation\\Application->loadDeferredProvider('Laravel\\\\Breeze\\\\...')
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(313): Illuminate\\Foundation\\Application->loadDeferredProviders()
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#4 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2024-04-30 11:50:19] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php:816)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(796): Illuminate\\Foundation\\Application->registerDeferredProvider('Laravel\\\\Breeze\\\\...', 'Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(772): Illuminate\\Foundation\\Application->loadDeferredProvider('Laravel\\\\Breeze\\\\...')
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(313): Illuminate\\Foundation\\Application->loadDeferredProviders()
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#4 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2024-04-30 11:51:19] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php:816)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(796): Illuminate\\Foundation\\Application->registerDeferredProvider('Laravel\\\\Breeze\\\\...', 'Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(772): Illuminate\\Foundation\\Application->loadDeferredProvider('Laravel\\\\Breeze\\\\...')
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(313): Illuminate\\Foundation\\Application->loadDeferredProviders()
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#4 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2024-04-30 11:51:19] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php:816)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(796): Illuminate\\Foundation\\Application->registerDeferredProvider('Laravel\\\\Breeze\\\\...', 'Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(772): Illuminate\\Foundation\\Application->loadDeferredProvider('Laravel\\\\Breeze\\\\...')
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(313): Illuminate\\Foundation\\Application->loadDeferredProviders()
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#4 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2024-04-30 11:51:19] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php:816)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(796): Illuminate\\Foundation\\Application->registerDeferredProvider('Laravel\\\\Breeze\\\\...', 'Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(772): Illuminate\\Foundation\\Application->loadDeferredProvider('Laravel\\\\Breeze\\\\...')
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(313): Illuminate\\Foundation\\Application->loadDeferredProviders()
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#4 D:\\WWW\\full compleate\\qr-backend\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2024-04-30 11:51:33] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:208)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(144): Illuminate\\Foundation\\ProviderRepository->createProvider('Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(659): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 D:\\WWW\\full compleate\\qr-backend\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-04-30 11:52:19] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:208)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(144): Illuminate\\Foundation\\ProviderRepository->createProvider('Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(659): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-04-30 11:52:19] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:208)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(144): Illuminate\\Foundation\\ProviderRepository->createProvider('Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(659): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-04-30 11:52:51] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:208)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(144): Illuminate\\Foundation\\ProviderRepository->createProvider('Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(659): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 D:\\WWW\\full compleate\\qr-backend\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-04-30 11:53:19] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:208)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(144): Illuminate\\Foundation\\ProviderRepository->createProvider('Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(659): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-04-30 11:53:19] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:208)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(144): Illuminate\\Foundation\\ProviderRepository->createProvider('Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(659): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-04-30 11:53:19] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:208)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(144): Illuminate\\Foundation\\ProviderRepository->createProvider('Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(659): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-04-30 11:54:19] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:208)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(144): Illuminate\\Foundation\\ProviderRepository->createProvider('Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(659): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-04-30 11:54:19] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:208)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(144): Illuminate\\Foundation\\ProviderRepository->createProvider('Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(659): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-04-30 11:55:19] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:208)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(144): Illuminate\\Foundation\\ProviderRepository->createProvider('Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(659): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-04-30 11:56:19] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:208)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(144): Illuminate\\Foundation\\ProviderRepository->createProvider('Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(659): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-04-30 11:56:19] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:208)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(144): Illuminate\\Foundation\\ProviderRepository->createProvider('Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(659): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-04-30 11:57:19] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:208)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(144): Illuminate\\Foundation\\ProviderRepository->createProvider('Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(659): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-04-30 11:57:19] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:208)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(144): Illuminate\\Foundation\\ProviderRepository->createProvider('Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(659): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-04-30 11:58:19] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:208)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(144): Illuminate\\Foundation\\ProviderRepository->createProvider('Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(659): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-04-30 11:58:19] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:208)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(144): Illuminate\\Foundation\\ProviderRepository->createProvider('Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(659): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-04-30 11:59:19] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:208)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(144): Illuminate\\Foundation\\ProviderRepository->createProvider('Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(659): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-04-30 11:59:19] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:208)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(144): Illuminate\\Foundation\\ProviderRepository->createProvider('Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(659): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-04-30 12:00:19] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:208)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(144): Illuminate\\Foundation\\ProviderRepository->createProvider('Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(659): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-04-30 12:01:19] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:208)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(144): Illuminate\\Foundation\\ProviderRepository->createProvider('Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(659): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-04-30 12:01:19] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:208)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(144): Illuminate\\Foundation\\ProviderRepository->createProvider('Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(659): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-04-30 12:02:19] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:208)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(144): Illuminate\\Foundation\\ProviderRepository->createProvider('Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(659): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-04-30 12:02:19] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:208)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(144): Illuminate\\Foundation\\ProviderRepository->createProvider('Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(659): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-04-30 12:03:20] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:208)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(144): Illuminate\\Foundation\\ProviderRepository->createProvider('Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(659): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-04-30 12:03:46] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:208)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(144): Illuminate\\Foundation\\ProviderRepository->createProvider('Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(659): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 D:\\WWW\\full compleate\\qr-backend\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-04-30 12:04:09] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:208)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(144): Illuminate\\Foundation\\ProviderRepository->createProvider('Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(659): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 D:\\WWW\\full compleate\\qr-backend\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-04-30 12:04:19] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:208)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(144): Illuminate\\Foundation\\ProviderRepository->createProvider('Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(659): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-04-30 12:04:19] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:208)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(144): Illuminate\\Foundation\\ProviderRepository->createProvider('Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(659): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-04-30 12:04:59] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:208)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(144): Illuminate\\Foundation\\ProviderRepository->createProvider('Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(659): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 D:\\WWW\\full compleate\\qr-backend\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-04-30 12:05:08] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:208)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(144): Illuminate\\Foundation\\ProviderRepository->createProvider('Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(659): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 D:\\WWW\\full compleate\\qr-backend\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-04-30 12:05:19] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:208)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(144): Illuminate\\Foundation\\ProviderRepository->createProvider('Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(659): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-04-30 12:05:19] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:208)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(144): Illuminate\\Foundation\\ProviderRepository->createProvider('Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(659): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-04-30 12:05:27] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:208)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(144): Illuminate\\Foundation\\ProviderRepository->createProvider('Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(659): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 D:\\WWW\\full compleate\\qr-backend\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-04-30 12:06:19] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:208)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(144): Illuminate\\Foundation\\ProviderRepository->createProvider('Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(659): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-04-30 12:06:19] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:208)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(144): Illuminate\\Foundation\\ProviderRepository->createProvider('Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(659): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-04-30 12:06:40] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:208)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(144): Illuminate\\Foundation\\ProviderRepository->createProvider('Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(659): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 D:\\WWW\\full compleate\\qr-backend\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-04-30 12:06:49] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:208)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(144): Illuminate\\Foundation\\ProviderRepository->createProvider('Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(659): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 D:\\WWW\\full compleate\\qr-backend\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-04-30 12:06:59] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:208)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(144): Illuminate\\Foundation\\ProviderRepository->createProvider('Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(659): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 D:\\WWW\\full compleate\\qr-backend\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-04-30 12:07:19] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:208)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(144): Illuminate\\Foundation\\ProviderRepository->createProvider('Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(659): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-04-30 12:07:19] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:208)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(144): Illuminate\\Foundation\\ProviderRepository->createProvider('Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(659): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-04-30 12:07:34] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:208)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(144): Illuminate\\Foundation\\ProviderRepository->createProvider('Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(659): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 D:\\WWW\\full compleate\\qr-backend\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-04-30 12:08:19] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:208)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(144): Illuminate\\Foundation\\ProviderRepository->createProvider('Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(659): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-04-30 12:08:19] local.ERROR: Class "Laravel\Breeze\BreezeServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Laravel\\Breeze\\BreezeServiceProvider\" not found at D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:208)
+[stacktrace]
+#0 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(144): Illuminate\\Foundation\\ProviderRepository->createProvider('Laravel\\\\Breeze\\\\...')
+#1 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(659): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 D:\\WWW\\full compleate\\qr-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-05-01 03:54:30] local.DEBUG: Country Name: {"name":"Afghanistan"} 
+[2024-05-01 03:54:30] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-05-01 03:55:58] local.DEBUG: Country Name: {"name":"Afghanistan"} 
+[2024-05-01 03:55:59] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-05-01 04:56:14] local.DEBUG: Country Name: {"name":"Afghanistan"} 
+[2024-05-01 04:56:15] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-05-01 04:56:22] local.DEBUG: Country Name: {"name":"Afghanistan"} 
+[2024-05-01 04:56:23] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-05-01 04:56:26] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-05-01 04:56:33] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-05-01 04:56:49] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-05-01 04:56:51] local.DEBUG: Country Name: {"name":"Afghanistan"} 
+[2024-05-01 04:56:52] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-05-01 04:56:56] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-05-01 04:57:10] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-05-01 04:57:12] local.DEBUG: Country Name: {"name":"Afghanistan"} 
+[2024-05-01 04:57:13] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-05-01 04:57:18] local.DEBUG: Country Name: {"name":"Afghanistan"} 
+[2024-05-01 04:57:18] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-05-01 04:57:29] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-05-01 05:08:02] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-05-01 05:08:03] local.DEBUG: Country Name: {"name":"Afghanistan"} 
+[2024-05-01 11:44:04] local.INFO: Qrgen created successfully {"id":149} 
+[2024-05-01 11:44:26] local.DEBUG: Country Name: {"name":"Afghanistan"} 
+[2024-05-01 11:44:27] local.DEBUG: Country Name: {"name":"Bangladesh"} 

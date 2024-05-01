@@ -26,10 +26,10 @@ class PaymentController extends Controller
 
         // Define payment details
         $currency = "BDT";
-        $store_id = "aamarpaytest";
-        $signature_key = "dbb74894e82415a2f7ff0ec3a97e4183";
+        $store_id = "smartcardgenerator";
+        $signature_key = "4e9f074f4232a743e899bde462e750d9";
 
-        $url = "https://sandbox.aamarpay.com/jsonpost.php";
+        $url = "https://secure.aamarpay.com/jsonpost.php";
 
         $response = \Illuminate\Support\Facades\Http::post($url, [
             'store_id' => $store_id,
@@ -72,7 +72,7 @@ class PaymentController extends Controller
 
         // Verify the transaction using Search Transaction API
         $requestIdEncoded = urlencode($requestId);
-        $url = "http://sandbox.aamarpay.com/api/v1/trxcheck/request.php?request_id=$requestIdEncoded&store_id=aamarpaytest&signature_key=dbb74894e82415a2f7ff0ec3a97e4183&type=json";
+        $url = "http://secure.aamarpay.com/api/v1/trxcheck/request.php?request_id=$requestIdEncoded&store_id=smartcardgenerator&signature_key=4e9f074f4232a743e899bde462e750d9&type=json";
 
         $responsedd = Http::get($url);
         $responseDatadd = $responsedd->json();
