@@ -55,7 +55,7 @@
                                             </td>
                                             <td>{{ $card->cardname }}</td>
                                             <td>{{ $card->email1 }}</td>
-                                            <td>{{ $card->phone1 }}</td>
+                                            <td>{{ $card->mobile1 }}</td>
                                             <td>{{ $card->viewcount }}</td>
                                             <td>{{ $card->created_at }}</td>
                                             <td>
