@@ -60,6 +60,7 @@ class Qrgen extends Model
         'tiktok',
         'whatsapp',
         'skype',
+        'google_scholar',
 
     ];
 }
