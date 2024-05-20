@@ -9,6 +9,7 @@ use App\Http\Controllers\Api\PackageController;
 use App\Http\Controllers\Api\PaymentController;
 use App\Http\Controllers\Api\SubscriptionController;
 use App\Http\Controllers\InstagramController;
+use App\Http\Controllers\Auth\CustomAuthenticatedSessionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('/users/{id}', [UserController::class, 'update']);
 
+Route::post('/login', [CustomAuthenticatedSessionController::class, 'store']);
 
 Route::post('qrcreate', [QrgenController::class, 'store']);
 Route::get('information/{slug}', [QrgenController::class, 'show']);
@@ -59,7 +61,7 @@ Route::get('cancel', [paymentController::class, 'cancel'])->name('cancel');
 
 // Chaker Payment
 Route::post('/check-subscription', [SubscriptionController::class, 'checkSubscription'])->name('checkSubscription');
-// QR Instagram 
+// QR Instagram
 
 Route::post('create-instagram', [InstagramController::class, 'store']);
 Route::get('/get-instagram/{user}', [InstagramController::class, 'getInstagram']);
