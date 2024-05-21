@@ -61,6 +61,7 @@ Route::get('cancel', [paymentController::class, 'cancel'])->name('cancel');
 
 // Chaker Payment
 Route::post('/check-subscription', [SubscriptionController::class, 'checkSubscription'])->name('checkSubscription');
+
 // QR Instagram
 
 Route::post('create-instagram', [InstagramController::class, 'store']);
@@ -70,3 +71,4 @@ Route::get('/getpauseInstagram/{userId}', [InstagramController::class, 'getPause
 Route::put('/instagram/toggle-status/{id}', [InstagramController::class, 'toggleStatusInstagram']);
 Route::post('/update-instagram/{id}', [InstagramController::class, 'update']);
 Route::get('/edit-instagram/{id}', [InstagramController::class, 'edit']);
+
