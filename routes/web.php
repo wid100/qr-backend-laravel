@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\Auth\VerifyEmailController;
+use App\Http\Controllers\Auth\PasswordResetLinkController;
+use App\Http\Controllers\Auth\EmailVerificationNotificationController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,12 +40,16 @@ Route::get('/clear-cache', function () {
 });
 
 
-Route::get('/verify-email/{id}/{hash}', [VerifyEmailController::class, '__invoke'])
+Route::get('/verify-email/{id}/{hash}', [App\Http\Controllers\Auth\VerifyEmailController::class, '__invoke'])
     ->middleware(['auth', 'signed', 'throttle:6,1'])
     ->name('verification.verify');
 
+Route::post('/email/verification-notification', [EmailVerificationNotificationController::class, 'store'])
+    ->name('verification.send');
 
-
+// Route::post('/forgot-password', [PasswordResetLinkController::class, 'store'])
+//     ->middleware('guest')
+//     ->name('password.email');
 Auth::routes();
 
 
