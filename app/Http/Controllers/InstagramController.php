@@ -1,10 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Instagram;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+
 class InstagramController extends Controller
 {
     /**
@@ -83,7 +85,7 @@ class InstagramController extends Controller
             $validatedData = $request->validate([
                 'user_id' => 'required|integer',
                 'cardname' => 'required|string',
-                'username' => 'required|unique:instagrams',
+                'username' => 'required',
                 'image' => 'required|image', // Ensure 'image' is an image file
             ]);
 
