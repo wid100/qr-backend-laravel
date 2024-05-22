@@ -29,7 +29,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('/users/{id}', [UserController::class, 'update']);
 
-Route::post('/login', [CustomAuthenticatedSessionController::class, 'store']);
+// Route::post('/login', [CustomAuthenticatedSessionController::class, 'store']);
 
 Route::post('qrcreate', [QrgenController::class, 'store']);
 Route::get('information/{slug}', [QrgenController::class, 'show']);
@@ -71,4 +71,3 @@ Route::get('/getpauseInstagram/{userId}', [InstagramController::class, 'getPause
 Route::put('/instagram/toggle-status/{id}', [InstagramController::class, 'toggleStatusInstagram']);
 Route::post('/update-instagram/{id}', [InstagramController::class, 'update']);
 Route::get('/edit-instagram/{id}', [InstagramController::class, 'edit']);
-
