@@ -38,12 +38,23 @@
                         <li class="nav-item">
                             <a href="{{ route('admin.card.index') }}" class="nav-link">All Cards</a>
                         </li>
+                     
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="collapse" href="#qrapp" role="button" aria-expanded="false"
+                    aria-controls="qrapp">
+                    <i class="link-icon" data-feather="credit-card"></i>
+                    <span class="link-title">Website Card</span>
+                    <i class="link-arrow" data-feather="chevron-down"></i>
+                </a>
+                <div class="collapse" id="qrapp">
+                    <ul class="nav sub-menu">
                         <li class="nav-item">
-                            <a href="pages/email/read.html" class="nav-link">Read</a>
+                            <a href="{{ route('admin.website.index') }}" class="nav-link">All website cards</a>
                         </li>
-                        <li class="nav-item">
-                            <a href="pages/email/compose.html" class="nav-link">Compose</a>
-                        </li>
+                     
                     </ul>
                 </div>
             </li>

@@ -238,7 +238,8 @@
                         <img class="wd-30 ht-30 rounded-circle" src="{{ asset(Auth::user()->image) }}"
                             alt="profile">
                     @else
-                        <img class="wd-30 ht-30 rounded-circle" src="https://i.pravatar.cc/300" alt="profile">
+                        <img class="wd-30 ht-30 rounded-circle" src="{{ asset('image/profile.png') }}"
+                            alt="profile">
                     @endif
 
                 </a>
@@ -249,7 +250,7 @@
                                 <img class="wd-80 ht-80 rounded-circle" src="{{ asset(Auth::user()->image) }}"
                                     alt="">
                             @else
-                                <img class="wd-80 ht-80 rounded-circle" src="https://i.pravatar.cc/300"
+                                <img class="wd-80 ht-80 rounded-circle" src="{{ asset('image/profile.png') }}"
                                     alt="">
                             @endif
 

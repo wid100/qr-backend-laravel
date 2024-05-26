@@ -10,6 +10,7 @@ use App\Http\Controllers\Api\PaymentController;
 use App\Http\Controllers\Api\SubscriptionController;
 use App\Http\Controllers\InstagramController;
 use App\Http\Controllers\Auth\CustomAuthenticatedSessionController;
+use App\Http\Controllers\WebsiteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -71,3 +72,14 @@ Route::get('/getpauseInstagram/{userId}', [InstagramController::class, 'getPause
 Route::put('/instagram/toggle-status/{id}', [InstagramController::class, 'toggleStatusInstagram']);
 Route::post('/update-instagram/{id}', [InstagramController::class, 'update']);
 Route::get('/edit-instagram/{id}', [InstagramController::class, 'edit']);
+
+
+// QR Website 
+
+Route::post('create-website',[WebsiteController::class,'store']);
+Route::get('/get-website/{user}', [WebsiteController::class, 'getWebsite']);
+Route::get('/get-active-website/{userId}', [WebsiteController::class, 'getActiveWebsite']);
+Route::get('/get-pause-website/{userId}', [WebsiteController::class, 'getPauseeWebsite']);
+Route::put('/website/toggle-status/{id}', [WebsiteController::class, 'toggleStatusWebsite']);
+Route::post('/update_website/{id}', [WebsiteController::class, 'update']);
+Route::get('/edit_website/{id}', [WebsiteController::class, 'edit']);
