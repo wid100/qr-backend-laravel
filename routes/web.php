@@ -65,6 +65,10 @@ Route::namespace('App\Http\Controllers')->group(
             Route::resource('/package', 'PackagesController');
             Route::resource('/payment', 'PaymentController');
             Route::resource('/subscription', 'SubscriptionsController');
+            
+            Route::resource('/website', 'WebsiteCardController');
+
+
         });
     }
 );
