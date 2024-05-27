@@ -7500,3 +7500,731 @@ Stack trace:
 [stacktrace]
 #0 {main}
 "} 
+[2024-05-27 03:57:27] local.ERROR: Class "RealRashid\SweetAlert\SweetAlertServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"RealRashid\\SweetAlert\\SweetAlertServiceProvider\" not found at E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:208)
+[stacktrace]
+#0 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(144): Illuminate\\Foundation\\ProviderRepository->createProvider('RealRashid\\\\Swee...')
+#1 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(659): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-05-27 03:57:27] local.ERROR: Uncaught ReflectionException: Class "view" does not exist in E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php:877
+Stack trace:
+#0 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(877): ReflectionClass->__construct('view')
+#1 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(758): Illuminate\Container\Container->build('view')
+#2 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(851): Illuminate\Container\Container->resolve('view', Array, true)
+#3 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(694): Illuminate\Foundation\Application->resolve('view', Array)
+#4 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(836): Illuminate\Container\Container->make('view', Array)
+#5 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\helpers.php(119): Illuminate\Foundation\Application->make('view', Array)
+#6 Command line code(1): app('view')
+#7 {main}
+
+Next Illuminate\Contracts\Container\BindingResolutionException: Target class [view] does not exist. in E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php:879
+Stack trace:
+#0 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(758): Illuminate\Container\Container->build('view')
+#1 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(851): Illuminate\Container\Container->resolve('view', Array, true)
+#2 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(694): Illuminate\Foundation\Application->resolve('view', Array)
+#3 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(836): Illuminate\Container\Container->make('view', Array)
+#4 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\helpers.php(119): Illuminate\Foundation\Application->make('view', Array)
+#5 Command line code(1): app('view')
+#6 {main}
+  thrown {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Uncaught ReflectionException: Class \"view\" does not exist in E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:877
+Stack trace:
+#0 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(877): ReflectionClass->__construct('view')
+#1 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(758): Illuminate\\Container\\Container->build('view')
+#2 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(851): Illuminate\\Container\\Container->resolve('view', Array, true)
+#3 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(694): Illuminate\\Foundation\\Application->resolve('view', Array)
+#4 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(836): Illuminate\\Container\\Container->make('view', Array)
+#5 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(119): Illuminate\\Foundation\\Application->make('view', Array)
+#6 Command line code(1): app('view')
+#7 {main}
+
+Next Illuminate\\Contracts\\Container\\BindingResolutionException: Target class [view] does not exist. in E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:879
+Stack trace:
+#0 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(758): Illuminate\\Container\\Container->build('view')
+#1 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(851): Illuminate\\Container\\Container->resolve('view', Array, true)
+#2 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(694): Illuminate\\Foundation\\Application->resolve('view', Array)
+#3 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(836): Illuminate\\Container\\Container->make('view', Array)
+#4 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(119): Illuminate\\Foundation\\Application->make('view', Array)
+#5 Command line code(1): app('view')
+#6 {main}
+  thrown at E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:879)
+[stacktrace]
+#0 {main}
+"} 
+[2024-05-27 03:57:31] local.ERROR: Class "RealRashid\SweetAlert\SweetAlertServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"RealRashid\\SweetAlert\\SweetAlertServiceProvider\" not found at E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:208)
+[stacktrace]
+#0 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(144): Illuminate\\Foundation\\ProviderRepository->createProvider('RealRashid\\\\Swee...')
+#1 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(659): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-05-27 03:57:31] local.ERROR: Uncaught ReflectionException: Class "view" does not exist in E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php:877
+Stack trace:
+#0 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(877): ReflectionClass->__construct('view')
+#1 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(758): Illuminate\Container\Container->build('view')
+#2 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(851): Illuminate\Container\Container->resolve('view', Array, true)
+#3 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(694): Illuminate\Foundation\Application->resolve('view', Array)
+#4 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(836): Illuminate\Container\Container->make('view', Array)
+#5 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\helpers.php(119): Illuminate\Foundation\Application->make('view', Array)
+#6 Command line code(1): app('view')
+#7 {main}
+
+Next Illuminate\Contracts\Container\BindingResolutionException: Target class [view] does not exist. in E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php:879
+Stack trace:
+#0 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(758): Illuminate\Container\Container->build('view')
+#1 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(851): Illuminate\Container\Container->resolve('view', Array, true)
+#2 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(694): Illuminate\Foundation\Application->resolve('view', Array)
+#3 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(836): Illuminate\Container\Container->make('view', Array)
+#4 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\helpers.php(119): Illuminate\Foundation\Application->make('view', Array)
+#5 Command line code(1): app('view')
+#6 {main}
+  thrown {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Uncaught ReflectionException: Class \"view\" does not exist in E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:877
+Stack trace:
+#0 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(877): ReflectionClass->__construct('view')
+#1 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(758): Illuminate\\Container\\Container->build('view')
+#2 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(851): Illuminate\\Container\\Container->resolve('view', Array, true)
+#3 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(694): Illuminate\\Foundation\\Application->resolve('view', Array)
+#4 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(836): Illuminate\\Container\\Container->make('view', Array)
+#5 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(119): Illuminate\\Foundation\\Application->make('view', Array)
+#6 Command line code(1): app('view')
+#7 {main}
+
+Next Illuminate\\Contracts\\Container\\BindingResolutionException: Target class [view] does not exist. in E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:879
+Stack trace:
+#0 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(758): Illuminate\\Container\\Container->build('view')
+#1 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(851): Illuminate\\Container\\Container->resolve('view', Array, true)
+#2 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(694): Illuminate\\Foundation\\Application->resolve('view', Array)
+#3 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(836): Illuminate\\Container\\Container->make('view', Array)
+#4 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(119): Illuminate\\Foundation\\Application->make('view', Array)
+#5 Command line code(1): app('view')
+#6 {main}
+  thrown at E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:879)
+[stacktrace]
+#0 {main}
+"} 
+[2024-05-27 03:57:31] local.ERROR: Class "RealRashid\SweetAlert\SweetAlertServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"RealRashid\\SweetAlert\\SweetAlertServiceProvider\" not found at E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:208)
+[stacktrace]
+#0 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(144): Illuminate\\Foundation\\ProviderRepository->createProvider('RealRashid\\\\Swee...')
+#1 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(659): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-05-27 03:57:31] local.ERROR: Uncaught ReflectionException: Class "view" does not exist in E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php:877
+Stack trace:
+#0 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(877): ReflectionClass->__construct('view')
+#1 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(758): Illuminate\Container\Container->build('view')
+#2 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(851): Illuminate\Container\Container->resolve('view', Array, true)
+#3 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(694): Illuminate\Foundation\Application->resolve('view', Array)
+#4 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(836): Illuminate\Container\Container->make('view', Array)
+#5 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\helpers.php(119): Illuminate\Foundation\Application->make('view', Array)
+#6 Command line code(1): app('view')
+#7 {main}
+
+Next Illuminate\Contracts\Container\BindingResolutionException: Target class [view] does not exist. in E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php:879
+Stack trace:
+#0 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(758): Illuminate\Container\Container->build('view')
+#1 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(851): Illuminate\Container\Container->resolve('view', Array, true)
+#2 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(694): Illuminate\Foundation\Application->resolve('view', Array)
+#3 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(836): Illuminate\Container\Container->make('view', Array)
+#4 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\helpers.php(119): Illuminate\Foundation\Application->make('view', Array)
+#5 Command line code(1): app('view')
+#6 {main}
+  thrown {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Uncaught ReflectionException: Class \"view\" does not exist in E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:877
+Stack trace:
+#0 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(877): ReflectionClass->__construct('view')
+#1 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(758): Illuminate\\Container\\Container->build('view')
+#2 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(851): Illuminate\\Container\\Container->resolve('view', Array, true)
+#3 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(694): Illuminate\\Foundation\\Application->resolve('view', Array)
+#4 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(836): Illuminate\\Container\\Container->make('view', Array)
+#5 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(119): Illuminate\\Foundation\\Application->make('view', Array)
+#6 Command line code(1): app('view')
+#7 {main}
+
+Next Illuminate\\Contracts\\Container\\BindingResolutionException: Target class [view] does not exist. in E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:879
+Stack trace:
+#0 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(758): Illuminate\\Container\\Container->build('view')
+#1 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(851): Illuminate\\Container\\Container->resolve('view', Array, true)
+#2 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(694): Illuminate\\Foundation\\Application->resolve('view', Array)
+#3 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(836): Illuminate\\Container\\Container->make('view', Array)
+#4 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(119): Illuminate\\Foundation\\Application->make('view', Array)
+#5 Command line code(1): app('view')
+#6 {main}
+  thrown at E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:879)
+[stacktrace]
+#0 {main}
+"} 
+[2024-05-27 03:57:32] local.ERROR: Class "RealRashid\SweetAlert\SweetAlertServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"RealRashid\\SweetAlert\\SweetAlertServiceProvider\" not found at E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:208)
+[stacktrace]
+#0 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(144): Illuminate\\Foundation\\ProviderRepository->createProvider('RealRashid\\\\Swee...')
+#1 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(659): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-05-27 03:57:32] local.ERROR: Uncaught ReflectionException: Class "view" does not exist in E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php:877
+Stack trace:
+#0 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(877): ReflectionClass->__construct('view')
+#1 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(758): Illuminate\Container\Container->build('view')
+#2 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(851): Illuminate\Container\Container->resolve('view', Array, true)
+#3 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(694): Illuminate\Foundation\Application->resolve('view', Array)
+#4 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(836): Illuminate\Container\Container->make('view', Array)
+#5 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\helpers.php(119): Illuminate\Foundation\Application->make('view', Array)
+#6 Command line code(1): app('view')
+#7 {main}
+
+Next Illuminate\Contracts\Container\BindingResolutionException: Target class [view] does not exist. in E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php:879
+Stack trace:
+#0 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(758): Illuminate\Container\Container->build('view')
+#1 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(851): Illuminate\Container\Container->resolve('view', Array, true)
+#2 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(694): Illuminate\Foundation\Application->resolve('view', Array)
+#3 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(836): Illuminate\Container\Container->make('view', Array)
+#4 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\helpers.php(119): Illuminate\Foundation\Application->make('view', Array)
+#5 Command line code(1): app('view')
+#6 {main}
+  thrown {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Uncaught ReflectionException: Class \"view\" does not exist in E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:877
+Stack trace:
+#0 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(877): ReflectionClass->__construct('view')
+#1 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(758): Illuminate\\Container\\Container->build('view')
+#2 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(851): Illuminate\\Container\\Container->resolve('view', Array, true)
+#3 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(694): Illuminate\\Foundation\\Application->resolve('view', Array)
+#4 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(836): Illuminate\\Container\\Container->make('view', Array)
+#5 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(119): Illuminate\\Foundation\\Application->make('view', Array)
+#6 Command line code(1): app('view')
+#7 {main}
+
+Next Illuminate\\Contracts\\Container\\BindingResolutionException: Target class [view] does not exist. in E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:879
+Stack trace:
+#0 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(758): Illuminate\\Container\\Container->build('view')
+#1 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(851): Illuminate\\Container\\Container->resolve('view', Array, true)
+#2 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(694): Illuminate\\Foundation\\Application->resolve('view', Array)
+#3 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(836): Illuminate\\Container\\Container->make('view', Array)
+#4 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(119): Illuminate\\Foundation\\Application->make('view', Array)
+#5 Command line code(1): app('view')
+#6 {main}
+  thrown at E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:879)
+[stacktrace]
+#0 {main}
+"} 
+[2024-05-27 03:57:36] local.ERROR: Class "RealRashid\SweetAlert\SweetAlertServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"RealRashid\\SweetAlert\\SweetAlertServiceProvider\" not found at E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:208)
+[stacktrace]
+#0 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(144): Illuminate\\Foundation\\ProviderRepository->createProvider('RealRashid\\\\Swee...')
+#1 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(659): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-05-27 03:57:36] local.ERROR: Uncaught ReflectionException: Class "view" does not exist in E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php:877
+Stack trace:
+#0 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(877): ReflectionClass->__construct('view')
+#1 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(758): Illuminate\Container\Container->build('view')
+#2 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(851): Illuminate\Container\Container->resolve('view', Array, true)
+#3 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(694): Illuminate\Foundation\Application->resolve('view', Array)
+#4 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(836): Illuminate\Container\Container->make('view', Array)
+#5 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\helpers.php(119): Illuminate\Foundation\Application->make('view', Array)
+#6 Command line code(1): app('view')
+#7 {main}
+
+Next Illuminate\Contracts\Container\BindingResolutionException: Target class [view] does not exist. in E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php:879
+Stack trace:
+#0 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(758): Illuminate\Container\Container->build('view')
+#1 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(851): Illuminate\Container\Container->resolve('view', Array, true)
+#2 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(694): Illuminate\Foundation\Application->resolve('view', Array)
+#3 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(836): Illuminate\Container\Container->make('view', Array)
+#4 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\helpers.php(119): Illuminate\Foundation\Application->make('view', Array)
+#5 Command line code(1): app('view')
+#6 {main}
+  thrown {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Uncaught ReflectionException: Class \"view\" does not exist in E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:877
+Stack trace:
+#0 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(877): ReflectionClass->__construct('view')
+#1 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(758): Illuminate\\Container\\Container->build('view')
+#2 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(851): Illuminate\\Container\\Container->resolve('view', Array, true)
+#3 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(694): Illuminate\\Foundation\\Application->resolve('view', Array)
+#4 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(836): Illuminate\\Container\\Container->make('view', Array)
+#5 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(119): Illuminate\\Foundation\\Application->make('view', Array)
+#6 Command line code(1): app('view')
+#7 {main}
+
+Next Illuminate\\Contracts\\Container\\BindingResolutionException: Target class [view] does not exist. in E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:879
+Stack trace:
+#0 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(758): Illuminate\\Container\\Container->build('view')
+#1 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(851): Illuminate\\Container\\Container->resolve('view', Array, true)
+#2 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(694): Illuminate\\Foundation\\Application->resolve('view', Array)
+#3 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(836): Illuminate\\Container\\Container->make('view', Array)
+#4 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(119): Illuminate\\Foundation\\Application->make('view', Array)
+#5 Command line code(1): app('view')
+#6 {main}
+  thrown at E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:879)
+[stacktrace]
+#0 {main}
+"} 
+[2024-05-27 03:57:36] local.ERROR: Class "RealRashid\SweetAlert\SweetAlertServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"RealRashid\\SweetAlert\\SweetAlertServiceProvider\" not found at E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:208)
+[stacktrace]
+#0 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(144): Illuminate\\Foundation\\ProviderRepository->createProvider('RealRashid\\\\Swee...')
+#1 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(659): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-05-27 03:57:36] local.ERROR: Uncaught ReflectionException: Class "view" does not exist in E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php:877
+Stack trace:
+#0 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(877): ReflectionClass->__construct('view')
+#1 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(758): Illuminate\Container\Container->build('view')
+#2 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(851): Illuminate\Container\Container->resolve('view', Array, true)
+#3 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(694): Illuminate\Foundation\Application->resolve('view', Array)
+#4 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(836): Illuminate\Container\Container->make('view', Array)
+#5 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\helpers.php(119): Illuminate\Foundation\Application->make('view', Array)
+#6 Command line code(1): app('view')
+#7 {main}
+
+Next Illuminate\Contracts\Container\BindingResolutionException: Target class [view] does not exist. in E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php:879
+Stack trace:
+#0 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(758): Illuminate\Container\Container->build('view')
+#1 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(851): Illuminate\Container\Container->resolve('view', Array, true)
+#2 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(694): Illuminate\Foundation\Application->resolve('view', Array)
+#3 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(836): Illuminate\Container\Container->make('view', Array)
+#4 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\helpers.php(119): Illuminate\Foundation\Application->make('view', Array)
+#5 Command line code(1): app('view')
+#6 {main}
+  thrown {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Uncaught ReflectionException: Class \"view\" does not exist in E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:877
+Stack trace:
+#0 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(877): ReflectionClass->__construct('view')
+#1 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(758): Illuminate\\Container\\Container->build('view')
+#2 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(851): Illuminate\\Container\\Container->resolve('view', Array, true)
+#3 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(694): Illuminate\\Foundation\\Application->resolve('view', Array)
+#4 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(836): Illuminate\\Container\\Container->make('view', Array)
+#5 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(119): Illuminate\\Foundation\\Application->make('view', Array)
+#6 Command line code(1): app('view')
+#7 {main}
+
+Next Illuminate\\Contracts\\Container\\BindingResolutionException: Target class [view] does not exist. in E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:879
+Stack trace:
+#0 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(758): Illuminate\\Container\\Container->build('view')
+#1 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(851): Illuminate\\Container\\Container->resolve('view', Array, true)
+#2 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(694): Illuminate\\Foundation\\Application->resolve('view', Array)
+#3 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(836): Illuminate\\Container\\Container->make('view', Array)
+#4 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(119): Illuminate\\Foundation\\Application->make('view', Array)
+#5 Command line code(1): app('view')
+#6 {main}
+  thrown at E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:879)
+[stacktrace]
+#0 {main}
+"} 
+[2024-05-27 03:57:37] local.ERROR: Class "RealRashid\SweetAlert\SweetAlertServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"RealRashid\\SweetAlert\\SweetAlertServiceProvider\" not found at E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:208)
+[stacktrace]
+#0 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(144): Illuminate\\Foundation\\ProviderRepository->createProvider('RealRashid\\\\Swee...')
+#1 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(659): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-05-27 03:57:37] local.ERROR: Uncaught ReflectionException: Class "view" does not exist in E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php:877
+Stack trace:
+#0 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(877): ReflectionClass->__construct('view')
+#1 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(758): Illuminate\Container\Container->build('view')
+#2 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(851): Illuminate\Container\Container->resolve('view', Array, true)
+#3 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(694): Illuminate\Foundation\Application->resolve('view', Array)
+#4 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(836): Illuminate\Container\Container->make('view', Array)
+#5 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\helpers.php(119): Illuminate\Foundation\Application->make('view', Array)
+#6 Command line code(1): app('view')
+#7 {main}
+
+Next Illuminate\Contracts\Container\BindingResolutionException: Target class [view] does not exist. in E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php:879
+Stack trace:
+#0 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(758): Illuminate\Container\Container->build('view')
+#1 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(851): Illuminate\Container\Container->resolve('view', Array, true)
+#2 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(694): Illuminate\Foundation\Application->resolve('view', Array)
+#3 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(836): Illuminate\Container\Container->make('view', Array)
+#4 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\helpers.php(119): Illuminate\Foundation\Application->make('view', Array)
+#5 Command line code(1): app('view')
+#6 {main}
+  thrown {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Uncaught ReflectionException: Class \"view\" does not exist in E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:877
+Stack trace:
+#0 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(877): ReflectionClass->__construct('view')
+#1 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(758): Illuminate\\Container\\Container->build('view')
+#2 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(851): Illuminate\\Container\\Container->resolve('view', Array, true)
+#3 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(694): Illuminate\\Foundation\\Application->resolve('view', Array)
+#4 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(836): Illuminate\\Container\\Container->make('view', Array)
+#5 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(119): Illuminate\\Foundation\\Application->make('view', Array)
+#6 Command line code(1): app('view')
+#7 {main}
+
+Next Illuminate\\Contracts\\Container\\BindingResolutionException: Target class [view] does not exist. in E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:879
+Stack trace:
+#0 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(758): Illuminate\\Container\\Container->build('view')
+#1 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(851): Illuminate\\Container\\Container->resolve('view', Array, true)
+#2 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(694): Illuminate\\Foundation\\Application->resolve('view', Array)
+#3 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(836): Illuminate\\Container\\Container->make('view', Array)
+#4 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(119): Illuminate\\Foundation\\Application->make('view', Array)
+#5 Command line code(1): app('view')
+#6 {main}
+  thrown at E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:879)
+[stacktrace]
+#0 {main}
+"} 
+[2024-05-27 03:57:41] local.ERROR: Class "RealRashid\SweetAlert\SweetAlertServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"RealRashid\\SweetAlert\\SweetAlertServiceProvider\" not found at E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:208)
+[stacktrace]
+#0 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(144): Illuminate\\Foundation\\ProviderRepository->createProvider('RealRashid\\\\Swee...')
+#1 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(659): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-05-27 03:57:41] local.ERROR: Uncaught ReflectionException: Class "view" does not exist in E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php:877
+Stack trace:
+#0 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(877): ReflectionClass->__construct('view')
+#1 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(758): Illuminate\Container\Container->build('view')
+#2 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(851): Illuminate\Container\Container->resolve('view', Array, true)
+#3 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(694): Illuminate\Foundation\Application->resolve('view', Array)
+#4 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(836): Illuminate\Container\Container->make('view', Array)
+#5 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\helpers.php(119): Illuminate\Foundation\Application->make('view', Array)
+#6 Command line code(1): app('view')
+#7 {main}
+
+Next Illuminate\Contracts\Container\BindingResolutionException: Target class [view] does not exist. in E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php:879
+Stack trace:
+#0 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(758): Illuminate\Container\Container->build('view')
+#1 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(851): Illuminate\Container\Container->resolve('view', Array, true)
+#2 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(694): Illuminate\Foundation\Application->resolve('view', Array)
+#3 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(836): Illuminate\Container\Container->make('view', Array)
+#4 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\helpers.php(119): Illuminate\Foundation\Application->make('view', Array)
+#5 Command line code(1): app('view')
+#6 {main}
+  thrown {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Uncaught ReflectionException: Class \"view\" does not exist in E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:877
+Stack trace:
+#0 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(877): ReflectionClass->__construct('view')
+#1 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(758): Illuminate\\Container\\Container->build('view')
+#2 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(851): Illuminate\\Container\\Container->resolve('view', Array, true)
+#3 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(694): Illuminate\\Foundation\\Application->resolve('view', Array)
+#4 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(836): Illuminate\\Container\\Container->make('view', Array)
+#5 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(119): Illuminate\\Foundation\\Application->make('view', Array)
+#6 Command line code(1): app('view')
+#7 {main}
+
+Next Illuminate\\Contracts\\Container\\BindingResolutionException: Target class [view] does not exist. in E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:879
+Stack trace:
+#0 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(758): Illuminate\\Container\\Container->build('view')
+#1 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(851): Illuminate\\Container\\Container->resolve('view', Array, true)
+#2 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(694): Illuminate\\Foundation\\Application->resolve('view', Array)
+#3 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(836): Illuminate\\Container\\Container->make('view', Array)
+#4 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(119): Illuminate\\Foundation\\Application->make('view', Array)
+#5 Command line code(1): app('view')
+#6 {main}
+  thrown at E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:879)
+[stacktrace]
+#0 {main}
+"} 
+[2024-05-27 03:57:41] local.ERROR: Class "RealRashid\SweetAlert\SweetAlertServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"RealRashid\\SweetAlert\\SweetAlertServiceProvider\" not found at E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:208)
+[stacktrace]
+#0 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(144): Illuminate\\Foundation\\ProviderRepository->createProvider('RealRashid\\\\Swee...')
+#1 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(659): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-05-27 03:57:41] local.ERROR: Uncaught ReflectionException: Class "view" does not exist in E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php:877
+Stack trace:
+#0 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(877): ReflectionClass->__construct('view')
+#1 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(758): Illuminate\Container\Container->build('view')
+#2 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(851): Illuminate\Container\Container->resolve('view', Array, true)
+#3 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(694): Illuminate\Foundation\Application->resolve('view', Array)
+#4 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(836): Illuminate\Container\Container->make('view', Array)
+#5 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\helpers.php(119): Illuminate\Foundation\Application->make('view', Array)
+#6 Command line code(1): app('view')
+#7 {main}
+
+Next Illuminate\Contracts\Container\BindingResolutionException: Target class [view] does not exist. in E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php:879
+Stack trace:
+#0 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(758): Illuminate\Container\Container->build('view')
+#1 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(851): Illuminate\Container\Container->resolve('view', Array, true)
+#2 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(694): Illuminate\Foundation\Application->resolve('view', Array)
+#3 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(836): Illuminate\Container\Container->make('view', Array)
+#4 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\helpers.php(119): Illuminate\Foundation\Application->make('view', Array)
+#5 Command line code(1): app('view')
+#6 {main}
+  thrown {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Uncaught ReflectionException: Class \"view\" does not exist in E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:877
+Stack trace:
+#0 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(877): ReflectionClass->__construct('view')
+#1 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(758): Illuminate\\Container\\Container->build('view')
+#2 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(851): Illuminate\\Container\\Container->resolve('view', Array, true)
+#3 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(694): Illuminate\\Foundation\\Application->resolve('view', Array)
+#4 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(836): Illuminate\\Container\\Container->make('view', Array)
+#5 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(119): Illuminate\\Foundation\\Application->make('view', Array)
+#6 Command line code(1): app('view')
+#7 {main}
+
+Next Illuminate\\Contracts\\Container\\BindingResolutionException: Target class [view] does not exist. in E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:879
+Stack trace:
+#0 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(758): Illuminate\\Container\\Container->build('view')
+#1 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(851): Illuminate\\Container\\Container->resolve('view', Array, true)
+#2 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(694): Illuminate\\Foundation\\Application->resolve('view', Array)
+#3 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(836): Illuminate\\Container\\Container->make('view', Array)
+#4 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(119): Illuminate\\Foundation\\Application->make('view', Array)
+#5 Command line code(1): app('view')
+#6 {main}
+  thrown at E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:879)
+[stacktrace]
+#0 {main}
+"} 
+[2024-05-27 03:57:42] local.ERROR: Class "RealRashid\SweetAlert\SweetAlertServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"RealRashid\\SweetAlert\\SweetAlertServiceProvider\" not found at E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:208)
+[stacktrace]
+#0 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(144): Illuminate\\Foundation\\ProviderRepository->createProvider('RealRashid\\\\Swee...')
+#1 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(659): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-05-27 03:57:42] local.ERROR: Uncaught ReflectionException: Class "view" does not exist in E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php:877
+Stack trace:
+#0 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(877): ReflectionClass->__construct('view')
+#1 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(758): Illuminate\Container\Container->build('view')
+#2 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(851): Illuminate\Container\Container->resolve('view', Array, true)
+#3 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(694): Illuminate\Foundation\Application->resolve('view', Array)
+#4 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(836): Illuminate\Container\Container->make('view', Array)
+#5 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\helpers.php(119): Illuminate\Foundation\Application->make('view', Array)
+#6 Command line code(1): app('view')
+#7 {main}
+
+Next Illuminate\Contracts\Container\BindingResolutionException: Target class [view] does not exist. in E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php:879
+Stack trace:
+#0 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(758): Illuminate\Container\Container->build('view')
+#1 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(851): Illuminate\Container\Container->resolve('view', Array, true)
+#2 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(694): Illuminate\Foundation\Application->resolve('view', Array)
+#3 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(836): Illuminate\Container\Container->make('view', Array)
+#4 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\helpers.php(119): Illuminate\Foundation\Application->make('view', Array)
+#5 Command line code(1): app('view')
+#6 {main}
+  thrown {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Uncaught ReflectionException: Class \"view\" does not exist in E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:877
+Stack trace:
+#0 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(877): ReflectionClass->__construct('view')
+#1 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(758): Illuminate\\Container\\Container->build('view')
+#2 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(851): Illuminate\\Container\\Container->resolve('view', Array, true)
+#3 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(694): Illuminate\\Foundation\\Application->resolve('view', Array)
+#4 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(836): Illuminate\\Container\\Container->make('view', Array)
+#5 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(119): Illuminate\\Foundation\\Application->make('view', Array)
+#6 Command line code(1): app('view')
+#7 {main}
+
+Next Illuminate\\Contracts\\Container\\BindingResolutionException: Target class [view] does not exist. in E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:879
+Stack trace:
+#0 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(758): Illuminate\\Container\\Container->build('view')
+#1 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(851): Illuminate\\Container\\Container->resolve('view', Array, true)
+#2 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(694): Illuminate\\Foundation\\Application->resolve('view', Array)
+#3 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(836): Illuminate\\Container\\Container->make('view', Array)
+#4 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(119): Illuminate\\Foundation\\Application->make('view', Array)
+#5 Command line code(1): app('view')
+#6 {main}
+  thrown at E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:879)
+[stacktrace]
+#0 {main}
+"} 
+[2024-05-27 03:57:46] local.ERROR: Class "RealRashid\SweetAlert\SweetAlertServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"RealRashid\\SweetAlert\\SweetAlertServiceProvider\" not found at E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:208)
+[stacktrace]
+#0 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(144): Illuminate\\Foundation\\ProviderRepository->createProvider('RealRashid\\\\Swee...')
+#1 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(659): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-05-27 03:57:46] local.ERROR: Uncaught ReflectionException: Class "view" does not exist in E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php:877
+Stack trace:
+#0 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(877): ReflectionClass->__construct('view')
+#1 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(758): Illuminate\Container\Container->build('view')
+#2 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(851): Illuminate\Container\Container->resolve('view', Array, true)
+#3 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(694): Illuminate\Foundation\Application->resolve('view', Array)
+#4 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(836): Illuminate\Container\Container->make('view', Array)
+#5 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\helpers.php(119): Illuminate\Foundation\Application->make('view', Array)
+#6 Command line code(1): app('view')
+#7 {main}
+
+Next Illuminate\Contracts\Container\BindingResolutionException: Target class [view] does not exist. in E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php:879
+Stack trace:
+#0 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(758): Illuminate\Container\Container->build('view')
+#1 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(851): Illuminate\Container\Container->resolve('view', Array, true)
+#2 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(694): Illuminate\Foundation\Application->resolve('view', Array)
+#3 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(836): Illuminate\Container\Container->make('view', Array)
+#4 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\helpers.php(119): Illuminate\Foundation\Application->make('view', Array)
+#5 Command line code(1): app('view')
+#6 {main}
+  thrown {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Uncaught ReflectionException: Class \"view\" does not exist in E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:877
+Stack trace:
+#0 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(877): ReflectionClass->__construct('view')
+#1 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(758): Illuminate\\Container\\Container->build('view')
+#2 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(851): Illuminate\\Container\\Container->resolve('view', Array, true)
+#3 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(694): Illuminate\\Foundation\\Application->resolve('view', Array)
+#4 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(836): Illuminate\\Container\\Container->make('view', Array)
+#5 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(119): Illuminate\\Foundation\\Application->make('view', Array)
+#6 Command line code(1): app('view')
+#7 {main}
+
+Next Illuminate\\Contracts\\Container\\BindingResolutionException: Target class [view] does not exist. in E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:879
+Stack trace:
+#0 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(758): Illuminate\\Container\\Container->build('view')
+#1 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(851): Illuminate\\Container\\Container->resolve('view', Array, true)
+#2 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(694): Illuminate\\Foundation\\Application->resolve('view', Array)
+#3 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(836): Illuminate\\Container\\Container->make('view', Array)
+#4 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(119): Illuminate\\Foundation\\Application->make('view', Array)
+#5 Command line code(1): app('view')
+#6 {main}
+  thrown at E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:879)
+[stacktrace]
+#0 {main}
+"} 
+[2024-05-27 03:57:46] local.ERROR: Class "RealRashid\SweetAlert\SweetAlertServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"RealRashid\\SweetAlert\\SweetAlertServiceProvider\" not found at E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:208)
+[stacktrace]
+#0 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(144): Illuminate\\Foundation\\ProviderRepository->createProvider('RealRashid\\\\Swee...')
+#1 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(659): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-05-27 03:57:46] local.ERROR: Uncaught ReflectionException: Class "view" does not exist in E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php:877
+Stack trace:
+#0 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(877): ReflectionClass->__construct('view')
+#1 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(758): Illuminate\Container\Container->build('view')
+#2 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(851): Illuminate\Container\Container->resolve('view', Array, true)
+#3 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(694): Illuminate\Foundation\Application->resolve('view', Array)
+#4 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(836): Illuminate\Container\Container->make('view', Array)
+#5 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\helpers.php(119): Illuminate\Foundation\Application->make('view', Array)
+#6 Command line code(1): app('view')
+#7 {main}
+
+Next Illuminate\Contracts\Container\BindingResolutionException: Target class [view] does not exist. in E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php:879
+Stack trace:
+#0 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(758): Illuminate\Container\Container->build('view')
+#1 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(851): Illuminate\Container\Container->resolve('view', Array, true)
+#2 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(694): Illuminate\Foundation\Application->resolve('view', Array)
+#3 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(836): Illuminate\Container\Container->make('view', Array)
+#4 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\helpers.php(119): Illuminate\Foundation\Application->make('view', Array)
+#5 Command line code(1): app('view')
+#6 {main}
+  thrown {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Uncaught ReflectionException: Class \"view\" does not exist in E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:877
+Stack trace:
+#0 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(877): ReflectionClass->__construct('view')
+#1 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(758): Illuminate\\Container\\Container->build('view')
+#2 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(851): Illuminate\\Container\\Container->resolve('view', Array, true)
+#3 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(694): Illuminate\\Foundation\\Application->resolve('view', Array)
+#4 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(836): Illuminate\\Container\\Container->make('view', Array)
+#5 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(119): Illuminate\\Foundation\\Application->make('view', Array)
+#6 Command line code(1): app('view')
+#7 {main}
+
+Next Illuminate\\Contracts\\Container\\BindingResolutionException: Target class [view] does not exist. in E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:879
+Stack trace:
+#0 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(758): Illuminate\\Container\\Container->build('view')
+#1 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(851): Illuminate\\Container\\Container->resolve('view', Array, true)
+#2 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(694): Illuminate\\Foundation\\Application->resolve('view', Array)
+#3 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(836): Illuminate\\Container\\Container->make('view', Array)
+#4 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(119): Illuminate\\Foundation\\Application->make('view', Array)
+#5 Command line code(1): app('view')
+#6 {main}
+  thrown at E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:879)
+[stacktrace]
+#0 {main}
+"} 
+[2024-05-27 03:57:47] local.ERROR: Class "RealRashid\SweetAlert\SweetAlertServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"RealRashid\\SweetAlert\\SweetAlertServiceProvider\" not found at E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:208)
+[stacktrace]
+#0 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(144): Illuminate\\Foundation\\ProviderRepository->createProvider('RealRashid\\\\Swee...')
+#1 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(659): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-05-27 03:57:47] local.ERROR: Uncaught ReflectionException: Class "view" does not exist in E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php:877
+Stack trace:
+#0 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(877): ReflectionClass->__construct('view')
+#1 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(758): Illuminate\Container\Container->build('view')
+#2 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(851): Illuminate\Container\Container->resolve('view', Array, true)
+#3 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(694): Illuminate\Foundation\Application->resolve('view', Array)
+#4 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(836): Illuminate\Container\Container->make('view', Array)
+#5 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\helpers.php(119): Illuminate\Foundation\Application->make('view', Array)
+#6 Command line code(1): app('view')
+#7 {main}
+
+Next Illuminate\Contracts\Container\BindingResolutionException: Target class [view] does not exist. in E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php:879
+Stack trace:
+#0 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(758): Illuminate\Container\Container->build('view')
+#1 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(851): Illuminate\Container\Container->resolve('view', Array, true)
+#2 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Container\Container.php(694): Illuminate\Foundation\Application->resolve('view', Array)
+#3 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(836): Illuminate\Container\Container->make('view', Array)
+#4 E:\0. On going projects\qr-backend-laravel\vendor\laravel\framework\src\Illuminate\Foundation\helpers.php(119): Illuminate\Foundation\Application->make('view', Array)
+#5 Command line code(1): app('view')
+#6 {main}
+  thrown {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Uncaught ReflectionException: Class \"view\" does not exist in E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:877
+Stack trace:
+#0 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(877): ReflectionClass->__construct('view')
+#1 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(758): Illuminate\\Container\\Container->build('view')
+#2 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(851): Illuminate\\Container\\Container->resolve('view', Array, true)
+#3 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(694): Illuminate\\Foundation\\Application->resolve('view', Array)
+#4 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(836): Illuminate\\Container\\Container->make('view', Array)
+#5 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(119): Illuminate\\Foundation\\Application->make('view', Array)
+#6 Command line code(1): app('view')
+#7 {main}
+
+Next Illuminate\\Contracts\\Container\\BindingResolutionException: Target class [view] does not exist. in E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:879
+Stack trace:
+#0 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(758): Illuminate\\Container\\Container->build('view')
+#1 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(851): Illuminate\\Container\\Container->resolve('view', Array, true)
+#2 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(694): Illuminate\\Foundation\\Application->resolve('view', Array)
+#3 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(836): Illuminate\\Container\\Container->make('view', Array)
+#4 E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(119): Illuminate\\Foundation\\Application->make('view', Array)
+#5 Command line code(1): app('view')
+#6 {main}
+  thrown at E:\\0. On going projects\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:879)
+[stacktrace]
+#0 {main}
+"} 
