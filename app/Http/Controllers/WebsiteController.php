@@ -95,9 +95,9 @@ class WebsiteController extends Controller
             // Handle file upload for the image
             if ($request->hasFile('image')) {
                 $image = $request->file('image');
-                $imageName = time() . '-' . $image->getClientOriginalName();
-                $image->move(public_path('image/website/'), $imageName);
-                $validatedData['image'] = 'image/website/' . $imageName;
+                $imageName = str_replace(' ', '-', $image->getClientOriginalName());
+                $image->move(public_path('image/qrgen/'), $imageName);
+                $validatedData['image'] = 'image/qrgen/' . $imageName;
             }
             Website::create($validatedData);
             return response()->json([
@@ -167,9 +167,9 @@ class WebsiteController extends Controller
             // Handle file upload for the image if present
             if ($request->hasFile('image')) {
                 $image = $request->file('image');
-                $imageName = time() . '-' . $image->getClientOriginalName();
-                $image->move(public_path('image/website/'), $imageName);
-                $validatedData['image'] = 'image/website/' . $imageName;
+                $imageName = str_replace(' ', '-', $image->getClientOriginalName());
+                $image->move(public_path('image/qrgen/'), $imageName);
+                $validatedData['image'] = 'image/qrgen/' . $imageName;
 
                 // Delete old image if it exists
                 if ($website->image && file_exists(public_path($website->image))) {
@@ -209,7 +209,7 @@ class WebsiteController extends Controller
      */
     public function destroy($id)
     {
-     $website = Website::find($id);
+        $website = Website::find($id);
 
         if (!$website) {
             return response()->json(['error' => 'website not found'], 404);
@@ -222,5 +222,5 @@ class WebsiteController extends Controller
         }
         return response()->json(['message' => 'website deleted successfully']);
     }
-    
+
 }

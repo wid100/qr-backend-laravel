@@ -7051,3 +7051,6 @@
 [2024-05-26 06:41:21] local.INFO: Qrgen updated successfully {"id":9} 
 [2024-05-26 09:13:26] local.INFO: Profile updated successfully {"id":9} 
 [2024-05-26 09:30:35] local.INFO: Profile updated successfully {"id":9} 
+[2024-05-28 08:19:58] local.INFO: Update request received {"data":{"website_name":"monojasdfasd","website_url":"https://facebook.com/","image":"image/qrgen/my-image-name-(47).png","user_id":"9","status":"active"}} 
+[2024-05-28 08:19:58] local.INFO: Data validated {"validatedData":{"user_id":"9","website_name":"monojasdfasd","website_url":"https://facebook.com/","image":"image/qrgen/my-image-name-(47).png"}} 
+[2024-05-28 08:19:58] local.INFO: Updating website {"website":{"App\\Models\\Website":{"id":12,"user_id":"9","website_name":"monojasdfasd","website_url":"https://www.youtube.com/","image":"image/qrgen/my-image-name-(47).png","status":"active","created_at":"2024-05-28T08:19:31.000000Z","updated_at":"2024-05-28T08:19:31.000000Z"}}} 
