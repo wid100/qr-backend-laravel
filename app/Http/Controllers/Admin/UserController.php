@@ -74,5 +74,4 @@ class UserController extends Controller
         $user->delete();
         return redirect()->back()->with('success', 'User Delete Success');
     }
-
 }
