@@ -74,7 +74,7 @@ Route::post('/update-instagram/{id}', [InstagramController::class, 'update']);
 Route::get('/edit-instagram/{id}', [InstagramController::class, 'edit']);
 
 
-// QR Website 
+// QR Website
 
 Route::post('create-website', [WebsiteController::class, 'store']);
 Route::get('/get-website/{user}', [WebsiteController::class, 'getWebsite']);
