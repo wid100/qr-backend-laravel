@@ -76,10 +76,9 @@ Route::get('/edit-instagram/{id}', [InstagramController::class, 'edit']);
 
 // QR Website 
 
-Route::post('create-website',[WebsiteController::class,'store']);
+Route::post('create-website', [WebsiteController::class, 'store']);
 Route::get('/get-website/{user}', [WebsiteController::class, 'getWebsite']);
-Route::get('/get-active-website/{userId}', [WebsiteController::class, 'getActiveWebsite']);
-Route::get('/get-pause-website/{userId}', [WebsiteController::class, 'getPauseeWebsite']);
-Route::put('/website/toggle-status/{id}', [WebsiteController::class, 'toggleStatusWebsite']);
+
 Route::post('/update_website/{id}', [WebsiteController::class, 'update']);
 Route::get('/edit_website/{id}', [WebsiteController::class, 'edit']);
+Route::delete('/delete_website/{id}', [WebsiteController::class, 'destroy']);
