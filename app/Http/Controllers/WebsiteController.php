@@ -86,24 +86,20 @@ class WebsiteController extends Controller
             // Validate the request data
             $validatedData = $request->validate([
                 'user_id' => 'required|integer',
-                'cardname' => 'required',
-                'username' => 'required',
-                'image' => 'required|image',
+                'website_name' => 'required',
+                'website_url' => 'required',
+                'image' => 'required',
                 'status' => 'nullable',
             ]);
 
             // Handle file upload for the image
             if ($request->hasFile('image')) {
                 $image = $request->file('image');
-                $imageName = time() . '-' . $image->getClientOriginalName();
-                $image->move(public_path('image/website/'), $imageName);
-                $validatedData['image'] = 'image/website/' . $imageName;
+                $imageName = str_replace(' ', '-', $image->getClientOriginalName());
+                $image->move(public_path('image/qrgen/'), $imageName);
+                $validatedData['image'] = 'image/qrgen/' . $imageName;
             }
-
             Website::create($validatedData);
-
-            Log::info('Website created successfully');
-
             return response()->json([
                 'status' => 200,
                 'message' => 'Website created successfully',
@@ -154,41 +150,56 @@ class WebsiteController extends Controller
     public function update(Request $request, $id)
     {
         try {
+            Log::info('Update request received', ['data' => $request->all()]);
+
             // Validate the request data
             $validatedData = $request->validate([
                 'user_id' => 'required',
-                'cardname' => 'required',
-                'username' => 'required' . $id,
-                'image' => 'image|max:10240', // Maximum file size: 10MB
+                'website_name' => 'required',
+                'website_url' => 'required',
+                'image' => 'required', // Maximum file size: 10MB
             ]);
 
-            $wesite = Website::findOrFail($id);
+            Log::info('Data validated', ['validatedData' => $validatedData]);
 
-            // Update only the fields that are provided in the request
-            $wesite->update(array_filter($validatedData));
+            $website = Website::findOrFail($id);
 
-            // Handle file upload for the image
+            // Handle file upload for the image if present
             if ($request->hasFile('image')) {
                 $image = $request->file('image');
-                $imageName = time() . '-' . $image->getClientOriginalName();
+                $imageName = str_replace(' ', '-', $image->getClientOriginalName());
                 $image->move(public_path('image/qrgen/'), $imageName);
-                $wesite->image = 'image/qrgen/' . $imageName;
-                $wesite->save();
+                $validatedData['image'] = 'image/qrgen/' . $imageName;
+
+                // Delete old image if it exists
+                if ($website->image && file_exists(public_path($website->image))) {
+                    unlink(public_path($website->image));
+                }
             }
 
-            Log::info('Wesite updated successfully');
+            Log::info('Updating website', ['website' => $website]);
+
+            // Update the website with the validated data
+            $website->update($validatedData);
 
             return response()->json([
                 'status' => 200,
-                'message' => 'Wesite updated successfully',
+                'message' => 'Website updated successfully',
             ]);
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            Log::error('Validation error', ['errors' => $e->errors()]);
+            return response()->json(['status' => 422, 'errors' => $e->errors()]);
         } catch (\Throwable $e) {
-            // Log error
-            Log::error('Error updating Wesite', ['error' => $e->getMessage()]);
-            // Return internal server error
-            return response()->json(['status' => 500, 'error' => 'Internal Server Error'], 500);
+            Log::error('Error updating Website', ['error' => $e->getMessage()]);
+            return response()->json(['status' => 500, 'error' => 'Internal Server Error', 'message' => $e->getMessage()], 500);
         }
     }
+
+
+
+
+
+
 
     /**
      * Remove the specified resource from storage.
@@ -196,8 +207,20 @@ class WebsiteController extends Controller
      * @param  \App\Models\Website  $website
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Website $website)
+    public function destroy($id)
     {
-        //
+        $website = Website::find($id);
+
+        if (!$website) {
+            return response()->json(['error' => 'website not found'], 404);
+        }
+
+        $imagePath = $website->image;
+        $website->delete();
+        if ($imagePath && file_exists($imagePath)) {
+            unlink($imagePath);
+        }
+        return response()->json(['message' => 'website deleted successfully']);
     }
+
 }

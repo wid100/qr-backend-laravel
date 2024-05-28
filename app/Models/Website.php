@@ -10,8 +10,8 @@ class Website extends Model
     use HasFactory;
     protected $fillable = [
         'user_id',
-        'cardname',
-        'username',
+        'website_name',
+        'website_url',
         'image',
     ];
 }
