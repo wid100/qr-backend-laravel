@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QrgenController;
 use App\Http\Controllers\Api\CountryController;
+use App\Http\Controllers\Api\InstaController;
 use App\Http\Controllers\Api\PackageController;
 use App\Http\Controllers\Api\PaymentController;
 use App\Http\Controllers\Api\SubscriptionController;
@@ -65,13 +66,13 @@ Route::post('/check-subscription', [SubscriptionController::class, 'checkSubscri
 
 // QR Instagram
 
-Route::post('create-instagram', [InstagramController::class, 'store']);
-Route::get('/get-instagram/{user}', [InstagramController::class, 'getInstagram']);
-Route::get('/getActiveInstagram/{userId}', [InstagramController::class, 'getActiveInstagram']);
-Route::get('/getpauseInstagram/{userId}', [InstagramController::class, 'getPauseeInstagram']);
-Route::put('/instagram/toggle-status/{id}', [InstagramController::class, 'toggleStatusInstagram']);
-Route::post('/update-instagram/{id}', [InstagramController::class, 'update']);
-Route::get('/edit-instagram/{id}', [InstagramController::class, 'edit']);
+// Route::post('create-instagram', [InstagramController::class, 'store']);
+// Route::get('/get-instagram/{user}', [InstagramController::class, 'getInstagram']);
+// Route::get('/getActiveInstagram/{userId}', [InstagramController::class, 'getActiveInstagram']);
+// Route::get('/getpauseInstagram/{userId}', [InstagramController::class, 'getPauseeInstagram']);
+// Route::put('/instagram/toggle-status/{id}', [InstagramController::class, 'toggleStatusInstagram']);
+// Route::post('/update-instagram/{id}', [InstagramController::class, 'update']);
+// Route::get('/edit-instagram/{id}', [InstagramController::class, 'edit']);
 
 
 // QR Website
@@ -82,3 +83,8 @@ Route::get('/get-website/{user}', [WebsiteController::class, 'getWebsite']);
 Route::post('/update_website/{id}', [WebsiteController::class, 'update']);
 Route::get('/edit_website/{id}', [WebsiteController::class, 'edit']);
 Route::delete('/delete_website/{id}', [WebsiteController::class, 'destroy']);
+
+
+// ==============insta systems============
+Route::get('category', [InstaController::class, 'allCategory']);
+Route::get('template', [InstaController::class, 'allTemplate']);
