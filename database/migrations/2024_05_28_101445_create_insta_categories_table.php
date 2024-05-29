@@ -15,6 +15,8 @@ class CreateInstaCategoriesTable extends Migration
     {
         Schema::create('insta_categories', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->boolean('status')->default(true);
             $table->timestamps();
         });
     }
