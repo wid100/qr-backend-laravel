@@ -15,7 +15,8 @@ class InstaCategoryController extends Controller
      */
     public function index()
     {
-        //
+        $insta_category = InstaCategory::all();
+        return view('admin.instacategory.index', compact('insta_category'));
     }
 
     /**
@@ -25,7 +26,7 @@ class InstaCategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.instacategory.create');
     }
 
     /**
@@ -36,7 +37,18 @@ class InstaCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+        ]);
+
+        $status = $request->has('status') ? 1 : 0;
+        $insta_category = new InstaCategory();
+        $insta_category->name = $validatedData['name'];
+        $insta_category->status = $status;
+
+        $insta_category->save();
+
+        return redirect()->route('admin.instacategory.index')->with('success', 'Insta Category created successfully.');
     }
 
     /**
@@ -56,9 +68,10 @@ class InstaCategoryController extends Controller
      * @param  \App\Models\InstaCategory  $instaCategory
      * @return \Illuminate\Http\Response
      */
-    public function edit(InstaCategory $instaCategory)
+    public function edit($id)
     {
-        //
+        $category = InstaCategory::find($id);
+        return view('admin.instacategory.edit', compact('category'));
     }
 
     /**
@@ -68,9 +81,20 @@ class InstaCategoryController extends Controller
      * @param  \App\Models\InstaCategory  $instaCategory
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, InstaCategory $instaCategory)
+    public function update(Request $request, $id)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required',
+        ]);
+
+        $status = $request->has('status') ? 1 : 0;
+        $insta_category = InstaCategory::findOrFail($id);
+        $insta_category->name = $validatedData['name'];
+        $insta_category->status = $status;
+
+        $insta_category->save();
+
+        return redirect()->route('admin.instacategory.index')->with('success', 'Insta Category Update successfully.');
     }
 
     /**
@@ -79,8 +103,10 @@ class InstaCategoryController extends Controller
      * @param  \App\Models\InstaCategory  $instaCategory
      * @return \Illuminate\Http\Response
      */
-    public function destroy(InstaCategory $instaCategory)
+    public function destroy($id)
     {
-        //
+        $category = InstaCategory::find($id);
+        $category->delete();
+        return redirect()->back()->with('success', 'Category Delete Success');
     }
 }

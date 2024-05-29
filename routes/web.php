@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Request;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
+use App\Http\Controllers\Admin\InstaCategoryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -89,10 +90,9 @@ Route::namespace('App\Http\Controllers')->group(
             Route::resource('/package', 'PackagesController');
             Route::resource('/payment', 'PaymentController');
             Route::resource('/subscription', 'SubscriptionsController');
-            
+
             Route::resource('/website', 'WebsiteCardController');
-
-
+            Route::resource('/instacategory', 'InstaCategoryController');
         });
     }
 );

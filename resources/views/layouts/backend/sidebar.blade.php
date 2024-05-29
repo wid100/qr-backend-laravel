@@ -38,7 +38,7 @@
                         <li class="nav-item">
                             <a href="{{ route('admin.card.index') }}" class="nav-link">All Cards</a>
                         </li>
-                     
+
                     </ul>
                 </div>
             </li>
@@ -54,9 +54,16 @@
                         <li class="nav-item">
                             <a href="{{ route('admin.website.index') }}" class="nav-link">All website cards</a>
                         </li>
-                     
+
                     </ul>
                 </div>
+            </li>
+
+            <li class="nav-item">
+                <a href="{{ route('admin.instacategory.index') }}" class="nav-link">
+                    <i class="link-icon" data-feather="box"></i>
+                    <span class="link-title">Insta Category</span>
+                </a>
             </li>
 
             <li class="nav-item">
