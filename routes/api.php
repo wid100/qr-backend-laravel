@@ -68,11 +68,13 @@ Route::post('/check-subscription', [SubscriptionController::class, 'checkSubscri
 
 Route::post('create-instagram', [InstagramController::class, 'store']);
 Route::get('/get-instagram/{user}', [InstagramController::class, 'getInstagram']);
+Route::post('/update-instagram/{id}', [InstagramController::class, 'update']);
 Route::delete('/delete_instagram/{id}', [InstagramController::class, 'destroy']);
+Route::get('/edit_instagram/{id}', [InstagramController::class, 'edit']);
 // Route::get('/getActiveInstagram/{userId}', [InstagramController::class, 'getActiveInstagram']);
 // Route::get('/getpauseInstagram/{userId}', [InstagramController::class, 'getPauseeInstagram']);
 // Route::put('/instagram/toggle-status/{id}', [InstagramController::class, 'toggleStatusInstagram']);
-// Route::post('/update-instagram/{id}', [InstagramController::class, 'update']);
+
 // Route::get('/edit-instagram/{id}', [InstagramController::class, 'edit']);
 
 

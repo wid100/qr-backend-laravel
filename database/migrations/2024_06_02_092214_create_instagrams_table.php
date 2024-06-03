@@ -22,7 +22,7 @@ class CreateInstagramsTable extends Migration
             $table->foreign('insta_category')->references('id')->on('insta_categories')->onDelete('cascade');
             $table->string('frame_color')->nullable();
             $table->string('code_color')->nullable();
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }
