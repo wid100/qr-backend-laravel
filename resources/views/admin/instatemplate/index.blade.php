@@ -32,10 +32,10 @@
                                 </thead>
                                 <tbody>
                                     @foreach ($templates as $key => $template)
-                                        <tr>
+                                        <tr class="insta-template-tr">
                                             <td>{{ $key + 1 }}</td>
 
-                                            <td>{!! $template->template !!}</td>
+                                            <td width="100">{!! $template->template !!}</td>
                                             <td>{{ $template->created_at->format('d/m/Y') }}</td>
                                             <td>
                                                 @if ($template->status === 1)
