@@ -91,7 +91,7 @@ class InstagramController extends Controller
                 'insta_category' => 'nullable',
                 'frame_color' => 'nullable',
                 'code_color' => 'nullable',
-                'image' => 'required', // Ensure 'image' is an image file
+                'image' => 'nullable', // Ensure 'image' is an image file
             ]);
 
             if ($validator->fails()) {
@@ -134,46 +134,7 @@ class InstagramController extends Controller
             return response()->json(['status' => 500, 'error' => 'Internal Server Error'], 500);
         }
     }
-    // public function store(Request $request)
-    // {
-    //     try {
-    //         // Validate the request data
-    //         $validatedData = $request->validate([
-    //             'user_id' => 'required',
-    //             'instagram_name' => 'required',
-    //             'instagram_username' => 'required',
-    //             'insta_category' => 'nullable',
-    //             'frame_color' => 'nullable',
-    //             'code_color' => 'nullable',
-    //             'image' => 'required', // Ensure 'image' is an image file
-    //         ]);
-    //         dd($validatedData);
-
-    //         // Handle file upload for the image
-    //         if ($request->hasFile('image')) {
-    //             $image = $request->file('image');
-    //             $imageName = str_replace(' ', '-', $image->getClientOriginalName());
-    //             $image->move(public_path('image/qrgen/'), $imageName);
-    //             $validatedData['image'] = 'image/qrgen/' . $imageName;
-    //         }
-
-    //         Instagram::create($validatedData);
-
-    //         Log::info('Instagram created successfully');
-
-    //         return response()->json([
-    //             'status' => 200,
-    //             'message' => 'Instagram created successfully',
-    //         ]);
-    //     } catch (\Throwable $e) {
-    //         // Log error
-    //         Log::error('Error creating Instagram', ['error' => $e->getMessage()]);
-    //         // Return internal server error
-    //         return response()->json(['status' => 500, 'error' => 'Internal Server Error'], 500);
-    //     }
-    // }
-
-
+   
 
     /**
      * Display the specified resource.
@@ -215,36 +176,58 @@ class InstagramController extends Controller
     public function update(Request $request, $id)
     {
         try {
-            // Validate the request data
-            $validatedData = $request->validate([
-                'user_id' => 'required|integer',
-                'cardname' => 'required|string',
-                'username' => 'required|unique:instagrams,username,' . $id,
-                'image' => 'required', // Maximum file size: 10MB
+            Log::info('Update method called', ['request' => $request->all(), 'id' => $id]);
+
+            $validator = Validator::make($request->all(), [
+                'user_id' => 'required',
+                'instagram_name' => 'required',
+                'instagram_username' => 'required',
+                'insta_category' => 'nullable',
+                'frame_color' => 'nullable',
+                'code_color' => 'nullable',
+                'image' => 'nullable', // Ensure 'image' is an image file
             ]);
 
+            if ($validator->fails()) {
+                Log::error('Validation failed', ['errors' => $validator->errors()]);
+                return response()->json(['status' => 422, 'errors' => $validator->errors()], 422);
+            }
+
+            $validatedData = $validator->validated();
+
+            // Find the Instagram entry by ID
             $instagram = Instagram::findOrFail($id);
 
-            $instagram->update(array_filter($validatedData));
-
-            // Handle file upload for the image
             if ($request->hasFile('image')) {
                 $image = $request->file('image');
                 $imageName = str_replace(' ', '-', $image->getClientOriginalName());
                 $image->move(public_path('image/qrgen/'), $imageName);
                 $validatedData['image'] = 'image/qrgen/' . $imageName;
 
-                
+                // Delete old image if it exists
+                if ($instagram->image && file_exists(public_path($instagram->image))) {
+                    unlink(public_path($instagram->image));
+                }
             }
-            Log::info('Instagram updated successfully');
+
+            Log::info('Image uploaded successfully', ['imagePath' => $validatedData['image']]);
+
+            // Update the Instagram entry
+            $instagram->update($validatedData);
+
+            Log::info('Instagram entry updated successfully');
 
             return response()->json([
                 'status' => 200,
-                'message' => 'Instagram updated successfully',
+                'message' => 'Instagram entry updated successfully',
             ]);
         } catch (\Throwable $e) {
-            // Log error
-            Log::error('Error updating Instagram', ['error' => $e->getMessage()]);
+            // Log error details
+            Log::error('Error updating Instagram entry', [
+                'error' => $e->getMessage(),
+                'trace' => $e->getTraceAsString()
+            ]);
+
             // Return internal server error
             return response()->json(['status' => 500, 'error' => 'Internal Server Error'], 500);
         }
