@@ -66,8 +66,9 @@ Route::post('/check-subscription', [SubscriptionController::class, 'checkSubscri
 
 // QR Instagram
 
-// Route::post('create-instagram', [InstagramController::class, 'store']);
-// Route::get('/get-instagram/{user}', [InstagramController::class, 'getInstagram']);
+Route::post('create-instagram', [InstagramController::class, 'store']);
+Route::get('/get-instagram/{user}', [InstagramController::class, 'getInstagram']);
+Route::delete('/delete_instagram/{id}', [InstagramController::class, 'destroy']);
 // Route::get('/getActiveInstagram/{userId}', [InstagramController::class, 'getActiveInstagram']);
 // Route::get('/getpauseInstagram/{userId}', [InstagramController::class, 'getPauseeInstagram']);
 // Route::put('/instagram/toggle-status/{id}', [InstagramController::class, 'toggleStatusInstagram']);

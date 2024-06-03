@@ -1376,3 +1376,236 @@
 #58 D:\\WWW\\full compleate\\qr-backend\\server.php(21): require_once('D:\\\\WWW\\\\full com...')
 #59 {main}
 "} 
+[2024-06-02 05:40:15] local.ERROR: Error creating Instagram {"error":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'instagram_name' in 'field list' (SQL: insert into `instagrams` (`user_id`, `instagram_name`, `instagram_username`, `insta_category`, `frame_color`, `code_color`, `image`, `updated_at`, `created_at`) values (9, monoj, monojkumar, ?, ?, ?, image/qrgen/my-image-name-(62).png, 2024-06-02 05:40:15, 2024-06-02 05:40:15))"} 
+[2024-06-02 05:42:52] local.ERROR: Error creating Instagram {"error":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'instagram_name' in 'field list' (SQL: insert into `instagrams` (`user_id`, `instagram_name`, `instagram_username`, `insta_category`, `frame_color`, `code_color`, `image`, `updated_at`, `created_at`) values (9, monoj, monojkumar, ?, ?, ?, image/qrgen/my-image-name-(62).png, 2024-06-02 05:42:52, 2024-06-02 05:42:52))"} 
+[2024-06-02 05:45:31] local.ERROR: Error creating Instagram {"error":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'instagram_name' in 'field list' (SQL: insert into `instagrams` (`user_id`, `instagram_name`, `instagram_username`, `insta_category`, `frame_color`, `code_color`, `image`, `updated_at`, `created_at`) values (9, monoj, monojkumar, ?, ?, ?, image/qrgen/51ea0675-7ffa-43e0-8959-bae02ec31ad4_2-removebg-preview.png, 2024-06-02 05:45:31, 2024-06-02 05:45:31))"} 
+[2024-06-02 05:45:59] local.ERROR: Error creating Instagram {"error":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'instagram_name' in 'field list' (SQL: insert into `instagrams` (`user_id`, `instagram_name`, `instagram_username`, `insta_category`, `frame_color`, `code_color`, `image`, `updated_at`, `created_at`) values (9, monoj, monojkumar, ?, ?, ?, image/qrgen/51ea0675-7ffa-43e0-8959-bae02ec31ad4_2-removebg-preview.png, 2024-06-02 05:45:59, 2024-06-02 05:45:59))"} 
+[2024-06-02 05:47:40] local.ERROR: Error creating Instagram {"error":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'instagram_name' in 'field list' (SQL: insert into `instagrams` (`user_id`, `instagram_name`, `instagram_username`, `insta_category`, `frame_color`, `code_color`, `image`, `updated_at`, `created_at`) values (9, monoj, monojkumar, ?, ?, ?, image/qrgen/51ea0675-7ffa-43e0-8959-bae02ec31ad4_2-removebg-preview.png, 2024-06-02 05:47:40, 2024-06-02 05:47:40))"} 
+[2024-06-02 05:48:12] local.ERROR: Error creating Instagram {"error":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'instagram_name' in 'field list' (SQL: insert into `instagrams` (`user_id`, `instagram_name`, `instagram_username`, `insta_category`, `frame_color`, `code_color`, `image`, `updated_at`, `created_at`) values (9, monoj, monojkumar, ?, ?, ?, image/qrgen/my-image-name-(46).png, 2024-06-02 05:48:12, 2024-06-02 05:48:12))"} 
+[2024-06-02 06:05:21] local.ERROR: Error creating Instagram {"error":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'instagram_name' in 'field list' (SQL: insert into `instagrams` (`user_id`, `instagram_name`, `instagram_username`, `insta_category`, `frame_color`, `code_color`, `image`, `updated_at`, `created_at`) values (9, monoj, monojkumar, ?, ?, ?, image/qrgen/51ea0675-7ffa-43e0-8959-bae02ec31ad4_2-removebg-preview.png, 2024-06-02 06:05:21, 2024-06-02 06:05:21))"} 
+[2024-06-02 06:10:09] local.ERROR: Error creating Instagram {"error":"The given data was invalid."} 
+[2024-06-02 06:14:30] local.ERROR: Error creating Instagram {"error":"The given data was invalid."} 
+[2024-06-02 06:19:06] local.ERROR: Error creating Instagram {"error":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'instagram_name' in 'field list' (SQL: insert into `instagrams` (`user_id`, `instagram_name`, `instagram_username`, `insta_category`, `frame_color`, `code_color`, `image`, `updated_at`, `created_at`) values (3, asdfa, sadfasdf, ?, #000000, #000000, image/qrgen/my-image-name-(47).png, 2024-06-02 06:19:05, 2024-06-02 06:19:05))"} 
+[2024-06-02 06:22:09] local.ERROR: Error creating Instagram {"error":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'instagram_name' in 'field list' (SQL: insert into `instagrams` (`user_id`, `instagram_name`, `instagram_username`, `insta_category`, `frame_color`, `code_color`, `image`, `updated_at`, `created_at`) values (3, sdf, asdfs, 1, #000000, #000000, image/qrgen/my-image-name-(48).png, 2024-06-02 06:22:09, 2024-06-02 06:22:09))"} 
+[2024-06-02 06:22:17] local.ERROR: Error creating Instagram {"error":"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'instagram_name' in 'field list' (SQL: insert into `instagrams` (`user_id`, `instagram_name`, `instagram_username`, `insta_category`, `frame_color`, `code_color`, `image`, `updated_at`, `created_at`) values (3, sdf, asdfs, 1, #000000, #000000, image/qrgen/my-image-name-(48).png, 2024-06-02 06:22:17, 2024-06-02 06:22:17))"} 
+[2024-06-02 06:28:20] local.ERROR: SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'instagrams' already exists (SQL: create table `instagrams` (`id` bigint unsigned not null auto_increment primary key, `user_id` int not null, `instagram_name` varchar(255) not null, `instagram_username` varchar(255) not null, `insta_category` bigint unsigned null, `frame_color` varchar(255) null, `code_color` varchar(255) null, `image` varchar(255) not null, `created_at` timestamp null, `updated_at` timestamp null) default character set utf8mb4 collate 'utf8mb4_unicode_ci') {"exception":"[object] (Illuminate\\Database\\QueryException(code: 42S01): SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'instagrams' already exists (SQL: create table `instagrams` (`id` bigint unsigned not null auto_increment primary key, `user_id` int not null, `instagram_name` varchar(255) not null, `instagram_username` varchar(255) not null, `insta_category` bigint unsigned null, `frame_color` varchar(255) null, `code_color` varchar(255) null, `image` varchar(255) not null, `created_at` timestamp null, `updated_at` timestamp null) default character set utf8mb4 collate 'utf8mb4_unicode_ci') at D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:712)
+[stacktrace]
+#0 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(672): Illuminate\\Database\\Connection->runQueryCallback('create table `i...', Array, Object(Closure))
+#1 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(502): Illuminate\\Database\\Connection->run('create table `i...', Array, Object(Closure))
+#2 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Blueprint.php(109): Illuminate\\Database\\Connection->statement('create table `i...')
+#3 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(364): Illuminate\\Database\\Schema\\Blueprint->build(Object(Illuminate\\Database\\MySqlConnection), Object(Illuminate\\Database\\Schema\\Grammars\\MySqlGrammar))
+#4 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(227): Illuminate\\Database\\Schema\\Builder->build(Object(Illuminate\\Database\\Schema\\Blueprint))
+#5 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(261): Illuminate\\Database\\Schema\\Builder->create('instagrams', Object(Closure))
+#6 D:\\WWW\\qr-backend-laravel\\database\\migrations\\2024_06_02_092214_create_instagrams_table.php(27): Illuminate\\Support\\Facades\\Facade::__callStatic('create', Array)
+#7 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(472): CreateInstagramsTable->up()
+#8 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(394): Illuminate\\Database\\Migrations\\Migrator->runMethod(Object(Illuminate\\Database\\MySqlConnection), Object(CreateInstagramsTable), 'up')
+#9 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(403): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
+#10 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(202): Illuminate\\Database\\Migrations\\Migrator->runMigration(Object(CreateInstagramsTable), 'up')
+#11 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(167): Illuminate\\Database\\Migrations\\Migrator->runUp('D:\\\\WWW\\\\qr-backe...', 6, false)
+#12 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(112): Illuminate\\Database\\Migrations\\Migrator->runPending(Array, Array)
+#13 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(86): Illuminate\\Database\\Migrations\\Migrator->run(Array, Array)
+#14 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(606): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->Illuminate\\Database\\Console\\Migrations\\{closure}()
+#15 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(98): Illuminate\\Database\\Migrations\\Migrator->usingConnection(NULL, Object(Closure))
+#16 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->handle()
+#17 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(40): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#18 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#19 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#20 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(653): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#21 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(136): Illuminate\\Container\\Container->call(Array)
+#22 D:\\WWW\\qr-backend-laravel\\vendor\\symfony\\console\\Command\\Command.php(298): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#23 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(121): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#24 D:\\WWW\\qr-backend-laravel\\vendor\\symfony\\console\\Application.php(1040): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#25 D:\\WWW\\qr-backend-laravel\\vendor\\symfony\\console\\Application.php(301): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\Migrations\\MigrateCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#26 D:\\WWW\\qr-backend-laravel\\vendor\\symfony\\console\\Application.php(171): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#27 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(94): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#28 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(129): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#29 D:\\WWW\\qr-backend-laravel\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#30 {main}
+
+[previous exception] [object] (PDOException(code: 42S01): SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'instagrams' already exists at D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:501)
+[stacktrace]
+#0 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(501): PDOStatement->execute()
+#1 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(705): Illuminate\\Database\\Connection->Illuminate\\Database\\{closure}('create table `i...', Array)
+#2 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(672): Illuminate\\Database\\Connection->runQueryCallback('create table `i...', Array, Object(Closure))
+#3 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(502): Illuminate\\Database\\Connection->run('create table `i...', Array, Object(Closure))
+#4 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Blueprint.php(109): Illuminate\\Database\\Connection->statement('create table `i...')
+#5 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(364): Illuminate\\Database\\Schema\\Blueprint->build(Object(Illuminate\\Database\\MySqlConnection), Object(Illuminate\\Database\\Schema\\Grammars\\MySqlGrammar))
+#6 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(227): Illuminate\\Database\\Schema\\Builder->build(Object(Illuminate\\Database\\Schema\\Blueprint))
+#7 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(261): Illuminate\\Database\\Schema\\Builder->create('instagrams', Object(Closure))
+#8 D:\\WWW\\qr-backend-laravel\\database\\migrations\\2024_06_02_092214_create_instagrams_table.php(27): Illuminate\\Support\\Facades\\Facade::__callStatic('create', Array)
+#9 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(472): CreateInstagramsTable->up()
+#10 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(394): Illuminate\\Database\\Migrations\\Migrator->runMethod(Object(Illuminate\\Database\\MySqlConnection), Object(CreateInstagramsTable), 'up')
+#11 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(403): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
+#12 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(202): Illuminate\\Database\\Migrations\\Migrator->runMigration(Object(CreateInstagramsTable), 'up')
+#13 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(167): Illuminate\\Database\\Migrations\\Migrator->runUp('D:\\\\WWW\\\\qr-backe...', 6, false)
+#14 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(112): Illuminate\\Database\\Migrations\\Migrator->runPending(Array, Array)
+#15 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(86): Illuminate\\Database\\Migrations\\Migrator->run(Array, Array)
+#16 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(606): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->Illuminate\\Database\\Console\\Migrations\\{closure}()
+#17 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(98): Illuminate\\Database\\Migrations\\Migrator->usingConnection(NULL, Object(Closure))
+#18 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->handle()
+#19 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(40): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#20 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#21 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#22 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(653): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#23 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(136): Illuminate\\Container\\Container->call(Array)
+#24 D:\\WWW\\qr-backend-laravel\\vendor\\symfony\\console\\Command\\Command.php(298): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#25 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(121): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#26 D:\\WWW\\qr-backend-laravel\\vendor\\symfony\\console\\Application.php(1040): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#27 D:\\WWW\\qr-backend-laravel\\vendor\\symfony\\console\\Application.php(301): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\Migrations\\MigrateCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#28 D:\\WWW\\qr-backend-laravel\\vendor\\symfony\\console\\Application.php(171): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#29 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(94): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#30 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(129): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#31 D:\\WWW\\qr-backend-laravel\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#32 {main}
+"} 
+[2024-06-02 08:02:38] local.INFO: Store method called {"request":{"instagram_name":"monoj","instagram_username":"monojkumar","insta_category":"1","frame_color":"#000000","code_color":"#000000","user_id":"9","status":"active","image":{"Illuminate\\Http\\UploadedFile":"C:\\Users\\monoj\\AppData\\Local\\Temp\\php7175.tmp"}}} 
+[2024-06-02 08:02:38] local.ERROR: Error creating Instagram entry {"error":"Class \"App\\Http\\Controllers\\Validator\" not found","trace":"#0 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Controller.php(54): App\\Http\\Controllers\\InstagramController->store(Object(Illuminate\\Http\\Request))
+#1 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(45): Illuminate\\Routing\\Controller->callAction('store', Array)
+#2 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(262): Illuminate\\Routing\\ControllerDispatcher->dispatch(Object(Illuminate\\Routing\\Route), Object(App\\Http\\Controllers\\InstagramController), 'store')
+#3 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(205): Illuminate\\Routing\\Route->runController()
+#4 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(721): Illuminate\\Routing\\Route->run()
+#5 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(128): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#6 D:\\WWW\\qr-backend-laravel\\app\\Http\\Controllers\\Controller.php(25): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#7 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): App\\Http\\Controllers\\Controller->App\\Http\\Controllers\\{closure}(Object(Illuminate\\Http\\Request), Object(Closure))
+#8 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#9 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(167): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#10 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#11 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php(103): Illuminate\\Routing\\Middleware\\ThrottleRequests->handleRequest(Object(Illuminate\\Http\\Request), Object(Closure), Array)
+#12 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php(55): Illuminate\\Routing\\Middleware\\ThrottleRequests->handleRequestUsingNamedLimiter(Object(Illuminate\\Http\\Request), Object(Closure), 'api', Object(Closure))
+#13 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(167): Illuminate\\Routing\\Middleware\\ThrottleRequests->handle(Object(Illuminate\\Http\\Request), Object(Closure), 'api')
+#14 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\sanctum\\src\\Http\\Middleware\\EnsureFrontendRequestsAreStateful.php(33): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#15 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(128): Laravel\\Sanctum\\Http\\Middleware\\EnsureFrontendRequestsAreStateful->Laravel\\Sanctum\\Http\\Middleware\\{closure}(Object(Illuminate\\Http\\Request))
+#16 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken.php(78): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#17 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#18 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(121): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#19 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(64): Illuminate\\Session\\Middleware\\StartSession->handleStatefulRequest(Object(Illuminate\\Http\\Request), Object(Illuminate\\Session\\Store), Object(Closure))
+#20 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(167): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#21 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse.php(37): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#22 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(167): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#23 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\EncryptCookies.php(67): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#24 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(167): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#25 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\sanctum\\src\\Http\\Middleware\\EnsureFrontendRequestsAreStateful.php(26): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#26 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Laravel\\Sanctum\\Http\\Middleware\\EnsureFrontendRequestsAreStateful->Laravel\\Sanctum\\Http\\Middleware\\{closure}(Object(Illuminate\\Http\\Request), Object(Closure))
+#27 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#28 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\sanctum\\src\\Http\\Middleware\\EnsureFrontendRequestsAreStateful.php(34): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#29 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(167): Laravel\\Sanctum\\Http\\Middleware\\EnsureFrontendRequestsAreStateful->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#30 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#31 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(723): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#32 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(698): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#33 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(662): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#34 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(651): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#35 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(167): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#36 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(128): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#37 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#38 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#39 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#40 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#41 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#42 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#43 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#44 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#45 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#46 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#47 D:\\WWW\\qr-backend-laravel\\vendor\\fruitcake\\laravel-cors\\src\\HandleCors.php(52): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#48 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(167): Fruitcake\\Cors\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#49 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#50 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(167): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#51 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#52 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(142): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#53 D:\\WWW\\qr-backend-laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(111): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#54 D:\\WWW\\qr-backend-laravel\\public\\index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#55 D:\\WWW\\qr-backend-laravel\\server.php(21): require_once('D:\\\\WWW\\\\qr-backe...')
+#56 {main}"} 
+[2024-06-02 08:04:52] local.INFO: Store method called {"request":{"instagram_name":"asdfa","instagram_username":"monojkumar","insta_category":"1","frame_color":"#000000","code_color":"#000000","user_id":"9","status":"active","image":{"Illuminate\\Http\\UploadedFile":"C:\\Users\\monoj\\AppData\\Local\\Temp\\php7F29.tmp"}}} 
+[2024-06-02 08:04:53] local.INFO: Image uploaded successfully {"imagePath":"image/qrgen/my-image-name-(47).png"} 
+[2024-06-02 08:04:53] local.INFO: Instagram entry created successfully  
+[2024-06-02 08:06:18] local.INFO: Store method called {"request":{"instagram_name":"asdfas","instagram_username":"asdf","insta_category":"1","frame_color":"#000000","code_color":"#000000","user_id":"9","status":"active","image":{"Illuminate\\Http\\UploadedFile":"C:\\Users\\monoj\\AppData\\Local\\Temp\\phpCB70.tmp"}}} 
+[2024-06-02 08:06:18] local.INFO: Image uploaded successfully {"imagePath":"image/qrgen/51ea0675-7ffa-43e0-8959-bae02ec31ad4_2-removebg-preview.png"} 
+[2024-06-02 08:06:18] local.INFO: Instagram entry created successfully  
+[2024-06-02 08:08:28] local.INFO: Qrgen updated successfully {"id":10} 
+[2024-06-02 08:15:12] local.INFO: Store method called {"request":{"instagram_name":"sadfas","instagram_username":"asdf","insta_category":"1","frame_color":"#000000","code_color":"#000000","user_id":"9","status":"active","image":{"Illuminate\\Http\\UploadedFile":"C:\\Users\\monoj\\AppData\\Local\\Temp\\phpF49E.tmp"}}} 
+[2024-06-02 08:15:12] local.INFO: Image uploaded successfully {"imagePath":"image/qrgen/51ea0675-7ffa-43e0-8959-bae02ec31ad4_2-removebg-preview.png"} 
+[2024-06-02 08:15:12] local.INFO: Instagram entry created successfully  
+[2024-06-02 08:16:27] local.INFO: Store method called {"request":{"instagram_name":"monoj","instagram_username":"https://www.instagram.com/monojkumerroy","insta_category":"1","frame_color":"#000000","code_color":"#000000","user_id":"9","status":"active","image":{"Illuminate\\Http\\UploadedFile":"C:\\Users\\monoj\\AppData\\Local\\Temp\\php1997.tmp"}}} 
+[2024-06-02 08:16:27] local.INFO: Image uploaded successfully {"imagePath":"image/qrgen/51ea0675-7ffa-43e0-8959-bae02ec31ad4_2-removebg-preview.png"} 
+[2024-06-02 08:16:27] local.INFO: Instagram entry created successfully  
+[2024-06-02 08:16:52] local.INFO: Store method called {"request":{"instagram_name":null,"instagram_username":null,"insta_category":"1","frame_color":"#000000","code_color":"#000000","image":"null","user_id":"9","status":"active"}} 
+[2024-06-02 08:16:53] local.ERROR: Validation failed {"errors":{"Illuminate\\Support\\MessageBag":{"instagram_name":["The instagram name field is required."],"instagram_username":["The instagram username field is required."]}}} 
+[2024-06-02 08:16:58] local.INFO: Store method called {"request":{"instagram_name":null,"instagram_username":null,"insta_category":"1","frame_color":"#000000","code_color":"#000000","image":"null","user_id":"9","status":"active"}} 
+[2024-06-02 08:16:58] local.ERROR: Validation failed {"errors":{"Illuminate\\Support\\MessageBag":{"instagram_name":["The instagram name field is required."],"instagram_username":["The instagram username field is required."]}}} 
+[2024-06-02 08:28:37] local.INFO: Store method called {"request":{"instagram_name":"monoj","instagram_username":"https://www.instagram.com/monojkumerroy","insta_category":"1","frame_color":"#000000","code_color":"#000000","image":"null","user_id":"9","status":"active"}} 
+[2024-06-02 08:28:37] local.INFO: Image uploaded successfully {"imagePath":"null"} 
+[2024-06-02 08:28:37] local.INFO: Instagram entry created successfully  
+[2024-06-02 08:29:39] local.INFO: Store method called {"request":{"instagram_name":"monoj","instagram_username":"https://www.instagram.com/monojkumerroy","insta_category":"1","frame_color":"#000000","code_color":"#000000","image":"null","user_id":"9","status":"active"}} 
+[2024-06-02 08:29:39] local.INFO: Image uploaded successfully {"imagePath":"null"} 
+[2024-06-02 08:29:39] local.INFO: Instagram entry created successfully  
+[2024-06-02 08:33:16] local.INFO: Store method called {"request":{"instagram_name":"asdfa","instagram_username":"asdfa","insta_category":"1","frame_color":"#000000","code_color":"#000000","image":"null","user_id":"9","status":"active"}} 
+[2024-06-02 08:33:16] local.INFO: Image uploaded successfully {"imagePath":"null"} 
+[2024-06-02 08:33:16] local.INFO: Instagram entry created successfully  
+[2024-06-02 08:34:05] local.INFO: Store method called {"request":{"instagram_name":"asdfasf","instagram_username":"asdfasdf","insta_category":"1","frame_color":"#000000","code_color":"#000000","image":"null","user_id":"9","status":"active"}} 
+[2024-06-02 08:34:05] local.INFO: Image uploaded successfully {"imagePath":"null"} 
+[2024-06-02 08:34:05] local.INFO: Instagram entry created successfully  
+[2024-06-02 08:34:28] local.INFO: Store method called {"request":{"instagram_name":"asdfasdf","instagram_username":"asdfasdf","insta_category":"1","frame_color":"#000000","code_color":"#000000","image":"null","user_id":"9","status":"active"}} 
+[2024-06-02 08:34:28] local.INFO: Image uploaded successfully {"imagePath":"null"} 
+[2024-06-02 08:34:28] local.INFO: Instagram entry created successfully  
+[2024-06-02 08:35:06] local.INFO: Store method called {"request":{"instagram_name":"asdfasdf","instagram_username":"asdfdasd","insta_category":"1","frame_color":"#000000","code_color":"#000000","image":"null","user_id":"9","status":"active"}} 
+[2024-06-02 08:35:06] local.INFO: Image uploaded successfully {"imagePath":"null"} 
+[2024-06-02 08:35:06] local.INFO: Instagram entry created successfully  
+[2024-06-02 08:37:40] local.INFO: Store method called {"request":{"instagram_name":"sfdasf","instagram_username":"asfasdfsda","insta_category":"1","frame_color":"#000000","code_color":"#000000","image":"null","user_id":"9","status":"active"}} 
+[2024-06-02 08:37:40] local.INFO: Image uploaded successfully {"imagePath":"null"} 
+[2024-06-02 08:37:40] local.INFO: Instagram entry created successfully  
+[2024-06-02 08:38:42] local.INFO: Store method called {"request":{"instagram_name":"asdfasd","instagram_username":"asfdasdf","insta_category":"1","frame_color":"#000000","code_color":"#000000","image":"null","user_id":"9","status":"active"}} 
+[2024-06-02 08:38:42] local.INFO: Image uploaded successfully {"imagePath":"null"} 
+[2024-06-02 08:38:42] local.INFO: Instagram entry created successfully  
+[2024-06-02 08:39:29] local.INFO: Store method called {"request":{"instagram_name":"asdfasd","instagram_username":"asdfa","insta_category":"1","frame_color":"#000000","code_color":"#000000","image":"null","user_id":"9","status":"active"}} 
+[2024-06-02 08:39:29] local.INFO: Image uploaded successfully {"imagePath":"null"} 
+[2024-06-02 08:39:29] local.INFO: Instagram entry created successfully  
+[2024-06-02 08:40:07] local.INFO: Store method called {"request":{"instagram_name":"sdfadf","instagram_username":"asdfasdf","insta_category":"1","frame_color":"#000000","code_color":"#000000","image":"null","user_id":"9","status":"active"}} 
+[2024-06-02 08:40:07] local.INFO: Image uploaded successfully {"imagePath":"null"} 
+[2024-06-02 08:40:07] local.INFO: Instagram entry created successfully  
+[2024-06-02 08:40:54] local.INFO: Store method called {"request":{"instagram_name":"asdfasdf","instagram_username":"asdfdasf","insta_category":"1","frame_color":"#000000","code_color":"#000000","image":"null","user_id":"9","status":"active"}} 
+[2024-06-02 08:40:54] local.INFO: Image uploaded successfully {"imagePath":"null"} 
+[2024-06-02 08:40:54] local.INFO: Instagram entry created successfully  
+[2024-06-02 08:42:27] local.INFO: Store method called {"request":{"instagram_name":"afdasfasd","instagram_username":null,"insta_category":"1","frame_color":"#000000","code_color":"#000000","image":"null","user_id":"9","status":"active"}} 
+[2024-06-02 08:42:27] local.ERROR: Validation failed {"errors":{"Illuminate\\Support\\MessageBag":{"instagram_username":["The instagram username field is required."]}}} 
+[2024-06-02 08:46:46] local.INFO: Store method called {"request":{"instagram_name":"afdasfasd","instagram_username":"sadfasd","insta_category":"1","frame_color":"#000000","code_color":"#000000","image":"null","user_id":"9","status":"active"}} 
+[2024-06-02 08:46:46] local.INFO: Image uploaded successfully {"imagePath":"null"} 
+[2024-06-02 08:46:46] local.INFO: Instagram entry created successfully  
+[2024-06-02 08:56:22] local.INFO: Store method called {"request":{"instagram_name":"asdfasd","instagram_username":"asdfasd","insta_category":"1","frame_color":"#000000","code_color":"#000000","image":"null","user_id":"9","status":"active"}} 
+[2024-06-02 08:56:22] local.INFO: Image uploaded successfully {"imagePath":"null"} 
+[2024-06-02 08:56:22] local.INFO: Instagram entry created successfully  
+[2024-06-02 08:56:31] local.INFO: Store method called {"request":{"instagram_name":"asdfsad","instagram_username":"asdfasdf","insta_category":"1","frame_color":"#000000","code_color":"#000000","image":"null","user_id":"9","status":"active"}} 
+[2024-06-02 08:56:31] local.INFO: Image uploaded successfully {"imagePath":"null"} 
+[2024-06-02 08:56:31] local.INFO: Instagram entry created successfully  
+[2024-06-02 09:01:08] local.INFO: Store method called {"request":{"instagram_name":"sdafad","instagram_username":"asfasf","insta_category":"1","frame_color":"#000000","code_color":"#000000","image":"null","user_id":"9","status":"active"}} 
+[2024-06-02 09:01:08] local.INFO: Image uploaded successfully {"imagePath":"null"} 
+[2024-06-02 09:01:08] local.INFO: Instagram entry created successfully  
+[2024-06-02 09:01:44] local.INFO: Store method called {"request":{"instagram_name":"asdfasdf","instagram_username":"asfdasdf","insta_category":"1","frame_color":"#000000","code_color":"#000000","image":"null","user_id":"9","status":"active"}} 
+[2024-06-02 09:01:44] local.INFO: Image uploaded successfully {"imagePath":"null"} 
+[2024-06-02 09:01:44] local.INFO: Instagram entry created successfully  
+[2024-06-02 09:02:17] local.INFO: Store method called {"request":{"instagram_name":"asdfasfas","instagram_username":"asfasdf","insta_category":"1","frame_color":"#000000","code_color":"#000000","image":"null","user_id":"9","status":"active"}} 
+[2024-06-02 09:02:17] local.INFO: Image uploaded successfully {"imagePath":"null"} 
+[2024-06-02 09:02:17] local.INFO: Instagram entry created successfully  
+[2024-06-02 09:04:04] local.INFO: Store method called {"request":{"instagram_name":"asdfasfas","instagram_username":"asfasdf","insta_category":"1","frame_color":"#000000","code_color":"#000000","image":"null","user_id":"9","status":"active"}} 
+[2024-06-02 09:04:04] local.INFO: Image uploaded successfully {"imagePath":"null"} 
+[2024-06-02 09:04:04] local.INFO: Instagram entry created successfully  
+[2024-06-02 09:10:34] local.INFO: Store method called {"request":{"instagram_name":null,"instagram_username":null,"insta_category":"1","frame_color":"#000000","code_color":"#000000","image":"null","user_id":"9","status":"active"}} 
+[2024-06-02 09:10:34] local.ERROR: Validation failed {"errors":{"Illuminate\\Support\\MessageBag":{"instagram_name":["The instagram name field is required."],"instagram_username":["The instagram username field is required."]}}} 
+[2024-06-02 09:10:47] local.INFO: Store method called {"request":{"instagram_name":"asdfas","instagram_username":"adfsasdf","insta_category":"1","frame_color":"#000000","code_color":"#000000","image":"null","user_id":"9","status":"active"}} 
+[2024-06-02 09:10:47] local.INFO: Image uploaded successfully {"imagePath":"null"} 
+[2024-06-02 09:10:47] local.INFO: Instagram entry created successfully  
+[2024-06-02 09:11:21] local.INFO: Store method called {"request":{"instagram_name":"sfasdf","instagram_username":"asdfs","insta_category":"1","frame_color":"#000000","code_color":"#000000","image":"null","user_id":"9","status":"active"}} 
+[2024-06-02 09:11:21] local.INFO: Image uploaded successfully {"imagePath":"null"} 
+[2024-06-02 09:11:21] local.INFO: Instagram entry created successfully  
+[2024-06-02 09:11:38] local.INFO: Store method called {"request":{"instagram_name":"sdfasf","instagram_username":"adsfas","insta_category":"1","frame_color":"#000000","code_color":"#000000","image":"null","user_id":"9","status":"active"}} 
+[2024-06-02 09:11:38] local.INFO: Image uploaded successfully {"imagePath":"null"} 
+[2024-06-02 09:11:38] local.INFO: Instagram entry created successfully  
+[2024-06-02 11:01:23] local.INFO: Store method called {"request":{"instagram_name":"monoj","instagram_username":"https://www.instagram.com/monojkumerroy","insta_category":"1","frame_color":"#000000","code_color":"#000000","user_id":"9","status":"active","image":{"Illuminate\\Http\\UploadedFile":"C:\\Users\\monoj\\AppData\\Local\\Temp\\php17F4.tmp"}}} 
+[2024-06-02 11:01:23] local.INFO: Image uploaded successfully {"imagePath":"image/qrgen/my-image-name-(47).png"} 
+[2024-06-02 11:01:24] local.INFO: Instagram entry created successfully  
+[2024-06-02 11:08:17] local.INFO: Store method called {"request":{"instagram_name":"sadf","instagram_username":"asdfas","insta_category":"1","frame_color":"#000000","code_color":"#000000","image":"/img/logo-qr.png","user_id":"9","status":"active"}} 
+[2024-06-02 11:08:17] local.INFO: Image uploaded successfully {"imagePath":"/img/logo-qr.png"} 
+[2024-06-02 11:08:17] local.INFO: Instagram entry created successfully  
+[2024-06-02 11:09:14] local.INFO: Store method called {"request":{"instagram_name":"monoj","instagram_username":"https://www.instagram.com/monojkumerroy","insta_category":"1","frame_color":"#000000","code_color":"#000000","user_id":"9","status":"active","image":{"Illuminate\\Http\\UploadedFile":"C:\\Users\\monoj\\AppData\\Local\\Temp\\php4915.tmp"}}} 
+[2024-06-02 11:09:14] local.INFO: Image uploaded successfully {"imagePath":"image/qrgen/my-image-name-(47).png"} 
+[2024-06-02 11:09:14] local.INFO: Instagram entry created successfully  

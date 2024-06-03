@@ -11,8 +11,11 @@ class Instagram extends Model
 
     protected $fillable=[
         'user_id',
-        'cardname',
-        'username',
+        'instagram_name',
+        'instagram_username',
+        'insta_category',
+        'frame_color',
+        'code_color',
         'image',
     ];
 }
