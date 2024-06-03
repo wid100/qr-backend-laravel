@@ -6,7 +6,7 @@ use App\Models\Instagram;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
-
+use Illuminate\Support\Facades\Validator;
 class InstagramController extends Controller
 {
     /**
@@ -78,40 +78,100 @@ class InstagramController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+
+       public function store(Request $request)
     {
         try {
-            // Validate the request data
-            $validatedData = $request->validate([
-                'user_id' => 'required|integer',
-                'cardname' => 'required|string',
-                'username' => 'required',
-                'image' => 'required|image', // Ensure 'image' is an image file
+            Log::info('Store method called', ['request' => $request->all()]);
+
+            $validator = Validator::make($request->all(), [
+                'user_id' => 'required',
+                'instagram_name' => 'required',
+                'instagram_username' => 'required',
+                'insta_category' => 'nullable',
+                'frame_color' => 'nullable',
+                'code_color' => 'nullable',
+                'image' => 'required', // Ensure 'image' is an image file
             ]);
+
+            if ($validator->fails()) {
+                Log::error('Validation failed', ['errors' => $validator->errors()]);
+                return response()->json(['status' => 422, 'errors' => $validator->errors()], 422);
+            }
+
+            $validatedData = $validator->validated();
 
             // Handle file upload for the image
             if ($request->hasFile('image')) {
                 $image = $request->file('image');
-                $imageName = time() . '-' . $image->getClientOriginalName();
-                $image->move(public_path('image/qrgen/'), $imageName);
+                $imageName = str_replace(' ', '-', $image->getClientOriginalName());
+                $imagePath = public_path('image/qrgen/');
+                if (!file_exists($imagePath)) {
+                    mkdir($imagePath, 0755, true);
+                }
+                $image->move($imagePath, $imageName);
                 $validatedData['image'] = 'image/qrgen/' . $imageName;
             }
 
+            Log::info('Image uploaded successfully', ['imagePath' => $validatedData['image']]);
+
             Instagram::create($validatedData);
 
-            Log::info('Instagram created successfully');
+            Log::info('Instagram entry created successfully');
 
             return response()->json([
                 'status' => 200,
-                'message' => 'Instagram created successfully',
+                'message' => 'Instagram entry created successfully',
             ]);
         } catch (\Throwable $e) {
-            // Log error
-            Log::error('Error creating Instagram', ['error' => $e->getMessage()]);
+            // Log error details
+            Log::error('Error creating Instagram entry', [
+                'error' => $e->getMessage(),
+                'trace' => $e->getTraceAsString()
+            ]);
+
             // Return internal server error
             return response()->json(['status' => 500, 'error' => 'Internal Server Error'], 500);
         }
     }
+    // public function store(Request $request)
+    // {
+    //     try {
+    //         // Validate the request data
+    //         $validatedData = $request->validate([
+    //             'user_id' => 'required',
+    //             'instagram_name' => 'required',
+    //             'instagram_username' => 'required',
+    //             'insta_category' => 'nullable',
+    //             'frame_color' => 'nullable',
+    //             'code_color' => 'nullable',
+    //             'image' => 'required', // Ensure 'image' is an image file
+    //         ]);
+    //         dd($validatedData);
+
+    //         // Handle file upload for the image
+    //         if ($request->hasFile('image')) {
+    //             $image = $request->file('image');
+    //             $imageName = str_replace(' ', '-', $image->getClientOriginalName());
+    //             $image->move(public_path('image/qrgen/'), $imageName);
+    //             $validatedData['image'] = 'image/qrgen/' . $imageName;
+    //         }
+
+    //         Instagram::create($validatedData);
+
+    //         Log::info('Instagram created successfully');
+
+    //         return response()->json([
+    //             'status' => 200,
+    //             'message' => 'Instagram created successfully',
+    //         ]);
+    //     } catch (\Throwable $e) {
+    //         // Log error
+    //         Log::error('Error creating Instagram', ['error' => $e->getMessage()]);
+    //         // Return internal server error
+    //         return response()->json(['status' => 500, 'error' => 'Internal Server Error'], 500);
+    //     }
+    // }
 
 
 
@@ -160,23 +220,22 @@ class InstagramController extends Controller
                 'user_id' => 'required|integer',
                 'cardname' => 'required|string',
                 'username' => 'required|unique:instagrams,username,' . $id,
-                'image' => 'image|max:10240', // Maximum file size: 10MB
+                'image' => 'required', // Maximum file size: 10MB
             ]);
 
             $instagram = Instagram::findOrFail($id);
 
-            // Update only the fields that are provided in the request
             $instagram->update(array_filter($validatedData));
 
             // Handle file upload for the image
             if ($request->hasFile('image')) {
                 $image = $request->file('image');
-                $imageName = time() . '-' . $image->getClientOriginalName();
+                $imageName = str_replace(' ', '-', $image->getClientOriginalName());
                 $image->move(public_path('image/qrgen/'), $imageName);
-                $instagram->image = 'image/qrgen/' . $imageName;
-                $instagram->save();
-            }
+                $validatedData['image'] = 'image/qrgen/' . $imageName;
 
+                
+            }
             Log::info('Instagram updated successfully');
 
             return response()->json([
@@ -197,8 +256,20 @@ class InstagramController extends Controller
      * @param  \App\Models\Instagram  $instagram
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Instagram $instagram)
+    public function destroy($id)
     {
-        //
+        $instagram = Instagram::find($id);
+
+        if (!$instagram) {
+            return response()->json(['error' => 'instagram not found'], 404);
+        }
+
+        $imagePath = $instagram->image;
+        $instagram->delete();
+        if ($imagePath && file_exists($imagePath)) {
+            unlink($imagePath);
+        }
+        return response()->json(['message' => 'Instagram deleted successfully']);
     }
+
 }
