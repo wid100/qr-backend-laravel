@@ -1609,3 +1609,6 @@
 [2024-06-02 11:09:14] local.INFO: Store method called {"request":{"instagram_name":"monoj","instagram_username":"https://www.instagram.com/monojkumerroy","insta_category":"1","frame_color":"#000000","code_color":"#000000","user_id":"9","status":"active","image":{"Illuminate\\Http\\UploadedFile":"C:\\Users\\monoj\\AppData\\Local\\Temp\\php4915.tmp"}}} 
 [2024-06-02 11:09:14] local.INFO: Image uploaded successfully {"imagePath":"image/qrgen/my-image-name-(47).png"} 
 [2024-06-02 11:09:14] local.INFO: Instagram entry created successfully  
+[2024-06-03 11:38:05] local.INFO: Store method called {"request":{"instagram_name":"sonar bangal card","instagram_username":"http://localhost:3000/instagram","insta_category":"1","frame_color":"#000000","code_color":"#000000","user_id":"158","status":"active","image":{"Illuminate\\Http\\UploadedFile":"C:\\Users\\shawo\\AppData\\Local\\Temp\\phpD36E.tmp"}}} 
+[2024-06-03 11:38:05] local.INFO: Image uploaded successfully {"imagePath":"image/qrgen/my-image-name-(1).png"} 
+[2024-06-03 11:38:05] local.INFO: Instagram entry created successfully  
