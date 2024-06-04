@@ -1609,3 +1609,54 @@
 [2024-06-02 11:09:14] local.INFO: Store method called {"request":{"instagram_name":"monoj","instagram_username":"https://www.instagram.com/monojkumerroy","insta_category":"1","frame_color":"#000000","code_color":"#000000","user_id":"9","status":"active","image":{"Illuminate\\Http\\UploadedFile":"C:\\Users\\monoj\\AppData\\Local\\Temp\\php4915.tmp"}}} 
 [2024-06-02 11:09:14] local.INFO: Image uploaded successfully {"imagePath":"image/qrgen/my-image-name-(47).png"} 
 [2024-06-02 11:09:14] local.INFO: Instagram entry created successfully  
+[2024-06-03 11:33:14] local.INFO: Store method called {"request":{"instagram_name":"asdf","instagram_username":"asdf","insta_category":"1","frame_color":"#000000","code_color":"#000000","image":"/img/logo-qr.png","user_id":"9","status":"active"}} 
+[2024-06-03 11:33:14] local.INFO: Image uploaded successfully {"imagePath":"/img/logo-qr.png"} 
+[2024-06-03 11:33:14] local.INFO: Instagram entry created successfully  
+[2024-06-03 11:36:34] local.INFO: Store method called {"request":{"instagram_name":"asdfaf","instagram_username":"adfasdf","insta_category":"1","frame_color":"#000000","code_color":"#000000","user_id":"9","status":"active","image":{"Illuminate\\Http\\UploadedFile":"C:\\Users\\monoj\\AppData\\Local\\Temp\\php8EDC.tmp"}}} 
+[2024-06-03 11:36:34] local.INFO: Image uploaded successfully {"imagePath":"image/qrgen/smartcardgenerator_0-(1).png"} 
+[2024-06-03 11:36:34] local.INFO: Instagram entry created successfully  
+[2024-06-04 04:33:24] local.INFO: Update method called {"request":{"instagram_name":"monoj kumar","instagram_username":"https://www.instagram.com/monojkumerroy","insta_category":null,"frame_color":"#000000","code_color":"#000000","image":"/img/logo-qr.png","user_id":"9","status":"active"},"id":"7"} 
+[2024-06-04 04:33:24] local.INFO: Image uploaded successfully {"imagePath":"/img/logo-qr.png"} 
+[2024-06-04 04:33:24] local.INFO: Instagram entry updated successfully  
+[2024-06-04 04:34:09] local.INFO: Update method called {"request":{"instagram_name":"update file","instagram_username":"asdf","insta_category":null,"frame_color":"#000000","code_color":"#000000","image":"/img/logo-qr.png","user_id":"9","status":"active"},"id":"8"} 
+[2024-06-04 04:34:09] local.INFO: Image uploaded successfully {"imagePath":"/img/logo-qr.png"} 
+[2024-06-04 04:34:09] local.INFO: Instagram entry updated successfully  
+[2024-06-04 04:40:11] local.INFO: Store method called {"request":{"instagram_name":"asdf","instagram_username":"asfdsad","insta_category":"1","frame_color":"#000000","code_color":"#000000","user_id":"9","status":"active","image":{"Illuminate\\Http\\UploadedFile":"C:\\Users\\monoj\\AppData\\Local\\Temp\\phpB457.tmp"}}} 
+[2024-06-04 04:40:11] local.INFO: Image uploaded successfully {"imagePath":"image/qrgen/665e9aab45f8f-my-image-name (47).png"} 
+[2024-06-04 04:40:11] local.INFO: Instagram entry created successfully  
+[2024-06-04 04:41:44] local.INFO: Store method called {"request":{"instagram_name":"asdfasd","instagram_username":"asdfasdf","insta_category":"1","frame_color":"#000000","code_color":"#000000","user_id":"9","status":"active","image":{"Illuminate\\Http\\UploadedFile":"C:\\Users\\monoj\\AppData\\Local\\Temp\\php2174.tmp"}}} 
+[2024-06-04 04:41:44] local.INFO: Image uploaded successfully {"imagePath":"image/qrgen/my-image-name-(52).png"} 
+[2024-06-04 04:41:44] local.INFO: Instagram entry created successfully  
+[2024-06-04 04:49:37] local.INFO: Store method called {"request":{"instagram_name":"monoj","instagram_username":"https://www.instagram.com/monojkumerroy","insta_category":"1","frame_color":"#000000","code_color":"#000000","user_id":"9","status":"active","image":{"Illuminate\\Http\\UploadedFile":"C:\\Users\\monoj\\AppData\\Local\\Temp\\php57B6.tmp"}}} 
+[2024-06-04 04:49:37] local.INFO: Image uploaded successfully {"imagePath":"image/qrgen/my-image-name-(47).png"} 
+[2024-06-04 04:49:37] local.INFO: Instagram entry created successfully  
+[2024-06-04 04:57:22] local.INFO: Store method called {"request":{"instagram_name":"sadf","instagram_username":"asdf","insta_category":"1","frame_color":"#000000","code_color":"#000000","user_id":"9","status":"active","image":{"Illuminate\\Http\\UploadedFile":"C:\\Users\\monoj\\AppData\\Local\\Temp\\php6F64.tmp"}}} 
+[2024-06-04 04:57:22] local.INFO: Image uploaded successfully {"imagePath":"image/qrgen/smartcardgenerator-(11).png"} 
+[2024-06-04 04:57:22] local.INFO: Instagram entry created successfully  
+[2024-06-04 05:02:43] local.INFO: Store method called {"request":{"instagram_name":"monoj","instagram_username":"https://www.instagram.com/monojkumerroy","insta_category":"1","frame_color":"#000000","code_color":"#000000","user_id":"9","status":"active","image":{"Illuminate\\Http\\UploadedFile":"C:\\Users\\monoj\\AppData\\Local\\Temp\\php551E.tmp"}}} 
+[2024-06-04 05:02:43] local.INFO: Image uploaded successfully {"imagePath":"image/qrgen/my-image-name-(42).png"} 
+[2024-06-04 05:02:43] local.INFO: Instagram entry created successfully  
+[2024-06-04 05:08:56] local.INFO: Store method called {"request":{"instagram_name":"asdfs","instagram_username":"sdfsd","insta_category":"1","frame_color":"#ba3636","code_color":"#cd3737","user_id":"9","status":"active","image":{"Illuminate\\Http\\UploadedFile":"C:\\Users\\monoj\\AppData\\Local\\Temp\\php5D9.tmp"}}} 
+[2024-06-04 05:08:56] local.INFO: Image uploaded successfully {"imagePath":"image/qrgen/smartcardgenerator-(9).png"} 
+[2024-06-04 05:08:56] local.INFO: Instagram entry created successfully  
+[2024-06-04 05:10:49] local.INFO: Update method called {"request":{"instagram_name":"asdfs","instagram_username":"sdfsd","insta_category":"1","frame_color":"#ba3636","code_color":"#cd3737","user_id":"9","status":"active","image":{"Illuminate\\Http\\UploadedFile":"C:\\Users\\monoj\\AppData\\Local\\Temp\\phpC0E7.tmp"}},"id":"15"} 
+[2024-06-04 05:10:49] local.INFO: Image uploaded successfully {"imagePath":"image/qrgen/my-image-name-(43).png"} 
+[2024-06-04 05:10:49] local.INFO: Instagram entry updated successfully  
+[2024-06-04 05:11:14] local.INFO: Update method called {"request":{"instagram_name":"kajol","instagram_username":"sdfsd","insta_category":"1","frame_color":"#ba3636","code_color":"#cd3737","image":"/img/logo-qr.png","user_id":"9","status":"active"},"id":"15"} 
+[2024-06-04 05:11:14] local.INFO: Image uploaded successfully {"imagePath":"/img/logo-qr.png"} 
+[2024-06-04 05:11:14] local.INFO: Instagram entry updated successfully  
+[2024-06-04 05:14:03] local.INFO: Store method called {"request":{"instagram_name":"jibon","instagram_username":"jibon","insta_category":"1","frame_color":"#c65858","code_color":"#995c5c","user_id":"9","status":"active","image":{"Illuminate\\Http\\UploadedFile":"C:\\Users\\monoj\\AppData\\Local\\Temp\\phpB7D2.tmp"}}} 
+[2024-06-04 05:14:03] local.INFO: Image uploaded successfully {"imagePath":"image/qrgen/51ea0675-7ffa-43e0-8959-bae02ec31ad4_2-removebg-preview.png"} 
+[2024-06-04 05:14:03] local.INFO: Instagram entry created successfully  
+[2024-06-04 05:14:29] local.INFO: Update method called {"request":{"instagram_name":"jibon","instagram_username":"jibon","insta_category":"1","frame_color":"#c65858","code_color":"#995c5c","user_id":"9","status":"active","image":{"Illuminate\\Http\\UploadedFile":"C:\\Users\\monoj\\AppData\\Local\\Temp\\php1B11.tmp"}},"id":"16"} 
+[2024-06-04 05:14:29] local.INFO: Image uploaded successfully {"imagePath":"image/qrgen/my-image-name-(36).png"} 
+[2024-06-04 05:14:29] local.INFO: Instagram entry updated successfully  
+[2024-06-04 05:36:36] local.INFO: Update method called {"request":{"instagram_name":"monoj","instagram_username":"https://www.instagram.com/monojkumerroy","insta_category":"1","frame_color":"#000000","code_color":"#000000","user_id":"9","status":"active","image":{"Illuminate\\Http\\UploadedFile":"C:\\Users\\monoj\\AppData\\Local\\Temp\\php5BB4.tmp"}},"id":"14"} 
+[2024-06-04 05:36:36] local.INFO: Image uploaded successfully {"imagePath":"image/qrgen/51ea0675-7ffa-43e0-8959-bae02ec31ad4_2-removebg-preview.png"} 
+[2024-06-04 05:36:36] local.INFO: Instagram entry updated successfully  
+[2024-06-04 05:37:37] local.INFO: Store method called {"request":{"instagram_name":"monoj","instagram_username":"https://www.instagram.com/monojkumerroy","insta_category":"1","frame_color":"#d25151","code_color":"#33931f","user_id":"9","status":"active","image":{"Illuminate\\Http\\UploadedFile":"C:\\Users\\monoj\\AppData\\Local\\Temp\\php48B4.tmp"}}} 
+[2024-06-04 05:37:37] local.INFO: Image uploaded successfully {"imagePath":"image/qrgen/smartcardgenerator_0-(39).png"} 
+[2024-06-04 05:37:37] local.INFO: Instagram entry created successfully  
+[2024-06-04 05:38:10] local.INFO: Update method called {"request":{"instagram_name":"monoj kumar","instagram_username":"https://www.instagram.com/monojkumerroy","insta_category":"1","frame_color":"#d25151","code_color":"#33931f","user_id":"9","status":"active","image":{"Illuminate\\Http\\UploadedFile":"C:\\Users\\monoj\\AppData\\Local\\Temp\\phpCB53.tmp"}},"id":"17"} 
+[2024-06-04 05:38:10] local.INFO: Image uploaded successfully {"imagePath":"image/qrgen/51ea0675-7ffa-43e0-8959-bae02ec31ad4_2-removebg-preview.png"} 
+[2024-06-04 05:38:10] local.INFO: Instagram entry updated successfully  
