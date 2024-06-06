@@ -1609,3 +1609,18 @@
 [2024-06-02 11:09:14] local.INFO: Store method called {"request":{"instagram_name":"monoj","instagram_username":"https://www.instagram.com/monojkumerroy","insta_category":"1","frame_color":"#000000","code_color":"#000000","user_id":"9","status":"active","image":{"Illuminate\\Http\\UploadedFile":"C:\\Users\\monoj\\AppData\\Local\\Temp\\php4915.tmp"}}}
 [2024-06-02 11:09:14] local.INFO: Image uploaded successfully {"imagePath":"image/qrgen/my-image-name-(47).png"}
 [2024-06-02 11:09:14] local.INFO: Instagram entry created successfully
+[2024-06-04 11:03:17] local.INFO: Store method called {"request":{"instagram_name":"sonar bangal card","instagram_username":"http://localhost:3000/instagram","insta_category":"1","frame_color":"#8c0303","code_color":"#b80000","user_id":"158","status":"active","image":{"Illuminate\\Http\\UploadedFile":"C:\\Users\\shawo\\AppData\\Local\\Temp\\php44A8.tmp"}}} 
+[2024-06-04 11:03:17] local.INFO: Image uploaded successfully {"imagePath":"image/qrgen/my-image-name-(1).png"} 
+[2024-06-04 11:03:18] local.INFO: Instagram entry created successfully  
+[2024-06-04 11:03:38] local.INFO: Update method called {"request":{"instagram_name":"sonar bangal card","instagram_username":"http://localhost:3000/instagram","insta_category":"1","frame_color":"#8c0303","code_color":"#b80000","image":"null","user_id":"158","status":"active"},"id":"4"} 
+[2024-06-04 11:03:38] local.INFO: Image uploaded successfully {"imagePath":"null"} 
+[2024-06-04 11:03:38] local.INFO: Instagram entry updated successfully  
+[2024-06-04 11:03:48] local.INFO: Update method called {"request":{"instagram_name":"sonar bangal card","instagram_username":"http://localhost:3000/instagram","insta_category":"1","frame_color":"#8c0303","code_color":"#b80000","image":"null","user_id":"158","status":"active"},"id":"4"} 
+[2024-06-04 11:03:48] local.INFO: Image uploaded successfully {"imagePath":"null"} 
+[2024-06-04 11:03:48] local.INFO: Instagram entry updated successfully  
+[2024-06-04 11:03:59] local.INFO: Update method called {"request":{"instagram_name":"sonar bangal card","instagram_username":"http://localhost:3000/instagram","insta_category":"1","frame_color":"#8c0303","code_color":"#b80000","user_id":"158","status":"active","image":{"Illuminate\\Http\\UploadedFile":"C:\\Users\\shawo\\AppData\\Local\\Temp\\phpE5FA.tmp"}},"id":"4"} 
+[2024-06-04 11:03:59] local.INFO: Image uploaded successfully {"imagePath":"image/qrgen/my-image-name-(2).png"} 
+[2024-06-04 11:03:59] local.INFO: Instagram entry updated successfully  
+[2024-06-04 11:04:22] local.INFO: Update method called {"request":{"instagram_name":"xxx","instagram_username":"http://localhost:3000/instagram","insta_category":"1","frame_color":"#8c0303","code_color":"#b80000","user_id":"158","status":"active","image":{"Illuminate\\Http\\UploadedFile":"C:\\Users\\shawo\\AppData\\Local\\Temp\\php3F75.tmp"}},"id":"4"} 
+[2024-06-04 11:04:22] local.INFO: Image uploaded successfully {"imagePath":"image/qrgen/my-image-name-(2).png"} 
+[2024-06-04 11:04:22] local.INFO: Instagram entry updated successfully  
