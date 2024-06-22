@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
+
 class InstagramController extends Controller
 {
     /**
@@ -79,7 +80,7 @@ class InstagramController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-       public function store(Request $request)
+    public function store(Request $request)
     {
         try {
             Log::info('Store method called', ['request' => $request->all()]);
@@ -134,7 +135,7 @@ class InstagramController extends Controller
             return response()->json(['status' => 500, 'error' => 'Internal Server Error'], 500);
         }
     }
-   
+
 
     /**
      * Display the specified resource.
@@ -254,5 +255,4 @@ class InstagramController extends Controller
         }
         return response()->json(['message' => 'Instagram deleted successfully']);
     }
-
 }
