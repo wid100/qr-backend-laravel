@@ -87,6 +87,7 @@ Route::namespace('App\Http\Controllers')->group(
             Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
             Route::resource('/users', 'UserController');
+            Route::get('/block', 'UserController@block')->name('block');
             Route::resource('/card', 'CardsController');
             Route::resource('/package', 'PackagesController');
             Route::resource('/payment', 'PaymentController');
@@ -94,7 +95,7 @@ Route::namespace('App\Http\Controllers')->group(
 
             Route::resource('/website', 'WebsiteCardController');
             Route::resource('/instacategory', 'InstaCategoryController');
-            Route::resource('/instatemplate', 'InstatemplateController');
+            Route::resource('/instatemplate', 'InstaTemplateController');
         });
     }
 );

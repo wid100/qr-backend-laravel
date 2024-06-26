@@ -93,6 +93,13 @@
                 </a>
             </li>
 
+            <li class="nav-item">
+                <a href="{{ route('admin.block') }}" class="nav-link">
+                    <i class="link-icon" data-feather="box"></i>
+                    <span class="link-title">Block User</span>
+                </a>
+            </li>
+
         </ul>
     </div>
 </nav>

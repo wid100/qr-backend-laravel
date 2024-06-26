@@ -17,56 +17,59 @@ class UserController extends Controller
 
         return view('admin.user.index', compact('users'));
     }
+
+    public function block()
+    {
+        $users = User::where('role_id', 4)->get();
+        return view('admin.user.block', compact('users'));
+    }
+
+
+
+    public function edit($id)
+    {
+        $user = User::findOrFail($id);
+
+        return view('admin.user.edit', compact('user'));
+    }
+
+
+
+
     public function update(Request $request, $id)
     {
-        try {
-            // Validation
-            $validatedData = $request->validate([
-                'name' => 'required',
-                'email' => 'required|email',
-                'gender' => 'nullable',
-                'country' => 'nullable',
-                'city' => 'nullable',
-                'address' => 'nullable',
-                'country_code' => 'nullable',
-                'phone' => 'nullable',
-                'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:5120',
-            ]);
+        $user = User::findOrFail($id);
 
-            // Find user by ID
-            $user = User::findOrFail($id);
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users,email,' . $id,
+            'gender' => 'nullable|string|max:10',
+            'country' => 'nullable|string|max:50',
+            'city' => 'nullable|string|max:50',
+            'address' => 'nullable|string|max:255',
+            'phone' => 'nullable|string|max:20',
+        ]);
 
-            if ($request->hasFile('image')) {
-                // Delete old image if it exists
-                if ($user->image && file_exists(public_path($user->image))) {
-                    unlink(public_path($user->image));
-                }
+        $user->fill($validatedData);
 
-                // Upload new image
-                $image = $request->file('image');
-                $imageName = uniqid() . '-' . $image->getClientOriginalName();
-                $image->move(public_path('image/user/'), $imageName);
-                $validatedData['image'] = 'image/user/' . $imageName;
-            }
-
-
-            // Update user data
-            $user->update($validatedData);
-
-            // Save the changes to the database
-            $user->save();
-
-            Log::info('Profile updated successfully', ['id' => $user->id]);
-
-            return response()->json([
-                'status' => 200,
-                'message' => 'Profile updated successfully',
-            ]);
-        } catch (\Throwable $e) {
-            Log::error('Error updating profile', ['error' => $e->getMessage()]);
-            return response()->json(['status' => 500, 'error' => $e->getMessage()]);
+        if ($request->has('email_verified_at')) {
+            $user->email_verified_at = now();
+        } else {
+            $user->email_verified_at = null;
         }
+
+        if ($request->has('role_id')) {
+            $user->role_id = 4;
+        } else {
+            $user->role_id = 2;
+        }
+
+        $user->save();
+
+        // Redirect back with success message
+        return redirect()->route('admin.users.index')->with('success', 'User updated successfully');
     }
+
 
 
     public function destroy(User $user)
