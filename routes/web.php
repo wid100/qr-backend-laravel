@@ -9,6 +9,7 @@ use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
 use App\Http\Controllers\Admin\InstaCategoryController;
 use App\Http\Controllers\Admin\InstaTemplateController;
+use App\Http\Controllers\Admin\InstaCardController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -94,6 +95,7 @@ Route::namespace('App\Http\Controllers')->group(
             Route::resource('/subscription', 'SubscriptionsController');
 
             Route::resource('/website', 'WebsiteCardController');
+            Route::resource('/instagram', 'InstaCardController');
             Route::resource('/instacategory', 'InstaCategoryController');
             Route::resource('/instatemplate', 'InstaTemplateController');
         });

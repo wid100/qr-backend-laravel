@@ -27,13 +27,13 @@
             </li>
             <li class="nav-item nav-category">Smart Card</li>
             <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="collapse" href="#qrapp" role="button" aria-expanded="false"
-                    aria-controls="qrapp">
+                <a class="nav-link" data-bs-toggle="collapse" href="#qrapp1" role="button" aria-expanded="false"
+                    aria-controls="qrapp1">
                     <i class="link-icon" data-feather="credit-card"></i>
                     <span class="link-title">Smart Card</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
-                <div class="collapse" id="qrapp">
+                <div class="collapse" id="qrapp1">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
                             <a href="{{ route('admin.card.index') }}" class="nav-link">All Cards</a>
@@ -43,16 +43,32 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="collapse" href="#qrapp" role="button" aria-expanded="false"
-                    aria-controls="qrapp">
+                <a class="nav-link" data-bs-toggle="collapse" href="#qrapp2" role="button" aria-expanded="false"
+                    aria-controls="qrapp2">
                     <i class="link-icon" data-feather="credit-card"></i>
                     <span class="link-title">Website Card</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
-                <div class="collapse" id="qrapp">
+                <div class="collapse" id="qrapp2">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
                             <a href="{{ route('admin.website.index') }}" class="nav-link">All website cards</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="collapse" href="#qrapp3" role="button" aria-expanded="false"
+                    aria-controls="qrapp3">
+                    <i class="link-icon" data-feather="credit-card"></i>
+                    <span class="link-title">Instagram Card</span>
+                    <i class="link-arrow" data-feather="chevron-down"></i>
+                </a>
+                <div class="collapse" id="qrapp3">
+                    <ul class="nav sub-menu">
+                        <li class="nav-item">
+                            <a href="{{ route('admin.instagram.index') }}" class="nav-link">All Instagram Cards</a>
                         </li>
 
                     </ul>
