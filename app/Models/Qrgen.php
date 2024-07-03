@@ -39,6 +39,7 @@ class Qrgen extends Model
         'address2',
         'webaddress2',
         'checkgradient',
+        'appointment',
         'facebook',
         'twitter',
         'instagram',

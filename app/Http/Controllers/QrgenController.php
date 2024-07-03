@@ -101,6 +101,7 @@ class QrgenController extends Controller
                 'address2' => 'nullable|string',
                 'webaddress2' => 'nullable',
                 'checkgradient' => 'nullable|string',
+                'appointment' => 'required',
 
                 //social id
                 'facebook' => 'nullable',
@@ -279,7 +280,7 @@ class QrgenController extends Controller
                 'address2' => 'nullable|string',
                 'webaddress2' => 'nullable',
                 'checkgradient' => 'nullable|string',
-
+                'appointment' => 'required',
 
                 'facebook' => 'nullable|url',
                 'twitter' => 'nullable|url',
@@ -302,7 +303,7 @@ class QrgenController extends Controller
                 'tiktok' => 'nullable|url',
                 'whatsapp' => 'nullable|url',
                 'skype' => 'nullable|url',
-                'google_scholar' => 'nullable|url', 
+                'google_scholar' => 'nullable|url',
 
 
 
