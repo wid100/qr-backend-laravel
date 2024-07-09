@@ -18,8 +18,7 @@ class CreateInstagramsTable extends Migration
             $table->integer('user_id');
             $table->string('instagram_name');
             $table->string('instagram_username');
-            $table->unsignedBigInteger('insta_category')->nullable();
-            $table->foreign('insta_category')->references('id')->on('insta_categories')->onDelete('cascade');
+            $table->string('insta_category')->nullable();
             $table->string('frame_color')->nullable();
             $table->string('code_color')->nullable();
             $table->string('image')->nullable();
