@@ -90,7 +90,7 @@
                                 <div class="col-md-12">
                                     <div class="mb-3">
                                         <label for="price" class="form-label">Description</label>
-                                        <textarea class="form-control" name="description" id="easyMdeExample" rows="5">{{ $package->description }}</textarea>
+                                        <textarea class="form-control" name="description" id="tinymceExample" rows="5">{{ $package->description }}</textarea>
                                     </div>
                                 </div>
                                 <div class="col-md-6">

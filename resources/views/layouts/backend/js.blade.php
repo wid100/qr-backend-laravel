@@ -14,11 +14,13 @@
   <script src="{{ asset('assets/js/template.js') }}"></script>
   <!-- endinject -->
   <script src="{{ asset('assets/js/data-table.js') }}"></script>
+  <script src="{{ asset('assets/vendors/tinymce/tinymce.min.js') }}"></script>
 
   <!-- Custom js for this page -->
   <script src="{{ asset('assets/js/dashboard-dark.js') }}"></script>
   <!-- End custom js for this page -->
   <script src="{{ asset('assets/vendors/easymde/easymde.min.js') }}"></script>
+  <script src="{{ asset('assets/js/tinymce.js') }}"></script>
 
   <script src="{{ asset('assets/js/easymde.js') }}"></script>
   <script src="{{ asset('assets/vendors/select2/select2.min.js') }}"></script>
