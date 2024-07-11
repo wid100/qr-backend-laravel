@@ -7,3 +7,7 @@ tr.insta-template-tr td svg {
     height: initial !important;
     border-radius: 0 !important;
 }
+
+.CodeMirror-cursor{
+    border-color: white;
+}
