@@ -40,7 +40,8 @@ class ResumeController extends Controller
      */
     public function store(ResumeRequest $request)
     {
-        return response()->json($request->all());
+        $resume = new Resume();
+        return response()->json($resume->create_function());
     }
 
     /**
