@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ResumeRequest;
+use App\Http\Requests\ResumeUpdate;
 use App\Http\Resources\ResumeResource;
 use App\Models\Admin\Resume;
 use Illuminate\Http\Request;
@@ -19,7 +20,8 @@ class ResumeController extends Controller
      */
     public function index()
     {
-        //
+        $resumes = Resume::all();
+        return response()->json($resumes);
     }
 
     /**
@@ -73,9 +75,16 @@ class ResumeController extends Controller
      * @param  \App\Models\Admin\Resume  $resume
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Resume $resume)
+    public function update(ResumeUpdate $request, Resume $resume)
     {
-        //
+
+        $resume->update_resume();
+
+        $updated_resource = $resume->fresh();
+        return response()->json([
+            'message' => 'Resume updated successfully',
+            'data' => $updated_resource,
+        ], 200);
     }
 
     /**
@@ -86,6 +95,9 @@ class ResumeController extends Controller
      */
     public function destroy(Resume $resume)
     {
-        //
+        $resume->delete();
+        return response()->json([
+            'message' => 'Resume deleted successfully'
+        ], 200);
     }
 }

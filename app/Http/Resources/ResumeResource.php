@@ -15,7 +15,8 @@ class ResumeResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'user' => $this->user ? $this->user->name : 'No user',
+            // 'user' => $this->user ? $this->user->name : 'No user',
+            'user' => 1,
             'photo' => $this->photo,
             'resume_name' => $this->resume_name,
             'title' => $this->title,
