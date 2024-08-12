@@ -5,6 +5,8 @@ namespace App\Models\Admin;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Intervention\Image\ImageManager;
+use Intervention\Image\Drivers\Imagick\Driver;
 
 class Resume extends Model
 {
@@ -54,9 +56,19 @@ class Resume extends Model
 
     public function create_function()
     {
+
+        if (request('photo')) {
+            $manager = new ImageManager(new Driver());
+            $name_gen = hexdec(uniqid()) . '.' . request('photo')->getClientOriginalExtension();
+            $img = $manager->read(request('photo'));
+            // $img = $img->resize(370,246);
+            $img->toJpeg(80)->save(base_path('public/storage/resume/' . $name_gen));
+            $save_url = 'storage/resume/' . $name_gen;
+            $this->photo = $save_url;
+        }
+
         // $this->user_id = auth()->user()->id;
         $this->user_id = 1;
-        $this->photo = request('photo');
         $this->resume_name = request('resume_name');
         $this->title = request('title');
         $this->description = request('description');

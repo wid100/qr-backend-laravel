@@ -97,9 +97,10 @@ Route::get('template', [InstaController::class, 'allTemplate']);
 // Route::middleware('auth:sanctum')->group(function () {
 //     Route::get('/resume', [ResumeController::class, 'index']);
 // });
+
 //get all resume
 Route::get('/resume', [ResumeController::class, 'index']);
 Route::get('/resume/{resume}', [ResumeController::class, 'show']);
 Route::post('/resume', [ResumeController::class, 'store']);
-Route::put('/resume/{resume}', [ResumeController::class, 'update']);
+Route::post('/resume/{id}', [ResumeController::class, 'update']);
 Route::delete('/resume/{resume}', [ResumeController::class, 'destroy']);

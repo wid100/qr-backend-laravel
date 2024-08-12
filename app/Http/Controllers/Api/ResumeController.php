@@ -54,6 +54,7 @@ class ResumeController extends Controller
      */
     public function show(Resume $resume)
     {
+
         return new ResumeResource($resume);
     }
 
@@ -75,8 +76,9 @@ class ResumeController extends Controller
      * @param  \App\Models\Admin\Resume  $resume
      * @return \Illuminate\Http\Response
      */
-    public function update(ResumeUpdate $request, Resume $resume)
+    public function update(ResumeUpdate $request, Resume $id)
     {
+        return response()->json($id);
 
         $resume->update_resume();
 

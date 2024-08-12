@@ -24,6 +24,7 @@ class ResumeUpdate extends FormRequest
     public function rules()
     {
         return [
+
             'photo' => 'nullable|image|max:2048',
             'resume_name' => 'required|string|max:255',
             'title' => 'required|string|max:255',
