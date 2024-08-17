@@ -5613,3 +5613,7 @@
 #63 D:\\Office\\qr-backend-laravel\\server.php(21): require_once('D:\\\\Office\\\\qr-ba...')
 #64 {main}
 "} 
+[2024-08-14 04:21:08] local.DEBUG: Country Name: {"name":"Afghanistan"} 
+[2024-08-14 04:21:10] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-08-14 04:21:26] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-08-14 04:58:50] local.DEBUG: Country Name: {"name":"Bangladesh"} 
