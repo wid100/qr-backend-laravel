@@ -45,11 +45,12 @@ class UserController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users,email,' . $id,
-            'gender' => 'nullable|string|max:10',
-            'country' => 'nullable|string|max:50',
-            'city' => 'nullable|string|max:50',
-            'address' => 'nullable|string|max:255',
-            'phone' => 'nullable|string|max:20',
+            'gender' => 'nullable',
+            'country' => 'nullable',
+            'city' => 'nullable',
+            'address' => 'nullable',
+            'phone' => 'nullable',
+            'country_code' => 'nullable',
         ]);
 
         $data = [
@@ -59,8 +60,8 @@ class UserController extends Controller
             'country' => $request->country,
             'city' => $request->city,
             'address' => $request->address,
-            'address' => $request->address,
             'phone' => $request->phone,
+            'country_code' => $request->country_code,
         ];
 
         $image = $request->file('image');
