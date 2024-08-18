@@ -89,5 +89,5 @@ Route::delete('/delete_website/{id}', [WebsiteController::class, 'destroy']);
 
 
 // ==============insta systems============
+        
 Route::get('category', [InstaController::class, 'allCategory']);
-Route::get('template', [InstaController::class, 'allTemplate']);
