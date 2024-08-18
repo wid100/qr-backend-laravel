@@ -104,3 +104,5 @@ Route::get('/resume/{resume}', [ResumeController::class, 'show']);
 Route::post('/resume', [ResumeController::class, 'store']);
 Route::post('/resume/{id}', [ResumeController::class, 'update']);
 Route::delete('/resume/{resume}', [ResumeController::class, 'destroy']);
+
+Route::get('category', [InstaController::class, 'allCategory']);
