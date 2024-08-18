@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\CountryController;
 use App\Http\Controllers\Api\InstaController;
 use App\Http\Controllers\Api\PackageController;
 use App\Http\Controllers\Api\PaymentController;
+use App\Http\Controllers\Api\ResumeController;
 use App\Http\Controllers\Api\SubscriptionController;
 use App\Http\Controllers\InstagramController;
 use App\Http\Controllers\Auth\CustomAuthenticatedSessionController;
@@ -91,3 +92,17 @@ Route::delete('/delete_website/{id}', [WebsiteController::class, 'destroy']);
 // ==============insta systems============
 Route::get('category', [InstaController::class, 'allCategory']);
 Route::get('template', [InstaController::class, 'allTemplate']);
+
+//Resume
+// Route::middleware('auth:sanctum')->group(function () {
+//     Route::get('/resume', [ResumeController::class, 'index']);
+// });
+
+//get all resume
+Route::get('/resume', [ResumeController::class, 'index']);
+Route::get('/resume/{resume}', [ResumeController::class, 'show']);
+Route::post('/resume', [ResumeController::class, 'store']);
+Route::post('/resume/{id}', [ResumeController::class, 'update']);
+Route::delete('/resume/{resume}', [ResumeController::class, 'destroy']);
+
+Route::get('category', [InstaController::class, 'allCategory']);
