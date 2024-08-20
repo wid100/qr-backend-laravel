@@ -11,10 +11,6 @@ use Illuminate\Validation\ValidationException;
 
 class QrgenController extends Controller
 {
-
-
-
-
     public function getPauseeQr($userId)
     {
         $pauseQr = Qrgen::where('user_id', $userId)
@@ -75,7 +71,7 @@ class QrgenController extends Controller
                 'firstname' => 'required|string',
                 'lastname' => 'required|string',
                 'email1' => 'required|email',
-                'mobile1' => 'required|numeric',
+                'mobile1' => 'required',
                 'address1' => 'required|string',
 
                 'maincolor' => 'required|string',
@@ -89,19 +85,19 @@ class QrgenController extends Controller
                 'companyname' => 'nullable|string',
                 'jobtitle' => 'nullable|string',
                 'webaddress1' => 'nullable',
-                'phone1' => 'nullable|numeric',
+                'phone1' => 'nullable',
                 'email2' => 'nullable|email',
                 'slug' => 'nullable|string',
-                'phone2' => 'nullable|numeric',
-                'mobile2' => 'nullable|numeric',
-                'mobile3' => 'nullable|numeric',
-                'mobile4' => 'nullable|numeric',
-                'fax' => 'nullable|numeric',
-                'fax2' => 'nullable|numeric',
+                'phone2' => 'nullable',
+                'mobile2' => 'nullable',
+                'mobile3' => 'nullable',
+                'mobile4' => 'nullable',
+                'fax' => 'nullable',
+                'fax2' => 'nullable',
                 'address2' => 'nullable|string',
                 'webaddress2' => 'nullable',
                 'checkgradient' => 'nullable|string',
-                'appointment' => 'required',
+                // 'appointment' => 'required',
 
                 //social id
                 'facebook' => 'nullable',
@@ -280,7 +276,7 @@ class QrgenController extends Controller
                 'address2' => 'nullable|string',
                 'webaddress2' => 'nullable',
                 'checkgradient' => 'nullable|string',
-                'appointment' => 'required',
+                // 'appointment' => 'required',
 
                 'facebook' => 'nullable|url',
                 'twitter' => 'nullable|url',
