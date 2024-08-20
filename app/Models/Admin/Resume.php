@@ -27,6 +27,13 @@ class Resume extends Model
         'experience',
         'references',
         'social',
+        'fname',
+        'lname',
+        'profession',
+        'city',
+        'postal_code',
+        'country',
+        'other',
     ];
     public function user()
     {
@@ -37,6 +44,7 @@ class Resume extends Model
     {
         return [
             'user' =>  $this->user ? $this->user : 'No user',
+            'category_id' => 1,
             'photo' => $this->photo,
             'resume_name' => $this->resume_name,
             'title' => $this->title,
@@ -51,6 +59,13 @@ class Resume extends Model
             'experience' => $this->experience,
             'references' => $this->references,
             'social' => $this->social,
+            'fname' => $this->fname,
+            'lname' => $this->lname,
+            'profession' => $this->profession,
+            'city' => $this->city,
+            'postal_code' => $this->postal_code,
+            'country' => $this->country,
+            'other' => $this->other,
         ];
     }
 
@@ -69,6 +84,7 @@ class Resume extends Model
 
         // $this->user_id = auth()->user()->id;
         $this->user_id = 1;
+        $this->category_id = 1;
         $this->resume_name = request('resume_name');
         $this->title = request('title');
         $this->description = request('description');
@@ -82,6 +98,13 @@ class Resume extends Model
         $this->experience = request('experience');
         $this->references = request('references');
         $this->social = request('social');
+        $this->fname = request('fname');
+        $this->lname = request('lname');
+        $this->profession = request('profession');
+        $this->city = request('city');
+        $this->postal_code = request('postal_code');
+        $this->country = request('country');
+        $this->other = request('other');
         $this->save();
         return $this->getResume();
     }
@@ -102,6 +125,13 @@ class Resume extends Model
         $this->experience = request('experience');
         $this->references = request('references');
         $this->social = request('social');
+        $this->fname = request('fname');
+        $this->lname = request('lname');
+        $this->profession = request('profession');
+        $this->city = request('city');
+        $this->postal_code = request('postal_code');
+        $this->country = request('country');
+        $this->other = request('other');
         $this->save();
         return $this->getResume();
     }
