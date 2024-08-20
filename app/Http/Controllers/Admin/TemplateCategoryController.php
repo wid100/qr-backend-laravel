@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
 
 use App\Models\Admin\TemplateCategory;
 use Illuminate\Http\Request;
@@ -14,7 +16,8 @@ class TemplateCategoryController extends Controller
      */
     public function index()
     {
-        //
+        $tempcategory = TemplateCategory::all();
+        return view('admin.temcategory.index', compact('tempcategory'));
     }
 
     /**
@@ -24,7 +27,7 @@ class TemplateCategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.temcategory.create',);
     }
 
     /**
@@ -35,7 +38,15 @@ class TemplateCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required',
+        ]);
+
+        TemplateCategory::create([
+            'name' => $request->name,
+        ]);
+
+        return redirect()->route('admin.tempcategory.index')->with('success', 'Template Category created successfully.');
     }
 
     /**
@@ -55,9 +66,10 @@ class TemplateCategoryController extends Controller
      * @param  \App\Models\Admin\TemplateCategory  $templateCategory
      * @return \Illuminate\Http\Response
      */
-    public function edit(TemplateCategory $templateCategory)
+    public function edit($id)
     {
-        //
+        $category = TemplateCategory::findOrFail($id);
+        return view('admin.temcategory.edit', compact('category'));
     }
 
     /**
@@ -67,9 +79,17 @@ class TemplateCategoryController extends Controller
      * @param  \App\Models\Admin\TemplateCategory  $templateCategory
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, TemplateCategory $templateCategory)
+    public function update(Request $request, $id)
     {
-        //
+        $validation = $request->validate([
+            'name' => 'required'
+        ]);
+        $category = TemplateCategory::findOrFail($id);
+        $category->update([
+            'name' => $request->name,
+        ]);
+
+        return redirect()->route('admin.tempcategory.index')->with('success', 'Template category updated.');
     }
 
     /**
@@ -78,8 +98,10 @@ class TemplateCategoryController extends Controller
      * @param  \App\Models\Admin\TemplateCategory  $templateCategory
      * @return \Illuminate\Http\Response
      */
-    public function destroy(TemplateCategory $templateCategory)
+    public function destroy($id)
     {
-        //
+        $category = TemplateCategory::find($id);
+        $category->delete();
+        return redirect()->back()->with('success', 'Template category Delete Success');
     }
 }

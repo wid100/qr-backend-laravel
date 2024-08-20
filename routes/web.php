@@ -2,15 +2,17 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Models\Admin\TemplateCategory;
 use Illuminate\Support\Facades\Artisan;
 use Symfony\Component\HttpFoundation\Request;
 use App\Http\Controllers\Admin\InstaCardController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\Admin\InstaCategoryController;
 use App\Http\Controllers\Admin\InstaTemplateController;
+use App\Http\Controllers\Admin\TemplateCategoryController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -99,7 +101,7 @@ Route::namespace('App\Http\Controllers')->group(
             Route::resource('/instagram', 'InstaCardController');
             Route::resource('/instacategory', 'InstaCategoryController');
             Route::resource('/instatemplate', 'InstaTemplateController');
-            Route::resource('/tempcategory', TemplateCategory::class);
+            Route::resource('/tempcategory', 'TemplateCategoryController');
         });
     }
 );
