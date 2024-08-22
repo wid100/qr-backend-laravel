@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
 use Symfony\Component\HttpFoundation\Request;
+use App\Http\Controllers\Admin\TemplateController;
 use App\Http\Controllers\Admin\InstaCardController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\Admin\InstaCategoryController;
@@ -102,6 +103,7 @@ Route::namespace('App\Http\Controllers')->group(
             Route::resource('/instacategory', 'InstaCategoryController');
             Route::resource('/instatemplate', 'InstaTemplateController');
             Route::resource('/tempcategory', 'TemplateCategoryController');
+            Route::resource('/template', 'TemplateController');
         });
     }
 );

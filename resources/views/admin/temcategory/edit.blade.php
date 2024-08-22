@@ -22,7 +22,7 @@
                                 <div class="col-md-12">
                                     <div class="mb-3">
                                         <label for="category" class="form-label">Category Nmae</label>
-                                        <input class="form-control @error('name') is-invalid @enderror"" type="text" name="name" value="{{ old('name',$category->name ?? '') }}">
+                                        <input class="form-control @error('name') is-invalid @enderror" type="text" name="name" value="{{ old('name',$category->name ?? '') }}">
                                     </div>
                                     @error('name')
                                         <p class="text-danger">{{ $message }}</p>
