@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\File;
 use App\Models\User;
 use Dotenv\Exception\ValidationException;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Str;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class UserController extends Controller
 {
@@ -43,28 +45,45 @@ class UserController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users,email,' . $id,
-            'gender' => 'nullable|string|max:10',
-            'country' => 'nullable|string|max:50',
-            'city' => 'nullable|string|max:50',
-            'address' => 'nullable|string|max:255',
-            'phone' => 'nullable|string|max:20',
+            'gender' => 'nullable',
+            'country' => 'nullable',
+            'city' => 'nullable',
+            'address' => 'nullable',
+            'phone' => 'nullable',
+            'country_code' => 'nullable',
         ]);
 
-        $user->fill($validatedData);
+        $data = [
+            'name' => $request->name,
+            'email' => $request->email,
+            'gender' => $request->gender,
+            'country' => $request->country,
+            'city' => $request->city,
+            'address' => $request->address,
+            'phone' => $request->phone,
+            'country_code' => $request->country_code,
+        ];
 
-        if ($request->has('email_verified_at')) {
-            $user->email_verified_at = now();
-        } else {
-            $user->email_verified_at = null;
+        $image = $request->file('image');
+        if ($image) {
+            if ($user->image) {
+                $filePath = public_path('storage/user/' . $user->image);
+                if ($filePath) {
+                    unlink($filePath);
+                }
+            }
+
+            $reviewDirectory = public_path('storage/user');
+            File::makeDirectory($reviewDirectory, 0755, true, true);
+
+            $originalName = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME);
+            $uniqueName = $originalName . '_' . Str::random(20) . '_' . uniqid() . '.' . '.webp';
+            Image::make($image)->save('storage/user/' . $uniqueName, 90, 'webp');
+
+            $data['image'] = $uniqueName;
         }
+        $user->update($data);
 
-        if ($request->has('role_id')) {
-            $user->role_id = 4;
-        } else {
-            $user->role_id = 2;
-        }
-
-        $user->save();
 
         // Redirect back with success message
         return redirect()->route('admin.users.index')->with('success', 'User updated successfully');

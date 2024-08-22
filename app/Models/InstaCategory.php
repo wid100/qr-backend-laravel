@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class InstaCategory extends Model
 {
     use HasFactory;
+    public function instaTemplates()
+    {
+        return $this->hasMany(InstaTemplate::class, 'insta_category');
+    }
 }
