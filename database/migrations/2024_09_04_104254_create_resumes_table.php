@@ -16,7 +16,7 @@ class CreateResumesTable extends Migration
         Schema::create('resumes', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
-            $table->foreignId('category_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('template_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->string('photo')->nullable();
             $table->string('resume_name')->nullable();
             $table->string('title')->nullable();
