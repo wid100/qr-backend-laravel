@@ -24,12 +24,12 @@ class CreateResumesTable extends Migration
             $table->integer('phone')->nullable();
             $table->string('email')->nullable();
             $table->text('address')->nullable();
-            $table->text('education')->nullable();
-            $table->text('skill')->nullable();
-            $table->text('language')->nullable();
-            $table->text('interest')->nullable();
-            $table->text('experience')->nullable();
-            $table->text('references')->nullable();
+            $table->longText('education')->nullable();
+            $table->longText('skill')->nullable();
+            $table->longText('language')->nullable();
+            $table->longText('interest')->nullable();
+            $table->longText('experience')->nullable();
+            $table->longText('references')->nullable();
             $table->text('social')->nullable();
             $table->string('fname')->nullable();
             $table->string('lname')->nullable();
@@ -37,7 +37,7 @@ class CreateResumesTable extends Migration
             $table->string('city')->nullable();
             $table->integer('postal_code')->nullable();
             $table->string('country')->nullable();
-            $table->text('other')->nullable();
+            $table->longText('other')->nullable();
             $table->timestamps();
         });
     }

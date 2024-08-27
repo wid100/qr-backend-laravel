@@ -10,6 +10,8 @@ use App\Http\Controllers\Api\PackageController;
 use App\Http\Controllers\Api\PaymentController;
 use App\Http\Controllers\Api\ResumeController;
 use App\Http\Controllers\Api\SubscriptionController;
+use App\Http\Controllers\Api\TemplateCategory;
+use App\Http\Controllers\Api\TemplateController;
 use App\Http\Controllers\InstagramController;
 use App\Http\Controllers\Auth\CustomAuthenticatedSessionController;
 use App\Http\Controllers\WebsiteController;
@@ -106,3 +108,5 @@ Route::post('/resume/{id}', [ResumeController::class, 'update']);
 Route::delete('/resume/{resume}', [ResumeController::class, 'destroy']);
 
 Route::get('category', [InstaController::class, 'allCategory']);
+Route::get('/template-category', TemplateCategory::class);
+Route::get('/templates/{id}', TemplateController::class);

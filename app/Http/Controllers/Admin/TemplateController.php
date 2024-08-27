@@ -20,7 +20,8 @@ class TemplateController extends Controller
      */
     public function index()
     {
-        $template = Template::all();
+        $template = Template::with('templateCategory')->get();
+        // dd($template);
         return view('admin.template.index', compact('template'));
     }
 

@@ -16,4 +16,8 @@ class Template extends Model
         'primary_color',
         'text_color'
     ];
+    public function templateCategory()
+    {
+        return $this->belongsTo(TemplateCategory::class, 'template_category_id');
+    }
 }

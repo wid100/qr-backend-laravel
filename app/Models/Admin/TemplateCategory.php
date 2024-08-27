@@ -11,4 +11,8 @@ class TemplateCategory extends Model
     protected $fillable = [
         'name'
     ];
+    public function templates()
+    {
+        return $this->hasMany(Template::class, 'template_category_id');
+    }
 }

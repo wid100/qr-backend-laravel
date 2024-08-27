@@ -25,19 +25,19 @@ class ResumeRequest extends FormRequest
     {
         return [
             'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'resume_name' => 'required|string',
-            'title' => 'required|string',
+            'resume' => 'required',
+            'title' => 'nullable',
             'description' => 'nullable|string',
             'phone' => 'nullable|string',
             'email' => 'nullable|email',
-            'address' => 'nullable|string',
-            'education' => 'nullable|string',
-            'skill' => 'nullable|string',
-            'language' => 'nullable|string',
-            'interest' => 'nullable|string',
-            'experience' => 'nullable|string',
-            'references' => 'nullable|string',
-            'social' => 'nullable|string',
+            'address' => 'nullable',
+            'education' => 'nullable',
+            'skill' => 'nullable',
+            'language' => 'nullable',
+            'interest' => 'nullable',
+            'experience' => 'nullable',
+            'references' => 'nullable',
+            'social' => 'nullable',
         ];
     }
 }
