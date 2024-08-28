@@ -7,12 +7,12 @@
         <nav class="page-breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="#">Forms</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Basic Elements</li>
+                <li class="breadcrumb-item active" aria-current="page">Resume Categoru</li>
             </ol>
         </nav>
 
         <div class="row">
-            <div class="col-md-6 grid-margin stretch-card">
+            <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
                         <h6 class="card-title">Basic Form</h6>
@@ -68,7 +68,7 @@
                                     </div>
 
                                     <div class="form-floating mb-3">
-                                        <textarea name="code" class="form-control  @error('code') is-invalid @enderror" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+                                        <textarea name="code" class="form-control  @error('code') is-invalid @enderror" placeholder="Leave a comment here" id="floatingTextarea" style="height: 150px"></textarea>
                                         <label for="floatingTextarea">Code <sup class="text-success">optional</sup></label>
                                         @error('code')
                                         <span class="text-danger">{{ $message }}</span>
@@ -79,6 +79,7 @@
 
 
                                 <div class="col-md-12 d-flex justify-content-end">
+                                    <a class="btn btn-dark me-2" href="{{ route('admin.template.index') }}">Cancel</a>
                                     <button type="submit" class="btn btn-primary me-2">Submit</button>
                                 </div>
                             </div>
