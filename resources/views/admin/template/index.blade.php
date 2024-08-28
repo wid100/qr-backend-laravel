@@ -24,6 +24,7 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>Image</th>
+                                        <th>Category</th>
                                         <th>Title</th>
                                         <th>Primary Color</th>
                                         <th>Text Color</th>
@@ -38,6 +39,7 @@
                                         <tr class="insta-template-tr">
                                             <td>{{ $key + 1 }}</td>
                                             <td><img class=" rounded shadow img-fluid" src="{{ asset($item->image) }}" alt="image" /></td>
+                                            <td>{{ $item->templateCategory->name }}</td>
                                             <td width="100">{!! $item->name !!}</td>
                                             <td class="rounded" style="background-color:{{ $item->primary_color ?? 'Not available' }}">{{ $item->primary_color ?? 'Not available' }}</td>
                                             <td class="rounded" style="color:{{ $item->text_color ?? 'Not available' }}">{{ $item->text_color ?? 'Not available' }}</td>

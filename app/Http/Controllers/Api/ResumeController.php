@@ -24,15 +24,6 @@ class ResumeController extends Controller
         return response()->json($resumes);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -42,7 +33,25 @@ class ResumeController extends Controller
      */
     public function store(ResumeRequest $request)
     {
+
+        // return response()->json($request->resume['textColor']);
+        // if ($request->hasFile('photo')) {
+        //     $file = $request->file('photo');
+        //     return response()->json([
+        //         'file_name' => $file->getClientOriginalName(),
+        //         'file_type' => $file->getMimeType(),
+        //         'file_size' => $file->getSize(),
+        //     ]);
+        // } else {
+        //     return response()->json(['message' => 'No file uploaded'], 400);
+        // }
+
         $resume = new Resume();
+
+        // $data = $request->resume['name'];
+        // return response()->json($data);
+
+
         return response()->json($resume->create_function());
     }
 
