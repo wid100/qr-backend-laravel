@@ -109,4 +109,5 @@ Route::delete('/resume/{resume}', [ResumeController::class, 'destroy']);
 
 Route::get('category', [InstaController::class, 'allCategory']);
 Route::get('/template-category', TemplateCategory::class);
-Route::get('/templates/{id}', TemplateController::class);
+Route::get('/templates/{id}', [TemplateController::class, 'getTemplates']);
+Route::get('/template/{id}', [TemplateController::class, 'getTemplate']);

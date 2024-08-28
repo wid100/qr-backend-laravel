@@ -31,10 +31,10 @@ class ResumeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ResumeRequest $request)
     {
 
-        // return response()->json($request->photo);
+        // return response()->json($request->resume['textColor']);
         // if ($request->hasFile('photo')) {
         //     $file = $request->file('photo');
         //     return response()->json([

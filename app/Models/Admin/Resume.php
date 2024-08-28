@@ -35,6 +35,8 @@ class Resume extends Model
         'postal_code',
         'country',
         'other',
+        'primary_color',
+        'text_color'
     ];
     public function user()
     {
@@ -67,6 +69,8 @@ class Resume extends Model
             'postal_code' => $this->postal_code,
             'country' => $this->country,
             'other' => $this->other,
+            'primaryColor' => $this->primary_color,
+            'textColor' => $this->text_color,
         ];
     }
 
@@ -85,7 +89,7 @@ class Resume extends Model
 
         // $this->user_id = auth()->user()->id;
         $this->user_id = 1;
-        $this->template_id = 1;
+        $this->template_id = request('templateId');
         $this->resume_name = request('resume.name');
         $this->title = request('profession');
         $this->description = request('description');
@@ -101,6 +105,8 @@ class Resume extends Model
         $this->social = request('social');
         $this->fname = request('firstName');
         $this->lname = request('lastName');
+        $this->primary_color = request('resume.primaryColor');
+        $this->text_color = request('resume.textColor');
         $this->profession = request('profession');
         $this->city = request('city');
         $this->postal_code = request('postal_code');

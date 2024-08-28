@@ -38,6 +38,8 @@ class CreateResumesTable extends Migration
             $table->integer('postal_code')->nullable();
             $table->string('country')->nullable();
             $table->longText('other')->nullable();
+            $table->string('primary_color')->nullable();
+            $table->string('text_color')->nullable();
             $table->timestamps();
         });
     }
