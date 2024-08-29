@@ -12,7 +12,8 @@ use App\Http\Controllers\Admin\InstaTemplateController;
 use App\Http\Controllers\Admin\TemplateCategoryController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
-
+use App\Models\Admin\Resume;
+use App\Models\Admin\Template;
 
 /*
 |--------------------------------------------------------------------------
@@ -107,3 +108,32 @@ Route::namespace('App\Http\Controllers')->group(
         });
     }
 );
+
+Route::get('/cv', function () {
+    $template = Template::findOrFail(9);
+    $resume = Resume::findOrFail(3);
+    $experience = json_decode($resume->experience);
+    // dd($experience);
+
+    // foreach ($experience as $item) {
+    //     var_dump($item->location);
+    // }
+    // dd($resume->title);
+
+    // return view('resume.resume', compact('template', 'experience'));
+
+    $htmlContent = $template->code;
+    $htmlContent = str_replace('{resume.fname}', $resume->fname, $htmlContent);
+    $htmlContent = str_replace('{resume.lname}', $resume->lname, $htmlContent);
+    $htmlContent = str_replace('{resume.email}', $resume->email, $htmlContent);
+    $htmlContent = str_replace('{resume.description}', $resume->description, $htmlContent);
+    $htmlContent = str_replace('{resume.title}', $resume->title, $htmlContent);
+
+    $data = gettype($experience);
+    dd($data);
+    return view('resume.resume', [
+        'htmlContent' => $htmlContent,
+        'template' => $template,
+        'experience' => $experience,
+    ]);
+});

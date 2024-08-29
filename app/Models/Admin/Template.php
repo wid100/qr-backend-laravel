@@ -13,6 +13,7 @@ class Template extends Model
         'name',
         'image',
         'code',
+        'uuid',
         'primary_color',
         'text_color'
     ];

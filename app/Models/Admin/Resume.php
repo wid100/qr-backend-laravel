@@ -46,6 +46,7 @@ class Resume extends Model
     public function getResume()
     {
         return [
+            'id' => $this->id,
             'user' =>  $this->user ? $this->user : 'No user',
             'template_id' => $this->template_id,
             'photo' => $this->photo,
@@ -71,20 +72,39 @@ class Resume extends Model
             'other' => $this->other,
             'primaryColor' => $this->primary_color,
             'textColor' => $this->text_color,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
         ];
     }
 
     public function create_function()
     {
 
+        // if (request('photo')) {
+        //     $manager = new ImageManager(new Driver());
+        //     $name_gen = hexdec(uniqid()) . '.' . request('photo')->getClientOriginalExtension();
+        //     $img = $manager->read(request('photo'));
+        //     // $img = $img->resize(370,246);
+        //     $img->toJpeg(80)->save(base_path('public/image/resume/' . $name_gen));
+        //     $save_url = 'image/resume/' . $name_gen;
+        //     $this->photo = $save_url;
+        // }
+
         if (request('photo')) {
-            $manager = new ImageManager(new Driver());
+            // Ensure the directory exists
+            $directory = public_path('image/resume');
+            if (!file_exists($directory)) {
+                mkdir($directory, 0775, true);
+            }
+
+            // Create ImageManager instance
+            $manager = new ImageManager(['driver' => 'gd']);
             $name_gen = hexdec(uniqid()) . '.' . request('photo')->getClientOriginalExtension();
-            $img = $manager->read(request('photo'));
-            // $img = $img->resize(370,246);
-            $img->toJpeg(80)->save(base_path('public/image/resume/' . $name_gen));
-            $save_url = 'image/resume/' . $name_gen;
-            $this->photo = $save_url;
+
+            $img = $manager->make(request('photo'));
+            $img->save($directory . '/' . $name_gen, 80);
+
+            $this->photo = 'image/resume/' . $name_gen;
         }
 
         // $this->user_id = auth()->user()->id;

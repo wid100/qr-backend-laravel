@@ -35,7 +35,7 @@ class ResumeController extends Controller
     {
 
         // return response()->json($request->resume['textColor']);
-        // if ($request->hasFile('photo')) {
+        // if ($request->photo) {
         //     $file = $request->file('photo');
         //     return response()->json([
         //         'file_name' => $file->getClientOriginalName(),
@@ -47,11 +47,6 @@ class ResumeController extends Controller
         // }
 
         $resume = new Resume();
-
-        // $data = $request->resume['name'];
-        // return response()->json($data);
-
-
         return response()->json($resume->create_function());
     }
 
@@ -63,7 +58,6 @@ class ResumeController extends Controller
      */
     public function show(Resume $resume)
     {
-
         return new ResumeResource($resume);
     }
 
