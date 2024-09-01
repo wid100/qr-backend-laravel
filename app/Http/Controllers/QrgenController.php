@@ -70,16 +70,16 @@ class QrgenController extends Controller
                 'cardname' => 'required|string',
                 'firstname' => 'required|string',
                 'lastname' => 'required|string',
-                'email1' => 'required|email',
-                'mobile1' => 'required',
-                'address1' => 'required|string',
+                'email1' => 'nullable|email',
+                'mobile1' => 'nullable',
+                'address1' => 'nullable|string',
 
-                'maincolor' => 'required|string',
-                'gradientcolor' => 'required|string',
-                'buttoncolor' => 'required|string',
-                'summary' => 'required|string',
-                'cardtype' => 'required|string',
-                'status' => 'required|string',
+                'maincolor' => 'nullable|string',
+                'gradientcolor' => 'nullable|string',
+                'buttoncolor' => 'nullable|string',
+                'summary' => 'nullable|string',
+                'cardtype' => 'nullable|string',
+                'status' => 'nullable|string',
 
                 // Example: nullable status field
                 'companyname' => 'nullable|string',
@@ -129,20 +129,10 @@ class QrgenController extends Controller
 
                 'qrcodeimage' => 'nullable',
                 // ... other fields and validation rules
-                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5120',
-                'welcomeimage' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            ], [
-                'phone1.numeric' => 'The Phone field accepet only number.',
-                'cardname.required' => 'The card name field is required.',
-                'firstname.required' => 'The first name field is required.',
-                'lastname.required' => 'The last name field is required.',
-                'email1.required' => 'The email field is required.',
-                'email1.email' => 'The email field must be an email.',
-                // ... other custom error messages
-                'image.required' => 'The image field is required.',
-                'image.image' => 'The file must be an image.',
-                'image.mimes' => 'The image must be a file of type: jpeg, png, jpg, gif, svg.',
-                'image.max' => 'The image may not be greater than 5MB.',
+                'image' => 'nullable',
+                'welcomeimage' => 'nullable',
+
+
 
             ]);
 
@@ -251,15 +241,15 @@ class QrgenController extends Controller
                 'cardname' => 'required|string',
                 'firstname' => 'required|string',
                 'lastname' => 'required|string',
-                'email1' => 'required|email',
-                'mobile1' => 'required|numeric',
-                'address1' => 'required|string',
-                'maincolor' => 'required|string',
-                'gradientcolor' => 'required|string',
-                'buttoncolor' => 'required|string',
-                'summary' => 'required|string',
-                'cardtype' => 'required|string',
-                'status' => 'required|string',
+                'email1' => 'nullable|email',
+                'mobile1' => 'nullable|numeric',
+                'address1' => 'nullable|string',
+                'maincolor' => 'nullable|string',
+                'gradientcolor' => 'nullable|string',
+                'buttoncolor' => 'nullable|string',
+                'summary' => 'nullable|string',
+                'cardtype' => 'nullable|string',
+                'status' => 'nullable|string',
                 // Example: nullable status field
                 'webaddress1' => 'nullable',
                 'companyname' => 'nullable|string',
