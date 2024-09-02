@@ -42,6 +42,10 @@ class Resume extends Model
     {
         return $this->belongsTo(User::class);
     }
+    public function template()
+    {
+        return $this->belongsTo(Template::class, 'template_id');
+    }
 
     public function getResume()
     {
@@ -108,7 +112,7 @@ class Resume extends Model
         }
 
         // $this->user_id = auth()->user()->id;
-        $this->user_id = 1;
+        $this->user_id = request('userId');
         $this->template_id = request('templateId');
         $this->resume_name = request('resume.name');
         $this->title = request('profession');

@@ -15,23 +15,6 @@ class ResumeResource extends JsonResource
     public function toArray($request)
     {
         return [
-            // 'user' => $this->user ? $this->user->name : 'No user',
-            // 'user' => 1,
-            // 'photo' => $this->photo,
-            // 'resume_name' => $this->resume_name,
-            // 'title' => $this->title,
-            // 'description' => $this->description,
-            // 'phone' => $this->phone,
-            // 'email' => $this->email,
-            // 'address' => $this->address,
-            // 'education' => $this->education,
-            // 'skill' => $this->skill,
-            // 'language' => $this->language,
-            // 'interest' => $this->interest,
-            // 'experience' => $this->experience,
-            // 'references' => $this->references,
-            // 'social' => $this->social,
-
             'id' => $this->id,
             'user' =>  $this->user ? $this->user : 'No user',
             'template_id' => $this->template_id,
@@ -58,6 +41,7 @@ class ResumeResource extends JsonResource
             'other' => $this->other,
             'primaryColor' => $this->primary_color,
             'textColor' => $this->text_color,
+            'template' => $this->whenLoaded('template'),
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];

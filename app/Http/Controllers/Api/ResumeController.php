@@ -18,10 +18,10 @@ class ResumeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($userId)
     {
-        $resumes = Resume::all();
-        return response()->json($resumes);
+        $resumes = Resume::with('template')->where('user_id', $userId)->get();
+        return ResumeResource::collection($resumes);
     }
 
 
@@ -33,19 +33,6 @@ class ResumeController extends Controller
      */
     public function store(ResumeRequest $request)
     {
-
-        // return response()->json($request->resume['textColor']);
-        // if ($request->photo) {
-        //     $file = $request->file('photo');
-        //     return response()->json([
-        //         'file_name' => $file->getClientOriginalName(),
-        //         'file_type' => $file->getMimeType(),
-        //         'file_size' => $file->getSize(),
-        //     ]);
-        // } else {
-        //     return response()->json(['message' => 'No file uploaded'], 400);
-        // }
-
         $resume = new Resume();
         return response()->json($resume->create_function());
     }
