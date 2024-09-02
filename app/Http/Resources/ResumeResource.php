@@ -42,7 +42,7 @@ class ResumeResource extends JsonResource
             'phone' => $this->phone,
             'email' => $this->email,
             'address' => $this->address,
-            'education' => json_decode($this->education),
+            'education' => json_decode($this->education, true),
             'skill' => json_decode($this->skill),
             'language' => json_decode($this->language),
             'interest' => json_decode($this->interest),

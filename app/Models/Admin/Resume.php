@@ -56,7 +56,7 @@ class Resume extends Model
             'phone' => $this->phone,
             'email' => $this->email,
             'address' => $this->address,
-            'education' => json_decode($this->education),
+            'education' => json_decode($this->education, true),
             'skill' => json_decode($this->skill),
             'language' => json_decode($this->language),
             'interest' => json_decode($this->interest),
@@ -116,12 +116,12 @@ class Resume extends Model
         $this->phone = request('phone');
         $this->email = request('email');
         $this->address = request('address');
-        $this->education = json_encode(request('education'));
-        $this->skill = json_encode(request('skills'));
-        $this->language = json_encode(request('languages'));
-        $this->interest = json_encode(request('interests'));
-        $this->experience = json_encode(request('jobs'));
-        $this->references = json_encode(request('references'));
+        $this->education = request('education');
+        $this->skill = request('skills');
+        $this->language = request('languages');
+        $this->interest = request('interests');
+        $this->experience = request('jobs');
+        $this->references = request('references');
         $this->social = request('social');
         $this->fname = request('firstName');
         $this->lname = request('lastName');
