@@ -20,6 +20,7 @@ class CreateTemplatesTable extends Migration
             $table->string('name')->nullable();
             $table->string('image')->nullable();
             $table->text('code')->nullable();
+            $table->text('style')->nullable();
             $table->string('primary_color')->nullable();
             $table->string('text_color')->nullable();
             $table->timestamps();
