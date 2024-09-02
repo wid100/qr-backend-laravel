@@ -69,7 +69,7 @@
 
                                     <div class="form-floating mb-3">
                                         <textarea name="code" class="form-control  @error('code') is-invalid @enderror" placeholder="Leave a comment here" id="floatingTextarea" style="height: 150px"></textarea>
-                                        <label for="floatingTextarea">Code <sup class="text-success">optional</sup></label>
+                                        <label for="floatingTextarea">CSS <sup class="text-success">optional</sup></label>
                                         @error('code')
                                         <span class="text-danger">{{ $message }}</span>
                                         @enderror

@@ -15,7 +15,8 @@ class Template extends Model
         'code',
         'uuid',
         'primary_color',
-        'text_color'
+        'text_color',
+        'style'
     ];
     public function templateCategory()
     {

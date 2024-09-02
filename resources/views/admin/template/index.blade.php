@@ -39,7 +39,10 @@
                                         <tr class="insta-template-tr">
                                             <td>{{ $key + 1 }}</td>
                                             <td><img class=" rounded shadow img-fluid" src="{{ asset($item->image) }}" alt="image" /></td>
-                                            <td>{{ $item->templateCategory->name }}</td>
+                                            <td>
+                                                <p class="text-muted" style="font-size: 10px">UUID: <span >{{ $item->uuid }}</span></p>
+                                                {{ $item->templateCategory->name }}
+                                            </td>
                                             <td width="100">{!! $item->name !!}</td>
                                             <td class="rounded" style="background-color:{{ $item->primary_color ?? 'Not available' }}">{{ $item->primary_color ?? 'Not available' }}</td>
                                             <td class="rounded" style="color:{{ $item->text_color ?? 'Not available' }}">{{ $item->text_color ?? 'Not available' }}</td>

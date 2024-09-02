@@ -68,8 +68,8 @@
                                     </div>
 
                                     <div class="form-floating mb-3">
-                                        <textarea name="code" class="form-control  @error('code') is-invalid @enderror" placeholder="Leave a comment here" id="floatingTextarea" style="height: 500px"> {{ $template->code ?? '' }} </textarea>
-                                        <label for="floatingTextarea">Code <sup class="text-success">optional</sup></label>
+                                        <textarea name="code" class="form-control  @error('code') is-invalid @enderror" placeholder="Leave a comment here" id="floatingTextarea" style="height: 500px"> {{ $template->style ?? '' }} </textarea>
+                                        <label for="floatingTextarea">CSS <sup class="text-success">optional</sup></label>
                                         @error('code')
                                         <span class="text-danger">{{ $message }}</span>
                                         @enderror

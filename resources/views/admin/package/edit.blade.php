@@ -67,10 +67,10 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="mb-3">
-                                        <label for="ecommerch_limit" class="form-label">Ecommerch Limit</label>
+                                        <label for="ecommerch_limit" class="form-label">E-commerce Limit</label>
                                         <input type="text" class="form-control" name="ecommerch_limit"
                                             id="ecommerch_limit"
-                                            placeholder="Ecommerch Limit"value="{{ $package->ecommerch_limit }}">
+                                            placeholder="E-commerce Limit"value="{{ $package->ecommerch_limit }}">
                                     </div>
                                 </div>
                                 <div class="col-md-6">

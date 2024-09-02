@@ -50,7 +50,7 @@ class TemplateController extends Controller
             'name' => $request->name,
             'primary_color' => $request->primary_color,
             'text_color' => $request->text_color,
-            'code' => $request->code,
+            'style' => $request->code,
             'uuid' => bin2hex(random_bytes(5)),
         ];
 
@@ -107,7 +107,7 @@ class TemplateController extends Controller
             'name' => $request->name,
             'primary_color' => $request->primary_color,
             'text_color' => $request->text_color,
-            'code' => $request->code,
+            'style' => $request->code,
         ];
 
         $image = $request->file('image');
