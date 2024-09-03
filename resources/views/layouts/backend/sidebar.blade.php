@@ -42,6 +42,26 @@
                     </ul>
                 </div>
             </li>
+            <li class="nav-item nav-category">Product</li>
+            <li class="nav-item">
+                <a href="{{ route('admin.product_category.index') }}" class="nav-link">
+                    <i class="link-icon" data-feather="box"></i>
+                    <span class="link-title">Product Category</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('admin.color.index') }}" class="nav-link">
+                    <i class="link-icon" data-feather="box"></i>
+                    <span class="link-title">Product Color</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('admin.product.index') }}" class="nav-link">
+                    <i class="link-icon" data-feather="box"></i>
+                    <span class="link-title">Product </span>
+                </a>
+            </li>
+            <li class="nav-item nav-category">Website Card</li>
             <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="collapse" href="#qrapp2" role="button" aria-expanded="false"
                     aria-controls="qrapp2">
