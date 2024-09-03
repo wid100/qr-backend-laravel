@@ -10,6 +10,9 @@ use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\Admin\InstaCategoryController;
 use App\Http\Controllers\Admin\InstaTemplateController;
 use App\Http\Controllers\Admin\TemplateCategoryController;
+use App\Http\Controllers\Admin\ProductCategoryController;
+use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\colorController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
 use App\Models\Admin\Resume;
@@ -105,6 +108,10 @@ Route::namespace('App\Http\Controllers')->group(
             Route::resource('/instatemplate', 'InstaTemplateController');
             Route::resource('/tempcategory', 'TemplateCategoryController');
             Route::resource('/template', 'TemplateController');
+            Route::resource('/product_category', 'ProductCategoryController');
+            Route::resource('/product',"productController");
+            Route::resource('/color',"colorController");
+
         });
     }
 );
