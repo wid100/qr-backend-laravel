@@ -8,6 +8,7 @@ use App\Http\Requests\ResumeUpdate;
 use App\Http\Resources\ResumeResource;
 use App\Models\Admin\Resume;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 use Illuminate\Validation\ValidationException;
 
@@ -87,6 +88,9 @@ class ResumeController extends Controller
      */
     public function destroy(Resume $resume)
     {
+        if ($resume->photo) {
+            File::delete(public_path($resume->photo));
+        }
         $resume->delete();
         return response()->json([
             'message' => 'Resume deleted successfully'
