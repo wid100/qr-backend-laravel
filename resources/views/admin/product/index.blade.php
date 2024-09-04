@@ -24,10 +24,12 @@
                                         <th>ID</th>
 
                                         <th>Category Name</th>
-                                        <th>Name</th>
+                                        <th>Title</th>
                                         <th>Description</th>
-                                        {{-- <th>Image</th> --}}
-                                        <th>Created At</th>
+                                        <th>Image</th>
+                                        <th>Buy Price</th>
+                                        <th>Price</th>
+                                        <th>Quantity</th>
                                         <th>Status</th>
                                         <th>Action</th>
                                     </tr>
@@ -39,21 +41,29 @@
                                         <tr>
                                             <td>{{ $product->id }}</td>
                                             <td>
-                                                @if ($product->category)
-                                                    {{ $product->category->name }}
+                                                @if ($product->productCategorys)
+                                                    {{ $product->productCategorys->name }}
                                                 @else
                                                     No Category
                                                 @endif
                                             </td>
-                                            <td>{{ $product->name }}</td>
+                                            <td>{{ $product->title }}</td>
 
                                             <td>
                                                 {!! Str::limit(strip_tags($product->description), 30, '...') !!}
                                             </td>
-                                            {{-- <td>
-                                                <img src="{{ asset($product->image) }}" alt="">
-                                            </td> --}}
-                                            <td>{{ $product->created_at->format('d-m-Y') }}</td>
+                                            <td>
+                                                @if ($product->productImages->isNotEmpty())
+                                                    <img src="{{ $product->productImages->first()->getImage() }}"
+                                                        alt="{{ $product->title }}" width="100">
+                                                @else
+                                                    No Image
+                                                @endif
+
+                                            </td>
+                                            <td>{{ $product->buy_price }}</td>
+                                            <td>{{ $product->price }}</td>
+                                            <td>{{ $product->quantity }}</td>
                                             <td>
                                                 @if ($product->status === 1)
                                                     <span class="badge bg-success">Active</span>
@@ -68,18 +78,18 @@
 
                                                         <i data-feather="edit"></i></a>
 
-                                                    @if (Auth::user()->role_id === 1)
+                                                    @if (Auth::user()->role_id == 1)
                                                         <form id="delete_form_{{ $product->id }}"
                                                             action="{{ route('admin.product.destroy', $product->id) }}"
-                                                            method="POST" style="display: none;">
+                                                            method="post" class="d-inline">
                                                             @csrf
                                                             @method('DELETE')
+                                                            <button type="button"
+                                                                class="btn btn-danger btn-icon delete-button"
+                                                                onclick="deleteId({{ $product->id }})">
+                                                                <i data-feather="trash"></i>
+                                                            </button>
                                                         </form>
-
-                                                        <button type="button" class="btn btn-danger btn-icon delete-button"
-                                                            onclick="deleteId({{ $product->id }})">
-                                                            <i data-feather="trash"></i>
-                                                        </button>
                                                     @endif
 
                                                 </div>
