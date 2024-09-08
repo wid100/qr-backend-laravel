@@ -58,7 +58,7 @@
             <li class="nav-item">
                 <a href="{{ route('admin.product.index') }}" class="nav-link">
                     <i class="link-icon" data-feather="box"></i>
-                    <span class="link-title">Product </span>
+                    <span class="link-title">Product List</span>
                 </a>
             </li>
             <li class="nav-item nav-category">Website Card</li>

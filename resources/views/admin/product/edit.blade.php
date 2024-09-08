@@ -33,59 +33,15 @@
 
                                 <div class="col-md-6">
                                     <div class="mb-3">
-                                        <label for="category_id" class="form-label">Category <span
+                                        <label for="product_category_id" class="form-label">Category <span
                                                 class='text-danger'>*</span></label>
-                                        <select id="category_id" name="category_id" class=" form-control form-select-lg"
-                                            required>
+                                        <select id="product_category_id" name="product_category_id"
+                                            class=" form-control form-select-lg" required>
 
                                             @foreach ($categories as $category)
                                                 <option value="{{ $category->id }}"
                                                     {{ $category->id == $product->id ? 'selected' : '' }}>
                                                     {{ $category->name }}
-                                                </option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="mb-3">
-                                        <label for="sub_category_id" class="form-label">Sub Category </label>
-                                        <select id="sub_category_id" name="sub_category_id"
-                                            class="form-control form-select-lg">
-                                            <option value="">Select Sub Category</option>
-                                            @foreach ($sub_categories as $sub_category)
-                                                <option value="{{ $sub_category->id }}"
-                                                    {{ $sub_category->id == $product->sub_category_id ? 'selected' : '' }}>
-                                                    {{ $sub_category->name }}
-                                                </option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="mb-3">
-                                        <label for="sub_sub_category_id" class="form-label">Sub Sub Category</label>
-                                        <select id="sub_sub_category_id" name="sub_sub_category_id"
-                                            class="form-control form-select-lg">
-                                            <option value="">Select Sub Sub Category</option>
-                                            @foreach ($sub_sub_categories as $sub_sub_category)
-                                                <option value="{{ $sub_sub_category->id }}"
-                                                    {{ $sub_sub_category->id == $product->sub_sub_category_id ? 'selected' : '' }}>
-                                                    {{ $sub_sub_category->name }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="mb-3">
-                                        <label for="brand_id" class="form-label">Brands Name<span
-                                                class='text-danger'>*</span></label>
-                                        <select id="brand_id" name="brand_id"
-                                            class="js-example-basic-single form-control form-select" required>
-                                            @foreach ($brands as $brand)
-                                                <option value="{{ $brand->id }}"
-                                                    {{ $brand->id == $product->brand_id ? 'selected' : '' }}>
-                                                    {{ $brand->name }}
                                                 </option>
                                             @endforeach
                                         </select>
@@ -118,15 +74,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="mb-3">
-                                        <label for="stock_quantity" class="form-label">Stock Quantity <span
-                                                class='text-danger'>*</span></label>
-                                        <input type="number" class="form-control" id="stock_quantity"
-                                            value="{{ $product->stock_quantity }}" name="stock_quantity" autocomplete="off"
-                                            placeholder="Enter stock quantity">
-                                    </div>
-                                </div>
+
                                 <hr>
 
                                 <div class="col-md-4">
@@ -149,77 +97,13 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="mb-3">
-                                        <label for="discount_price" class="form-label"
-                                            value="{{ $product->name }}">Discount Price <span
+                                        <label for="quantity" class="form-label">Quantity <span
                                                 class='text-danger'>*</span></label>
-                                        <input type="number" class="form-control" id="discount_price"
-                                            name="discount_price" autocomplete="off"
-                                            value="{{ $product->discount_price }}" placeholder="Enter Discount price">
+                                        <input type="number" class="form-control" id="quantity"
+                                            value="{{ $product->quantity }}" name="quantity" autocomplete="off"
+                                            placeholder="Enter quantity">
                                     </div>
                                 </div>
-                                <div class="col-md-12">
-                                    <div class="mb-3">
-
-                                        <div class="form-group">
-                                            <label for="stock_quantity" class="form-label">Size <span
-                                                    class='text-danger'>*</span></label>
-                                            <div>
-                                                <table class="table table-bordered">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>Name</th>
-                                                            <th>Price</th>
-                                                            <th>Action</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody id="sizeTableBody">
-                                                        @if ($product->productSizes)
-                                                            @foreach ($product->productSizes as $index => $size)
-                                                                <tr>
-                                                                    <td>
-                                                                        <input type="hidden"
-                                                                            name="sizes[{{ $index }}][id]"
-                                                                            value="{{ $size->id }}">
-                                                                        <input type="text" class="form-control"
-                                                                            value="{{ $size->name }}"
-                                                                            name="sizes[{{ $index }}][name]"
-                                                                            placeholder="Name">
-                                                                    </td>
-                                                                    <td>
-                                                                        <input value="{{ $size->price }}" type="number"
-                                                                            class="form-control"
-                                                                            name="sizes[{{ $index }}][price]"
-                                                                            placeholder="Price">
-                                                                    </td>
-                                                                    <td>
-                                                                        <button class="btn btn-danger" type="button"
-                                                                            onclick="deleteRow(this)">Delete</button>
-                                                                    </td>
-                                                                </tr>
-                                                            @endforeach
-                                                        @endif
-                                                        <tr>
-                                                            <td>
-                                                                <input type="text" class="form-control"
-                                                                    name="sizes[100][name]" placeholder="Name">
-                                                            </td>
-                                                            <td>
-                                                                <input type="number" class="form-control"
-                                                                    name="sizes[100][price]" placeholder="Price">
-                                                            </td>
-                                                            <td>
-                                                                <button class="btn btn-success" type="button"
-                                                                    onclick="addSize()">Add</button>
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <br>
-                                <hr>
                                 <div class="col-md-12">
                                     <div class="mb-3">
                                         <label for="image" class="form-label">Image</label>
@@ -238,6 +122,10 @@
                                             @endforeach
                                         </div>
                                     @endif
+                                </div>
+                                <div class="mb-3">
+                                    <label for="description" class="form-label">Description</label>
+                                    <textarea class="form-control" name="description" id="tinymceExample" cols="30" rows="10"> {{ $product->description }}</textarea>
                                 </div>
                                 <hr>
                                 <div class="col-md-6">
@@ -260,26 +148,11 @@
                                     <div class="mb-3">
                                         <label for="meta_description" class="form-label">Meta Description</label>
                                         <textarea class="form-control" name="meta_description" value="{{ $product->meta_description }}" id="tinymceExample"
-                                            cols="30" rows="7"></textarea>
+                                            cols="30" rows="7">{{ $product->meta_description }}</textarea>
                                     </div>
                                 </div>
 
-                                <div class="mb-3">
-                                    <label for="short_description" class="form-label">Short Description</label>
-                                    <textarea class="form-control" name="short_description" id="tinymceExample" cols="30" rows="6"> {{ $product->short_description }}</textarea>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="description" class="form-label">Description</label>
-                                    <textarea class="form-control" name="description" id="tinymceExample" cols="30" rows="10"> {{ $product->description }}</textarea>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="additional_information" class="form-label">Additional Information</label>
-                                    <textarea class="form-control" name="additional_information" id="tinymceExample" cols="30" rows="10"> {{ $product->additional_information }}</textarea>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="shipping_returns" class="form-label">Shipping Returns</label>
-                                    <textarea class="form-control" name="shipping_returns" id="tinymceExample" cols="30" rows="10"> {{ $product->shipping_returns }}</textarea>
-                                </div>
+
 
                                 <div class="mb-3">
                                     <div class="form-check">

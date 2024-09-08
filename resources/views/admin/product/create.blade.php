@@ -32,43 +32,13 @@
 
                                 <div class="col-md-6">
                                     <div class="mb-3">
-                                        <label for="category_id" class="form-label">Category <span
+                                        <label for="product_category_id" class="form-label">Product Category <span
                                                 class='text-danger'>*</span></label>
-                                        <select id="category_id" name="category_id" class=" form-control form-select-lg"
-                                            required>
+                                        <select id="product_category_id" name="product_category_id"
+                                            class=" form-control form-select-lg" required>
                                             <option value="">Select Category</option>
                                             @foreach ($categories as $category)
                                                 <option value="{{ $category->id }}">{{ $category->name }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="mb-3">
-                                        <label for="sub_category_id" class="form-label">Sub Category </label>
-                                        <select id="sub_category_id" name="sub_category_id"
-                                            class="form-control form-select-lg">
-                                            <option value="">Select Sub Category</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="mb-3">
-                                        <label for="sub_sub_category_id" class="form-label">Sub Sub Category</label>
-                                        <select id="sub_sub_category_id" name="sub_sub_category_id"
-                                            class="form-control form-select-lg">
-                                            <option value="">Select Sub Sub Category</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="mb-3">
-                                        <label for="brand_id" class="form-label">Brands Name<span
-                                                class='text-danger'>*</span></label>
-                                        <select id="brand_id" name="brand_id"
-                                            class="js-example-basic-single form-control form-select" required>
-                                            @foreach ($brands as $brand)
-                                                <option value="{{ $brand->id }}">{{ $brand->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -89,14 +59,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="mb-3">
-                                        <label for="stock_quantity" class="form-label">Stock Quantity <span
-                                                class='text-danger'>*</span></label>
-                                        <input type="number" class="form-control" id="stock_quantity" name="stock_quantity"
-                                            autocomplete="off" placeholder="Enter stock quantity">
-                                    </div>
-                                </div>
+
                                 <hr>
 
                                 <div class="col-md-4">
@@ -117,50 +80,12 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="mb-3">
-                                        <label for="discount_price" class="form-label">Discount Price <span
+                                        <label for="quantity" class="form-label">Quantity <span
                                                 class='text-danger'>*</span></label>
-                                        <input type="number" class="form-control" id="discount_price"
-                                            name="discount_price" autocomplete="off" placeholder="Enter Discount price">
+                                        <input type="number" class="form-control" id="quantity" name="quantity"
+                                            autocomplete="off" placeholder="Enter stock quantity">
                                     </div>
                                 </div>
-                                <div class="col-md-12">
-                                    <div class="mb-3">
-
-                                        <div class="form-group">
-                                            <label for="stock_quantity" class="form-label">Size <span
-                                                    class='text-danger'>*</span></label>
-                                            <div>
-                                                <table class="table table-bordered">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>Name</th>
-                                                            <th>Price</th>
-                                                            <th>Action</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody id="sizeTableBody">
-                                                        <tr>
-                                                            <td>
-                                                                <input type="text" class="form-control"
-                                                                    name="sizes[0][name]" placeholder="Name">
-                                                            </td>
-                                                            <td>
-                                                                <input type="text" class="form-control"
-                                                                    name="sizes[0][price]" placeholder="Price">
-                                                            </td>
-                                                            <td>
-                                                                <button class="btn btn-success" type="button"
-                                                                    onclick="addSize()">Add</button>
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <br>
-                                <hr>
                                 <div class="col-md-12">
                                     <div class="mb-3">
                                         <label for="image" class="form-label">Image </label>
@@ -169,6 +94,11 @@
                                     </div>
                                     <div id="imagePreview" class="my-4"></div>
                                 </div>
+                                <div class="mb-3">
+                                    <label for="description" class="form-label">Description</label>
+                                    <textarea class="form-control" name="description" id="tinymceExample" cols="30" rows="10"></textarea>
+                                </div>
+
                                 <hr>
                                 <div class="col-md-6">
                                     <div class="mb-3">
@@ -192,23 +122,6 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="short_description" class="form-label">Short Description</label>
-                                    <textarea class="form-control" name="short_description" id="tinymceExample" cols="30" rows="6"></textarea>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="description" class="form-label">Description</label>
-                                    <textarea class="form-control" name="description" id="tinymceExample" cols="30" rows="10"></textarea>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="additional_information" class="form-label">Additional Information</label>
-                                    <textarea class="form-control" name="additional_information" id="tinymceExample" cols="30" rows="10"></textarea>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="shipping_returns" class="form-label">Shipping Returns</label>
-                                    <textarea class="form-control" name="shipping_returns" id="tinymceExample" cols="30" rows="10"></textarea>
-                                </div>
-
-                                <div class="mb-3">
                                     <div class="form-check">
                                         <label class="form-check-label" for="termsCheck">Active</label>
                                         <input type="checkbox" class="form-check-input" checked name="status"
@@ -229,7 +142,7 @@
 
 
 
-{{-- @section('js')
+@section('js')
     <script>
         function previewImages(event) {
             let files = event.target.files;
@@ -247,69 +160,5 @@
                 reader.readAsDataURL(file);
             }
         }
-        // Add Size input fiuld
-        let sizeIndex = 1;
-
-        function addSize() {
-            const tableBody = document.getElementById('sizeTableBody');
-
-            const newRow = document.createElement('tr');
-            newRow.innerHTML = `
-        <td>
-            <input type="text" class="form-control" name="sizes[${sizeIndex}][name]" placeholder="Name">
-        </td>
-        <td>
-            <input type="text" class="form-control" name="sizes[${sizeIndex}][price]" placeholder="Price">
-        </td>
-        <td>
-            <button class="btn btn-danger" type="button" onclick="deleteRow(this)">Delete</button>
-        </td>
-    `;
-            tableBody.appendChild(newRow);
-            sizeIndex++;
-        }
-
-        function deleteRow(button) {
-            const row = button.closest('tr');
-            row.parentNode.removeChild(row);
-        }
-
-        // Category
-        document.addEventListener('DOMContentLoaded', function() {
-            const categorySelect = document.getElementById('category_id');
-            const subCategorySelect = document.getElementById('sub_category_id');
-            const subSubCategorySelect = document.getElementById('sub_sub_category_id');
-
-            categorySelect.addEventListener('change', function() {
-                const categoryId = this.value;
-                fetch(`{{ url('/admin/get-sub-categories') }}/${categoryId}`)
-                    .then(response => response.json())
-                    .then(data => {
-                        console.log(data);
-                        subCategorySelect.innerHTML = '<option value="">Select Sub Category</option>';
-                        data.forEach(subCategory => {
-                            subCategorySelect.innerHTML +=
-                                `<option value="${subCategory.id}">${subCategory.name}</option>`;
-                        });
-                    })
-                    .catch(error => console.error('Error fetching sub-categories:', error));
-            });
-
-            subCategorySelect.addEventListener('change', function() {
-                const subCategoryId = this.value;
-                fetch(`{{ url('/admin/get-sub-sub-categories') }}/${subCategoryId}`)
-                    .then(response => response.json())
-                    .then(data => {
-                        console.log(data);
-                        subSubCategorySelect.innerHTML =
-                            '<option value="">Select Sub Sub Category</option>';
-                        data.forEach(subSubCategory => {
-                            subSubCategorySelect.innerHTML +=
-                                `<option value="${subSubCategory.id}">${subSubCategory.name}</option>`;
-                        });
-                    })
-                    .catch(error => console.error('Error fetching sub-sub categories:', error));
-            });
-        });
     </script>
-@endsection --}}
+@endsection
