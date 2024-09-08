@@ -76,6 +76,7 @@ class Resume extends Model
             'other' => $this->other,
             'primaryColor' => $this->primary_color,
             'textColor' => $this->text_color,
+            'template' => $this->whenLoaded('template'),
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];

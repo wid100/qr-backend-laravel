@@ -31,6 +31,7 @@ class ResumeResource extends JsonResource
             'interest' => json_decode($this->interest),
             'experience' => json_decode($this->experience),
             'references' => json_decode($this->references),
+            'template' => $this->template,
             'social' => $this->social,
             'fname' => $this->fname,
             'lname' => $this->lname,
@@ -41,7 +42,6 @@ class ResumeResource extends JsonResource
             'other' => $this->other,
             'primaryColor' => $this->primary_color,
             'textColor' => $this->text_color,
-            'template' => $this->whenLoaded('template'),
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];
