@@ -77,7 +77,7 @@ class Resume extends Model
             'other' => $this->other,
             'primaryColor' => $this->primary_color,
             'textColor' => $this->text_color,
-            'template' => $this->whenLoaded('template'),
+            'template' => $this->template,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];
@@ -87,13 +87,11 @@ class Resume extends Model
     {
 
         if (request('photo')) {
-            // Ensure the directory exists
             $directory = public_path('image/resume');
             if (!file_exists($directory)) {
                 mkdir($directory, 0775, true);
             }
 
-            // Create ImageManager instance
             $manager = new ImageManager(['driver' => 'gd']);
             $name_gen = hexdec(uniqid()) . '.' . request('photo')->getClientOriginalExtension();
 
