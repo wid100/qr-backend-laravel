@@ -9,7 +9,7 @@ use App\Http\Resources\ResumeResource;
 use App\Models\Admin\Resume;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
-
+use Intervention\Image\ImageManager;
 use Illuminate\Validation\ValidationException;
 
 class ResumeController extends Controller
@@ -67,18 +67,58 @@ class ResumeController extends Controller
      * @param  \App\Models\Admin\Resume  $resume
      * @return \Illuminate\Http\Response
      */
-    public function update(ResumeUpdate $request, Resume $id)
+    public function update(ResumeUpdate $request, Resume $resume)
     {
-        return response()->json($id);
 
-        $resume->update_resume();
+        if ($request->hasFile('photo')) {
+            $file = $request->file('photo');
+            $directory = public_path('image/resume');
+            if (!file_exists($directory)) {
+                mkdir($directory, 0775, true);
+            }
+            $manager = new ImageManager(['driver' => 'gd']);
+            $name_gen = hexdec(uniqid()) . '.' . $file->getClientOriginalExtension();
 
-        $updated_resource = $resume->fresh();
+            $img = $manager->make($file);
+            $img->save($directory . '/' . $name_gen, 80);
+
+            $resume->photo = 'image/resume/' . $name_gen;
+        }
+
+
+        $resume->user_id = $request->input('userId');
+        $resume->template_id = $request->input('templateId');
+        $resume->resume_name = $request->input('resume.name');
+        $resume->title = $request->input('profession');
+        $resume->description = $request->input('description');
+        $resume->phone = $request->input('phone');
+        $resume->email = $request->input('email');
+        $resume->address = $request->input('address');
+        $resume->education = $request->input('education');
+        $resume->skill = $request->input('skills');
+        $resume->language = $request->input('languages');
+        $resume->interest = $request->input('interests');
+        $resume->experience = $request->input('jobs');
+        $resume->references = $request->input('references');
+        $resume->social = $request->input('social');
+        $resume->fname = $request->input('firstName');
+        $resume->lname = $request->input('lastName');
+        $resume->primary_color = $request->input('resume.primaryColor');
+        $resume->text_color = $request->input('resume.textColor');
+        $resume->profession = $request->input('profession');
+        $resume->city = $request->input('city');
+        $resume->postal_code = $request->input('postal_code');
+        $resume->country = $request->input('country');
+        $resume->other = $request->input('other');
+        $resume->save();
+
+
         return response()->json([
             'message' => 'Resume updated successfully',
-            'data' => $updated_resource,
+            'data' => new ResumeResource($resume)
         ], 200);
     }
+
 
     /**
      * Remove the specified resource from storage.

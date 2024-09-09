@@ -24,21 +24,19 @@ class ResumeUpdate extends FormRequest
     public function rules()
     {
         return [
-
-            'photo' => 'nullable|image|max:2048',
-            'resume_name' => 'required|string|max:255',
-            'title' => 'required|string|max:255',
+            'resume' => 'required',
+            'title' => 'nullable',
             'description' => 'nullable|string',
-            'phone' => 'required|string|max:20',
-            'email' => 'required|email|max:255',
-            'address' => 'nullable|string|max:255',
-            'education' => 'nullable|string',
-            'skill' => 'nullable|string',
-            'language' => 'nullable|string',
-            'interest' => 'nullable|string',
-            'experience' => 'nullable|string',
-            'references' => 'nullable|string',
-            'social' => 'nullable|string',
+            'phone' => 'nullable|string',
+            'email' => 'nullable|email',
+            'address' => 'nullable',
+            'education' => 'nullable',
+            'skill' => 'nullable',
+            'language' => 'nullable',
+            'interest' => 'nullable',
+            'experience' => 'nullable',
+            'references' => 'nullable',
+            'social' => 'nullable',
         ];
     }
 }

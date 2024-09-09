@@ -21,7 +21,7 @@ class CreateResumesTable extends Migration
             $table->string('resume_name')->nullable();
             $table->string('title')->nullable();
             $table->text('description')->nullable();
-            $table->integer('phone')->nullable();
+            $table->string('phone')->nullable();
             $table->string('email')->nullable();
             $table->text('address')->nullable();
             $table->json('education')->nullable();
