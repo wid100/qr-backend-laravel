@@ -85,8 +85,6 @@ class ResumeController extends Controller
             $resume->photo = 'image/resume/' . $name_gen;
         }
 
-
-        $resume->user_id = $request->input('userId');
         $resume->template_id = $request->input('templateId');
         $resume->resume_name = $request->input('resume.name');
         $resume->title = $request->input('profession');
