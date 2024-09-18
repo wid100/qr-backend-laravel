@@ -12,6 +12,7 @@ use App\Http\Controllers\Api\ResumeController;
 use App\Http\Controllers\Api\SubscriptionController;
 use App\Http\Controllers\Api\TemplateCategory;
 use App\Http\Controllers\Api\TemplateController;
+use App\Http\Controllers\Api\ScheduleController;
 use App\Http\Controllers\InstagramController;
 use App\Http\Controllers\Auth\CustomAuthenticatedSessionController;
 use App\Http\Controllers\WebsiteController;
@@ -112,3 +113,9 @@ Route::get('category', [InstaController::class, 'allCategory']);
 Route::get('/template-category', TemplateCategory::class);
 Route::get('/templates/{id}', [TemplateController::class, 'getTemplates']);
 Route::get('/template/{id}', [TemplateController::class, 'getTemplate']);
+
+//schedule
+Route::post('/schedules', [ScheduleController::class, 'store']);
+Route::get('/schedules/{id}', [ScheduleController::class, 'edit']);
+Route::put('/schedules/{id}', [ScheduleController::class, 'update']);
+Route::delete('/schedules/{id}', [ScheduleController::class, 'destroy']);
