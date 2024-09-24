@@ -13,6 +13,7 @@ use App\Http\Controllers\Api\SubscriptionController;
 use App\Http\Controllers\Api\TemplateCategory;
 use App\Http\Controllers\Api\TemplateController;
 use App\Http\Controllers\Api\ScheduleController;
+use App\Http\Controllers\Api\AppointmentController;
 use App\Http\Controllers\InstagramController;
 use App\Http\Controllers\Auth\CustomAuthenticatedSessionController;
 use App\Http\Controllers\WebsiteController;
@@ -119,3 +120,9 @@ Route::post('/schedules', [ScheduleController::class, 'store']);
 Route::get('/schedules/{id}', [ScheduleController::class, 'edit']);
 Route::put('/schedules/{id}', [ScheduleController::class, 'update']);
 Route::delete('/schedules/{id}', [ScheduleController::class, 'destroy']);
+
+//appointments
+Route::post('/appointments', [AppointmentController::class, 'store']);
+// routes/api.php
+// Route::get('/get-available-slots/{user_id}/{date}', [AppointmentController::class, 'getAvailableSlots']);
+Route::get('/get-available-slots', [AppointmentController::class, 'getAvailableSlots']);
