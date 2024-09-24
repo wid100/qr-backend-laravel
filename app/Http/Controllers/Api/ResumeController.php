@@ -34,6 +34,7 @@ class ResumeController extends Controller
      */
     public function store(ResumeRequest $request)
     {
+
         $resume = new Resume();
         return response()->json($resume->create_function());
     }
@@ -101,8 +102,8 @@ class ResumeController extends Controller
         $resume->social = $request->input('social');
         $resume->fname = $request->input('firstName');
         $resume->lname = $request->input('lastName');
-        $resume->primary_color = $request->input('resume.primaryColor');
-        $resume->text_color = $request->input('resume.textColor');
+        $resume->primary_color = $request->input('primaryColor');
+        $resume->text_color = $request->input('textColor');
         $resume->profession = $request->input('profession');
         $resume->city = $request->input('city');
         $resume->postal_code = $request->input('postal_code');

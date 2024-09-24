@@ -119,8 +119,8 @@ class Resume extends Model
         $this->social = request('social');
         $this->fname = request('firstName');
         $this->lname = request('lastName');
-        $this->primary_color = request('resume.primaryColor');
-        $this->text_color = request('resume.textColor');
+        $this->primary_color = request('primaryColor');
+        $this->text_color = request('textColor');
         $this->profession = request('profession');
         $this->city = request('city');
         $this->postal_code = request('postal_code');
