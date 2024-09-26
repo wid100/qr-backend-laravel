@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\TemplateCategoryController;
 use App\Http\Controllers\Admin\ProductCategoryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\colorController;
+use App\Http\Controllers\ResumeController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
 use App\Models\Admin\Resume;
@@ -58,6 +59,11 @@ Route::get('/verify-email/{id}/{hash}', [App\Http\Controllers\Auth\VerifyEmailCo
 
 Route::post('/email/verification-notification', [EmailVerificationNotificationController::class, 'store'])
     ->name('verification.send');
+
+
+
+Route::get('/resume/pdf/{userId}/{templateId}', [ResumeController::class, 'generatePdf'])->name('resume.pdf');
+Route::get('/resume/view/{userId}/{templateId}', [ResumeController::class, 'viewPdf'])->name('resume.view');
 
 // Route::post('/forgot-password', [PasswordResetLinkController::class, 'store'])
 //     ->middleware('guest')
@@ -109,9 +115,8 @@ Route::namespace('App\Http\Controllers')->group(
             Route::resource('/tempcategory', 'TemplateCategoryController');
             Route::resource('/template', 'TemplateController');
             Route::resource('/product_category', 'ProductCategoryController');
-            Route::resource('/product',"productController");
-            Route::resource('/color',"colorController");
-
+            Route::resource('/product', "productController");
+            Route::resource('/color', "colorController");
         });
     }
 );
