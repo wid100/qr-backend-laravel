@@ -57,3 +57,39 @@
 [2024-09-29 04:19:31] local.DEBUG: Country Name: {"name":"Bangladesh"} 
 [2024-09-29 04:34:23] local.DEBUG: Country Name: {"name":"Bangladesh"} 
 [2024-09-29 04:42:37] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-09-29 10:29:55] local.DEBUG: Country Name: {"name":"Afghanistan"} 
+[2024-09-29 10:29:56] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-09-29 10:30:32] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-09-29 10:30:44] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-09-29 10:30:52] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-09-29 10:32:07] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-09-29 10:32:11] local.DEBUG: Country Name: {"name":"Afghanistan"} 
+[2024-09-29 10:32:12] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-09-29 10:32:20] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-09-29 10:32:49] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-09-29 10:32:55] local.DEBUG: Country Name: {"name":"Afghanistan"} 
+[2024-09-29 10:32:55] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-09-29 10:32:58] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-09-29 10:33:19] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-09-29 10:33:44] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-09-29 10:33:58] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-09-29 10:34:08] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-09-29 10:34:15] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-09-29 10:34:25] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-09-29 10:35:07] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-09-29 10:35:19] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-09-29 10:37:19] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-09-29 10:37:51] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-09-29 10:38:13] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-09-29 10:38:16] local.DEBUG: Country Name: {"name":"Afghanistan"} 
+[2024-09-29 10:38:18] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-09-29 10:38:38] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-09-29 10:38:58] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-09-29 10:39:03] local.DEBUG: Country Name: {"name":"Afghanistan"} 
+[2024-09-29 10:39:04] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-09-29 10:40:13] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-09-29 10:40:24] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-09-29 10:40:37] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2024-09-29 10:44:14] local.INFO: Store method called {"request":{"instagram_name":"xxx","instagram_username":"http://localhost:3000/instagram","insta_category":"3","frame_color":"#db0000","code_color":"#706b6b","user_id":"158","status":"active","image":{"Illuminate\\Http\\UploadedFile":"C:\\Users\\shawo\\AppData\\Local\\Temp\\php48A1.tmp"}}} 
+[2024-09-29 10:44:14] local.INFO: Image uploaded successfully {"imagePath":"image/qrgen/Screenshot_2.png"} 
+[2024-09-29 10:44:14] local.INFO: Instagram entry created successfully  
