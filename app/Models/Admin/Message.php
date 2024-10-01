@@ -13,6 +13,7 @@ class Message extends Model
         'email',
         'phone',
         'address',
-        'message'
+        'message',
+        'status'
     ];
 }

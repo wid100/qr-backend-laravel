@@ -20,6 +20,7 @@ class CreateMessagesTable extends Migration
             $table->string('phone')->nullable();
             $table->string('address')->nullable();
             $table->text('message');
+            $table->integer('status')->comment('0 = unseen, 1 = seen')->default(0);
             $table->timestamps();
         });
     }
