@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\ProductCategoryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\colorController;
 use App\Http\Controllers\ResumeController;
+use App\Http\Controllers\Admin\MessageController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
 use App\Models\Admin\Resume;
@@ -117,6 +118,7 @@ Route::namespace('App\Http\Controllers')->group(
             Route::resource('/product_category', 'ProductCategoryController');
             Route::resource('/product', "productController");
             Route::resource('/color', "colorController");
+            Route::resource('/message', "MessageController");
         });
     }
 );
