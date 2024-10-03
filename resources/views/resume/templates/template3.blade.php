@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume 5</title>
+    <title>{{ $resume->resume_name }}</title>
     <style>
         @page {
             margin: 0px;
@@ -70,13 +70,11 @@
                     <h3>Address</h3>
                     <p>50-51, Janata Co-operative Housing Society, Dhaka</p>
 
-
                     <h1
                         style="color: #D19855; font-size: 20px;  border-bottom: 1px solid #fff; padding-bottom:15px; padding-top:20px">
                         EDUCATION
                     </h1>
                     <p>2008 - Degree Name, Grade, University</p>
-
 
                     <h1
                         style="color: #D19855; font-size: 20px;  border-bottom: 1px solid #fff; padding-bottom:15px; padding-top:20px">
