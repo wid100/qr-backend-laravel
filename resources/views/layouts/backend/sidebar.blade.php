@@ -122,6 +122,12 @@
                     <span class="link-title">Resume Template</span>
                 </a>
             </li>
+            <li class="nav-item">
+                <a href="{{ route('admin.resume.index') }}" class="nav-link">
+                    <i class="link-icon" data-feather="box"></i>
+                    <span class="link-title">All Resume</span>
+                </a>
+            </li>
 
             <li class="nav-item">
                 <a href="{{ route('admin.package.index') }}" class="nav-link">
