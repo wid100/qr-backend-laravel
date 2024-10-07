@@ -93,8 +93,7 @@ class AdminResumeController extends Controller
             'experience' => $request->work,
             'references' => $request->references,
         ]);
-        dd('sucessfully');
-        // return redirect()->route('admin.resume.index')->with('success', 'Resume updated successfully');
+        return redirect()->route('admin.resume.index')->with('success', 'Resume updated successfully');
     }
 
     /**
