@@ -37,7 +37,8 @@ class Resume extends Model
         'country',
         'other',
         'primary_color',
-        'text_color'
+        'text_color',
+        'status'
     ];
     public function user()
     {

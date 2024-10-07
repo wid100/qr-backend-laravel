@@ -14,6 +14,7 @@ use App\Http\Controllers\Api\TemplateCategory;
 use App\Http\Controllers\Api\TemplateController;
 use App\Http\Controllers\Api\ScheduleController;
 use App\Http\Controllers\Api\AppointmentController;
+use App\Http\Controllers\Api\FAQController;
 use App\Http\Controllers\Api\MessageController;
 use App\Http\Controllers\InstagramController;
 use App\Http\Controllers\Auth\CustomAuthenticatedSessionController;
@@ -129,3 +130,5 @@ Route::post('/appointments', [AppointmentController::class, 'store']);
 Route::get('/get-available-slots', [AppointmentController::class, 'getAvailableSlots']);
 // contact us
 Route::post('/message', [MessageController::class, 'create']);
+//FAQ
+Route::get('/faqs', [FAQController::class, 'index']);

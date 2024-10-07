@@ -21,7 +21,7 @@ class ResumeController extends Controller
      */
     public function index($userId)
     {
-        $resumes = Resume::with('template')->where('user_id', $userId)->get();
+        $resumes = Resume::with('template')->where('user_id', $userId)->where('status', 0)->get();
         return ResumeResource::collection($resumes);
     }
 
