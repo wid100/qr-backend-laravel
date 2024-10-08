@@ -250,6 +250,9 @@
                             @endforeach
                         </tr>
                     </table>
+                    <div style="padding-left:20px">
+                        <img src="https://i.postimg.cc/cLwdGbsf/QR.png" alt="QR Code" class="qr-image-6" />
+                    </div>
                 </td>
             </tr>
         </table>
