@@ -122,6 +122,12 @@
                     <span class="link-title">Resume Template</span>
                 </a>
             </li>
+            <li class="nav-item">
+                <a href="{{ route('admin.resume.index') }}" class="nav-link">
+                    <i class="link-icon" data-feather="box"></i>
+                    <span class="link-title">All Resume</span>
+                </a>
+            </li>
 
             <li class="nav-item">
                 <a href="{{ route('admin.package.index') }}" class="nav-link">
@@ -154,6 +160,27 @@
                     <i class="link-icon" data-feather="box"></i>
                     <span class="link-title">Messages</span>
                 </a>
+            </li>
+
+
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="collapse" href="#FAQ" role="button" aria-expanded="false"
+                    aria-controls="FAQ">
+                    <i class="link-icon" data-feather="credit-card"></i>
+                    <span class="link-title">FAQ</span>
+                    <i class="link-arrow" data-feather="chevron-down"></i>
+                </a>
+                <div class="collapse" id="FAQ">
+                    <ul class="nav sub-menu">
+                        <li class="nav-item">
+                            <a href="{{ route('admin.faq-section.index') }}" class="nav-link">FAQ Section</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.faq-question.index') }}" class="nav-link">FAQ Question</a>
+                        </li>
+
+                    </ul>
+                </div>
             </li>
 
         </ul>

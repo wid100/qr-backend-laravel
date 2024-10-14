@@ -11,15 +11,95 @@
         }
 
         * {
-            margin-bottom: 2px;
+            margin: 0;
             padding: 0;
             border: 0;
-            margin-top: 10px;
         }
 
         body {
             margin: 0px;
             padding: 0px;
+            font-family: 'Nunito', sans-serif;
+            background: white;
+        }
+
+        table {
+            width: 100%;
+            table-layout: fixed;
+            margin: 20px;
+            border-spacing: 0;
+            box-shadow: 4px 4px 10px 4px #484848;
+        }
+
+        td {
+            padding: 20px;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+        }
+
+        .header img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            border: 3px solid white;
+        }
+
+        .header h1 {
+            color: #D19855;
+            -webkit-text-stroke: 1px black;
+            font-size: 32px;
+            font-weight: normal;
+            text-shadow: 0px 5px 10px black;
+        }
+
+        .header p {
+            margin-top: 10px;
+            font-size: 18px;
+        }
+
+        .contact-info {
+            background-color: #484848;
+            color: white;
+            padding: 30px;
+            height: auto;
+        }
+
+        .content-section {
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .section-title {
+            color: #D19855;
+            font-size: 20px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid white;
+        }
+
+        .experience,
+        .reference {
+            margin-top: 20px;
+        }
+
+        .experience h3,
+        .reference h3 {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .skills-list,
+        .education-list,
+        .language-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .experience-details,
+        .reference-details {
+            margin-bottom: 20px;
         }
 
         table {
@@ -38,21 +118,18 @@
             padding: 0;
         }
     </style>
-
 </head>
 
-<body style="font-family: 'Nunito', sans-serif; margin: 0px; padding: 0px; background: white;">
+<body>
 
-    <div style="">
-        <table
-            style=" margin-top:20px; background-color: #ffffff;border-spacing:inherit; box-shadow: 4px 4px 10px 4px #484848; margin-left:20px">
+    <div class="container">
+        <table>
             <!-- Top section: Image and name -->
             <tr style="height: auto;">
                 <td
                     style="width: 30%; height:24%; background-color: #484848; text-align: center; border-radius: 500px 500px 0 0;">
                     @if ($base64Image)
-                        <img src="{{ $base64Image }}" alt="Image error!"
-                            style="width: 200px; height:200px; margin-top: 20px; border: 2px solid white; border-radius: 50%;">
+                        <img src="{{ $base64Image }}" alt="Image error!">
                     @else
                         <p>No image available</p>
                     @endif
@@ -69,6 +146,7 @@
                     </p>
                 </td>
             </tr>
+
             <!-- Body Section -->
             <tr>
 

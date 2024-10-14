@@ -54,15 +54,15 @@ class ResumeController extends Controller
         // Fetch the resume data for the given user
         $resume = Resume::where('user_id', $userId)->firstOrFail();
 
-        // Decode the JSON data for education and skills, or default to an empty array
+        // Decode the JSON data for education, experiences, skills, languages, interests, and references, or default to an empty array if null
         $education = json_decode($resume->education, true) ?? [];
         $experiences = json_decode($resume->experience, true) ?? [];
-        $skills = json_decode($resume->skill, true);
-        $languages = json_decode($resume->language, true);
-        $interestes = json_decode($resume->interest, true);
+        $skills = json_decode($resume->skill, true) ?? [];
+        $languages = json_decode($resume->language, true) ?? [];
+        $interestes = json_decode($resume->interest, true) ?? [];
         $references = json_decode($resume->references, true) ?? [];
 
-        // Convert image to base64 if needed
+        // Convert image to base64 if it exists
         if ($resume->photo) {
             $imagePath = public_path($resume->photo);  // Get the local image path
             if (file_exists($imagePath)) {
@@ -78,15 +78,23 @@ class ResumeController extends Controller
             $base64Image = null;  // Handle case where there's no image
         }
 
-        // View name based on templateId
+        // Determine the view name based on templateId
         $viewName = "resume.templates.template{$templateId}";
+
+        // Check if the view exists to avoid potential errors
+        if (!view()->exists($viewName)) {
+            abort(404, 'Template not found.');
+        }
 
         // Generate the PDF using the template and data (including education and skills)
         $pdf = PDF::loadView($viewName, compact('resume', 'education', 'references', 'skills', 'interestes', 'experiences', 'languages', 'base64Image'))
-            ->setPaper('a4', 'portrait') // A4 size in portrait
-            ->setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true]);
+            ->setPaper('a4', 'portrait') // A4 size in portrait mode
+            ->setOptions([
+                'isHtml5ParserEnabled' => true,  // Ensure HTML5 support is enabled for better rendering
+                'isRemoteEnabled' => true,  // Enable remote content loading if needed (e.g., external CSS/images)
+            ]);
 
-        // Return the PDF as a stream to the browser
+        // Return the PDF as a stream to the browser for viewing
         return $pdf->stream('resume_' . $userId . '.pdf');
     }
 }
