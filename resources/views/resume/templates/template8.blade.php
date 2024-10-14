@@ -243,7 +243,7 @@
                             </li>
                             <li class="contact-item-6">
                                 <p style="font-size:14px;color:#000000;">Address</p>
-                                <p style="font-size: 10px; color:#000000;">0{{ $resume->address }}</p>
+                                <p style="font-size: 10px; color:#000000;">{{ $resume->address }}</p>
                             </li>
                         </ul>
 
@@ -349,7 +349,7 @@
                         <tr>
                             @foreach ($references as $reference)
                                 <td>
-                                    <h3 style="font-size: 16px; padding-bottom:7px">{{ $reference['firstName'] }}
+                                    <h3 style="font-size: 16px; padding-bottom:10px">{{ $reference['firstName'] }}
                                         {{ $reference['lastName'] }}</h3>
                                     <p style="font-size: 12px; padding-bottom:5px">{{ $reference['jobTitle'] }}</p>
                                     <p style="font-size: 12px; padding-bottom:5px">Phone: <span> <a
