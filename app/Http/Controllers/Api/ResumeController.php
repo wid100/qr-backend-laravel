@@ -7,10 +7,14 @@ use App\Http\Requests\ResumeRequest;
 use App\Http\Requests\ResumeUpdate;
 use App\Http\Resources\ResumeResource;
 use App\Models\Admin\Resume;
+use App\Models\Admin\Visitor;
+use App\Services\VisitorService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Intervention\Image\ImageManager;
 use Illuminate\Validation\ValidationException;
+use Stevebauman\Location\Facades\Location;
+use Stevebauman\Location\Facades\Location as FacadesLocation;
 
 class ResumeController extends Controller
 {
@@ -45,10 +49,26 @@ class ResumeController extends Controller
      * @param  \App\Models\Admin\Resume  $resume
      * @return \Illuminate\Http\Response
      */
-    public function show(Resume $resume)
+    public function show(Request $request, Resume $resume, VisitorService $visitorService)
     {
+        $resume->increment('viewcount');
+
+        // Get user IP and User-Agent
+        $userIp = $request->ip();
+        $ip = '59.153.103.119';
+        $userAgent = $request->header('User-Agent');
+
+        // Use the service to gather user info
+        $userInfo = $visitorService->getUserInfo($userIp, $userAgent, $resume->id, 'resume_id');
+        // Save visitor information
+        $visitorService->saveVisitorInfo($userInfo, 'resume_id');
+
+        // return response()->json($userInfo);
+
+        // Return the resume resource
         return new ResumeResource($resume);
     }
+
 
     /**
      * Show the form for editing the specified resource.

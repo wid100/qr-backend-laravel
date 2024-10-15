@@ -38,7 +38,8 @@ class Resume extends Model
         'other',
         'primary_color',
         'text_color',
-        'status'
+        'status',
+        'viewcount'
     ];
     public function user()
     {

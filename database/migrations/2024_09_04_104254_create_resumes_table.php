@@ -41,6 +41,7 @@ class CreateResumesTable extends Migration
             $table->string('primary_color')->nullable();
             $table->string('text_color')->nullable();
             $table->integer('status')->default(0)->comment('0 = active, 1 = inactive');
+            $table->integer('viewcount')->default(0);
             $table->timestamps();
         });
     }
