@@ -17,6 +17,7 @@ class CreateResumesTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('template_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            $table->string('slug');
             $table->string('photo')->nullable();
             $table->string('resume_name')->nullable();
             $table->string('title')->nullable();

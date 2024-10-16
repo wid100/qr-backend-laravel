@@ -49,13 +49,14 @@ class ResumeController extends Controller
      * @param  \App\Models\Admin\Resume  $resume
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, Resume $resume, VisitorService $visitorService)
+    public function show(Request $request, $slug,  VisitorService $visitorService)
     {
+        $resume =  Resume::where('slug', $slug)->first();
         $resume->increment('viewcount');
 
         // Get user IP and User-Agent
         $userIp = $request->ip();
-        $ip = '59.153.103.119';
+        // $ip = '59.153.103.119';
         $userAgent = $request->header('User-Agent');
 
         // Use the service to gather user info
@@ -107,7 +108,7 @@ class ResumeController extends Controller
         }
 
         $resume->template_id = $request->input('templateId');
-        $resume->resume_name = $request->input('resume.name');
+        $resume->resume_name = $request->input('resume_name');
         $resume->title = $request->input('profession');
         $resume->description = $request->input('description');
         $resume->phone = $request->input('phone');

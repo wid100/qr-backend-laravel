@@ -18,6 +18,7 @@ class ResumeResource extends JsonResource
             'id' => $this->id,
             'user' =>  $this->user ? $this->user : 'No user',
             'template_id' => $this->template_id,
+            'slug' => $this->slug,
             'photo' => $this->photo,
             'resume_name' => $this->resume_name,
             'title' => $this->title,
