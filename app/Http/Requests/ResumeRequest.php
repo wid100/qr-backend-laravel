@@ -25,7 +25,7 @@ class ResumeRequest extends FormRequest
     {
         return [
             // 'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'resume' => 'required',
+            'resume_name' => 'nullable',
             'title' => 'nullable',
             'description' => 'nullable|string',
             'phone' => 'nullable|string',

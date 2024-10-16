@@ -11,12 +11,14 @@
         "fruitcake/laravel-cors": "^3.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "intervention/image": "^2.7",
+        "jenssegers/agent": "^2.6",
         "laravel/framework": "^8.75",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.4",
         "mpdf/mpdf": "^8.2",
         "realrashid/sweet-alert": "^7.1",
+        "stevebauman/location": "^7.3",
         "swiftmailer/swiftmailer": "^6.3"
     },
     "require-dev": {

@@ -24,7 +24,7 @@ class ResumeUpdate extends FormRequest
     public function rules()
     {
         return [
-            'resume' => 'required',
+            'resume_name' => 'nullable',
             'title' => 'nullable',
             'description' => 'nullable|string',
             'phone' => 'nullable|string',

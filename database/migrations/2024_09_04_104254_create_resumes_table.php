@@ -17,6 +17,7 @@ class CreateResumesTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('template_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            $table->string('slug');
             $table->string('photo')->nullable();
             $table->string('resume_name')->nullable();
             $table->string('title')->nullable();
@@ -41,6 +42,7 @@ class CreateResumesTable extends Migration
             $table->string('primary_color')->nullable();
             $table->string('text_color')->nullable();
             $table->integer('status')->default(0)->comment('0 = active, 1 = inactive');
+            $table->integer('viewcount')->default(0);
             $table->timestamps();
         });
     }
