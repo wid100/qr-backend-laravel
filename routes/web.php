@@ -65,9 +65,8 @@ Route::post('/email/verification-notification', [EmailVerificationNotificationCo
     ->name('verification.send');
 
 
-
-Route::get('/resume/pdf/{userId}/{templateId}', [ResumeController::class, 'generatePdf'])->name('resume.pdf');
-Route::get('/resume/view/{userId}/{templateId}', [ResumeController::class, 'viewPdf'])->name('resume.view');
+Route::get('/resume/pdf/{userId}/{resumeId}/{templateId}', [ResumeController::class, 'generatePdf'])->name('resume.pdf');
+Route::get('/resume/view/{userId}/{resumeId}/{templateId}', [ResumeController::class, 'viewPdf'])->name('resume.view');
 
 // Route::post('/forgot-password', [PasswordResetLinkController::class, 'store'])
 //     ->middleware('guest')

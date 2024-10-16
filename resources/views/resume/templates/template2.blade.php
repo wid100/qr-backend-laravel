@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Resume</title>
+   <title>{{ $resume->fname }} {{ $resume->lname }}</title>
+   {{-- {{dd($resume)}} --}}
     <link rel="stylesheet" href="assets/css/style6.css" />
     <style>
         * {
@@ -16,7 +17,7 @@
 
         body {
             background: #f9f9f9;
-            
+
         }
 
         .main-body-2 {
@@ -33,8 +34,9 @@
             height: 100vh;
             border-spacing: 0;
             border-collapse: collapse;
-            
+
         }
+
         .qr-image-2 {
             width: 100px;
             height: 100px;
@@ -48,7 +50,7 @@
             padding: 15px 0;
             border-bottom: 1px solid #000;
             text-transform: uppercase;
-            padding-bottom:6px;
+            padding-bottom: 6px;
             font-weight: 600;
         }
 
@@ -59,7 +61,7 @@
         .hobbies-list-2,
         .certifications-list-2 {
             padding-left: 0;
-            
+
         }
 
         .contact-item-2,
@@ -182,9 +184,10 @@
             color: #8c3494;
             text-decoration: underline;
         }
-
+  .left-side-2 {
+            padding: 0 30px;
+        }
         /* Responsive */
-      
     </style>
 </head>
 
@@ -192,79 +195,80 @@
     <table>
         <tr>
             <!-- Left side -->
-            <td style="width: 20%; height:100%; vertical-align: top; background-color: #ffffff;border-left:10px solid #8c3494">
+            <td
+                style="width: 20%; height:100%; vertical-align: top; background-color: #ffffff;border-left:10px solid {{ $resume->primary_color }}">
                 <div class="left-side-2">
-                        <div style="width: 100%;text-align: center;padding-top:20px">
-                            <img src="https://i.postimg.cc/1zSsmrt2/Rectangle-25164.png" alt="Profile-image" style=" width: 170px;height: 170px; object-fit: cover; position: relative;z-index: 1;border: 2px solid #ffffff;border-radius: 50%;object-fit: cover;">
-                        </div>
-                    <div style="padding:20px">
+                    <div style="width: 100%;text-align: center;padding-top:20px">
+                        @if ($base64Image)
+                            <img src="{{ $base64Image }}" alt="Image error!"
+                                style="width: 170px;height: 170px; object-fit: cover; position: relative;z-index: 1;border: 2px solid #ffffff;border-radius: 50%;object-fit: cover;">
+                        @else
+                            <p>No image available</p>
+                        @endif
+                    </div>
+                    <div style="padding:20px 0">
                         <h2 class="sub-heading-2">Contact</h2>
                         <ul class="contact-list-2">
                             <li class="contact-item-2">
                                 <p style="font-size: 14px">Phone</p>
-                                <a href="tel:123-456-7890"
-                                    class="contact-link-2">123-456-7890</a></li>
+                                <a href="tel:{{ $resume->phone }}" class="contact-link-2">{{ $resume->phone }}</a>
+                            </li>
                             <li class="contact-item-2">
                                 <p style="font-size: 14px">Email</p>
-                                <a href="mailto:jahanara.womeningdigital@gmail.com"
-                                    class="contact-link-2">jahanara.womeningdigital@gmail.com</a></li>
+                                <a href="mailto:{{ $resume->email }}" class="contact-link-2">{{ $resume->email }}</a>
+                            </li>
                             <li class="contact-item-2">
                                 <p style="font-size: 14px">Address</p>
-                                <p>0-51, Janata Co-operative Housing Society, Mohammadpur, Dhaka,
-                                    Bangladesh</p>
-                                </li>
+                                <p style="font-size: 12px;">{{ $resume->address }}</p>
+                            </li>
                         </ul>
                         <h2 class="sub-heading-2">Education</h2>
                         <ul class="education-list-2" style="margin-bottom: 7px">
-                            <li class="education-item-2">
-                                <span style="font-size: 12px">2008</span>
-                                <p style="font-size: 14px">Enter Your Degree
-                                </p>
-                                <p style="font-size: 12px">Grade</p>
-                                <p style="font-size: 12px">2008 - University of Liberal Arts Bangladesh</p>
-                            </li>
+                            @forelse($education as $edu)
+                                <li class="education-item-2">
+                                    <span style="font-size: 12px">
+                                        {{ \Carbon\Carbon::parse($edu['startYear'])->format('Y') }} -
+                                        {{ \Carbon\Carbon::parse($edu['endYear'])->format('Y') }}</span>
+                                    <p style="font-size: 14px">{{ $edu['degree'] }}
+                                    </p>
+                                    <p style="font-size: 12px">Grade:{{ $edu['grade'] }}</p>
+                                    <p style="font-size: 12px">{{ $edu['institution'] }}</p>
+                                </li>
+                            @empty
+                                <p style="font-size: 12px">No education data available</p>
+                            @endforelse
                         </ul>
                         <h2 class="sub-heading-2" style="padding-bottom: 10px">Skills</h2>
 
                         <table style="width: 100%; padding-top:10px">
-                            <tr>
-                                <td style="font-size: 10px; white-space:nowrap;">
-                                    UI/UX
-                                </td>
-                                <td style="font-size: 10px; white-space:nowrap;">
-                                    Visual Design
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="font-size: 10px; white-space:nowrap;">
-                                    Wireframes
-                                </td>
-                                <td style="font-size: 10px; white-space:nowrap;">
-                                    Storyboards
-                                </td>
+                            @forelse($skills as $skill)
+                                <tr>
+                                    <td style="font-size: 12px;padding-bottom:3px; white-space:nowrap;">
+                                        {{ $skill }}
+                                    </td>
+                                </tr>
+                            @empty
+                                <tr>
+                                    <td colspan="1" style="font-size: 12px; white-space:nowrap;">
+                                        No skills available.
+                                    </td>
+                                </tr>
+                            @endforelse
 
-                            </tr>
-                            <tr>
-                                <td style="font-size: 10px; white-space:nowrap;">
-                                    Wireframes
-                                </td>
-                                <td style="font-size: 10px; white-space:nowrap;">
-                                    Storyboards
-                                </td>
-
-                            </tr>
                         </table>
                         <h2 class="sub-heading-2">Languages</h2>
                         <ul class="language-list-2">
-                            <li class="language-item-2">English</li>
-                            <li class="language-item-2">Bangla</li>
+                            @foreach ($languages as $lan)
+                                <li class="language-item-2">{{ $lan }}</li>
+                            @endforeach
                         </ul>
                         <h2 class="sub-heading-2">Interests</h2>
                         <ul class="hobbies-list-2">
-                            <li class="hobbies-item-2">Music</li>
-                            <li class="hobbies-item-2">Reading</li>
+                              @foreach ($interestes as $int)
+                                <li class="hobbies-item-2">{{ $int }}</li>
+                            @endforeach
                         </ul>
-                        
+
                     </div>
                 </div>
             </td>
@@ -275,10 +279,12 @@
                     <table>
                         <tr>
                             <td>
-                                <h1 class="name-heading-2"><b>Pronub</b> Shaharier</h1>
-                                <p class="designation-2">Full Stack Developer</p>
-                                <p class="description-2" style="font-size: 12px">
-                                    I am a passionate Full Stack Developer with expertise in creating dynamic and responsive web applications.
+                                <h1 style="color: {{ $resume->primary_color }}" class="name-heading-1">
+                                    <b>{{ $resume->fname }}</b> {{ $resume->lname }}
+                                </h1>
+                                <p class="designation-2">{{ $resume->profession }}</p>
+                                <p class="description-2" style="font-size: 14px; padding-right:15px">
+                                    {{ $resume->description }}
                                 </p>
                             </td>
                             <td style="text-align: right;">
@@ -288,88 +294,45 @@
                     </table>
                     <h2 class="section-heading-2" style="margin-top: 15px">Experience</h2>
                     <ul class="experience-list-2">
-                        <li class="experience-item-2" style="color: #000">
+                           @foreach ($experiences as $exp)
+                            <li class="experience-item-2" style="color: #000;  margin-bottom:20px;">
 
-                            <p style="margin-bottom:5px; font-size:12px">2019 - 2022</p>
-                            <h3 style="font-size:16px; font-weight: 600; padding-bottom:7px">Company Name | 123 Anywhere St. Any
-                                City
+                                <p style="margin-bottom:5px; font-size:14px">
+                                    {{ \Carbon\Carbon::parse($exp['startYear'])->format('Y') }} -
+                                    @if ($exp['workingNow'])
+                                        Present
+                                    @else
+                                        {{ $exp['endYear'] ? \Carbon\Carbon::parse($exp['endYear'])->format('Y') : 'N/A' }}
+                                    @endif
+                                </p>
+                                <h3 style="font-size:18px; font-weight: 600; padding-bottom:7px">
+                                    {{ $exp['employeeName'] }} | {{ $exp['location'] }}
 
-                            </h3>
-                            <p style="font-size: 15px; padding-bottom:7px">Job Position</p>
-                            <p style="font-size: 12px; padding-right: 20px;">Sed ut perspiciatis unde omnis iste
-                                natus error sit
-                                voluptatem accusantium doloremque laudantium. Sed audantium. audantium. ut
-                                perspiciatis unde omnis iste
-                                voluptatem accusantium doloremque laudantium. Sed audantium. audantium. ut
-                                perspiciatis unde omnis iste
-                                natus error sit voluptatem accusantium doloremque laudantium. Sed ut perspiciatis
-                                unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
-                                natus error sit voluptatem accusantium doloremque laudantium. Sed ut perspiciatis
-                                unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
-                        </li>
-                        <li class="experience-item-2" style="color: #000">
-
-                            <p style="margin-bottom:5px; font-size:12px">2019 - 2022</p>
-                            <h3 style="font-size:16px; font-weight: 600; padding-bottom:7px">Company Name | 123 Anywhere St. Any
-                                City
-
-                            </h3>
-                            <p style="font-size: 15px; padding-bottom:7px">Job Position</p>
-                            <p style="font-size: 12px; padding-right: 20px;">Sed ut perspiciatis unde omnis iste
-                                natus error sit
-                                voluptatem accusantium doloremque laudantium. Sed audantium. audantium. ut
-                                perspiciatis unde omnis iste
-                                voluptatem accusantium doloremque laudantium. Sed audantium. audantium. ut
-                                perspiciatis unde omnis iste
-                                natus error sit voluptatem accusantium doloremque laudantium. Sed ut perspiciatis
-                                unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
-                                natus error sit voluptatem accusantium doloremque laudantium. Sed ut perspiciatis
-                                unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
-                        </li>
-                        <li class="experience-item-2" style="color: #000">
-
-                            <p style="margin-bottom:5px; font-size:12px ;padding-bottom:7px">2019 - 2022</p>
-                            <h3 style="font-size:16px; font-weight: 600; padding-bottom:7px">Company Name | 123 Anywhere St. Any
-                                City
-
-                            </h3>
-                            <p style="font-size: 15px; padding-bottom:7px">Job Position</p>
-                            <p style="font-size: 12px; padding-right: 20px;">Sed ut perspiciatis unde omnis iste
-                                natus error sit
-                                voluptatem accusantium doloremque laudantium. Sed audantium. audantium. ut
-                                perspiciatis unde omnis iste
-                                voluptatem accusantium doloremque laudantium. Sed audantium. audantium. ut
-                                perspiciatis unde omnis iste
-                                            perspiciatis unde omnis iste
-                                voluptatem accusantium doloremque laudantium. Sed audantium. audantium. ut
-                                perspiciatis unde omnis iste
-                                            perspiciatis unde omnis iste
-                                voluptatem accusantium doloremque laudantium. Sed audantium. audantium. ut
-                                perspiciatis unde omnis iste
-                            </p>
-                        </li>
+                                </h3>
+                                <p style="font-size: 17px; padding-bottom:7px">{{ $exp['jobTitle'] }}</p>
+                                <p style="font-size: 16px; line-height:130%; padding-right: 20px;">
+                                    {{ $exp['description'] }}</p>
+                            </li>
+                        @endforeach
                     </ul>
                     <h2 class="section-heading-2" style="margin-top: 15px">References</h2>
                     <table style="width: 100%;">
                         <tr>
-                            <td>
-                                <h3 style="font-size: 16px; padding-bottom:7px">Name Surname</h3>
-                                <p style="font-size: 12px; padding-bottom:5px">Job Position, Company</p>
-                                <p style="font-size: 12px; padding-bottom:5px">Phone: <span> <a href="tel:123-456-7890"
-                                            class="contact-link-2">123-456-7890</a></span></p>
-                                <p style="font-size: 12px;padding-bottom:5px">Email: <a
-                                        href="mailto:jahanara.womeningdigital@gmail.com"
-                                        class="contact-link-2">jahanara.womeningdigital@gmail.com</a> </p>
-                            </td>
-                            <td>
-                                <h3 style="font-size: 16px; padding-bottom:7px">Name Surname</h3>
-                                <p style="font-size: 12px; padding-bottom:5px">Job Position, Company</p>
-                                <p style="font-size: 12px; padding-bottom:5px">Phone: <span> <a href="tel:123-456-7890"
-                                            class="contact-link-2">123-456-7890</a></span></p>
-                                <p style="font-size: 12px;padding-bottom:5px">Email: <a
-                                        href="mailto:jahanara.womeningdigital@gmail.com"
-                                        class="contact-link-2">jahanara.womeningdigital@gmail.com</a> </p>
-                            </td>
+                               @foreach ($references as $reference)
+                                <td>
+                                    <h3 style="font-size: 16px; padding-bottom:7px">{{ $reference['firstName'] }}
+                                        {{ $reference['lastName'] }}</h3>
+                                    <p style="font-size: 12px; padding-bottom:5px">{{ $reference['jobTitle'] }}</p>
+                                    <p style="font-size: 12px; padding-bottom:5px">Phone: <span> <a
+                                                href='tel:{{ $reference['phone'] }}'
+                                                class="contact-link-2">{{ $reference['phone'] }}</a></span>
+                                    </p>
+                                    <p style="font-size: 12px;padding-bottom:5px">Email: <a
+                                            href="mailto:{{ $reference['email'] }}"
+                                            class="contact-link-2">{{ $reference['email'] }}</a> </p>
+                                </td>
+                            @endforeach
+                          
                         </tr>
                     </table>
                 </div>
