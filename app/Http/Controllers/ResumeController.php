@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Admin\Resume;
-use PDF;
+use Barryvdh\DomPDF\Facade\Pdf;
+
+
 
 class ResumeController extends Controller
 {
@@ -13,41 +15,49 @@ class ResumeController extends Controller
         // Fetch the resume data for the given user
         $resume = Resume::where('user_id', $userId)->firstOrFail();
 
-        // Decode the JSON data for education and skills, or default to an empty array
+        // Decode the JSON data for education, experiences, skills, languages, interests, and references, or default to an empty array
         $education = json_decode($resume->education, true) ?? [];
         $experiences = json_decode($resume->experience, true) ?? [];
-        $skills = json_decode($resume->skill, true);
-        $languages = json_decode($resume->language, true);
-        $interestes = json_decode($resume->interest, true);
+        $skills = json_decode($resume->skill, true) ?? [];
+        $languages = json_decode($resume->language, true) ?? [];
+        $interestes = json_decode($resume->interest, true) ?? [];
         $references = json_decode($resume->references, true) ?? [];
 
-        // Convert image to base64 if needed
+        // Convert image to base64 if it exists
         if ($resume->photo) {
-            $imagePath = public_path($resume->photo);  // Get the local image path
+            $imagePath = public_path($resume->photo);
             if (file_exists($imagePath)) {
-                // Get image type and content
                 $imageType = pathinfo($imagePath, PATHINFO_EXTENSION);
                 $imageData = file_get_contents($imagePath);
-                // Convert to base64 encoding
                 $base64Image = 'data:image/' . $imageType . ';base64,' . base64_encode($imageData);
             } else {
-                $base64Image = null;  // Handle case where image doesn't exist
+                $base64Image = null;
             }
         } else {
-            $base64Image = null;  // Handle case where there's no image
+            $base64Image = null;
         }
 
-        // View name based on templateId
+        // Determine the view name based on templateId
         $viewName = "resume.templates.template{$templateId}";
 
-        // Generate the PDF using the template and data (including education and skills)
-        $pdf = PDF::loadView($viewName, compact('resume', 'education', 'references', 'skills', 'interestes', 'experiences', 'languages', 'base64Image'))
-            ->setPaper('a4', 'portrait') // A4 size in portrait
-            ->setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true]);
+        // Check if the view exists
+        if (!view()->exists($viewName)) {
+            abort(404, 'Template not found.');
+        }
 
-        // Return the PDF as a download
-        return $pdf->download('resume_' . $userId . '.pdf');
+        // Generate the PDF using the template and resume data
+        try {
+            $pdf = PDF::loadView($viewName, compact('resume', 'education', 'references', 'skills', 'interestes', 'experiences', 'languages', 'base64Image'))
+                ->setPaper('a4', 'portrait'); // A4 size in portrait
+
+            // Return the generated PDF as a download
+            return $pdf->download('resume_' . $userId . '.pdf');
+        } catch (\Exception $e) {
+            // Handle any exceptions during PDF generation
+            return response()->json(['error' => 'Failed to generate PDF: ' . $e->getMessage()], 500);
+        }
     }
+
 
     public function viewPdf($userId, $templateId)
     {
@@ -64,37 +74,27 @@ class ResumeController extends Controller
 
         // Convert image to base64 if it exists
         if ($resume->photo) {
-            $imagePath = public_path($resume->photo);  // Get the local image path
+            $imagePath = public_path($resume->photo);
             if (file_exists($imagePath)) {
-                // Get image type and content
                 $imageType = pathinfo($imagePath, PATHINFO_EXTENSION);
                 $imageData = file_get_contents($imagePath);
-                // Convert to base64 encoding
                 $base64Image = 'data:image/' . $imageType . ';base64,' . base64_encode($imageData);
             } else {
-                $base64Image = null;  // Handle case where image doesn't exist
+                $base64Image = null;
             }
         } else {
-            $base64Image = null;  // Handle case where there's no image
+            $base64Image = null;
         }
 
         // Determine the view name based on templateId
         $viewName = "resume.templates.template{$templateId}";
 
-        // Check if the view exists to avoid potential errors
+        // Check if the view exists
         if (!view()->exists($viewName)) {
             abort(404, 'Template not found.');
         }
 
-        // Generate the PDF using the template and data (including education and skills)
-        $pdf = PDF::loadView($viewName, compact('resume', 'education', 'references', 'skills', 'interestes', 'experiences', 'languages', 'base64Image'))
-            ->setPaper('a4', 'portrait') // A4 size in portrait mode
-            ->setOptions([
-                'isHtml5ParserEnabled' => true,  // Ensure HTML5 support is enabled for better rendering
-                'isRemoteEnabled' => true,  // Enable remote content loading if needed (e.g., external CSS/images)
-            ]);
-
-        // Return the PDF as a stream to the browser for viewing
-        return $pdf->stream('resume_' . $userId . '.pdf');
+        // Render the HTML view for debugging
+        return view($viewName, compact('resume', 'education', 'references', 'skills', 'interestes', 'experiences', 'languages', 'base64Image'));
     }
 }
