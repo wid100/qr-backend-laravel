@@ -18,6 +18,7 @@ use App\Http\Controllers\Admin\MessageController;
 use App\Http\Controllers\Admin\AdminResumeController;
 use App\Http\Controllers\Admin\FAQSectionController;
 use App\Http\Controllers\Admin\FAQQuestionController;
+use App\Http\Controllers\Admin\VisitorController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
 use App\Models\Admin\Resume;
@@ -65,9 +66,8 @@ Route::post('/email/verification-notification', [EmailVerificationNotificationCo
     ->name('verification.send');
 
 
-
-Route::get('/resume/pdf/{userId}/{templateId}', [ResumeController::class, 'generatePdf'])->name('resume.pdf');
-Route::get('/resume/view/{userId}/{templateId}', [ResumeController::class, 'viewPdf'])->name('resume.view');
+Route::get('/resume/pdf/{userId}/{resumeId}/{templateId}', [ResumeController::class, 'generatePdf'])->name('resume.pdf');
+Route::get('/resume/view/{userId}/{resumeId}/{templateId}', [ResumeController::class, 'viewPdf'])->name('resume.view');
 
 // Route::post('/forgot-password', [PasswordResetLinkController::class, 'store'])
 //     ->middleware('guest')
@@ -125,6 +125,9 @@ Route::namespace('App\Http\Controllers')->group(
             Route::resource('/resume', "AdminResumeController");
             Route::resource('faq-section', 'FAQSectionController');
             Route::resource('faq-question', 'FAQQuestionController');
+
+            // visitor
+            Route::get('visitor', [VisitorController::class, 'index'])->name('visitor');
         });
     }
 );

@@ -8,6 +8,7 @@ use App\Http\Resources\ResumeResource;
 use Illuminate\Database\Eloquent\Model;
 use Intervention\Image\Drivers\Imagick\Driver;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Str;
 
 class Resume extends Model
 {
@@ -15,6 +16,7 @@ class Resume extends Model
     protected $fillable = [
         'user_id',
         'template_id',
+        'slug',
         'photo',
         'resume_name',
         'title',
@@ -38,7 +40,8 @@ class Resume extends Model
         'other',
         'primary_color',
         'text_color',
-        'status'
+        'status',
+        'viewcount'
     ];
     public function user()
     {
@@ -55,6 +58,7 @@ class Resume extends Model
             'id' => $this->id,
             'user' =>  $this->user ? $this->user : 'No user',
             'template_id' => $this->template_id,
+            'slug' => $this->slug,
             'photo' => $this->photo,
             'resume_name' => $this->resume_name,
             'title' => $this->title,
@@ -105,8 +109,13 @@ class Resume extends Model
         // $this->user_id = auth()->user()->id;
         $this->user_id = request('userId');
         $this->template_id = request('templateId');
-        $this->resume_name = request('resume.name');
-        $this->title = request('profession');
+
+        if (request()->has('firstName') && request()->has('lastName')) {
+            $this->slug = Str::slug(request('firstName') . '-' . request('lastName') . '-' . Str::random(6));
+        } else {
+            $this->slug = Str::slug(Str::random(10));
+        }
+
         $this->description = request('description');
         $this->phone = request('phone');
         $this->email = request('email');

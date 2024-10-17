@@ -107,7 +107,7 @@ Route::get('template', [InstaController::class, 'allTemplate']);
 //get all resume
 // Route::get('/resume', [ResumeController::class, 'index']);
 Route::get('/user/{user}/resumes', [ResumeController::class, 'index']);
-Route::get('/resume/{resume}', [ResumeController::class, 'show']);
+Route::get('/resume/{slug}', [ResumeController::class, 'show']);
 Route::post('/resume', [ResumeController::class, 'store']);
 Route::post('/resume/{resume}', [ResumeController::class, 'update']); // resume mens id
 Route::delete('/resume/{resume}', [ResumeController::class, 'destroy']);

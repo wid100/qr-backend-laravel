@@ -18,6 +18,7 @@ class ResumeResource extends JsonResource
             'id' => $this->id,
             'user' =>  $this->user ? $this->user : 'No user',
             'template_id' => $this->template_id,
+            'slug' => $this->slug,
             'photo' => $this->photo,
             'resume_name' => $this->resume_name,
             'title' => $this->title,
@@ -42,6 +43,7 @@ class ResumeResource extends JsonResource
             'other' => $this->other,
             'primaryColor' => $this->primary_color,
             'textColor' => $this->text_color,
+            'viewcount' => $this->viewcount,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];

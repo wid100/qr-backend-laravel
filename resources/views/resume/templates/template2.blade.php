@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Resume</title>
+   <title>{{ $resume->fname }} {{ $resume->lname }}</title>
+   {{-- {{dd($resume)}} --}}
+    <link rel="stylesheet" href="assets/css/style6.css" />
     <style>
         * {
             margin: 0;
@@ -13,507 +15,330 @@
             font-family: "Arial Narrow", Arial, sans-serif;
         }
 
-        .main-body {
-            /* background: #72c3f1; */
+        body {
+            background: #f9f9f9;
+
+        }
+
+        .main-body-2 {
             display: flex;
             justify-content: center;
+            align-items: center;
+            min-height: 100vh;
             color: #000000;
-            overflow-x: hidden;
         }
 
-        .qr-image img {
+        /* Table styling */
+        table {
+            width: 100%;
+            height: 100vh;
+            border-spacing: 0;
+            border-collapse: collapse;
+
+        }
+
+        .qr-image-2 {
             width: 100px;
-        }
-
-        .resume-gap {
-            margin-right: 20px;
-        }
-
-        .resume-1 {
-            position: relative;
-            width: 100%;
-            max-width: 790px;
-            min-height: auto;
-            background: #ffffff;
-            /* margin: 50px; */
-            display: grid;
-            grid-template-columns: 30% 70%;
-            box-shadow: 0 35px 55px rgba(0, 0, 0, 0.1);
-        }
-
-        .resume-1 .left-side-1 {
-            position: relative;
-            background: #004382 !important;
-            padding: 30px 0;
-            color: #ffffff;
-        }
-
-        .profile-text-1 {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .profile-img-1 {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            padding-bottom: 10px;
-        }
-
-        .profile-img-1 img {
-            width: 170px;
-            height: 170px;
-            position: relative;
-            z-index: 1;
-            border: 2px solid #ffffff;
-            border-radius: 50%;
+            height: 100px;
             object-fit: cover;
+            margin-top: 20px;
         }
 
-        /* .resume-1 .right-side-1 {
-            position: relative;
-            background: #ffffff;
-            padding: 30px;
-        } */
-        .sub-heading-1 {
-            color: #ffffff;
-            /* font-family: Inter; */
-            text-align: left;
-            font-size: 18px;
-            padding: 15px 0 0 0;
-            border-bottom: 2px solid #ffffff;
+        .sub-heading-2 {
+            color: #8c3494;
+            font-size: 16px;
+            padding: 15px 0;
+            border-bottom: 1px solid #000;
             text-transform: uppercase;
             padding-bottom: 6px;
             font-weight: 600;
         }
 
-        .contact-details-1 {
-            list-style: none;
-            font-size: 14px;
-            font-weight: 400;
-            text-align: left;
-            padding: 4px 10px 10px 0;
-            line-height: 140%;
+        .contact-list-2,
+        .education-list-2,
+        .experience-list-2,
+        .language-list-2,
+        .hobbies-list-2,
+        .certifications-list-2 {
+            padding-left: 0;
+
         }
 
-        .contact-heading-1 {
-            margin-top: 10px;
-        }
-
-        .education-1-details-1 {
+        .contact-item-2,
+        .education-item-2,
+        .experience-item-2,
+        .language-item-2,
+        .hobbies-item-2,
+        .certification-item-2 {
             list-style: none;
             font-size: 12px;
-            font-weight: 400;
-            letter-spacing: 1px;
-            text-align: left;
-            padding: 3px 0 0 0;
+            padding: 4px 0;
+            color: #000000;
+            line-height: 140%;
+            transition: background 0.3s;
         }
 
-        .education-1 {
-            margin-bottom: 10px;
-            margin-top: 10px;
+        .contact-item-2:hover,
+        .education-item-2:hover,
+        .experience-item-2:hover,
+        .language-item-2:hover,
+        .hobbies-item-2:hover,
+        .certification-item-2:hover {
+            background: rgba(255, 179, 23, 0.2);
         }
 
-        .skill-1 {
+        .contact-link-2 {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .skill-2 {
             list-style-type: none;
-            padding: 10px 0 10px 0;
-            font-size: 14px;
+            padding: 10px 0;
+            font-size: 13px;
             display: flex;
             flex-wrap: wrap;
+            color: #fff;
         }
 
-        .skill-1 li {
+        .skill-2 li {
             width: 50%;
             padding: 5px 0;
         }
 
-        .skill-1 li:nth-child(odd) {
-            float: right;
-        }
-
-        .skill-1 li:nth-child(even) {
-            float: left;
-        }
-
-        .language-1 {
-            list-style: none;
-            margin: 0;
-            padding: 5px 0 10px 0;
-            position: relative;
-            font-size: 14px;
-            display: flex;
-            flex-wrap: wrap;
-        }
-
-        .language-1 li {
-            flex: 0 1 calc(50% - 10px);
-            padding: 10px 10px 0 0;
-            box-sizing: border-box;
-        }
-
-        .interest-1 {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            position: relative;
-            font-size: 16px;
-            display: flex;
-            flex-wrap: wrap;
-        }
-
-        .interest-1 li {
-            flex: 0 1 calc(33.33% - 10px);
-            padding: 10px 10px 0 0;
-            box-sizing: border-box;
-        }
-
-        .resume-name-1 {
-            color: #004382;
-            font-size: 42px;
-            font-weight: 400;
-        }
-
-        .first-name-1 {
-            color: #004382;
-            font-size: 42px;
-            font-weight: 900;
-            margin-right: 15px;
-        }
-
-        .resume-1-display {
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .resume-designation-1 {
-            font-weight: 400;
-            line-height: 19px;
-            letter-spacing: 2px;
-            text-align: left;
+        /* Right side styles */
+        .right-side-2 {
+            background: #f5f5f5;
             color: #000000;
+            padding: 30px;
         }
 
-        .resume-about-1 {
-            font-size: 16px;
+        .name-heading-2 {
+            color: #8c3494;
+            font-size: 30px;
             font-weight: 400;
-            padding: 15px 0 20px 0;
-            /* text-align: justify; */
         }
 
-        .contact-text,
-        .education-1-text,
-        .skill-1-text,
-        .language-1-text,
-        .interest-1-text {
-            padding-left: 30px;
+        .designation-2 {
+            font-weight: 400;
+            color: #000000;
+            margin-top: 10px;
         }
 
-        .experience-1 {
+        .description-2 {
+            font-size: 16px;
+            padding: 10px 0 10px 0;
+        }
+
+        .section-heading-2 {
             font-weight: 700;
-            color: #004382;
-            border-bottom: 2px solid #000;
-            padding-bottom: 10px;
+            color: #8c3494;
+            border-bottom: 1px solid #000;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            font-size: 18px
         }
 
-        .resume-experience-1 {
-            position: relative;
-            padding: 10px 0;
-        }
-
-        .job-1 {
-            list-style: none;
-            position: relative;
-            display: flex;
-        }
-
-        .job-1-year {
-            font-weight: bold;
-            margin-bottom: 5px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .job-1::before {
-            content: "";
-            position: absolute;
-            /* left: 15px; */
-            top: 0;
-            width: 10px;
-            height: 10px;
-            background-color: #004382;
-            border-radius: 50%;
-            z-index: 1;
-        }
-
-        .timeline-line {
-            width: 2px;
-            background-color: #000000;
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 4px;
-            z-index: 0;
-        }
-
-        .job-content {
-            padding-left: 40px;
-            box-sizing: border-box;
-        }
-
-        .company-name-1 {
-            padding: 5px 0;
-        }
-
-        .job-1-position {
-            padding: 5px 0;
-        }
-
-        .job-1-description {
-            /* text-align: justify; */
-            padding-bottom: 20px;
-        }
-
-        .job-1:last-child .job-1-description {
-            padding-bottom: 0;
-        }
-
-        .reference-1 {
-            font-weight: 700;
-            color: #004382;
-            padding-block: 10px;
-            border-bottom: 2px solid #000;
-        }
-
-        .resume-reference-1 {
+        .references-2 {
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
-            padding: 10px 0 0px 0;
+            padding: 10px 0;
         }
 
-        .ref {
-            flex: 0 1 calc(50% - 20px);
-            box-sizing: border-box;
-        }
-
-        .resume-right-1 .ref {
+        .reference-item-2 {
             color: black;
-            font-size: 14px;
-        }
-
-        .ref p {
             line-height: 15px;
+            flex: 0 1 calc(50% - 10px);
+            box-sizing: border-box;
+            font-size: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        .resume-right-1 .ref span {
-            font-weight: bolder;
+        .reference-item-2:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
         }
 
-        .ref-name-1 {
-            padding: 4px 0 4px 0;
+        .reference-item-2 h3 {
+            padding: 4px 0;
+            font-size: 18px;
+            font-weight: bold;
         }
 
-        .ref-position-1,
-        .ref-phone-1,
-        .ref-email-1 {
-            padding: 3px 0 3px 0;
+        .reference-item-2 p {
+            padding: 3px 0;
+            margin: 0;
         }
 
-        .contact-link,
-        .contact-link-1 {
+        .reference-item-2 a {
             color: inherit;
             text-decoration: none;
-            word-wrap: break-word;
-            word-break: break-word;
         }
 
-        .contact-link:hover {
-            color: #004382;
+        .reference-item-2 a:hover {
+            color: #8c3494;
             text-decoration: underline;
         }
-
-        .contact-link-1:hover {
-            text-decoration: underline;
+  .left-side-2 {
+            padding: 0 30px;
         }
-
-        .page-break {
-            page-break-after: always;
-        }
+        /* Responsive */
     </style>
 </head>
 
 <body>
-    <table style="width: 100%; border-collapse: collapse;">
-
+    <table>
         <tr>
-            <td class="left-side-1">
-                <!---left portion starts from here-->
-
-                <div class="profile-text-1" style="background:#004382">
-                    <div class="profile-img-1">
-                        <img src="{{ public_path('image/resume/longimage.png') }}" alt="Profile-image" />
-
+            <!-- Left side -->
+            <td
+                style="width: 20%; height:100%; vertical-align: top; background-color: #ffffff;border-left:10px solid {{ $resume->primary_color }}">
+                <div class="left-side-2">
+                    <div style="width: 100%;text-align: center;padding-top:20px">
+                        @if ($base64Image)
+                            <img src="{{ $base64Image }}" alt="Image error!"
+                                style="width: 170px;height: 170px; object-fit: cover; position: relative;z-index: 1;border: 2px solid #ffffff;border-radius: 50%;object-fit: cover;">
+                        @else
+                            <p>No image available</p>
+                        @endif
                     </div>
-
-                    <!-- Contact part -->
-
-                    <div class="contact-text">
-                        <h2 class="sub-heading-1">Contact</h2>
-                        <ul>
-                            <h4 class="contact-heading-1">Phone</h4>
-                            <li class="contact-details-1">
-                                <a href="tel:123-456-7890" class="contact-link-1">123-456-7890</a>
+                    <div style="padding:20px 0">
+                        <h2 class="sub-heading-2">Contact</h2>
+                        <ul class="contact-list-2">
+                            <li class="contact-item-2">
+                                <p style="font-size: 14px">Phone</p>
+                                <a href="tel:{{ $resume->phone }}" class="contact-link-2">{{ $resume->phone }}</a>
                             </li>
-                            <h4 class="contact-heading-1">Email</h4>
-                            <li class="contact-details-1">
-                                <a href="mailto:mail@domainname.com" class="contact-link-1">mail@domainname.com</a>
+                            <li class="contact-item-2">
+                                <p style="font-size: 14px">Email</p>
+                                <a href="mailto:{{ $resume->email }}" class="contact-link-2">{{ $resume->email }}</a>
                             </li>
-
+                            <li class="contact-item-2">
+                                <p style="font-size: 14px">Address</p>
+                                <p style="font-size: 12px;">{{ $resume->address }}</p>
+                            </li>
                         </ul>
-                    </div>
-                    <!-- education part -->
-
-                    <div class="education-1-text">
-                        <h2 class="sub-heading-1">education</h2>
-
-                        <ul class="education-1">
-                            <div style="margin-bottom: 15px">
-                                <li class="education-1-details-1">2008</li>
-                                <h4 class="degree-1">Enter Your Degree</h4>
-                                <li class="education-1-details-1">Grade</li>
-                                <li class="education-1-details-1">
-                                    University/Collage
+                        <h2 class="sub-heading-2">Education</h2>
+                        <ul class="education-list-2" style="margin-bottom: 7px">
+                            @forelse($education as $edu)
+                                <li class="education-item-2">
+                                    <span style="font-size: 12px">
+                                        {{ \Carbon\Carbon::parse($edu['startYear'])->format('Y') }} -
+                                        {{ \Carbon\Carbon::parse($edu['endYear'])->format('Y') }}</span>
+                                    <p style="font-size: 14px">{{ $edu['degree'] }}
+                                    </p>
+                                    <p style="font-size: 12px">Grade:{{ $edu['grade'] }}</p>
+                                    <p style="font-size: 12px">{{ $edu['institution'] }}</p>
                                 </li>
-                            </div>
-                            <div style="margin-bottom: 15px">
-                                <li class="education-1-details-1">2008</li>
-                                <h4 class="degree-1">Enter Your Degree</h4>
-                                <li class="education-1-details-1">Grade</li>
-                                <li class="education-1-details-1">
-                                    University/Collage
-                                </li>
-                            </div>
+                            @empty
+                                <p style="font-size: 12px">No education data available</p>
+                            @endforelse
                         </ul>
-                    </div>
-                    <!-- skill part -->
+                        <h2 class="sub-heading-2" style="padding-bottom: 10px">Skills</h2>
 
-                    <div class="skill-1-text">
-                        <h2 class="sub-heading-1">skill</h2>
+                        <table style="width: 100%; padding-top:10px">
+                            @forelse($skills as $skill)
+                                <tr>
+                                    <td style="font-size: 12px;padding-bottom:3px; white-space:nowrap;">
+                                        {{ $skill }}
+                                    </td>
+                                </tr>
+                            @empty
+                                <tr>
+                                    <td colspan="1" style="font-size: 12px; white-space:nowrap;">
+                                        No skills available.
+                                    </td>
+                                </tr>
+                            @endforelse
 
-                        <ul class="skill-1">
-                            <li>UI/UX</li>
-                            <li>Visual Design</li>
-                            <li>Wireframes</li>
-                            <li>Storyboards</li>
-                            <li>User Flows</li>
-                            <li>Process Flows</li>
+                        </table>
+                        <h2 class="sub-heading-2">Languages</h2>
+                        <ul class="language-list-2">
+                            @foreach ($languages as $lan)
+                                <li class="language-item-2">{{ $lan }}</li>
+                            @endforeach
                         </ul>
-                    </div>
-
-                    <!-- language part -->
-
-                    <div class="language-1-text">
-                        <h2 class="sub-heading-1">language</h2>
-
-                        <ul class="language-1">
-                            <li>ENGLISH</li>
-                            <li>BANGLA</li>
-                            <li>BANGLA</li>
+                        <h2 class="sub-heading-2">Interests</h2>
+                        <ul class="hobbies-list-2">
+                              @foreach ($interestes as $int)
+                                <li class="hobbies-item-2">{{ $int }}</li>
+                            @endforeach
                         </ul>
-                    </div>
 
-                    <!-- interest part -->
-
-                    <div class="interest-1-text">
-                        <h2 class="sub-heading-1">interest</h2>
-                        <ul class="interest-1">
-                            <li>Music</li>
-                            <li>Singing</li>
-                            <li>Reading</li>
-                            <li>Music</li>
-                            <li>Singing</li>
-                            <li>Reading</li>
-                        </ul>
                     </div>
                 </div>
-
-                <!---left portion ends here-->
             </td>
-            <td class="right-side-1">
-                <!---right portion starts from here-->
 
-                <div>
-                    <h1 class="resume-name-1"><span class="first-name-1">Pronub</span>Shaharier</h1>
-                    <div class="resume-1-display">
-                        <div class="resume-gap">
-                            <h2 class="resume-designation-1">Marketing Manager</h2>
-                            <p class="resume-about-1">Lorem ipsum </p>
-                        </div>
-                        <div class="qr-image">
-                            <img src="img/QR.png" alt="Qr Image">
-                        </div>
-                    </div>
-                </div>
+            <!-- Right side -->
+            <td style="width: 80%; background-color: #f5f5f5;vertical-align: top; ">
+                <div class="right-side-2">
+                    <table>
+                        <tr>
+                            <td>
+                                <h1 style="color: {{ $resume->primary_color }}" class="name-heading-1">
+                                    <b>{{ $resume->fname }}</b> {{ $resume->lname }}
+                                </h1>
+                                <p class="designation-2">{{ $resume->profession }}</p>
+                                <p class="description-2" style="font-size: 14px; padding-right:15px">
+                                    {{ $resume->description }}
+                                </p>
+                            </td>
+                            <td style="text-align: right;">
+                                <img src="https://i.postimg.cc/cLwdGbsf/QR.png" alt="QR Code" class="qr-image-2" />
+                            </td>
+                        </tr>
+                    </table>
+                    <h2 class="section-heading-2" style="margin-top: 15px">Experience</h2>
+                    <ul class="experience-list-2">
+                           @foreach ($experiences as $exp)
+                            <li class="experience-item-2" style="color: #000;  margin-bottom:20px;">
 
-                <!-- Experience part -->
+                                <p style="margin-bottom:5px; font-size:14px">
+                                    {{ \Carbon\Carbon::parse($exp['startYear'])->format('Y') }} -
+                                    @if ($exp['workingNow'])
+                                        Present
+                                    @else
+                                        {{ $exp['endYear'] ? \Carbon\Carbon::parse($exp['endYear'])->format('Y') : 'N/A' }}
+                                    @endif
+                                </p>
+                                <h3 style="font-size:18px; font-weight: 600; padding-bottom:7px">
+                                    {{ $exp['employeeName'] }} | {{ $exp['location'] }}
 
-                <div>
-                    <h2 class="experience-1">Experience</h2>
-                    <ul class="resume-experience-1">
-
-                        <li class="job-1">
-                            <div class="timeline-line"></div>
-                            <div class="job-content">
-                                <p class="job-1-year">2015 - 2017</p>
-                                <p class="company-name-1">Company Name | 123 Anywhere St. Any City</p>
-                                <h3 class="job-1-position">Job Position Here</h3>
-                                <p class="job-1-description">Sed ut perspiciatis unde omnis iste natus error sit
-                                    voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab
-                                    illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-                            </div>
-                        </li>
+                                </h3>
+                                <p style="font-size: 17px; padding-bottom:7px">{{ $exp['jobTitle'] }}</p>
+                                <p style="font-size: 16px; line-height:130%; padding-right: 20px;">
+                                    {{ $exp['description'] }}</p>
+                            </li>
+                        @endforeach
                     </ul>
+                    <h2 class="section-heading-2" style="margin-top: 15px">References</h2>
+                    <table style="width: 100%;">
+                        <tr>
+                               @foreach ($references as $reference)
+                                <td>
+                                    <h3 style="font-size: 16px; padding-bottom:7px">{{ $reference['firstName'] }}
+                                        {{ $reference['lastName'] }}</h3>
+                                    <p style="font-size: 12px; padding-bottom:5px">{{ $reference['jobTitle'] }}</p>
+                                    <p style="font-size: 12px; padding-bottom:5px">Phone: <span> <a
+                                                href='tel:{{ $reference['phone'] }}'
+                                                class="contact-link-2">{{ $reference['phone'] }}</a></span>
+                                    </p>
+                                    <p style="font-size: 12px;padding-bottom:5px">Email: <a
+                                            href="mailto:{{ $reference['email'] }}"
+                                            class="contact-link-2">{{ $reference['email'] }}</a> </p>
+                                </td>
+                            @endforeach
+                          
+                        </tr>
+                    </table>
                 </div>
-
-                <!-- Reference part -->
-
-                <div>
-                    <h2 class="reference-1">Reference</h2>
-                    <div class="resume-reference-1">
-                        <div class="ref">
-                            <h3 class="ref-name-1"><span>Name (Surmame)</span></h3>
-                            <p class="ref-position-1">job Position | Company Name</p>
-                            <p class="ref-phone-1">
-                                <span><b>Phone</b></span>
-                                <a href="tel:123-456-7890" class="contact-link">123-456-7890</a>
-                            </p>
-                            <p class="ref-email-1">
-                                <span><b>Email</b></span>
-                                <a href="mailto:hello@domainname.com" class="contact-link">hello@domainname.com</a>
-                            </p>
-                        </div>
-                        <div class="ref">
-                            <h3 class="ref-name-1"><span>Name (Surmame)</span></h3>
-                            <p class="ref-position-1">job Position | Company Name</p>
-                            <p class="ref-phone-1">
-                                <span><b>Phone</b></span>
-                                <a href="tel:123-456-7890" class="contact-link">123-456-7890</a>
-                            </p>
-                            <p class="ref-email-1">
-                                <span><b>Email</b></span>
-                                <a href="mailto:hello@domainname.com" class="contact-link">hello@domainname.com</a>
-                            </p>
-                        </div>
-
-                    </div>
-                </div>
-
-                <!--right portion ends here-->
             </td>
         </tr>
     </table>
-
 </body>
 
 </html>

@@ -183,6 +183,13 @@
                 </div>
             </li>
 
+            <li class="nav-item">
+                <a href="{{ route('admin.visitor') }}" class="nav-link">
+                    <i class="link-icon" data-feather="eye"></i>
+                    <span class="link-title">Visitor</span>
+                </a>
+            </li>
+
         </ul>
     </div>
 </nav>
