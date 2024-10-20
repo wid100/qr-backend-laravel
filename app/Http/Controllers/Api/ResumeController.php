@@ -25,7 +25,12 @@ class ResumeController extends Controller
      */
     public function index($userId)
     {
-        $resumes = Resume::with('template')->where('user_id', $userId)->where('status', 0)->get();
+        // $resumes = Resume::with('template')->where('user_id', $userId)->where('status', 0)->get();
+
+        $resumes = Resume::with(['template', 'visitors'])
+            ->where('user_id', $userId)
+            ->where('status', 0)
+            ->get();
         return ResumeResource::collection($resumes);
     }
 
@@ -61,7 +66,6 @@ class ResumeController extends Controller
 
         // Use the service to gather user info
         $userInfo = $visitorService->getUserInfo($userIp, $userAgent, $resume->id, 'resume_id');
-        // Save visitor information
         $visitorService->saveVisitorInfo($userInfo, 'resume_id');
 
         // return response()->json($userInfo);

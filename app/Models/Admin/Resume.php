@@ -139,4 +139,8 @@ class Resume extends Model
         $this->save();
         return $this->getResume();
     }
+    public function visitors()
+    {
+        return $this->hasMany(Visitor::class, 'resume_id');
+    }
 }
