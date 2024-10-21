@@ -44,6 +44,14 @@ class ResumeResource extends JsonResource
             'primaryColor' => $this->primary_color,
             'textColor' => $this->text_color,
             'viewcount' => $this->viewcount,
+            'visitors' => $this->visitors->map(function ($visitor) {
+                return [
+                    'id' => $visitor->id,
+                    'country' => $visitor->country,
+                    'city' => $visitor->city,
+                    'browser' => $visitor->browser,
+                ];
+            }),
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];

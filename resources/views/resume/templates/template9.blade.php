@@ -84,6 +84,13 @@
             transition: background 0.3s;
         }
 
+        .experience-item-6 {
+            border-bottom: 1px solid #B5B5B5;
+        }
+        .experience-item-6:last-child{
+            border-bottom: none;
+        }
+
         .contact-item-6:hover,
         .education-item-6:hover,
         .experience-item-6:hover,
@@ -193,9 +200,36 @@
             text-decoration: underline;
         }
 
+        .image-container {
+            width: 100px;
+            height: 200px;
+            background-color: #00B2D9;
+            margin: 0 auto;
+            position: relative;
+            text-align: center;
+            /* No border-radius for the background container */
+        }
 
+        .profile-image {
+            width: 170px;
+            height: 170px;
+            object-fit: cover;
+            position: absolute;
+            top: 49%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            border: 1px solid #fff;
+        }
 
-        /* Responsive */
+        .no-image-text {
+            color: #00B2D9;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 14px;
+        }
     </style>
 </head>
 
@@ -260,18 +294,19 @@
             </td>
             <!-- Left side -->
             <td class="left-side-6s"
-                style="width: 30%;  vertical-align: top; padding-left:20px; border-left:1px solid #00B2D9">
+                style="width: 30%;  vertical-align: top; border-left:1px solid #00B2D9">
                 <div class="left-side-6">
                     <div>
                         <div style="width: 100%;text-align: center;">
-                            @if ($base64Image)
-                                <img src="{{ $base64Image }}" alt="Image error!"
-                                    style=" width: 200px;height: 200px; object-fit: cover; position: relative;object-fit: cover;">
-                            @else
-                                <p>No image available</p>
-                            @endif
+                            <div class="image-container">
+                                @if ($base64Image)
+                                    <img src="{{ $base64Image }}" alt="Image error!" class="profile-image">
+                                @else
+                                    <p class="no-image-text">No image available</p>
+                                @endif
+                            </div>
                         </div>
-                        <div class="left-site-bg" style="height:902px;">
+                        <div class="left-site-bg" style="height:902px;padding-left:20px;">
 
                             <h2 class="sub-heading-6" style="color: #fff">Contact</h2>
                             <ul class="contact-list-6" style="padding-left: 20px">
@@ -309,27 +344,48 @@
                             <h2 class="sub-heading-6" style="padding-bottom: 10px;color: #fff">Skills</h2>
 
                             <table style="width: 100%; padding-top:10px; padding-left: 20px">
-                                @forelse($skills as $skill)
+                                @forelse(collect($skills)->chunk(2) as $chunk)
                                     <tr>
-                                        <td style="font-size: 12px;padding-bottom:3px; white-space:nowrap; color:#000">
-                                            {{ $skill }}
-                                        </td>
+                                        @foreach ($chunk as $skill)
+                                            <td style="font-size: 10px; white-space: nowrap;">
+                                                <span>{{ $skill }}</span>
+                                            </td>
+                                        @endforeach
+
+                                        @if ($chunk->count() < 2)
+                                            <td></td>
+                                        @endif
                                     </tr>
                                 @empty
                                     <tr>
-                                        <td colspan="1" style="font-size: 12px; white-space:nowrap; color:#000">
+                                        <td colspan="2" style="font-size: 12px; white-space: nowrap; color: #000;">
                                             No skills available.
                                         </td>
                                     </tr>
                                 @endforelse
-                                <tr>
                             </table>
                             <h2 class="sub-heading-6">Languages</h2>
-                            <ul class="language-list-6" style="padding-left: 20px">
-                                @foreach ($languages as $lan)
-                                    <li class="language-item-6">{{ $lan }}</li>
-                                @endforeach
-                            </ul>
+                            <table style="width: 100%; padding-top: 10px;padding-left: 20px">
+                                @forelse(collect($languages)->chunk(2) as $chunk)
+                                    <tr>
+                                        @foreach ($chunk as $language)
+                                            <td style="font-size: 12px; white-space: nowrap;">
+                                                {{ $language }}
+                                            </td>
+                                        @endforeach
+
+                                        @if ($chunk->count() < 2)
+                                            <td></td>
+                                        @endif
+                                    </tr>
+                                @empty
+                                    <tr>
+                                        <td colspan="2" style="font-size: 12px; white-space: nowrap;">
+                                            No languages available.
+                                        </td>
+                                    </tr>
+                                @endforelse
+                            </table>
                             <h2 class="sub-heading-6">Interests</h2>
                             <ul class="language-list-6" style="padding-left: 20px">
                                 @foreach ($languages as $lan)
@@ -341,8 +397,8 @@
                                 <tr>
                                     <td align="center">
                                         <div class="qr-image-6-con">
-                                            <img src="https://i.postimg.cc/cLwdGbsf/QR.png" alt="QR Code"
-                                                class="qr-image-6" />
+                                            <img src="https://i.postimg.cc/cLwdGbsf/QR.png" alt="QR Code" class="qr-image-6" />
+
                                         </div>
                                     </td>
                                 </tr>
