@@ -187,10 +187,10 @@ class QrgenController extends Controller
 
             // Get user IP and User-Agent
             $userIp = $request->ip();
-            $ip = '59.153.103.119';
+            // $ip = '59.153.103.119';
             $userAgent = $request->header('User-Agent');
             // Use the service to gather user info
-            $userInfo = $visitorService->getUserInfo($ip, $userAgent, $showpost->id, 'visiting_id');
+            $userInfo = $visitorService->getUserInfo($userIp, $userAgent, $showpost->id, 'visiting_id');
             $visitorService->saveVisitorInfo($userInfo, 'visiting_id');
 
             return response()->json($showpost);
