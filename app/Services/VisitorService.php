@@ -15,7 +15,7 @@ class VisitorService
      * @param object $resume
      * @return array
      */
-    public function getUserInfo($ip, $userAgent, $dynamicFieldId = null, $dynamicFieldName = 'resume_id')
+    public function getUserInfo($ip, $userAgent, $dynamicFieldId, $dynamicFieldName = 'resume_id')
     {
         // Get location data using ipinfo.io
         $locationData = file_get_contents("http://ipinfo.io/{$ip}/json");

@@ -6,6 +6,7 @@ use App\Models\Qrgen;
 use Illuminate\Http\Request;
 
 use App\Models\User;
+use App\Services\VisitorService;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\ValidationException;
 
@@ -55,7 +56,7 @@ class QrgenController extends Controller
 
     public function getGetqrByUser(User $user)
     {
-        $getqr = Qrgen::where('user_id', $user->id)->get();
+        $getqr = Qrgen::with(['visitors'])->where('user_id', $user->id)->get();
 
         return response()->json(['getqr' => $getqr]);
     }
@@ -173,7 +174,7 @@ class QrgenController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($slug)
+    public function show(Request $request, $slug, VisitorService $visitorService)
     {
         $showpost = Qrgen::where('slug', $slug)->first();
         if (!$showpost) {
@@ -183,6 +184,15 @@ class QrgenController extends Controller
 
         if ($showpost->status === 'active') {
             $showpost->increment('viewcount');
+
+            // Get user IP and User-Agent
+            $userIp = $request->ip();
+            $ip = '59.153.103.119';
+            $userAgent = $request->header('User-Agent');
+            // Use the service to gather user info
+            $userInfo = $visitorService->getUserInfo($ip, $userAgent, $showpost->id, 'visiting_id');
+            $visitorService->saveVisitorInfo($userInfo, 'visiting_id');
+
             return response()->json($showpost);
         } else {
             return response()->json(['error' => 'Qrgen is paused'], 403);

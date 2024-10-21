@@ -33,6 +33,8 @@
                                         <th>org</th>
                                         <th>postal</th>
                                         <th>timezone</th>
+                                        <th>Resume ID</th>
+                                        <th>Visiting ID</th>
                                         <th>date</th>
                                     </tr>
                                 </thead>
@@ -53,6 +55,8 @@
                                             <td>{{ $item->org ?? '' }}</td>
                                             <td>{{ $item->postal ?? '' }}</td>
                                             <td>{{ $item->timezone ?? '' }}</td>
+                                            <td>{{ $item->resume_id ?? ''}}</td>
+                                            <td>{{ $item->visiting_id ?? ''}}</td>
                                             <td>{{ $item->created_at ?? '' }}</td>
 
 
