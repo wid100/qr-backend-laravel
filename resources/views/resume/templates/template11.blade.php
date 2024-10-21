@@ -11,7 +11,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: "Arial Narrow", Arial, sans-serif;
+            font-family: 'inter';
         }
 
         body {
@@ -81,6 +81,12 @@
             color: #000000;
             line-height: 140%;
             transition: background 0.3s;
+        }
+        .experience-item-11{
+            border-bottom: 1px solid #B5B5B5;   
+        }
+        .experience-item-11:last-child{
+            border-bottom: none;   
         }
 
         .contact-item-11 {

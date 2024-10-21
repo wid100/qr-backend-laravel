@@ -13,7 +13,7 @@
         * {
             margin: 0;
             padding: 0;
-            border: 0;
+            border: 0;font-family: 'inter';
         }
 
         body {

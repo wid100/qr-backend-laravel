@@ -11,7 +11,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: "Arial Narrow", Arial, sans-serif;
+            font-family: 'inter';
         }
 
         body {
@@ -81,6 +81,14 @@
             color: #fff;
             line-height: 140%;
             transition: background 0.3s;
+        }
+
+        .experience-item-6{
+            border-bottom: 1px solid #B5B5B5;
+        }
+
+        .experience-item-6:last-child{
+            border-bottom: none;
         }
 
         .contact-item-6:hover,
@@ -264,12 +272,12 @@
                         <div style="width: 100%;text-align: center;">
                             @if ($base64Image)
                                 <img src="{{ $base64Image }}" alt="Image error!"
-                                    style="width: 200px;height: 200px; object-fit: cover; position: relative;object-fit: cover;">
+                                    style="width: 210px;height: 200px; object-fit: cover; position: relative;object-fit: cover;">
                             @else
                                 <p>No image available</p>
                             @endif
                         </div>
-                        <div class="left-site-bg" style="background:#989898;height:902px; padding:0px 20px 20px 20px ">
+                        <div class="left-site-bg" style="background:#989898;height:902px; padding:0px 20px 20px 20px ;clip-path: polygon(0 8%, 100% 0, 100% 100%, 0 100%); position: relative;">
                             <table>
                                 <tr>
                                     <td align="center">
@@ -316,27 +324,54 @@
                             <h2 class="sub-heading-6" style="padding-bottom: 10px;color: #fff">Skills</h2>
 
                             <table style="width: 100%; padding-top:10px">
-                                @forelse($skills as $skill)
-                                    <tr>
-                                        <td style="font-size: 12px;padding-bottom:3px; white-space:nowrap; color:#fff">
-                                            {{ $skill }}
+                                @forelse(collect($skills)->chunk(2) as $chunk)
+                                <tr>
+                                    @foreach ($chunk as $skill)
+                                        <td style="font-size: 10px; white-space: nowrap;color: #fff;">
+                                            <span>{{ $skill }}</span>
                                         </td>
-                                    </tr>
-                                @empty
-                                    <tr>
-                                        <td colspan="1" style="font-size: 12px; white-space:nowrap; color:#fff">
-                                            No skills available.
-                                        </td>
-                                    </tr>
-                                @endforelse
+                                    @endforeach
+
+                                    @if ($chunk->count() < 2)
+                                        <td></td>
+                                    @endif
+                                </tr>
+                            @empty
+                                <tr>
+                                    <td colspan="2" style="font-size: 12px; white-space: nowrap; color: #fff;">
+                                        No skills available.
+                                    </td>
+                                </tr>
+                            @endforelse
 
                             </table>
                             <h2 class="sub-heading-6">Languages</h2>
-                            <ul class="language-list-6">
+                            <table style="width: 100%; padding-top: 10px;">
+                                @forelse(collect($languages)->chunk(2) as $chunk)
+                                    <tr>
+                                        @foreach ($chunk as $language)
+                                            <td style="font-size: 12px; white-space: nowrap;color: #fff;">
+                                                {{ $language }}
+                                            </td>
+                                        @endforeach
+
+                                        @if ($chunk->count() < 2)
+                                            <td></td>
+                                        @endif
+                                    </tr>
+                                @empty
+                                    <tr>
+                                        <td colspan="2" style="font-size: 12px; white-space: nowrap;color: #fff;">
+                                            No languages available.
+                                        </td>
+                                    </tr>
+                                @endforelse
+                            </table>
+                            {{-- <ul class="language-list-6">
                                 @foreach ($languages as $lan)
                                     <li class="language-item-6" style="color:#fff;">{{ $lan }}</li>
                                 @endforeach
-                            </ul>
+                            </ul> --}}
                             <h2 class="sub-heading-6">Interests</h2>
                             <ul class="hobbies-list-6">
                                 @foreach ($interestes as $int)

@@ -13,7 +13,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: "Arial Narrow", Arial, sans-serif;
+            font-family: 'inter';
         }
 
         body {
@@ -84,6 +84,12 @@
             color: #000000;
             line-height: 140%;
             transition: background 0.3s;
+        }
+        .experience-item-14{
+            border-bottom: 1px solid #000;
+        }
+        .experience-item-14:last-child{
+            border-bottom:none;
         }
 
         .contact-item-14,
@@ -403,7 +409,7 @@
                                 natus error sit voluptatem accusantium doloremque laudantium. Sed ut perspiciatis
                                 unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
                         </li>
-                        <li class="experience-item-14" style="color: #000;border-bottom: 1px solid #000;margin-bottom: 5px">
+                        <li class="experience-item-14" style="color: #000;margin-bottom: 5px">
                             <div>
                                 <table width="100%">
                                     <tr>
