@@ -10,6 +10,7 @@ class Visitor extends Model
     use HasFactory;
     protected $fillable = [
         'resume_id',
+        'visiting_id',
         'ip',
         'browser',
         'platform',
