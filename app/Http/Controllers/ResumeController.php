@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Admin\Resume;
 use Barryvdh\DomPDF\Facade\Pdf;
 
-
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class ResumeController extends Controller
 {
@@ -74,15 +74,22 @@ class ResumeController extends Controller
             }
         }
 
+        // Generate the QR code with a link (e.g., resume view link)
+        $qrUrl = route('resume.view', ['userId' => $userId, 'resumeId' => $resumeId, 'templateId' => $templateId]);
+        $qrCode = QrCode::size(200)->generate($qrUrl);
+        // Convert QR code to base64 for embedding in the PDF
+        $qrCodeBase64 = 'data:image/svg+xml;base64,' . base64_encode($qrCode);
+
         // View name based on templateId
         $viewName = "resume.templates.template{$templateId}";
 
         // Generate the PDF
-        $pdf = PDF::loadView($viewName, compact('resume', 'education', 'references', 'skills', 'interestes', 'experiences', 'languages', 'base64Image'))
+        $pdf = PDF::loadView($viewName, compact('resume', 'education', 'references', 'skills', 'interestes', 'experiences', 'languages', 'base64Image', 'qrCodeBase64'))
             ->setPaper('a4', 'portrait')
             ->setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true]);
 
         // Return the PDF as a stream to view in browser
         return $pdf->stream('resume_' . $userId . '_' . $resumeId . '.pdf');
     }
+
 }
