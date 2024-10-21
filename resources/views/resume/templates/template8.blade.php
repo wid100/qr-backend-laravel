@@ -11,11 +11,11 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: "Arial Narrow", Arial, sans-serif;
+            font-family: 'inter';
         }
 
         body {
-            background: #f9f9f9;
+            /* font-family: "Arial Narrow", Arial, sans-serif; */
         }
 
         .main-body-6 {
@@ -73,6 +73,9 @@
             line-height: 140%;
             transition: background 0.3s;
         }
+        .experience-item-6{
+            margin-left: 20px;
+        }
 
         .contact-item-6:hover,
         .education-item-6:hover,
@@ -106,13 +109,13 @@
         .right-side-6 {
             background: #ffffff;
             color: #000000;
-            padding: 30px;
+            padding: 0 30px 30px;
 
-            border-left: 1px solid #ccc;
+            /* border-left: 1px solid #ccc; */
         }
 
         .name-heading-6 {
-            color: #ffb317;
+            color: #000000;
             font-size: 30px;
             font-weight: 400;
         }
@@ -125,7 +128,7 @@
 
         .description-6 {
             font-size: 16px;
-            padding: 10px 0 10px 0;
+            padding: 0px 0 10px 0;
         }
 
         .section-heading-6 {
@@ -152,7 +155,7 @@
             box-sizing: border-box;
             font-size: 15px;
             padding: 10px;
-            border: 1px solid #ccc;
+            /* border: 1px solid #ccc; */
             border-radius: 5px;
             transition: transform 0.3s, box-shadow 0.3s;
         }
@@ -183,72 +186,84 @@
             text-decoration: underline;
         }
 
-        /* .experience-list-6s{
-  padding-left: 20px;
-} */
-        /* .experience-item-6 {
+        .image-container-8 {
             position: relative;
+            width: 220px; 
+            height: 80px; 
+            background-color: #F6EADD;
+            padding-top: 20px;
+            margin-bottom: 60px;
+            display: flex;
+            justify-content: center; 
+            align-items: flex-start;
         }
 
-        .experience-item-6::before {
-            content: "";
+        .profile-image {
+            width: 180px; 
+            height: 180px;
+            object-fit: cover; 
             position: absolute;
-            top: 0;
-            width: 10px;
-            height: 10px;
-            background-color: #D19855;
-            border-radius: 50%;
-            z-index: 1;
-            left:-15px;
+            top: 70%; 
+            left: 50%; 
+            transform: translate(-50%, -50%);
         }
 
-        .experience-item-6::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: -10px;
-            width: 2px;
-            height: auto;
-            background: #D19855;
-        } */
+        .image-container {
+            width: 100px;
+            height: 200px;
+            background-color: #00B2D9;
+            margin: 0 auto;
+            position: relative;
+            text-align: center;
+            /* No border-radius for the background container */
+        }
+        
 
-        /* Responsive */
+
     </style>
 </head>
 
 <body>
     <table>
         <tr>
+            <td colspan="2" style="background-color: #D19855; height: 40px;"></td>
+        </tr>
+        <tr>
             <!-- Left side -->
             <td class="left-side-6s" style="width: 20%; height:40%; vertical-align: top; z-index: 1;">
                 <div class="left-side-6">
-                    <div style="padding: 20px">
-                        @if ($base64Image)
-                            <img src="{{ $base64Image }}" alt="Image error!" style="width:200px; height:200px">
-                        @else
-                            <p>No image available</p>
-                        @endif
-                        <h2 class="sub-heading-6; " style="color:#000000; padding-top:20px">Contact</h2>
+                        <div class="image-container-8">
+                            @if ($base64Image)
+                                <img src="{{ $base64Image }}" 
+                                     alt="Profile-image" 
+                                     class="profile-image">
+                            @else
+                                <p style="color: #D19855; text-align: center;">No image available</p>
+                            @endif
+                        </div>
+                    <div style="padding:0 20px 20px">  
+
+                        <h2 class="sub-heading-6" style="color:#000000; padding-top:20px">Contact</h2>
                         <ul class="contact-list-6">
                             <li class="contact-item-6">
-                                <p style="font-size:14px; color:#000000;">Phone</p>
+                                <p style="font-size:14px; color:#D19855;">Phone</p>
                                 <a href="tel:{{ $resume->phone }}" style="color:#000000;"
                                     class="contact-link-6">{{ $resume->phone }}</a>
                             </li>
                             <li class="contact-item-6">
-                                <p style="font-size:14px; color:#000000;">Email</p>
+                                <p style="font-size:14px; color:#D19855;">Email</p>
 
                                 <a href="mailto:{{ $resume->email }}" class="contact-link-6 "
                                     style="color:#000000;">{{ $resume->email }}</a>
                             </li>
                             <li class="contact-item-6">
-                                <p style="font-size:14px;color:#000000;">Address</p>
+                                <p style="font-size:14px;color:#D19855;">Address</p>
                                 <p style="font-size: 10px; color:#000000;">{{ $resume->address }}</p>
                             </li>
                         </ul>
 
                     </div>
-                    <div style="background-color: #F6EADD; padding: 20px;height:660px;">
+                    <div style="background-color: #F6EADD; padding: 20px; position: absolute; height: 660px;bottom: 0;width: 23%;">
                         <h2 class="sub-heading-6" style="color: #000">Education</h2>
                         <ul class="education-list-6" style="margin-bottom: 7px">
                             @forelse($education as $edu)
@@ -258,7 +273,7 @@
                                         {{ \Carbon\Carbon::parse($edu['endYear'])->format('Y') }}</span>
                                     <p style="font-size: 14px;color:#D19855;">{{ $edu['degree'] }}
                                     </p>
-                                    <p style="font-size: 12px; color:#000">Grade:{{ $edu['grade'] }}</p>
+                                    <p style="font-size: 12px; color:#000">{{ $edu['grade'] }}</p>
                                     <p style="font-size: 12px; color:#000">{{ $edu['institution'] }}</p>
                                 </li>
                             @empty
@@ -268,28 +283,52 @@
                         </ul>
                         <h2 class="sub-heading-6" style="padding-bottom: 10px; color:#000">Skills</h2>
 
-                        <table style="width: 100%; padding-top:10px">
-                            @forelse($skills as $skill)
+                        <table style="width: 100%; padding-top: 10px;">
+                            @forelse(collect($skills)->chunk(2) as $chunk)
                                 <tr>
-                                    <td style="font-size: 12px;padding-bottom:3px; white-space:nowrap; color:#000">
-                                        {{ $skill }}
-                                    </td>
+                                    @foreach ($chunk as $skill)
+                                        <td style="font-size: 10px; white-space: nowrap;">
+                                            <span>{{ $skill }}</span>
+                                        </td>
+                                    @endforeach
+
+                                    @if ($chunk->count() < 2)
+                                        <td></td>
+                                    @endif
                                 </tr>
                             @empty
                                 <tr>
-                                    <td colspan="1" style="font-size: 12px; white-space:nowrap; color:#000">
+                                    <td colspan="2" style="font-size: 12px; white-space: nowrap; color: #000;">
                                         No skills available.
                                     </td>
                                 </tr>
                             @endforelse
                         </table>
-                        <h2 class="sub-heading-6" style="color:#000">Languages</h2>
-                        <ul class="language-list-6">
-                            @foreach ($languages as $lan)
-                                <li class="language-item-6" style="color:#D19855;">{{ $lan }}</li>
-                            @endforeach
 
-                        </ul>
+
+                        <h2 class="sub-heading-6" style="color:#000">Languages</h2>
+                        <table style="width: 100%; padding-top: 10px;">
+                            @forelse(collect($languages)->chunk(2) as $chunk)
+                                <tr>
+                                    @foreach ($chunk as $language)
+                                        <td style="font-size: 12px; white-space: nowrap; color: #D19855;">
+                                            {{ $language }}
+                                        </td>
+                                    @endforeach
+
+                                    @if ($chunk->count() < 2)
+                                        <td></td>
+                                    @endif
+                                </tr>
+                            @empty
+                                <tr>
+                                    <td colspan="2" style="font-size: 12px; white-space: nowrap; color: #D19855;">
+                                        No languages available.
+                                    </td>
+                                </tr>
+                            @endforelse
+                        </table>
+
                         <h2 class="sub-heading-6" style="color:#000">Interests</h2>
                         <ul class="hobbies-list-6">
                             @foreach ($interestes as $int)
@@ -303,7 +342,7 @@
             </td>
 
             <!-- Right side -->
-            <td style="width: 80%; background-color: white;vertical-align: top; ">
+            <td style="width: 80%; background-color: white;vertical-align: top;padding-top:2px ">
                 <div class="right-side-6">
                     <table>
                         <tr>
@@ -311,9 +350,9 @@
                                 <h1 class="name-heading-6"><b>{{ $resume->fname }}</b> {{ $resume->lname }}</h1>
                                 <p class="designation-6">{{ $resume->profession }}</p>
                             </td>
-                            <td>
+                            <td style="text-align: right;">
                                 <img src="https://i.postimg.cc/cLwdGbsf/QR.png"
-                                    style="width: 100px; height:100px; position: relative; top:-20px" alt="QR Code"
+                                    style="width: 100px; height:100px; position: relative; top: -42px" alt="QR Code"
                                     class="qr-image-6" />
                             </td>
                         </tr>
@@ -349,16 +388,18 @@
                         <tr>
                             @foreach ($references as $reference)
                                 <td>
-                                    <h3 style="font-size: 16px; padding-bottom:10px">{{ $reference['firstName'] }}
-                                        {{ $reference['lastName'] }}</h3>
-                                    <p style="font-size: 12px; padding-bottom:5px">{{ $reference['jobTitle'] }}</p>
-                                    <p style="font-size: 12px; padding-bottom:5px">Phone: <span> <a
-                                                href='tel:{{ $reference['phone'] }}'
-                                                class="contact-link-6">{{ $reference['phone'] }}</a></span>
-                                    </p>
-                                    <p style="font-size: 12px;padding-bottom:5px">Email: <a
-                                            href="mailto:{{ $reference['email'] }}"
-                                            class="contact-link-6">{{ $reference['email'] }}</a> </p>
+                                    <div style="margin-left: 20px">
+                                        <h3 style="font-size: 16px; padding-bottom:10px">{{ $reference['firstName'] }}
+                                            {{ $reference['lastName'] }}</h3>
+                                        <p style="font-size: 12px; padding-bottom:5px">{{ $reference['jobTitle'] }}</p>
+                                        <p style="font-size: 12px; padding-bottom:5px">Phone: <span> <a
+                                                    href='tel:{{ $reference['phone'] }}'
+                                                    class="contact-link-6">{{ $reference['phone'] }}</a></span>
+                                        </p>
+                                        <p style="font-size: 12px;padding-bottom:5px">Email: <a
+                                                href="mailto:{{ $reference['email'] }}"
+                                                class="contact-link-6">{{ $reference['email'] }}</a> </p>
+                                    </div>
                                 </td>
                             @endforeach
                         </tr>
