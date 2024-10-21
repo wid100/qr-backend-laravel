@@ -186,7 +186,7 @@ class InstagramController extends Controller
                 'insta_category' => 'nullable',
                 'frame_color' => 'nullable',
                 'code_color' => 'nullable',
-                'image' => 'nullable', // Ensure 'image' is an image file
+                'image' => 'nullable',
             ]);
 
             if ($validator->fails()) {
@@ -209,9 +209,13 @@ class InstagramController extends Controller
                 if ($instagram->image && file_exists(public_path($instagram->image))) {
                     unlink(public_path($instagram->image));
                 }
+            } else if ($request->image == 'null') {
+                unset($validatedData['image']);
             }
 
-            Log::info('Image uploaded successfully', ['imagePath' => $validatedData['image']]);
+            if (isset($validatedData['image'])) {
+                Log::info('Image uploaded successfully', ['imagePath' => $validatedData['image']]);
+            }
 
             // Update the Instagram entry
             $instagram->update($validatedData);
