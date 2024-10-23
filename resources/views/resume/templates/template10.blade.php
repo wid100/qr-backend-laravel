@@ -83,11 +83,11 @@
             transition: background 0.3s;
         }
 
-        .experience-item-6{
+        .experience-item-6 {
             border-bottom: 1px solid #B5B5B5;
         }
 
-        .experience-item-6:last-child{
+        .experience-item-6:last-child {
             border-bottom: none;
         }
 
@@ -277,14 +277,16 @@
                                 <p>No image available</p>
                             @endif
                         </div>
-                        <div class="left-site-bg" style="background:#989898;height:902px; padding:0px 20px 20px 20px ;clip-path: polygon(0 8%, 100% 0, 100% 100%, 0 100%); position: relative;">
+                        <div class="left-site-bg"
+                            style="background:#989898;height:902px; padding:0px 20px 20px 20px ;clip-path: polygon(0 8%, 100% 0, 100% 100%, 0 100%); position: relative;">
                             <table>
                                 <tr>
                                     <td align="center">
-                                        <div class="qr-image-6-con">
-                                            <img src="https://i.postimg.cc/cLwdGbsf/QR.png" alt="QR Code"
-                                                class="qr-image-6" />
-                                        </div>
+                                        @if (isset($qrCodeBase64))
+                                            <div class="qr-image-6-con">
+                                                <img src="{{ $qrCodeBase64 }}" alt="QR Code" class="qr-image-6" />
+                                            </div>
+                                        @endif
                                     </td>
                                 </tr>
                             </table>
@@ -325,24 +327,24 @@
 
                             <table style="width: 100%; padding-top:10px">
                                 @forelse(collect($skills)->chunk(2) as $chunk)
-                                <tr>
-                                    @foreach ($chunk as $skill)
-                                        <td style="font-size: 10px; white-space: nowrap;color: #fff;">
-                                            <span>{{ $skill }}</span>
-                                        </td>
-                                    @endforeach
+                                    <tr>
+                                        @foreach ($chunk as $skill)
+                                            <td style="font-size: 10px; white-space: nowrap;color: #fff;">
+                                                <span>{{ $skill }}</span>
+                                            </td>
+                                        @endforeach
 
-                                    @if ($chunk->count() < 2)
-                                        <td></td>
-                                    @endif
-                                </tr>
-                            @empty
-                                <tr>
-                                    <td colspan="2" style="font-size: 12px; white-space: nowrap; color: #fff;">
-                                        No skills available.
-                                    </td>
-                                </tr>
-                            @endforelse
+                                        @if ($chunk->count() < 2)
+                                            <td></td>
+                                        @endif
+                                    </tr>
+                                @empty
+                                    <tr>
+                                        <td colspan="2" style="font-size: 12px; white-space: nowrap; color: #fff;">
+                                            No skills available.
+                                        </td>
+                                    </tr>
+                                @endforelse
 
                             </table>
                             <h2 class="sub-heading-6">Languages</h2>
