@@ -12,8 +12,7 @@
         * {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: "Arial Narrow", Arial, sans-serif;
+            border: 0;
         }
 
         body {
@@ -192,7 +191,6 @@
         }
     </style>
 </head>
-
 <body>
     <table>
         <tr>
@@ -288,9 +286,12 @@
                                     {{ $resume->description }}
                                 </p>
                             </td>
-                            <td style="text-align: right;">
-                                <img src="https://i.postimg.cc/cLwdGbsf/QR.png" alt="QR Code" class="qr-image-1" />
-                            </td>
+                            @if (isset($qrCodeBase64))
+                                <div style="text-align: right;">
+                                    <img src="{{ $qrCodeBase64 }}" alt="QR Code"
+                                        style="width: 100px; height: 100px;" />
+                                </div>
+                            @endif
                         </tr>
                     </table>
                     <h2 class="section-heading-1" style="margin-top: 15px ;color: {{ $resume->primary_color }}">

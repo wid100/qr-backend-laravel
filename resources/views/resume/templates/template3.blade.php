@@ -15,6 +15,7 @@
             padding: 0;
             border: 0;
             margin-top: 10px;
+            font-family: 'inter';
         }
 
         body {

@@ -11,11 +11,13 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: "Arial Narrow", Arial, sans-serif;
+            font-family: 'inter';
         }
+
         body {
             background: #f9f9f9;
         }
+
         .main-body-6 {
             display: flex;
             justify-content: center;
@@ -188,16 +190,20 @@
     <table>
         <tr>
             <!-- Left side -->
-            <td class="left-side-6s"
-                style="width: 20%; height:96%; vertical-align: top; background-color: #484848; padding:20px">
+            <td style="width: 30%; height:100%; vertical-align: top; background-color: #484848;">
                 <div class="left-side-6">
-                    <div>
+
+                    <div style="width: 100%;text-align: center;padding-top:20px">
                         @if ($base64Image)
-                            <img src="{{ $base64Image }}" alt="Image error!" style="width:200px; height:200px">
+                            <img src="{{ $base64Image }}" alt="Image error!" style="width:180px; height:180px">
                         @else
                             <p>No image available</p>
                         @endif
-                        <img src="https://i.postimg.cc/cLwdGbsf/QR.png" alt="QR Code" class="qr-image-6" />
+                    </div>
+                    <div style="padding:20px">
+                        @if (isset($qrCodeBase64))
+                            <img src="{{ $qrCodeBase64 }}" alt="QR Code" class="qr-image-6" />
+                        @endif
                         <h2 class="sub-heading-6">Contact</h2>
                         <ul class="contact-list-6">
                             <li class="contact-item-6">
@@ -207,8 +213,7 @@
                             <li class="contact-item-6">
                                 <p style="font-size:14px">Email</p>
 
-                                <a href="mailto:{{ $resume->email }}"
-                                    class="contact-link-6">{{ $resume->email }}</a>
+                                <a href="mailto:{{ $resume->email }}" class="contact-link-6">{{ $resume->email }}</a>
                             </li>
                             <li class="contact-item-6">
                                 <p style="font-size:14px">Address</p>

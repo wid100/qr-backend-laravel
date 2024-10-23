@@ -11,7 +11,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: "Arial Narrow", Arial, sans-serif;
+            font-family: 'inter';
         }
 
         body {
@@ -245,10 +245,10 @@
             </td>
             <!-- Left side -->
             <td class="left-side-6s"
-                style="width: 20%; height:96%; vertical-align: top; background-color: #F5F5F5; padding:20px">
+                style="width: 20%; height:100%; vertical-align: top; background-color: #F5F5F5;">
                 <div class="left-side-6">
-                    <div>
-                        <div style="width: 100%;text-align: center;">
+                    
+                        <div style="width: 100%;text-align: center;padding-top:20px">
                             @if ($base64Image)
                                 <img src="{{ $base64Image }}" alt="Image error!"
                                     style=" width: 170px;height: 170px; object-fit: cover; position: relative;z-index: 1;border: 2px solid #000000;border-radius: 50%;object-fit: cover;">
@@ -256,7 +256,10 @@
                                 <p>No image available</p>
                             @endif
                         </div>
-                        <img src="https://i.postimg.cc/cLwdGbsf/QR.png" alt="QR Code" class="qr-image-6" />
+                    <div style="padding:20px">
+                          @if (isset($qrCodeBase64))
+                            <img src="{{ $qrCodeBase64 }}" alt="QR Code" class="qr-image-6" />
+                        @endif
                         <h2 class="sub-heading-6">Contact</h2>
                         <ul class="contact-list-6">
                             <li class="contact-item-6">

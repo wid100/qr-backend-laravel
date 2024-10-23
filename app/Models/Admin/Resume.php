@@ -41,7 +41,6 @@ class Resume extends Model
         'primary_color',
         'text_color',
         'status',
-        'viewcount'
     ];
     public function user()
     {
@@ -138,5 +137,9 @@ class Resume extends Model
         $this->other = request('other');
         $this->save();
         return $this->getResume();
+    }
+    public function visitors()
+    {
+        return $this->hasMany(Visitor::class, 'resume_id');
     }
 }
