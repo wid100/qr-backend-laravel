@@ -17,8 +17,9 @@ class CreateSchedulesTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->string('name')->nullable();
-            $table->date('date')->nullable();
+            $table->json('date')->nullable();
             $table->json('time')->nullable();
+            $table->boolean('status')->default(true);
             $table->timestamps();
         });
     }
