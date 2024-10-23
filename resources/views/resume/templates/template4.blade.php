@@ -42,7 +42,6 @@
         }
 
         .sub-heading-4 {
-            color: #e3707f;
             font-size: 16px;
             padding: 15px 0;
             border-bottom: 1px solid #ffffff;
@@ -188,7 +187,7 @@
     <table>
         <tr>
             <!-- Left side -->
-            <td style="width: 20%; height:100%; vertical-align: top; background-color: #484848;">
+            <td style="width: 20%; height:100%; vertical-align: top; background-color: #484848; padding:0 20px">
                 <div style="width: 100%;text-align: center;padding-top:20px;">
                     @if ($base64Image)
                         <img src="{{ $base64Image }}" alt="Image error!"
@@ -199,7 +198,7 @@
 
                 </div>
                 <div style="padding:20px;">
-                    <h2 class="sub-heading-4">Contact</h2>
+                    <h2 class="sub-heading-4" style="color: {{ $resume->primary_color }}">Contact</h2>
                     <ul class="contact-list-4">
                         <li class="contact-item-4">
                             <p style="font-size: 14px">Phone</p>
@@ -214,7 +213,7 @@
                             <p>{{ $resume->address }}</p>
                         </li>
                     </ul>
-                    <h2 class="sub-heading-4">Education</h2>
+                    <h2 class="sub-heading-4" style="color: {{ $resume->primary_color }}">Education</h2>
                     <ul class="education-list-4" style="margin-bottom: 7px">
                         @forelse($education as $edu)
                             <li class="education-item-4">
@@ -230,7 +229,8 @@
                             <p style="font-size: 12px">No education data available</p>
                         @endforelse
                     </ul>
-                    <h2 class="sub-heading-4" style="padding-bottom: 10px">Skills</h2>
+                    <h2 class="sub-heading-4"style="color: {{ $resume->primary_color }};padding-bottom: 10px ">Skills
+                    </h2>
 
                     <table style="width: 100%; padding-top:10px">
                         @forelse($skills as $skill)
@@ -248,13 +248,13 @@
                         @endforelse
 
                     </table>
-                    <h2 class="sub-heading-4">Languages</h2>
+                    <h2 class="sub-heading-4" style="color: {{ $resume->primary_color }}">Languages</h2>
                     <ul class="language-list-4">
                         @foreach ($languages as $lan)
                             <li class="language-item-4">{{ $lan }}</li>
                         @endforeach
                     </ul>
-                    <h2 class="sub-heading-4">Interests</h2>
+                    <h2 class="sub-heading-4" style="color: {{ $resume->primary_color }}">Interests</h2>
                     <ul class="hobbies-list-4">
                         @foreach ($interestes as $int)
                             <li class="hobbies-item-4">{{ $int }}</li>
@@ -309,7 +309,7 @@
                                     {{ $exp['description'] }}</p>
                             </li>
                         @endforeach
-          
+
                     </ul>
                     <h2 class="section-heading-4" style="margin-top: 15px">References</h2>
                     <table style="width: 100%;">
