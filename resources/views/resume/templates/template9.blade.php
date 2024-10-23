@@ -87,7 +87,8 @@
         .experience-item-6 {
             border-bottom: 1px solid #B5B5B5;
         }
-        .experience-item-6:last-child{
+
+        .experience-item-6:last-child {
             border-bottom: none;
         }
 
@@ -293,8 +294,7 @@
                 </div>
             </td>
             <!-- Left side -->
-            <td class="left-side-6s"
-                style="width: 30%;  vertical-align: top; border-left:1px solid #00B2D9">
+            <td class="left-side-6s" style="width: 30%;  vertical-align: top; border-left:1px solid #00B2D9">
                 <div class="left-side-6">
                     <div>
                         <div style="width: 100%;text-align: center;">
@@ -396,10 +396,12 @@
                             <table>
                                 <tr>
                                     <td align="center">
-                                        <div class="qr-image-6-con">
-                                            <img src="https://i.postimg.cc/cLwdGbsf/QR.png" alt="QR Code" class="qr-image-6" />
 
-                                        </div>
+                                        @if (isset($qrCodeBase64))
+                                            <div class="qr-image-6-con">
+                                                <img src="{{ $qrCodeBase64 }}" alt="QR Code" class="qr-image-6" />
+                                            </div>
+                                        @endif
                                     </td>
                                 </tr>
                             </table>

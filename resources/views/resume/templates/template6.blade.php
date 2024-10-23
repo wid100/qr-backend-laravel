@@ -201,7 +201,9 @@
                         @endif
                     </div>
                     <div style="padding:20px">
-                        <img src="https://i.postimg.cc/cLwdGbsf/QR.png" alt="QR Code" class="qr-image-6" />
+                        @if (isset($qrCodeBase64))
+                            <img src="{{ $qrCodeBase64 }}" alt="QR Code" class="qr-image-6" />
+                        @endif
                         <h2 class="sub-heading-6">Contact</h2>
                         <ul class="contact-list-6">
                             <li class="contact-item-6">

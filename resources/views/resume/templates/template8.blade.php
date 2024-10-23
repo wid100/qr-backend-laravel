@@ -73,7 +73,8 @@
             line-height: 140%;
             transition: background 0.3s;
         }
-        .experience-item-6{
+
+        .experience-item-6 {
             margin-left: 20px;
         }
 
@@ -188,23 +189,23 @@
 
         .image-container-8 {
             position: relative;
-            width: 220px; 
-            height: 80px; 
+            width: 220px;
+            height: 80px;
             background-color: #F6EADD;
             padding-top: 20px;
             margin-bottom: 60px;
             display: flex;
-            justify-content: center; 
+            justify-content: center;
             align-items: flex-start;
         }
 
         .profile-image {
-            width: 180px; 
+            width: 180px;
             height: 180px;
-            object-fit: cover; 
+            object-fit: cover;
             position: absolute;
-            top: 70%; 
-            left: 50%; 
+            top: 70%;
+            left: 50%;
             transform: translate(-50%, -50%);
         }
 
@@ -217,9 +218,6 @@
             text-align: center;
             /* No border-radius for the background container */
         }
-        
-
-
     </style>
 </head>
 
@@ -232,16 +230,14 @@
             <!-- Left side -->
             <td class="left-side-6s" style="width: 20%; height:40%; vertical-align: top; z-index: 1;">
                 <div class="left-side-6">
-                        <div class="image-container-8">
-                            @if ($base64Image)
-                                <img src="{{ $base64Image }}" 
-                                     alt="Profile-image" 
-                                     class="profile-image">
-                            @else
-                                <p style="color: #D19855; text-align: center;">No image available</p>
-                            @endif
-                        </div>
-                    <div style="padding:0 20px 20px">  
+                    <div class="image-container-8">
+                        @if ($base64Image)
+                            <img src="{{ $base64Image }}" alt="Profile-image" class="profile-image">
+                        @else
+                            <p style="color: #D19855; text-align: center;">No image available</p>
+                        @endif
+                    </div>
+                    <div style="padding:0 20px 20px">
 
                         <h2 class="sub-heading-6" style="color:#000000; padding-top:20px">Contact</h2>
                         <ul class="contact-list-6">
@@ -263,7 +259,8 @@
                         </ul>
 
                     </div>
-                    <div style="background-color: #F6EADD; padding: 20px; position: absolute; height: 660px;bottom: 0;width: 23%;">
+                    <div
+                        style="background-color: #F6EADD; padding: 20px; position: absolute; height: 660px;bottom: 0;width: 23%;">
                         <h2 class="sub-heading-6" style="color: #000">Education</h2>
                         <ul class="education-list-6" style="margin-bottom: 7px">
                             @forelse($education as $edu)
@@ -351,9 +348,11 @@
                                 <p class="designation-6">{{ $resume->profession }}</p>
                             </td>
                             <td style="text-align: right;">
-                                <img src="https://i.postimg.cc/cLwdGbsf/QR.png"
-                                    style="width: 100px; height:100px; position: relative; top: -42px" alt="QR Code"
-                                    class="qr-image-6" />
+                                @if (isset($qrCodeBase64))
+                                    <img src="{{ $qrCodeBase64 }}"
+                                        style="width: 100px; height:100px; position: relative; top: -42px"
+                                        alt="QR Code" class="qr-image-6" />
+                                @endif
                             </td>
                         </tr>
                     </table>
