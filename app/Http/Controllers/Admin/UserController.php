@@ -51,6 +51,7 @@ class UserController extends Controller
             'address' => 'nullable',
             'phone' => 'nullable',
             'country_code' => 'nullable',
+            
         ]);
 
         $data = [

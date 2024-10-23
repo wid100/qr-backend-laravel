@@ -36,23 +36,28 @@ class ScheduleController extends Controller
      */
     public function store(Request $request)
     {
+        // Validate the input
         $validated = $request->validate([
             'appointment_name' => 'required|string',
             'user_id' => 'required|exists:users,id',
-            'date' => 'required|date',
-            'time' => 'required|array',  // Validate as an array
+            'date' => 'required|array',  // Change this to 'date'
+            'date.*' => 'date',  // Validate each date in the array
+            'time' => 'required|array',  // Validate time as an array
+            'time.*' => 'string',  // Validate each time slot as a string
         ]);
 
-
+        // Store the schedule in the database
         Schedule::create([
             'name' => $validated['appointment_name'],
             'user_id' => $validated['user_id'],
-            'date' => $validated['date'],
+            'date' => json_encode($validated['date']),  // Use 'date' here if you change the validation
             'time' => json_encode($validated['time']),  // Encode time array as JSON
         ]);
 
-        return response()->json(['status' => 200, 'message' => 'Appointment created successfully']);
+        return response()->json(['status' => 200, 'message' => 'Schedule created successfully']);
     }
+
+
 
 
 
