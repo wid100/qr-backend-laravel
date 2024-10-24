@@ -190,7 +190,7 @@
     <table>
         <tr>
             <!-- Left side -->
-            <td style="width: 30%; height:100%; vertical-align: top; background-color: #484848;">
+            <td style="width: 30%; height:100%; vertical-align: top; background-color: {{$resume->primary_color}};">
                 <div class="left-side-6">
 
                     <div style="width: 100%;text-align: center;padding-top:20px">
@@ -279,10 +279,10 @@
                     <p class="description-6" style="font-size: 12px">
                         {{ $resume->description }}
                     </p>
-                    <h2 class="section-heading-6" style="margin-top: 15px">Experience</h2>
+                    <h2 class="section-heading-6" style="margin-top: 15px; background:{{$resume->primary_color}}" >Experience</h2>
                     <ul class="experience-list-6">
                         @foreach ($experiences as $exp)
-                            <li class="experience-item-6" style="color: #000">
+                            <li class="experience-item-6" style="color: #000; padding-bottom:20px">
 
                                 <p style="margin-bottom:5px; font-size:12px">
                                     {{ \Carbon\Carbon::parse($exp['startYear'])->format('Y') }} -
@@ -301,7 +301,7 @@
                             </li>
                         @endforeach
                     </ul>
-                    <h2 class="section-heading-6" style="margin-top: 15px">References</h2>
+                    <h2 class="section-heading-6" style="margin-top: 15px;background:{{$resume->primary_color}}">References</h2>
                     <table style="width: 100%;">
                         <tr>
                             @foreach ($references as $reference)
