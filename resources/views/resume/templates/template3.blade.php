@@ -223,7 +223,7 @@
     <table>
         <tr>
             <!-- Left side -->
-              <td style="width: 80%; background-color: #ffffff;vertical-align: top; ">
+            <td style="width: 80%; background-color: #ffffff;vertical-align: top; ">
                 <div class="right-side-3">
                     <table>
                         <tr>
@@ -234,14 +234,15 @@
                                     </h1>
                                     <p class="designation-3">{{ $resume->profession }}</p>
                                     <p class="description-3" style="font-size: 14px">
-                                        {{ $resume->description }}
+                                          {!! strip_tags($resume->description) !!}</p>
                                     </p>
                                 </div>
                             </td>
                         </tr>
                     </table>
                     <div class="image-container-heading">
-                        <h2 class="section-heading-3" style="margin-top: 15px">Experience</h2>
+                        <h2 class="section-heading-3" style="margin-top: 15px;color: {{ $resume->primary_color }}">
+                            Experience</h2>
                     </div>
                     <ul class="experience-list-3">
                         @foreach ($experiences as $exp)
@@ -258,14 +259,16 @@
                                     {{ $exp['employeeName'] }} | {{ $exp['location'] }}
 
                                 </h3>
-                                <p style="font-size: 15px; padding-bottom:7px; color: #FF5280">{{ $exp['jobTitle'] }}
+                                <p style="font-size: 15px; padding-bottom:7px; color: {{ $resume->primary_color }}">
+                                    {{ $exp['jobTitle'] }}
                                 </p>
-                                <p style="font-size: 14px; padding-right: 20px;"> {{ $exp['description'] }}</p>
+                                <p style="font-size: 14px; padding-right: 20px;">{!! strip_tags($exp['description']) !!}</p>
                             </li>
                         @endforeach
                     </ul>
                     <div class="image-container-heading">
-                        <h2 class="section-heading-3" style="margin-top: 15px">References</h2>
+                        <h2 class="section-heading-3" style="margin-top: 15px; color: {{ $resume->primary_color }}">
+                            References</h2>
                     </div>
                     <table style="width: 100%;">
                         <tr>
@@ -295,7 +298,7 @@
             <td style="width: 40%;height:100%; vertical-align: top; background-color: #ffffff;padding-right:20px">
 
                 <div class="left-side-3">
-                    <div style=""class="image-container">
+                    <div style=" background:{{ $resume->primary_color }}"class="image-container">
                         @if ($base64Image)
                             <img src="{{ $base64Image }}" alt="Image error!"
                                 style=" width: 170px;height: 170px;border: 5px solid #ffffff;object-fit: cover;">
@@ -311,7 +314,7 @@
                                 <img src="{{ $qrCodeBase64 }}" alt="QR Code" class="qr-image-3" />
                             @endif
                         </div>
-                       <h2 class="sub-heading-3">Contact</h2>
+                        <h2 class="sub-heading-3">Contact</h2>
                         <ul class="contact-list-3">
                             <li class="contact-item-3">
                                 <p style="font-size: 14px;color:{{ $resume->primary_color }}">Phone</p>
@@ -372,7 +375,8 @@
                         <h2 class="sub-heading-3">Interests</h2>
                         <ul class="hobbies-list-3">
                             @foreach ($interestes as $int)
-                                <li class="hobbies-item-3">{{ $int }}</li>
+                                <li class="hobbies-item-3" style="color:{{ $resume->primary_color }} ">
+                                    {{ $int }}</li>
                             @endforeach
                         </ul>
 

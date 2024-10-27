@@ -11,7 +11,8 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'inter';
+            
+            font-family:Arial, Helvetica, sans-serif;
         }
 
         body {
@@ -273,7 +274,7 @@
                                 <h1 class="name-heading-4"> <b>{{ $resume->fname }}</b> {{ $resume->lname }}</h1>
                                 <p class="designation-4">{{ $resume->profession }}</p>
                                 <p class="description-4" style="font-size: 12px">
-                                    {{ $resume->description }}
+                                    {!! strip_tags($resume->description) !!}
                                 </p>
                             </td>
                             @if (isset($qrCodeBase64))
@@ -287,7 +288,7 @@
                 </div>
                 <div class="right-side-4">
 
-                    <h2 class="section-heading-4" style="margin-top: 15px">Experience</h2>
+                    <h2 class="section-heading-4" style="margin-top: 15px;color: {{ $resume->primary_color }}">Experience</h2>
                     <ul class="experience-list-4">
                         @foreach ($experiences as $exp)
                             <li class="experience-item-4" style="color: #000; margin-bottom:20px">
@@ -306,12 +307,12 @@
                                 </h3>
                                 <p style="font-size: 17px; padding-bottom:7px">{{ $exp['jobTitle'] }}</p>
                                 <p style="font-size: 16px; line-height:130%; padding-right: 20px;">
-                                    {{ $exp['description'] }}</p>
+                                    {!! strip_tags($exp['description']) !!}</p>
                             </li>
                         @endforeach
 
                     </ul>
-                    <h2 class="section-heading-4" style="margin-top: 15px">References</h2>
+                    <h2 class="section-heading-4" style="margin-top: 15px;color: {{ $resume->primary_color }}">References</h2>
                     <table style="width: 100%;">
                         <tr>
                             <td>

@@ -286,7 +286,7 @@
                                 </h1>
                                 <p class="designation-2">{{ $resume->profession }}</p>
                                 <p class="description-2" style="font-size: 14px; padding-right:15px">
-                                    {{ $resume->description }}
+                                   {!! strip_tags($resume->description) !!}
                                 </p>
                             </td>
 
@@ -316,7 +316,7 @@
                                 </h3>
                                 <p style="font-size: 17px; padding-bottom:7px">{{ $exp['jobTitle'] }}</p>
                                 <p style="font-size: 16px; line-height:130%; padding-right: 20px;">
-                                    {{ $exp['description'] }}</p>
+                                      {!! strip_tags($exp['description']) !!}</p>
                             </li>
                         @endforeach
                     </ul>

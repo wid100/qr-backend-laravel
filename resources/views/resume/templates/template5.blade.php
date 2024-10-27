@@ -16,7 +16,11 @@
             border: 0;
             margin-top: 10px;
         }
-
+.qr-image-5{
+    width: 100px;
+    height: 100px;
+    padding-right: 20px;
+}
         body {
             margin: 0px;
             padding: 0px;
@@ -49,7 +53,7 @@
             <!-- Top section: Image and name -->
             <tr style="height: auto;">
                 <td
-                    style="width: 30%; height:24%; background-color: {{$resume->primary_color}}; text-align: center; border-radius: 500px 500px 0 0;">
+                    style="width: 30%; height:24%; background-color: {{ $resume->primary_color }}; text-align: center; border-radius: 500px 500px 0 0;">
                     @if ($base64Image)
                         <img src="{{ $base64Image }}" alt="Image error!"
                             style="width: 200px; height:200px; margin-top: 20px; border: 2px solid white; border-radius: 50%;">
@@ -59,21 +63,48 @@
                 </td>
 
                 <td style=" padding: 0px 30px 10px 20px;">
-                    <h1
-                        style="color: #D19855; -webkit-text-stroke: 1px black; margin: 0; font-size:20px; font-weight: lighter; text-shadow: 0px 5px 10px black;">
-                        {{ $resume->fname }} {{ $resume->lname }}</h1>
-                    <p style="color: #000000; letter-spacing: 2px; margin: 0; font-size: 13px; padding-top:10px ">
-                        {{ $resume->profession }}</p>
-                    <p style="text-align: justify; font-size: 12px; padding-right:20px;padding-top:10px">
-                        {{ $resume->description }}
-                    </p>
+                    <table>
+                        <tr>
+                            <td>
+                                <h1 style="color: {{ $resume->primary_color }}" class="name-heading-1">
+                                    <b>{{ $resume->fname }}</b> {{ $resume->lname }}
+                                </h1>
+                                <p class="designation-2">{{ $resume->profession }}</p>
+                                <p class="description-2" style="font-size: 14px; padding-right:15px">
+                                    {!! strip_tags($resume->description) !!}
+                                </p>
+                            </td>
+
+                            @if (isset($qrCodeBase64))
+                                <td style="text-align: right;">
+                                    <img src="{{ $qrCodeBase64 }}" alt="QR Code" class="qr-image-5" />
+                                </td>
+                            @endif
+                        </tr>
+                    </table>
+                    {{-- <div>
+                        <h1
+                            style="color: #D19855; -webkit-text-stroke: 1px black; margin: 0; font-size:20px; font-weight: lighter; text-shadow: 0px 5px 10px black;">
+                            {{ $resume->fname }} {{ $resume->lname }}</h1>
+                        <p style="color: #000000; letter-spacing: 2px; margin: 0; font-size: 13px; padding-top:10px ">
+                            {{ $resume->profession }}</p>
+                        <p style="text-align: justify; font-size: 12px; padding-right:20px;padding-top:10px">
+                            {{ $resume->description }}
+                        </p>
+                    </div>
+                    @if (isset($qrCodeBase64))
+                        <div>
+                            <img src="{{ $qrCodeBase64 }}" alt="QR Code" style="width: 100px; height: 100px;" />
+                        </div>
+                    @endif --}}
                 </td>
+
             </tr>
-            <!-- Body Section -->
+
             <tr>
 
                 <td
-                    style="width: 33%;height:70%; background-color: {{$resume->primary_color}}; padding-left:20px;padding-right:20px; padding-top:30px; color:#fff; padding-bottom:20px">
+                    style="width: 33%;height:70%; background-color: {{ $resume->primary_color }}; padding-left:20px;padding-right:20px; padding-top:30px; color:#fff; padding-bottom:20px">
                     <h1 style="color: #D19855; font-size: 16px;  border-bottom: 1px solid #fff; padding-bottom:15px">
                         CONTACT
                     </h1>
@@ -129,7 +160,7 @@
                 </td>
                 <td style="width: 67%; vertical-align: top;">
                     <h1
-                        style="color: #D19855; background-color:{{$resume->primary_color}}; width:200px; padding: 5px 5px 5px 20px; border-radius: 0px 50px 50px 0px; font-size:18px">
+                        style="color: #D19855; background-color:{{ $resume->primary_color }}; width:200px; padding: 5px 5px 5px 20px; border-radius: 0px 50px 50px 0px; font-size:18px">
                         Experience</h1>
                     <table style="width: 100%; padding-left: 20px;">
                         <tr>
@@ -148,7 +179,7 @@
                                             {{ $exp['employeeName'] }} | {{ $exp['location'] }}
                                         </h3>
                                         <p style="font-size: 12px">{{ $exp['jobTitle'] }}</p>
-                                        <p style="font-size: 12px; padding-right: 20px;">{{ $exp['description'] }}</p>
+                                        <P style="font-size: 12px; padding-right: 20px;"> {!! strip_tags($exp['description']) !!}</p>
                                     </div>
                                 @endforeach
                             </td>
@@ -157,7 +188,7 @@
                     </table>
 
                     <h1
-                        style="color: #D19855; background-color:{{$resume->primary_color}}; width:200px; padding: 5px 5px 5px 20px; border-radius: 0px 50px 50px 0px; font-size:18px">
+                        style="color: #D19855; background-color:{{ $resume->primary_color }}; width:200px; padding: 5px 5px 5px 20px; border-radius: 0px 50px 50px 0px; font-size:18px">
                         Reference</h1>
                     <table style="width: 100%; padding-left:20px">
                         <tr>

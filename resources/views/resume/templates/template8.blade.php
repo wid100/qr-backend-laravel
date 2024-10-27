@@ -224,7 +224,7 @@
 <body>
     <table>
         <tr>
-            <td colspan="2" style="background-color: #D19855; height: 40px;"></td>
+            <td colspan="2" style="background-color: {{ $resume->primary_color }}; height: 40px;"></td>
         </tr>
         <tr>
             <!-- Left side -->
@@ -234,7 +234,7 @@
                         @if ($base64Image)
                             <img src="{{ $base64Image }}" alt="Profile-image" class="profile-image">
                         @else
-                            <p style="color: #D19855; text-align: center;">No image available</p>
+                            <p style="color: {{ $resume->primary_color }}; text-align: center;">No image available</p>
                         @endif
                     </div>
                     <div style="padding:0 20px 20px">
@@ -242,18 +242,18 @@
                         <h2 class="sub-heading-6" style="color:#000000; padding-top:20px">Contact</h2>
                         <ul class="contact-list-6">
                             <li class="contact-item-6">
-                                <p style="font-size:14px; color:#D19855;">Phone</p>
+                                <p style="font-size:14px; color:{{ $resume->primary_color }};">Phone</p>
                                 <a href="tel:{{ $resume->phone }}" style="color:#000000;"
                                     class="contact-link-6">{{ $resume->phone }}</a>
                             </li>
                             <li class="contact-item-6">
-                                <p style="font-size:14px; color:#D19855;">Email</p>
+                                <p style="font-size:14px; color:{{ $resume->primary_color }};">Email</p>
 
                                 <a href="mailto:{{ $resume->email }}" class="contact-link-6 "
                                     style="color:#000000;">{{ $resume->email }}</a>
                             </li>
                             <li class="contact-item-6">
-                                <p style="font-size:14px;color:#D19855;">Address</p>
+                                <p style="font-size:14px;color:{{ $resume->primary_color }};">Address</p>
                                 <p style="font-size: 10px; color:#000000;">{{ $resume->address }}</p>
                             </li>
                         </ul>
@@ -268,7 +268,7 @@
                                     <span style="font-size: 12px; color: #000">
                                         {{ \Carbon\Carbon::parse($edu['startYear'])->format('Y') }} -
                                         {{ \Carbon\Carbon::parse($edu['endYear'])->format('Y') }}</span>
-                                    <p style="font-size: 14px;color:#D19855;">{{ $edu['degree'] }}
+                                    <p style="font-size: 14px;color:{{ $resume->primary_color }};">{{ $edu['degree'] }}
                                     </p>
                                     <p style="font-size: 12px; color:#000">{{ $edu['grade'] }}</p>
                                     <p style="font-size: 12px; color:#000">{{ $edu['institution'] }}</p>
@@ -308,7 +308,7 @@
                             @forelse(collect($languages)->chunk(2) as $chunk)
                                 <tr>
                                     @foreach ($chunk as $language)
-                                        <td style="font-size: 12px; white-space: nowrap; color: #D19855;">
+                                        <td style="font-size: 12px; white-space: nowrap; color: {{ $resume->primary_color }};">
                                             {{ $language }}
                                         </td>
                                     @endforeach
@@ -319,7 +319,7 @@
                                 </tr>
                             @empty
                                 <tr>
-                                    <td colspan="2" style="font-size: 12px; white-space: nowrap; color: #D19855;">
+                                    <td colspan="2" style="font-size: 12px; white-space: nowrap; color: {{ $resume->primary_color }};">
                                         No languages available.
                                     </td>
                                 </tr>
@@ -329,7 +329,7 @@
                         <h2 class="sub-heading-6" style="color:#000">Interests</h2>
                         <ul class="hobbies-list-6">
                             @foreach ($interestes as $int)
-                                <li class="hobbies-item-6" style="color:#D19855;">{{ $int }}</li>
+                                <li class="hobbies-item-6" style="color:{{ $resume->primary_color }};">{{ $int }}</li>
                             @endforeach
 
                         </ul>
@@ -357,7 +357,7 @@
                         </tr>
                     </table>
                     <p class="description-6" style="font-size: 12px">
-                        {{ $resume->description }}
+                        {!! strip_tags($resume->description) !!}
                     </p>
                     <h2 class="section-heading-6" style="margin-top: 15px">Experience</h2>
                     <ul class="experience-list-6s">
@@ -377,7 +377,7 @@
 
                                 </h3>
                                 <p style="font-size: 15px; padding-bottom:7px">{{ $exp['jobTitle'] }}</p>
-                                <p style="font-size: 12px; padding-right: 20px;">{{ $exp['description'] }}</p>
+                                <p style="font-size: 12px; padding-right: 20px;">{!! strip_tags($exp['description']) !!}</p>
                             </li>
                         @endforeach
 
