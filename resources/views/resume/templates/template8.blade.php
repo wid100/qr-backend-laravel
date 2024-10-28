@@ -268,7 +268,8 @@
                                     <span style="font-size: 12px; color: #000">
                                         {{ \Carbon\Carbon::parse($edu['startYear'])->format('Y') }} -
                                         {{ \Carbon\Carbon::parse($edu['endYear'])->format('Y') }}</span>
-                                    <p style="font-size: 14px;color:{{ $resume->primary_color }};">{{ $edu['degree'] }}
+                                    <p style="font-size: 14px;color:{{ $resume->primary_color }};">
+                                        {{ $edu['degree'] }}
                                     </p>
                                     <p style="font-size: 12px; color:#000">{{ $edu['grade'] }}</p>
                                     <p style="font-size: 12px; color:#000">{{ $edu['institution'] }}</p>
@@ -281,7 +282,20 @@
                         <h2 class="sub-heading-6" style="padding-bottom: 10px; color:#000">Skills</h2>
 
                         <table style="width: 100%; padding-top: 10px;">
-                            @forelse(collect($skills)->chunk(2) as $chunk)
+                            @forelse($skills as $skill)
+                                <tr>
+                                    <td style="font-size: 14px;padding-bottom:3px; white-space:nowrap; color:#000">
+                                        {{ $skill }}
+                                    </td>
+                                </tr>
+                            @empty
+                                <tr>
+                                    <td colspan="1" style="font-size: 14px; white-space:nowrap; color:#000">
+                                        No skills available.
+                                    </td>
+                                </tr>
+                            @endforelse
+                            {{-- @forelse(collect($skills)->chunk(2) as $chunk)
                                 <tr>
                                     @foreach ($chunk as $skill)
                                         <td style="font-size: 10px; white-space: nowrap;">
@@ -299,16 +313,25 @@
                                         No skills available.
                                     </td>
                                 </tr>
-                            @endforelse
+                            @endforelse --}}
                         </table>
 
 
                         <h2 class="sub-heading-6" style="color:#000">Languages</h2>
+                          <ul class="language-list-6">
+                            @foreach ($languages as $lan)
+                                <li class="language-item-6">{{ $lan }}</li>
+                            @endforeach
+                        </ul>
                         <table style="width: 100%; padding-top: 10px;">
-                            @forelse(collect($languages)->chunk(2) as $chunk)
+                            {{-- @foreach ($languages as $lan)
+                                <li class="language-item-6">{{ $lan }}</li>
+                            @endforeach --}}
+                            {{-- @forelse(collect($languages)->chunk(2) as $chunk)
                                 <tr>
                                     @foreach ($chunk as $language)
-                                        <td style="font-size: 12px; white-space: nowrap; color: {{ $resume->primary_color }};">
+                                        <td
+                                            style="font-size: 12px; white-space: nowrap; color: {{ $resume->primary_color }};">
                                             {{ $language }}
                                         </td>
                                     @endforeach
@@ -319,17 +342,19 @@
                                 </tr>
                             @empty
                                 <tr>
-                                    <td colspan="2" style="font-size: 12px; white-space: nowrap; color: {{ $resume->primary_color }};">
+                                    <td colspan="2"
+                                        style="font-size: 12px; white-space: nowrap; color: {{ $resume->primary_color }};">
                                         No languages available.
                                     </td>
                                 </tr>
-                            @endforelse
+                            @endforelse --}}
                         </table>
 
                         <h2 class="sub-heading-6" style="color:#000">Interests</h2>
                         <ul class="hobbies-list-6">
                             @foreach ($interestes as $int)
-                                <li class="hobbies-item-6" style="color:{{ $resume->primary_color }};">{{ $int }}</li>
+                                <li class="hobbies-item-6" style="color:{{ $resume->primary_color }};">
+                                    {{ $int }}</li>
                             @endforeach
 
                         </ul>

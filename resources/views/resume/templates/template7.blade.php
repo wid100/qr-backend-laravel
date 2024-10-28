@@ -199,7 +199,7 @@
                 </div>
                 <div class="right-side-6">
 
-                    <h2 class="section-heading-6" style="margin-top: 0px;{{ $resume->primary_color }}">Experience</h2>
+                    <h2 class="section-heading-6" style="margin-top: 0px; color:{{ $resume->primary_color }}">Experience</h2>
                     <ul class="experience-list-6">
                         @foreach ($experiences as $exp)
                             <li class="experience-item-6" style="color: #000">
@@ -220,7 +220,7 @@
                             </li>
                         @endforeach
                     </ul>
-                    <h2 class="section-heading-6" style="margin-top: 15px;{{ $resume->primary_color }}">References</h2>
+                    <h2 class="section-heading-6" style="margin-top: 15px;color:{{ $resume->primary_color }}">References</h2>
                     <table style="width: 100%;">
                         <tr>
                             @foreach ($references as $reference)

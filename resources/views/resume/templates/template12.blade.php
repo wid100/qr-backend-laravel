@@ -100,7 +100,7 @@
 
         .name-heading-12 {
             color: #000000;
-            font-size: 26px;
+            font-size: 20px;
             font-weight: 400;
             padding-top: 20px;
         }
@@ -177,7 +177,8 @@
     <table>
         <tr>
             <!-- Left side -->
-            <td style="width: 20%; height:100%; vertical-align: top; background-color: #f1f1f1;">
+            <td
+                style="width: 20%; height:100%; padding: 0 20px; vertical-align: top; background-color: {{ $resume->primary_color }};">
                 <div class="left-side-12">
                     <div style="width: 100%;text-align: center;padding-top:20px;">
                         @if ($base64Image)
@@ -204,7 +205,7 @@
                             </li>
                             <li class="contact-item-12">
                                 <p style="font-size: 14px">Address</p>
-                                <p style="font-size: 12px;">{{ $resume->address }}</p>
+                                <p style="font-size: 14px;">{{ $resume->address }}</p>
                             </li>
                         </ul>
                         <h2 class="sub-heading-12" style="padding-bottom: 10px">Skills</h2>
@@ -246,8 +247,8 @@
                     <table>
                         <tr>
                             <td>
-                                <p class="description-12" style="font-size: 12px;margin-right: 20px;">
-                                    {{ $resume->description }}
+                                <p class="description-12" style="font-size: 14px;margin-right: 20px;">
+                                    {!! strip_tags($resume->description) !!}
                                 </p>
                             </td>
                             <td style="text-align: right;">
@@ -262,7 +263,6 @@
                     <ul class="experience-list-12">
                         @foreach ($experiences as $exp)
                             <li class="experience-item-12" style="color: #000; margin-bottom:20px">
-
                                 <p style="margin-bottom:5px; font-size:14px">
                                     {{ \Carbon\Carbon::parse($exp['startYear'])->format('Y') }} -
                                     @if ($exp['workingNow'])
@@ -277,14 +277,14 @@
                                 </h3>
                                 <p style="font-size: 17px; padding-bottom:7px">{{ $exp['jobTitle'] }}</p>
                                 <p style="font-size: 16px; line-height:130%; padding-right: 20px;">
-                                    {{ $exp['description'] }}</p>
+                                    {!! strip_tags($exp['description']) !!}</p>
                             </li>
                         @endforeach
                     </ul>
                     <h2 class="section-heading-12" style="margin-top: 15px">Education</h2>
                     <ul class="experience-list-12">
                         @forelse($education as $edu)
-                            <li class="education-item-11">
+                            <li class="education-item-12">
                                 <span style="font-size: 12px">
                                     {{ \Carbon\Carbon::parse($edu['startYear'])->format('Y') }} -
                                     {{ \Carbon\Carbon::parse($edu['endYear'])->format('Y') }}</span>
@@ -308,11 +308,11 @@
                                     <p style="font-size: 12px; padding-bottom:5px">{{ $reference['jobTitle'] }}</p>
                                     <p style="font-size: 12px; padding-bottom:5px">Phone: <span> <a
                                                 href='tel:{{ $reference['phone'] }}'
-                                                class="contact-link-11">{{ $reference['phone'] }}</a></span>
+                                                class="contact-link-12">{{ $reference['phone'] }}</a></span>
                                     </p>
                                     <p style="font-size: 12px;padding-bottom:5px">Email: <a
                                             href="mailto:{{ $reference['email'] }}"
-                                            class="contact-link-1">{{ $reference['email'] }}</a> </p>
+                                            class="contact-link-12">{{ $reference['email'] }}</a> </p>
                                 </td>
                             @endforeach
                         </tr>

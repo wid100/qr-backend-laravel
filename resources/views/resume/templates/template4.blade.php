@@ -198,7 +198,7 @@
                     @endif
 
                 </div>
-                <div style="padding:20px;">
+                <div >
                     <h2 class="sub-heading-4" style="color: {{ $resume->primary_color }}">Contact</h2>
                     <ul class="contact-list-4">
                         <li class="contact-item-4">
