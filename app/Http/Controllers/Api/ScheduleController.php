@@ -10,6 +10,14 @@ class ScheduleController extends Controller
 {
 
 
+    public function index($id)
+    {
+        $schedule = Schedule::where('user_id', $id)
+            ->get();
+        return response()->json(['Schedule' => $schedule]);
+    }
+
+
     public function store(Request $request)
     {
         // Validate the input
