@@ -216,7 +216,7 @@
                     <h1 class="name-heading-6" style="color:#000"><b>{{ $resume->fname }}</b> {{ $resume->lname }}</h1>
                     <p class="designation-6" style="color:#000">{{ $resume->profession }}</p>
                     <p class="description-6" style="font-size: 12px; color:#000">
-                        {{ $resume->description }}
+                        {!! strip_tags($resume->description) !!}
                     </p>
                 </div>
                 <div class="right-side-6">
@@ -239,7 +239,7 @@
 
                                 </h3>
                                 <p style="font-size: 15px; padding-bottom:7px">{{ $exp['jobTitle'] }}</p>
-                                <p style="font-size: 12px; padding-right: 20px;">{{ $exp['description'] }}</p>
+                                <p style="font-size: 12px; padding-right: 20px;"> {!! strip_tags($exp['description']) !!}</p>
                             </li>
                         @endforeach
 
@@ -278,7 +278,7 @@
                             @endif
                         </div>
                         <div class="left-site-bg"
-                            style="background:#989898;height:902px; padding:0px 20px 20px 20px ;clip-path: polygon(0 8%, 100% 0, 100% 100%, 0 100%); position: relative;">
+                            style="background:{{$resume->primary_color}};height:902px; padding:0px 20px 20px 20px ;clip-path: polygon(0 8%, 100% 0, 100% 100%, 0 100%); position: relative;">
                             <table>
                                 <tr>
                                     <td align="center">

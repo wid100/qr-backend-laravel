@@ -233,8 +233,8 @@
                         <div style="width: 100%;">
                             <h1 class="name-heading-11"> <b>{{ $resume->fname }}</b> {{ $resume->lname }}</h1>
                             <p class="designation-11">{{ $resume->profession }}</p>
-                            <p class="description-11" style="font-size: 12px">
-                                {{ $resume->description }}
+                            <p class="description-11" style="font-size: 14px">
+                                {!! strip_tags($resume->description) !!}
                             </p>
                         </div>
 
@@ -252,16 +252,16 @@
                         <ul class="education-list-11" style="margin-bottom: 7px">
                             @forelse($education as $edu)
                                 <li class="education-item-11">
-                                    <span style="font-size: 12px">
+                                    <span style="font-size: 14px">
                                         {{ \Carbon\Carbon::parse($edu['startYear'])->format('Y') }} -
                                         {{ \Carbon\Carbon::parse($edu['endYear'])->format('Y') }}</span>
                                     <p style="font-size: 14px">{{ $edu['degree'] }}
                                     </p>
-                                    <p style="font-size: 12px">Grade:{{ $edu['grade'] }}</p>
-                                    <p style="font-size: 12px">{{ $edu['institution'] }}</p>
+                                    <p style="font-size: 14px">Grade:{{ $edu['grade'] }}</p>
+                                    <p style="font-size: 14px">{{ $edu['institution'] }}</p>
                                 </li>
                             @empty
-                                <p style="font-size: 12px">No education data available</p>
+                                <p style="font-size: 14px">No education data available</p>
                             @endforelse
 
                         </ul>
@@ -319,12 +319,12 @@
                                     @if (isset($qrCodeBase64))
                                         <img src="{{ $qrCodeBase64 }}" alt="QR Code" class="qr-image-6" style="width: 100px; padding-bottom:20px; height:100px" />
                                     @endif
-                                    <p style="font-size: 12px; padding-bottom:5px"><span
+                                    <p style="font-size: 14px; padding-bottom:5px"><span
                                             style="font-size: 14px;display: block">Phone</span>
                                         <a href="tel:{{ $resume->phone }}"
                                             class="contact-link-11">{{ $resume->phone }}</a>
                                     </p>
-                                    <p style="font-size: 12px;padding-bottom:5px"><span
+                                    <p style="font-size: 14px;padding-bottom:5px"><span
                                             style="font-size: 14px">Email</span>
                                         <a href="mailto:{{ $resume->email }}"
                                             class="contact-link-11">{{ $resume->email }}</a>
@@ -353,7 +353,7 @@
                                 </h3>
                                 <p style="font-size: 17px; padding-bottom:7px">{{ $exp['jobTitle'] }}</p>
                                 <p style="font-size: 16px; line-height:130%; padding-right: 20px;">
-                                    {{ $exp['description'] }}</p>
+                                       {!! strip_tags($exp['description']) !!}</p>
                             </li>
                         @endforeach
 
@@ -365,14 +365,14 @@
                                 <td>
                                     <h3 style="font-size: 16px; padding-bottom:7px">{{ $reference['firstName'] }}
                                         {{ $reference['lastName'] }}</h3>
-                                    <p style="font-size: 12px; padding-bottom:5px">{{ $reference['jobTitle'] }}</p>
-                                    <p style="font-size: 12px; padding-bottom:5px">Phone: <span> <a
+                                    <p style="font-size: 14px; padding-bottom:5px">{{ $reference['jobTitle'] }}</p>
+                                    <p style="font-size: 14px; padding-bottom:5px">Phone: <span> <a
                                                 href='tel:{{ $reference['phone'] }}'
                                                 class="contact-link-11">{{ $reference['phone'] }}</a></span>
                                     </p>
-                                    <p style="font-size: 12px;padding-bottom:5px">Email: <a
+                                    <p style="font-size: 14px;padding-bottom:5px">Email: <a
                                             href="mailto:{{ $reference['email'] }}"
-                                            class="contact-link-1">{{ $reference['email'] }}</a> </p>
+                                            class="contact-link-11">{{ $reference['email'] }}</a> </p>
                                 </td>
                             @endforeach
 

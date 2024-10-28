@@ -302,7 +302,7 @@
             <td style="width: 80%; background-color: #ffffff;vertical-align: top; ">
                 <div class="right-side-14">
                     <p class="description-14" style="font-size: 12px">
-                        {{ $resume->description }}
+                        {!! strip_tags($resume->description) !!}
                     </p>
                     <h2 class="section-heading-14" style="margin-top: 15px">Experience</h2>
                     <ul class="experience-list-14">
@@ -324,7 +324,7 @@
                                 </h3>
                                 <p style="font-size: 17px; padding-bottom:7px">{{ $exp['jobTitle'] }}</p>
                                 <p style="font-size: 16px; line-height:130%; padding-right: 20px;">
-                                    {{ $exp['description'] }}</p>
+                                   {!! strip_tags($exp['description']) !!}</p>
                             </li>
                         @endforeach
 

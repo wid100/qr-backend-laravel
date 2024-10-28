@@ -62,7 +62,7 @@
         .hobbies-item-16,
         .skill-item-16 {
             list-style: none;
-            font-size: 12px;
+            font-size: 14px;
             padding: 4px 0;
             color: #484848;
             line-height: 140%;
@@ -191,7 +191,7 @@
                             </li>
                             <li class="contact-item-16">
                                 <p style="font-size: 14px">Email</p>
-                                <a href="mailto:{{ $resume->email }}" class="contact-link-1">{{ $resume->email }}</a>
+                                <a href="mailto:{{ $resume->email }}" class="contact-link-16">{{ $resume->email }}</a>
                             </li>
                             <li class="contact-item-16">
                                 <p style="font-size: 14px">Address</p>
@@ -225,7 +225,7 @@
                         <table style="width: 100%; padding-top:10px;">
                             @foreach ($interestes as $int)
                                 <tr>
-                                    <td style="font-size: 10px; white-space: nowrap;">
+                                    <td style="font-size: 14px; white-space: nowrap;">
                                         <span class="custom-border">{{ $int }}</span>
                                     </td>
                                 </tr>
@@ -241,8 +241,8 @@
                     <table>
                         <tr>
                             <td>
-                                <p class="description-16" style="font-size: 12px;margin-right: 20px;">
-                                    {{ $resume->description }}
+                                <p class="description-16" style="font-size: 14px;margin-right: 20px;">
+                                    {!! strip_tags($resume->description) !!}
                                 </p>
                             </td>
                             <td style="text-align: right;">
@@ -259,7 +259,7 @@
                                 <table width="100%" cellspacing="0" cellpadding="0" border="0">
                                     <tr>
                                         <td width="35%" valign="top" align="left">
-                                            <p style="margin-bottom:5px; font-size:12px;">
+                                            <p style="margin-bottom:5px; font-size:14px;">
                                                 {{ \Carbon\Carbon::parse($exp['startYear'])->format('Y') }} -
                                                 @if ($exp['workingNow'])
                                                     Present
@@ -267,13 +267,13 @@
                                                     {{ $exp['endYear'] ? \Carbon\Carbon::parse($exp['endYear'])->format('Y') : 'N/A' }}
                                                 @endif
                                             </p>
-                                            <h3 style="font-size:12px; font-weight: bold; margin-bottom:7px;">
+                                            <h3 style="font-size:14px; font-weight: bold; margin-bottom:7px;">
                                                 {{ $exp['employeeName'] }} | {{ $exp['location'] }}</h3>
-                                            <p style="font-size:12px; margin: 0;">{{ $exp['jobTitle'] }}</p>
+                                            <p style="font-size:14px; margin: 0;">{{ $exp['jobTitle'] }}</p>
                                         </td>
                                         <td width="5%"></td>
                                         <td width="60%" valign="top" align="right" style="text-align: left;">
-                                            <p style="font-size:12px;"> {{ $exp['description'] }}</p>
+                                            <p style="font-size:14px;">  {!! strip_tags($exp['description']) !!}</p>
                                         </td>
                                     </tr>
                                 </table>
@@ -285,7 +285,7 @@
                     <h2 class="section-heading-16" style="margin-top: 15px">Education</h2>
                     <ul class="experience-list-16">
                         @forelse($education as $edu)
-                            <li class="education-item-13">
+                            <li class="education-item-16">
                                 <span style="font-size: 14px">
                                 </span>
                                 <p style="font-size: 14px">
@@ -297,19 +297,19 @@
                                 <table width="100%" cellspacing="0" cellpadding="0" border="0">
                                     <tr>
                                         <td width="40%" valign="top" align="left">
-                                            <span style="font-size: 12px">
+                                            <span style="font-size: 14px">
                                                 {{ \Carbon\Carbon::parse($edu['startYear'])->format('Y') }} -
                                                 {{ \Carbon\Carbon::parse($edu['endYear'])->format('Y') }}</span>
                                             <p style="font-size: 14px">{{ $edu['degree'] }}
                                             </p>
-                                            <p style="font-size: 12px">Grade: {{ $edu['grade'] }}</p>
-                                            <p style="font-size: 12px">{{ $edu['institution'] }}</p>
+                                            <p style="font-size: 14px">Grade: {{ $edu['grade'] }}</p>
+                                            <p style="font-size: 14px">{{ $edu['institution'] }}</p>
                                         </td>
                                     </tr>
                                 </table>
                             </li>
                         @empty
-                            <p style="font-size: 12px">No education data available</p>
+                            <p style="font-size: 14px">No education data available</p>
                         @endforelse
                     </ul>
                     <h2 class="section-heading-16" style="margin-top: 15px">References</h2>
@@ -319,14 +319,14 @@
                                 <td>
                                     <h3 style="font-size: 16px; padding-bottom:7px">{{ $reference['firstName'] }}
                                         {{ $reference['lastName'] }}</h3>
-                                    <p style="font-size: 12px; padding-bottom:5px">{{ $reference['jobTitle'] }}</p>
-                                    <p style="font-size: 12px; padding-bottom:5px">Phone: <span> <a
+                                    <p style="font-size: 14px; padding-bottom:5px">{{ $reference['jobTitle'] }}</p>
+                                    <p style="font-size: 14px; padding-bottom:5px">Phone: <span> <a
                                                 href='tel:{{ $reference['phone'] }}'
-                                                class="contact-link-13">{{ $reference['phone'] }}</a></span>
+                                                class="contact-link-16">{{ $reference['phone'] }}</a></span>
                                     </p>
-                                    <p style="font-size: 12px;padding-bottom:5px">Email: <a
+                                    <p style="font-size: 14px;padding-bottom:5px">Email: <a
                                             href="mailto:{{ $reference['email'] }}"
-                                            class="contact-link-1">{{ $reference['email'] }}</a> </p>
+                                            class="contact-link-16">{{ $reference['email'] }}</a> </p>
                                 </td>
                             @endforeach
                         </tr>

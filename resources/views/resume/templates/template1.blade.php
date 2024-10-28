@@ -12,6 +12,7 @@
         * {
             margin: 0;
             padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
             border: 0;
         }
 
@@ -52,6 +53,7 @@
             text-transform: uppercase;
             padding-bottom: 6px;
             font-weight: 600;
+            font-family: Arial, Helvetica, sans-serif !important; 
         }
 
         .contact-list-1,
@@ -61,6 +63,7 @@
         .hobbies-list-1,
         .certifications-list-1 {
             padding-left: 0;
+               font-family: Arial, Helvetica, sans-serif;
             padding-right: 20px;
         }
 
@@ -71,10 +74,11 @@
         .hobbies-item-1,
         .certification-item-1 {
             list-style: none;
-            font-size: 12px;
+            font-size: 14px;
             padding: 4px 0;
             color: #ffffff;
             line-height: 140%;
+            font-family: Arial, Helvetica, sans-serif;
             transition: background 0.3s;
 
         }
@@ -123,6 +127,7 @@
         .designation-1 {
             font-weight: 400;
             color: #000000;
+               font-family: Arial, Helvetica, sans-serif;
             margin-top: 10px;
         }
 
@@ -191,6 +196,7 @@
         }
     </style>
 </head>
+
 <body>
     <table>
         <tr>
@@ -218,23 +224,23 @@
                             </li>
                             <li class="contact-item-1">
                                 <p style="font-size: 14px">Address</p>
-                                <p style="font-size: 12px;">{{ $resume->address }}</p>
+                                <p style="font-size: 14px;">{{ $resume->address }}</p>
                             </li>
                         </ul>
                         <h2 class="sub-heading-1">Education</h2>
                         <ul class="education-list-1" style="margin-bottom: 7px">
                             @forelse($education as $edu)
                                 <li class="education-item-1">
-                                    <span style="font-size: 12px">
+                                    <span style="font-size: 14px">
                                         {{ \Carbon\Carbon::parse($edu['startYear'])->format('Y') }} -
                                         {{ \Carbon\Carbon::parse($edu['endYear'])->format('Y') }}</span>
                                     <p style="font-size: 14px">{{ $edu['degree'] }}
                                     </p>
-                                    <p style="font-size: 12px">Grade:{{ $edu['grade'] }}</p>
-                                    <p style="font-size: 12px">{{ $edu['institution'] }}</p>
+                                    <p style="font-size: 14px">Grade:{{ $edu['grade'] }}</p>
+                                    <p style="font-size: 14px">{{ $edu['institution'] }}</p>
                                 </li>
                             @empty
-                                <p style="font-size: 12px">No education data available</p>
+                                <p style="font-size: 14px">No education data available</p>
                             @endforelse
 
                         </ul>
@@ -243,13 +249,13 @@
                         <table style="width: 100%; padding-top:10px">
                             @forelse($skills as $skill)
                                 <tr>
-                                    <td style="font-size: 12px;padding-bottom:3px; white-space:nowrap; color:#fff">
+                                    <td style="font-size: 14px;padding-bottom:3px; white-space:nowrap; color:#fff">
                                         {{ $skill }}
                                     </td>
                                 </tr>
                             @empty
                                 <tr>
-                                    <td colspan="1" style="font-size: 12px; white-space:nowrap; color:#fff">
+                                    <td colspan="1" style="font-size: 14px; white-space:nowrap; color:#fff">
                                         No skills available.
                                     </td>
                                 </tr>
@@ -283,7 +289,7 @@
                                 </h1>
                                 <p class="designation-1">{{ $resume->profession }}</p>
                                 <p class="description-1" style="font-size: 14px; padding-right:15px">
-                                    {{ $resume->description }}
+                                    {!! strip_tags($resume->description) !!}
                                 </p>
                             </td>
                             @if (isset($qrCodeBase64))
@@ -314,7 +320,7 @@
                                 </h3>
                                 <p style="font-size: 17px; padding-bottom:7px">{{ $exp['jobTitle'] }}</p>
                                 <p style="font-size: 16px; line-height:130%; padding-right: 20px;">
-                                    {{ $exp['description'] }}</p>
+                                    {!! strip_tags($exp['description']) !!}</p>
                             </li>
                         @endforeach
 
@@ -328,12 +334,12 @@
                                 <td>
                                     <h3 style="font-size: 16px; padding-bottom:7px">{{ $reference['firstName'] }}
                                         {{ $reference['lastName'] }}</h3>
-                                    <p style="font-size: 12px; padding-bottom:5px">{{ $reference['jobTitle'] }}</p>
-                                    <p style="font-size: 12px; padding-bottom:5px">Phone: <span> <a
+                                    <p style="font-size: 14px; padding-bottom:5px">{{ $reference['jobTitle'] }}</p>
+                                    <p style="font-size: 14px; padding-bottom:5px">Phone: <span> <a
                                                 href='tel:{{ $reference['phone'] }}'
                                                 class="contact-link-1">{{ $reference['phone'] }}</a></span>
                                     </p>
-                                    <p style="font-size: 12px;padding-bottom:5px">Email: <a
+                                    <p style="font-size: 14px;padding-bottom:5px">Email: <a
                                             href="mailto:{{ $reference['email'] }}"
                                             class="contact-link-1">{{ $reference['email'] }}</a> </p>
                                 </td>
