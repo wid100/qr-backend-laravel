@@ -122,6 +122,9 @@ Route::post('/schedules', [ScheduleController::class, 'store']);
 Route::get('/schedules/{id}', [ScheduleController::class, 'edit']);
 Route::put('/schedules/{id}', [ScheduleController::class, 'update']);
 Route::delete('/schedules/{id}', [ScheduleController::class, 'destroy']);
+Route::get('/schedule/{id}', [ScheduleController::class, 'index']);
+
+
 
 //appointments
 Route::post('/appointments', [AppointmentController::class, 'store']);

@@ -73,7 +73,8 @@
             line-height: 140%;
             transition: background 0.3s;
         }
-        .experience-item-6{
+
+        .experience-item-6 {
             margin-left: 20px;
         }
 
@@ -188,23 +189,23 @@
 
         .image-container-8 {
             position: relative;
-            width: 220px; 
-            height: 80px; 
+            width: 220px;
+            height: 80px;
             background-color: #F6EADD;
             padding-top: 20px;
             margin-bottom: 60px;
             display: flex;
-            justify-content: center; 
+            justify-content: center;
             align-items: flex-start;
         }
 
         .profile-image {
-            width: 180px; 
+            width: 180px;
             height: 180px;
-            object-fit: cover; 
+            object-fit: cover;
             position: absolute;
-            top: 70%; 
-            left: 50%; 
+            top: 70%;
+            left: 50%;
             transform: translate(-50%, -50%);
         }
 
@@ -217,53 +218,49 @@
             text-align: center;
             /* No border-radius for the background container */
         }
-        
-
-
     </style>
 </head>
 
 <body>
     <table>
         <tr>
-            <td colspan="2" style="background-color: #D19855; height: 40px;"></td>
+            <td colspan="2" style="background-color: {{ $resume->primary_color }}; height: 40px;"></td>
         </tr>
         <tr>
             <!-- Left side -->
             <td class="left-side-6s" style="width: 20%; height:40%; vertical-align: top; z-index: 1;">
                 <div class="left-side-6">
-                        <div class="image-container-8">
-                            @if ($base64Image)
-                                <img src="{{ $base64Image }}" 
-                                     alt="Profile-image" 
-                                     class="profile-image">
-                            @else
-                                <p style="color: #D19855; text-align: center;">No image available</p>
-                            @endif
-                        </div>
-                    <div style="padding:0 20px 20px">  
+                    <div class="image-container-8">
+                        @if ($base64Image)
+                            <img src="{{ $base64Image }}" alt="Profile-image" class="profile-image">
+                        @else
+                            <p style="color: {{ $resume->primary_color }}; text-align: center;">No image available</p>
+                        @endif
+                    </div>
+                    <div style="padding:0 20px 20px">
 
                         <h2 class="sub-heading-6" style="color:#000000; padding-top:20px">Contact</h2>
                         <ul class="contact-list-6">
                             <li class="contact-item-6">
-                                <p style="font-size:14px; color:#D19855;">Phone</p>
+                                <p style="font-size:14px; color:{{ $resume->primary_color }};">Phone</p>
                                 <a href="tel:{{ $resume->phone }}" style="color:#000000;"
                                     class="contact-link-6">{{ $resume->phone }}</a>
                             </li>
                             <li class="contact-item-6">
-                                <p style="font-size:14px; color:#D19855;">Email</p>
+                                <p style="font-size:14px; color:{{ $resume->primary_color }};">Email</p>
 
                                 <a href="mailto:{{ $resume->email }}" class="contact-link-6 "
                                     style="color:#000000;">{{ $resume->email }}</a>
                             </li>
                             <li class="contact-item-6">
-                                <p style="font-size:14px;color:#D19855;">Address</p>
+                                <p style="font-size:14px;color:{{ $resume->primary_color }};">Address</p>
                                 <p style="font-size: 10px; color:#000000;">{{ $resume->address }}</p>
                             </li>
                         </ul>
 
                     </div>
-                    <div style="background-color: #F6EADD; padding: 20px; position: absolute; height: 660px;bottom: 0;width: 23%;">
+                    <div
+                        style="background-color: #F6EADD; padding: 20px; position: absolute; height: 660px;bottom: 0;width: 23%;">
                         <h2 class="sub-heading-6" style="color: #000">Education</h2>
                         <ul class="education-list-6" style="margin-bottom: 7px">
                             @forelse($education as $edu)
@@ -271,7 +268,8 @@
                                     <span style="font-size: 12px; color: #000">
                                         {{ \Carbon\Carbon::parse($edu['startYear'])->format('Y') }} -
                                         {{ \Carbon\Carbon::parse($edu['endYear'])->format('Y') }}</span>
-                                    <p style="font-size: 14px;color:#D19855;">{{ $edu['degree'] }}
+                                    <p style="font-size: 14px;color:{{ $resume->primary_color }};">
+                                        {{ $edu['degree'] }}
                                     </p>
                                     <p style="font-size: 12px; color:#000">{{ $edu['grade'] }}</p>
                                     <p style="font-size: 12px; color:#000">{{ $edu['institution'] }}</p>
@@ -284,7 +282,20 @@
                         <h2 class="sub-heading-6" style="padding-bottom: 10px; color:#000">Skills</h2>
 
                         <table style="width: 100%; padding-top: 10px;">
-                            @forelse(collect($skills)->chunk(2) as $chunk)
+                            @forelse($skills as $skill)
+                                <tr>
+                                    <td style="font-size: 14px;padding-bottom:3px; white-space:nowrap; color:#000">
+                                        {{ $skill }}
+                                    </td>
+                                </tr>
+                            @empty
+                                <tr>
+                                    <td colspan="1" style="font-size: 14px; white-space:nowrap; color:#000">
+                                        No skills available.
+                                    </td>
+                                </tr>
+                            @endforelse
+                            {{-- @forelse(collect($skills)->chunk(2) as $chunk)
                                 <tr>
                                     @foreach ($chunk as $skill)
                                         <td style="font-size: 10px; white-space: nowrap;">
@@ -302,16 +313,25 @@
                                         No skills available.
                                     </td>
                                 </tr>
-                            @endforelse
+                            @endforelse --}}
                         </table>
 
 
                         <h2 class="sub-heading-6" style="color:#000">Languages</h2>
+                          <ul class="language-list-6">
+                            @foreach ($languages as $lan)
+                                <li class="language-item-6">{{ $lan }}</li>
+                            @endforeach
+                        </ul>
                         <table style="width: 100%; padding-top: 10px;">
-                            @forelse(collect($languages)->chunk(2) as $chunk)
+                            {{-- @foreach ($languages as $lan)
+                                <li class="language-item-6">{{ $lan }}</li>
+                            @endforeach --}}
+                            {{-- @forelse(collect($languages)->chunk(2) as $chunk)
                                 <tr>
                                     @foreach ($chunk as $language)
-                                        <td style="font-size: 12px; white-space: nowrap; color: #D19855;">
+                                        <td
+                                            style="font-size: 12px; white-space: nowrap; color: {{ $resume->primary_color }};">
                                             {{ $language }}
                                         </td>
                                     @endforeach
@@ -322,17 +342,19 @@
                                 </tr>
                             @empty
                                 <tr>
-                                    <td colspan="2" style="font-size: 12px; white-space: nowrap; color: #D19855;">
+                                    <td colspan="2"
+                                        style="font-size: 12px; white-space: nowrap; color: {{ $resume->primary_color }};">
                                         No languages available.
                                     </td>
                                 </tr>
-                            @endforelse
+                            @endforelse --}}
                         </table>
 
                         <h2 class="sub-heading-6" style="color:#000">Interests</h2>
                         <ul class="hobbies-list-6">
                             @foreach ($interestes as $int)
-                                <li class="hobbies-item-6" style="color:#D19855;">{{ $int }}</li>
+                                <li class="hobbies-item-6" style="color:{{ $resume->primary_color }};">
+                                    {{ $int }}</li>
                             @endforeach
 
                         </ul>
@@ -351,14 +373,16 @@
                                 <p class="designation-6">{{ $resume->profession }}</p>
                             </td>
                             <td style="text-align: right;">
-                                <img src="https://i.postimg.cc/cLwdGbsf/QR.png"
-                                    style="width: 100px; height:100px; position: relative; top: -42px" alt="QR Code"
-                                    class="qr-image-6" />
+                                @if (isset($qrCodeBase64))
+                                    <img src="{{ $qrCodeBase64 }}"
+                                        style="width: 100px; height:100px; position: relative; top: -42px"
+                                        alt="QR Code" class="qr-image-6" />
+                                @endif
                             </td>
                         </tr>
                     </table>
                     <p class="description-6" style="font-size: 12px">
-                        {{ $resume->description }}
+                        {!! strip_tags($resume->description) !!}
                     </p>
                     <h2 class="section-heading-6" style="margin-top: 15px">Experience</h2>
                     <ul class="experience-list-6s">
@@ -378,7 +402,7 @@
 
                                 </h3>
                                 <p style="font-size: 15px; padding-bottom:7px">{{ $exp['jobTitle'] }}</p>
-                                <p style="font-size: 12px; padding-right: 20px;">{{ $exp['description'] }}</p>
+                                <p style="font-size: 12px; padding-right: 20px;">{!! strip_tags($exp['description']) !!}</p>
                             </li>
                         @endforeach
 
