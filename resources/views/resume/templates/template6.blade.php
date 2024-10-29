@@ -190,7 +190,7 @@
     <table>
         <tr>
             <!-- Left side -->
-            <td style="width: 30%; height:100%; vertical-align: top; background-color: #484848;">
+            <td style="width: 30%; height:100%; vertical-align: top; background-color: {{$resume->primary_color}};">
                 <div class="left-side-6">
 
                     <div style="width: 100%;text-align: center;padding-top:20px">
@@ -201,7 +201,9 @@
                         @endif
                     </div>
                     <div style="padding:20px">
-                        <img src="https://i.postimg.cc/cLwdGbsf/QR.png" alt="QR Code" class="qr-image-6" />
+                        @if (isset($qrCodeBase64))
+                            <img src="{{ $qrCodeBase64 }}" alt="QR Code" class="qr-image-6" />
+                        @endif
                         <h2 class="sub-heading-6">Contact</h2>
                         <ul class="contact-list-6">
                             <li class="contact-item-6">
@@ -275,12 +277,12 @@
                     <h1 class="name-heading-6"><b>{{ $resume->fname }}</b> {{ $resume->lname }}</h1>
                     <p class="designation-6">{{ $resume->profession }}</p>
                     <p class="description-6" style="font-size: 12px">
-                        {{ $resume->description }}
+                         {!! strip_tags($resume->description) !!}
                     </p>
-                    <h2 class="section-heading-6" style="margin-top: 15px">Experience</h2>
+                    <h2 class="section-heading-6" style="margin-top: 15px; background:{{$resume->primary_color}}" >Experience</h2>
                     <ul class="experience-list-6">
                         @foreach ($experiences as $exp)
-                            <li class="experience-item-6" style="color: #000">
+                            <li class="experience-item-6" style="color: #000; padding-bottom:20px">
 
                                 <p style="margin-bottom:5px; font-size:12px">
                                     {{ \Carbon\Carbon::parse($exp['startYear'])->format('Y') }} -
@@ -295,11 +297,11 @@
 
                                 </h3>
                                 <p style="font-size: 15px; padding-bottom:7px">{{ $exp['jobTitle'] }}</p>
-                                <p style="font-size: 12px; padding-right: 20px;">{{ $exp['description'] }}</p>
+                                <P style="font-size: 12px; padding-right: 20px;">   {!! strip_tags($exp['description']) !!}</p>
                             </li>
                         @endforeach
                     </ul>
-                    <h2 class="section-heading-6" style="margin-top: 15px">References</h2>
+                    <h2 class="section-heading-6" style="margin-top: 15px;background:{{$resume->primary_color}}">References</h2>
                     <table style="width: 100%;">
                         <tr>
                             @foreach ($references as $reference)

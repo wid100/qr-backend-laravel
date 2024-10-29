@@ -8,64 +8,40 @@ use Illuminate\Http\Request;
 
 class ScheduleController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+
+
+    public function index($id)
     {
-        //
+        $schedule = Schedule::where('user_id', $id)
+            ->get();
+        return response()->json(['Schedule' => $schedule]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
+        // Validate the input
         $validated = $request->validate([
             'appointment_name' => 'required|string',
             'user_id' => 'required|exists:users,id',
-            'date' => 'required|date',
-            'time' => 'required|array',  // Validate as an array
+            'date' => 'required|array',  // Change this to 'date'
+            'date.*' => 'date',  // Validate each date in the array
+            'time' => 'required|array',  // Validate time as an array
+            'time.*' => 'string',  // Validate each time slot as a string
         ]);
 
-
+        // Store the schedule in the database
         Schedule::create([
             'name' => $validated['appointment_name'],
             'user_id' => $validated['user_id'],
-            'date' => $validated['date'],
+            'date' => json_encode($validated['date']),  // Use 'date' here if you change the validation
             'time' => json_encode($validated['time']),  // Encode time array as JSON
         ]);
 
-        return response()->json(['status' => 200, 'message' => 'Appointment created successfully']);
+        return response()->json(['status' => 200, 'message' => 'Schedule created successfully']);
     }
 
 
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Schedule  $schedule
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Schedule $schedule)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -75,7 +51,7 @@ class ScheduleController extends Controller
      */
     public function edit($id)
     {
-        $schedule = Schedule::findOrFail($id);  // Get the schedule by ID
+        $schedule = Schedule::findOrFail($id);
         return response()->json([
             'status' => 200,
             'schedule' => $schedule
@@ -91,26 +67,30 @@ class ScheduleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $validated = $request->validate([
-            'schedule_name' => 'required|string',
-            'date' => 'required|date',
-            'time' => 'required|array',  // Ensure time is an array
-        ]);
-
+        // Find the schedule by ID
         $schedule = Schedule::findOrFail($id);
 
-        $schedule->update([
-            'name' => $validated['schedule_name'],
-            'date' => $validated['date'],
-            'time' => json_encode($validated['time']), // Store time as a JSON array
+        // Validate the input
+        $validated = $request->validate([
+            'appointment_name' => 'required|string',
+            'user_id' => 'required|exists:users,id',
+            'date' => 'required|array',
+            'date.*' => 'date',
+            'time' => 'required|array',
+            'time.*' => 'string',
         ]);
 
-        return response()->json([
-            'status' => 200,
-            'message' => 'Schedule updated successfully',
-            'schedule' => $schedule
+        // Update the schedule in the database
+        $schedule->update([
+            'name' => $validated['appointment_name'],
+            'user_id' => $validated['user_id'],
+            'date' => json_encode($validated['date']),
+            'time' => json_encode($validated['time']),
         ]);
+
+        return response()->json(['status' => 200, 'message' => 'Schedule updated successfully']);
     }
+
 
 
     /**
