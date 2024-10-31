@@ -115,6 +115,7 @@ class Resume extends Model
             $this->slug = Str::slug(Str::random(10));
         }
 
+        $this->resume_name = request('resume_name');
         $this->description = request('description');
         $this->phone = request('phone');
         $this->email = request('email');
