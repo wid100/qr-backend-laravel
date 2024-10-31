@@ -17,13 +17,16 @@ class CreateAppointmentsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->date('date');
-            $table->string('time_slot');
-            $table->string('name');
+            $table->json('time_slot');
+            $table->string('first_name');
+            $table->string('last_name')->nullable();
             $table->string('email');
             $table->string('phone')->nullable();
             $table->string('address')->nullable();
-            $table->text('description')->nullable();
-            $table->enum('status', ['pending', 'confirmed', 'cancelled'])->default('pending');
+            $table->string('meeting_app')->nullable();
+            $table->text('message')->nullable();
+            $table->string('meeting_type')->nullable();
+            $table->boolean('status')->default(0);
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

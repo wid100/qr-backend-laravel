@@ -13,52 +13,73 @@ class AppointmentController extends Controller
 {
 
 
-    public function getAvailableSlots(Request $request)
+
+
+    public function getAvailableSlots($user_id, $date)
     {
-        $user_id = $request->query('user_id');
-        $date = $request->query('date');
+        $parsedDate = Carbon::parse($date)->format('Y-m-d');
 
-        $scheduledSlots = Schedule::where('user_id', $user_id)
-            ->whereDate('date', $date)
-            ->pluck('time')
-            ->map(function ($time) {
-                return json_decode($time, true);
-            })
-            ->flatten()
-            ->toArray();
+        $schedules = Schedule::where('user_id', $user_id)
+            ->where('status', true)
+            ->get();
 
+        $availableSlots = [];
+
+        foreach ($schedules as $schedule) {
+            $dates = json_decode(
+                $schedule->date,
+                true
+            );
+            $times = json_decode($schedule->time, true);
+
+            if (in_array($parsedDate, $dates)) {
+                $availableSlots = array_merge($availableSlots, $times);
+            }
+        }
+
+        $availableSlots = array_unique($availableSlots);
         return response()->json([
             'status' => 200,
-            'timeSlots' => array_values($scheduledSlots),
+            'availableSlots' => $availableSlots
         ]);
+        // return response()->json(['availableSlots' => $availableSlots]);
     }
-
 
 
 
     public function store(Request $request)
     {
+        // Decode time_slots if sent as a JSON string
+        if ($request->has('time_slots') && is_string($request->time_slots)) {
+            $request->merge(['time_slots' => json_decode($request->time_slots, true)]);
+        }
+
         $request->validate([
             'date' => 'required|date',
-            'time_slot' => 'required|string',
-            'name' => 'required|string',
+            'time_slots' => 'required|array',
+            'first_name' => 'required|string',
+            'last_name' => 'required|string',
+            'user_id' => 'required|integer',
             'email' => 'required|email',
             'phone' => 'nullable|string',
             'address' => 'nullable|string',
-            'description' => 'nullable|string',
+            'meeting_app' => 'nullable|string',
+            'message' => 'nullable|string',
+            'meeting_type' => 'required'
         ]);
 
-        // Create appointment
         Appointment::create([
-            'user_id' => auth()->id(),
+            'user_id' => $request->user_id,
             'date' => $request->date,
-            'time_slot' => $request->time_slot,
-            'name' => $request->name,
+            'time_slot' => json_encode($request->time_slots),
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
             'email' => $request->email,
             'phone' => $request->phone,
             'address' => $request->address,
-            'description' => $request->description,
-            'status' => 'pending',
+            'meeting_app' => $request->meeting_app,
+            'message' => $request->message,
+            'meeting_type' => $request->meeting_type,
         ]);
 
         return response()->json(['message' => 'Appointment created successfully'], 200);

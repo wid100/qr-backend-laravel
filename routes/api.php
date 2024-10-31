@@ -127,10 +127,10 @@ Route::get('/schedule/{id}', [ScheduleController::class, 'index']);
 
 
 //appointments
-Route::post('/appointments', [AppointmentController::class, 'store']);
+Route::post('/create-appointment', [AppointmentController::class, 'store']);
 // routes/api.php
-// Route::get('/get-available-slots/{user_id}/{date}', [AppointmentController::class, 'getAvailableSlots']);
-Route::get('/get-available-slots', [AppointmentController::class, 'getAvailableSlots']);
+Route::get('/get-available-slots/{user_id}/{date}', [AppointmentController::class, 'getAvailableSlots']);
+// Route::get('/get-available-slots', [AppointmentController::class, 'getAvailableSlots']);
 // contact us
 Route::post('/message', [MessageController::class, 'create']);
 //FAQ
