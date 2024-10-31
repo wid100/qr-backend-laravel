@@ -223,24 +223,26 @@
 
                     <h2 class="section-heading-6">Experience</h2>
                     <ul class="experience-list-6">
-                        @foreach ($experiences as $exp)
-                            <li class="experience-item-6" style="color: #000">
-                                <p style="margin-bottom:5px; font-size:12px">
-                                    {{ \Carbon\Carbon::parse($exp['startYear'])->format('F Y') }} -
-                                    @if ($exp['workingNow'])
-                                        Present
-                                    @else
-                                        {{ $exp['endYear'] ? \Carbon\Carbon::parse($exp['endYear'])->format('F Y') : 'N/A' }}
-                                    @endif
-                                </p>
-                                <h3 style="font-size:16px; font-weight: 600; padding-bottom:7px">
-                                    {{ $exp['employeeName'] }} | {{ $exp['location'] }}
+                        @if ($experiences && count($experiences) > 0)
+                            @foreach ($experiences as $exp)
+                                <li class="experience-item-6" style="color: #000">
+                                    <p style="margin-bottom:5px; font-size:12px">
+                                        {{ \Carbon\Carbon::parse($exp['startYear'])->format('F Y') }} -
+                                        @if ($exp['workingNow'])
+                                            Present
+                                        @else
+                                            {{ $exp['endYear'] ? \Carbon\Carbon::parse($exp['endYear'])->format('F Y') : 'N/A' }}
+                                        @endif
+                                    </p>
+                                    <h3 style="font-size:16px; font-weight: 600; padding-bottom:7px">
+                                        {{ $exp['employeeName'] }} | {{ $exp['location'] }}
 
-                                </h3>
-                                <p style="font-size: 15px; padding-bottom:7px">{{ $exp['jobTitle'] }}</p>
-                                <p style="font-size: 12px; padding-right: 20px;"> {!! strip_tags($exp['description']) !!}</p>
-                            </li>
-                        @endforeach
+                                    </h3>
+                                    <p style="font-size: 15px; padding-bottom:7px">{{ $exp['jobTitle'] }}</p>
+                                    <p style="font-size: 12px; padding-right: 20px;"> {!! strip_tags($exp['description']) !!}</p>
+                                </li>
+                            @endforeach
+                        @endif
 
                     </ul>
                     <h2 class="section-heading-6" style="margin-top: 15px">References</h2>
@@ -277,7 +279,7 @@
                             @endif
                         </div>
                         <div class="left-site-bg"
-                            style="background:{{$resume->primary_color}};height:902px; padding:0px 20px 20px 20px ;clip-path: polygon(0 8%, 100% 0, 100% 100%, 0 100%); position: relative;">
+                            style="background:{{ $resume->primary_color }};height:902px; padding:0px 20px 20px 20px ;clip-path: polygon(0 8%, 100% 0, 100% 100%, 0 100%); position: relative;">
                             <table>
                                 <tr>
                                     <td align="center">
@@ -299,13 +301,13 @@
                                 <li class="contact-item-6">
                                     <p style="font-size:14px; color:#fff;">Email</p>
                                     <a href="mailto:{{ $resume->email }}" class="contact-link-6 "
-                                        style="color:#fff;">{{ $resume->email }}</a>
+                                        style="color:#fff; word-break: break-all">{{ $resume->email }}</a>
                                 </li>
                                 <li class="contact-item-6" style="color: #fff">
                                     <p style="font-size:14px;color:#fff;">Address</p>
-                                    <p style="font-size: 10px; color:#fff;">{{ $resume->address }}</p>
+                                    <p style="font-size: 10px; color:#fff; word-break: break-all">{{ $resume->address }}</p>
                                 </li>
-                            </ul>
+                            </ul> 
                             <h2 class="sub-heading-6" style="color: #fff">Education</h2>
                             <ul class="education-list-6">
                                 @forelse($education as $edu)

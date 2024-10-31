@@ -282,7 +282,7 @@
                                             </p>
                                             <h3 style="font-size:12px; font-weight: bold; margin-bottom:7px;">
                                                 {{ $exp['employeeName'] }} | {{ $exp['location'] }}</h3>
-                                            <p style="font-size:12px; margin: 0; color:{{ $resume->primary_color }}">
+                                            <p style="font-size:12px; margin: 0; ">
                                                 {{ $exp['jobTitle'] }}
                                             </p>
                                         </td>

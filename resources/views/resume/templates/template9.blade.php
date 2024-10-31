@@ -337,7 +337,7 @@
                                         <span style="font-size: 14px; color: #000">
                                             {{ \Carbon\Carbon::parse($edu['startYear'])->format('F Y') }} -
                                             {{ \Carbon\Carbon::parse($edu['endYear'])->format('F Y') }}</span>
-                                        <p style="font-size: 14px;color:{{ $resume->primary_color }};">{{ $edu['degree'] }}
+                                        <p style="font-size: 14px;">{{ $edu['degree'] }}
                                         </p>
                                         <p style="font-size: 14px; color:#000">Grade:{{ $edu['grade'] }}</p>
                                         <p style="font-size: 14px; color:#000">{{ $edu['institution'] }}</p>
