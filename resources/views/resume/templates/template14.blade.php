@@ -311,11 +311,11 @@
                                 style="color: #000;border-bottom: 1px solid #000; margin-bottom:20px">
 
                                 <p style="margin-bottom:5px; font-size:14px">
-                                    {{ \Carbon\Carbon::parse($exp['startYear'])->format('Y') }} -
+                                    {{ \Carbon\Carbon::parse($exp['startYear'])->format('F Y') }} -
                                     @if ($exp['workingNow'])
                                         Present
                                     @else
-                                        {{ $exp['endYear'] ? \Carbon\Carbon::parse($exp['endYear'])->format('Y') : 'N/A' }}
+                                        {{ $exp['endYear'] ? \Carbon\Carbon::parse($exp['endYear'])->format('F Y') : 'N/A' }}
                                     @endif
                                 </p>
                                 <h3 style="font-size:18px; font-weight: 600; padding-bottom:7px">
@@ -342,8 +342,8 @@
                                                 <p style="margin: 0;">{{ $edu['degree'] }}</p>
                                             </td>
                                             <td style="font-size:12px; text-align: right; vertical-align: top;">
-                                                <span> {{ \Carbon\Carbon::parse($edu['startYear'])->format('Y') }} -
-                                                    {{ \Carbon\Carbon::parse($edu['endYear'])->format('Y') }}</span>
+                                                <span> {{ \Carbon\Carbon::parse($edu['startYear'])->format('F Y') }} -
+                                                    {{ \Carbon\Carbon::parse($edu['endYear'])->format('F Y') }}</span>
                                             </td>
                                         </tr>
                                     </table>

@@ -231,7 +231,7 @@
 
                     <div style="padding:20px;">
                         <div style="width: 100%;">
-                            <h1 class="name-heading-11"> <b>{{ $resume->fname }}</b> {{ $resume->lname }}</h1>
+                            <h1 class="name-heading-11" style="color:{{ $resume->primary_color }}"> <b>{{ $resume->fname }}</b> {{ $resume->lname }}</h1>
                             <p class="designation-11">{{ $resume->profession }}</p>
                             <p class="description-11" style="font-size: 14px">
                                 {!! strip_tags($resume->description) !!}
@@ -248,13 +248,13 @@
                         </div>
                     </div>
                     <div style="padding:0 20px ;">
-                        <h2 class="sub-heading-11">Education</h2>
+                        <h2 class="sub-heading-11" style="color: {{ $resume->primary_color }}">Education</h2>
                         <ul class="education-list-11" style="margin-bottom: 7px">
                             @forelse($education as $edu)
                                 <li class="education-item-11">
                                     <span style="font-size: 14px">
-                                        {{ \Carbon\Carbon::parse($edu['startYear'])->format('Y') }} -
-                                        {{ \Carbon\Carbon::parse($edu['endYear'])->format('Y') }}</span>
+                                        {{ \Carbon\Carbon::parse($edu['startYear'])->format('F Y') }} -
+                                        {{ \Carbon\Carbon::parse($edu['endYear'])->format('F Y') }}</span>
                                     <p style="font-size: 14px">{{ $edu['degree'] }}
                                     </p>
                                     <p style="font-size: 14px">Grade:{{ $edu['grade'] }}</p>
@@ -265,7 +265,7 @@
                             @endforelse
 
                         </ul>
-                        <h2 class="sub-heading-11" style="padding-bottom: 10px">Skills</h2>
+                        <h2 class="sub-heading-11" style="padding-bottom: 10px; color: {{ $resume->primary_color }}">Skills</h2>
 
                         <ul class="skillnews-list-11">
                             @forelse($skills as $skill)
@@ -276,7 +276,7 @@
                                 </li>
                             @endforelse
                         </ul>
-                        <h2 class="sub-heading-11">Languages</h2>
+                        <h2 class="sub-heading-11"  style="color: {{ $resume->primary_color }}">Languages</h2>
                         <table style="width: 100%; padding-top:10px; text-align: center">
                             @foreach ($languages as $lan)
                                 <tr>
@@ -288,7 +288,7 @@
                         </table>
 
 
-                        <h2 class="sub-heading-11">Interests</h2>
+                        <h2 class="sub-heading-11"  style="color: {{ $resume->primary_color }}">Interests</h2>
                         <table style="width: 100%; padding-top:10px; text-align: center">
                             @foreach ($interestes as $int)
                                 <tr>
@@ -334,17 +334,17 @@
                         </tr>
 
                     </table>
-                    <h2 class="section-heading-11" style="margin-top: 15px">Experience</h2>
+                    <h2 class="section-heading-11" style="margin-top: 15px; color: {{ $resume->primary_color }}">Experience</h2>
                     <ul class="experience-list-11">
                         @foreach ($experiences as $exp)
                             <li class="experience-item-11" style="color: #000; margin-bottom:20px">
 
                                 <p style="margin-bottom:5px; font-size:14px">
-                                    {{ \Carbon\Carbon::parse($exp['startYear'])->format('Y') }} -
+                                    {{ \Carbon\Carbon::parse($exp['startYear'])->format('F Y') }} -
                                     @if ($exp['workingNow'])
                                         Present
                                     @else
-                                        {{ $exp['endYear'] ? \Carbon\Carbon::parse($exp['endYear'])->format('Y') : 'N/A' }}
+                                        {{ $exp['endYear'] ? \Carbon\Carbon::parse($exp['endYear'])->format('F Y') : 'N/A' }}
                                     @endif
                                 </p>
                                 <h3 style="font-size:18px; font-weight: 600; padding-bottom:7px">
@@ -358,7 +358,7 @@
                         @endforeach
 
                     </ul>
-                    <h2 class="section-heading-11" style="margin-top: 15px">References</h2>
+                    <h2 class="section-heading-11" style="margin-top: 15px;color: {{ $resume->primary_color }}">References</h2>
                     <table style="width: 100%;">
                         <tr>
                             @foreach ($references as $reference)

@@ -191,7 +191,7 @@
                         <p class="designation-12">{{ $resume->profession }}</p>
                     </div>
 
-                    <div style="padding:20px;">
+                    <div>
                         <h2 class="sub-heading-12">Contact</h2>
                         <ul class="contact-list-12">
                             <li class="contact-item-12">
@@ -264,11 +264,11 @@
                         @foreach ($experiences as $exp)
                             <li class="experience-item-12" style="color: #000; margin-bottom:20px">
                                 <p style="margin-bottom:5px; font-size:14px">
-                                    {{ \Carbon\Carbon::parse($exp['startYear'])->format('Y') }} -
+                                    {{ \Carbon\Carbon::parse($exp['startYear'])->format('F Y') }} -
                                     @if ($exp['workingNow'])
                                         Present
                                     @else
-                                        {{ $exp['endYear'] ? \Carbon\Carbon::parse($exp['endYear'])->format('Y') : 'N/A' }}
+                                        {{ $exp['endYear'] ? \Carbon\Carbon::parse($exp['endYear'])->format('F Y') : 'N/A' }}
                                     @endif
                                 </p>
                                 <h3 style="font-size:18px; font-weight: 600; padding-bottom:7px">
@@ -286,8 +286,8 @@
                         @forelse($education as $edu)
                             <li class="education-item-12">
                                 <span style="font-size: 12px">
-                                    {{ \Carbon\Carbon::parse($edu['startYear'])->format('Y') }} -
-                                    {{ \Carbon\Carbon::parse($edu['endYear'])->format('Y') }}</span>
+                                    {{ \Carbon\Carbon::parse($edu['startYear'])->format('F Y') }} -
+                                    {{ \Carbon\Carbon::parse($edu['endYear'])->format('F Y') }}</span>
                                 <p style="font-size: 14px">{{ $edu['degree'] }}
                                 </p>
                                 <p style="font-size: 12px">Grade:{{ $edu['grade'] }}</p>
