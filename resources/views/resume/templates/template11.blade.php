@@ -309,7 +309,7 @@
                         <tr>
                             <td style="vertical-align: bottom;text" align="center">
                                 <h4>Address</h4>
-                                <p class="description-1" style="font-size: 14px">
+                                <p class="description-1" align="center" style="font-size: 14px; width:200px; word-break: break-all; word-break:break-word">
                                     {{ $resume->address }}
                                 </p>
                             </td>
@@ -325,9 +325,9 @@
                                             class="contact-link-11">{{ $resume->phone }}</a>
                                     </p>
                                     <p style="font-size: 14px;padding-bottom:5px"><span
-                                            style="font-size: 14px">Email</span>
+                                            style="font-size: 14px; word-break: break-all">Email</span>
                                         <a href="mailto:{{ $resume->email }}"
-                                            class="contact-link-11">{{ $resume->email }}</a>
+                                            class="contact-link-11" style="width:150px">{{ $resume->email }}</a>
                                     </p>
                                 </div>
                             </td>
