@@ -46,6 +46,17 @@ class AppointmentController extends Controller
     }
 
 
+    public function index(Request $request, $id)
+    {
+        $appointments = Appointment::where('user_id', $id)->get();
+
+        return response()->json([
+            'status' => 200,
+            'appointments' => $appointments,
+        ]);
+    }
+
+
 
     public function store(Request $request)
     {
@@ -82,6 +93,11 @@ class AppointmentController extends Controller
             'meeting_type' => $request->meeting_type,
         ]);
 
-        return response()->json(['message' => 'Appointment created successfully'], 200);
+        return response()->json(
+            [
+                'message' => 'Appointment created successfully',
+                'status' => 200,
+            ],
+        );
     }
 }
