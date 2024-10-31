@@ -133,7 +133,7 @@
             padding: 8px 0 10px 0px;
             border-bottom: 1px solid #000;
             margin-bottom: 15px;
-
+            text-transform: uppercase;
             font-size: 18px
         }
 
@@ -194,21 +194,23 @@
                     <h1 class="name-heading-6"><b>{{ $resume->fname }}</b> {{ $resume->lname }}</h1>
                     <p class="designation-6">{{ $resume->profession }}</p>
                     <p class="description-6" style="font-size: 14px">
-                         {!! strip_tags($resume->description) !!}
+                        {!! strip_tags($resume->description) !!}
                     </p>
                 </div>
                 <div class="right-side-6">
 
-                    <h2 class="section-heading-6" style="margin-top: 0px; color:{{ $resume->primary_color }}">Experience</h2>
+                    <h2 class="section-heading-6"
+                        style=" margin-top: 0px; text-transfrom:uppercase; color:{{ $resume->primary_color }}">
+                        Experience</h2>
                     <ul class="experience-list-6">
                         @foreach ($experiences as $exp)
                             <li class="experience-item-6" style="color: #000">
                                 <p style="margin-bottom:5px; font-size:14px">
-                                    {{ \Carbon\Carbon::parse($exp['startYear'])->format('Y') }} -
+                                    {{ \Carbon\Carbon::parse($exp['startYear'])->format('F Y') }} -
                                     @if ($exp['workingNow'])
                                         Present
                                     @else
-                                        {{ $exp['endYear'] ? \Carbon\Carbon::parse($exp['endYear'])->format('Y') : 'N/A' }}
+                                        {{ $exp['endYear'] ? \Carbon\Carbon::parse($exp['endYear'])->format('F Y') : 'N/A' }}
                                     @endif
                                 </p>
                                 <h3 style="font-size:16px; font-weight: 600; padding-bottom:7px">
@@ -220,7 +222,9 @@
                             </li>
                         @endforeach
                     </ul>
-                    <h2 class="section-heading-6" style="margin-top: 15px;color:{{ $resume->primary_color }}">References</h2>
+                    <h2 class="section-heading-6"
+                        style="margin-top: 15px;text-transfrom:uppercase;color:{{ $resume->primary_color }}">References
+                    </h2>
                     <table style="width: 100%;">
                         <tr>
                             @foreach ($references as $reference)
@@ -244,7 +248,8 @@
                 </div>
             </td>
             <!-- Left side -->
-            <td class="left-side-6s" style="width: 20%; height:100%; padding:0 20px; vertical-align: top; background-color: #F5F5F5;">
+            <td class="left-side-6s"
+                style="width: 20%; height:100%; padding:0 20px; vertical-align: top; background-color: #F5F5F5;">
                 <div class="left-side-6">
 
                     <div style="width: 100%;text-align: center;padding-top:20px">
@@ -259,7 +264,7 @@
                         @if (isset($qrCodeBase64))
                             <img src="{{ $qrCodeBase64 }}" alt="QR Code" class="qr-image-6" />
                         @endif
-                        <h2 class="sub-heading-6" style ="color:{{ $resume->primary_color }}"  >Contact</h2>
+                        <h2 class="sub-heading-6" style ="color:{{ $resume->primary_color }}">Contact</h2>
                         <ul class="contact-list-6">
                             <li class="contact-item-6">
                                 <p style="font-size:14px">Phone</p>
@@ -275,13 +280,13 @@
                                 <p style="font-size: 14px;">{{ $resume->address }}</p>
                             </li>
                         </ul>
-                        <h2 class="sub-heading-6" style ="color:{{ $resume->primary_color }}" >Education</h2>
+                        <h2 class="sub-heading-6" style ="color:{{ $resume->primary_color }}">Education</h2>
                         <ul class="education-list-6">
                             @forelse($education as $edu)
                                 <li class="education-item-6">
                                     <span style="font-size: 14px">
-                                        {{ \Carbon\Carbon::parse($edu['startYear'])->format('Y') }} -
-                                        {{ \Carbon\Carbon::parse($edu['endYear'])->format('Y') }}</span>
+                                        {{ \Carbon\Carbon::parse($edu['startYear'])->format('F Y') }} -
+                                        {{ \Carbon\Carbon::parse($edu['endYear'])->format('F Y') }}</span>
                                     <p style="font-size: 14px">{{ $edu['degree'] }}
                                     </p>
                                     <p style="font-size: 14px">Grade:{{ $edu['grade'] }}</p>
@@ -291,7 +296,8 @@
                                 <p style="font-size: 14px">No education data available</p>
                             @endforelse
                         </ul>
-                        <h2 class="sub-heading-6"style="padding-bottom: 10px;color:{{ $resume->primary_color }}">Skills</h2>
+                        <h2 class="sub-heading-6"style="padding-bottom: 10px;color:{{ $resume->primary_color }}">Skills
+                        </h2>
 
                         <table style="width: 100%; padding-top:10px">
 
@@ -310,13 +316,13 @@
                                 </tr>
                             @endforelse
                         </table>
-                        <h2 class="sub-heading-6" style ="color:{{ $resume->primary_color }}" >Languages</h2>
+                        <h2 class="sub-heading-6" style ="color:{{ $resume->primary_color }}">Languages</h2>
                         <ul class="language-list-6">
                             @foreach ($languages as $lan)
                                 <li class="language-item-6">{{ $lan }}</li>
                             @endforeach
                         </ul>
-                        <h2 class="sub-heading-6" style ="color:{{ $resume->primary_color }}" >Interests</h2>
+                        <h2 class="sub-heading-6" style ="color:{{ $resume->primary_color }}">Interests</h2>
                         <ul class="hobbies-list-6">
                             @foreach ($interestes as $int)
                                 <li class="hobbies-item-6">{{ $int }}</li>

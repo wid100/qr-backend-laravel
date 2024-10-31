@@ -175,6 +175,8 @@ class WebsiteController extends Controller
                 if ($website->image && file_exists(public_path($website->image))) {
                     unlink(public_path($website->image));
                 }
+            } else if ($request->image == 'null') {
+                unset($validatedData['image']);
             }
 
             Log::info('Updating website', ['website' => $website]);
@@ -222,5 +224,4 @@ class WebsiteController extends Controller
         }
         return response()->json(['message' => 'website deleted successfully']);
     }
-
 }

@@ -152,6 +152,7 @@
             margin-bottom: 10px;
             margin-top: 10px;
             background: #00B2D9;
+            text-transform: uppercase;
             font-size: 18px;
             border-radius: 0 10px 0 0;
         }
@@ -257,11 +258,11 @@
                             <li class="experience-item-6" style="color: #000">
 
                                 <p style="margin-bottom:5px; font-size:14px">
-                                    {{ \Carbon\Carbon::parse($exp['startYear'])->format('Y') }} -
+                                    {{ \Carbon\Carbon::parse($exp['startYear'])->format('F Y') }} -
                                     @if ($exp['workingNow'])
                                         Present
                                     @else
-                                        {{ $exp['endYear'] ? \Carbon\Carbon::parse($exp['endYear'])->format('Y') : 'N/A' }}
+                                        {{ $exp['endYear'] ? \Carbon\Carbon::parse($exp['endYear'])->format('F Y') : 'N/A' }}
                                     @endif
                                 </p>
                                 <h3 style="font-size:16px; font-weight: 600; padding-bottom:7px">
@@ -296,7 +297,7 @@
                 </div>
             </td>
             <!-- Left side -->
-            <td class="left-side-6s" style="width: 30%;  vertical-align: top; border-left:1px solid #00B2D9">
+            <td class="left-side-6s" style="width: 30%;  vertical-align: top; border-left:1px solid {{ $resume->primary_color }}">
                 <div class="left-side-6">
                     <div>
                         <div style="width: 100%;text-align: center;">
@@ -334,8 +335,8 @@
                                 @forelse($education as $edu)
                                     <li class="education-item-6">
                                         <span style="font-size: 14px; color: #000">
-                                            {{ \Carbon\Carbon::parse($edu['startYear'])->format('Y') }} -
-                                            {{ \Carbon\Carbon::parse($edu['endYear'])->format('Y') }}</span>
+                                            {{ \Carbon\Carbon::parse($edu['startYear'])->format('F Y') }} -
+                                            {{ \Carbon\Carbon::parse($edu['endYear'])->format('F Y') }}</span>
                                         <p style="font-size: 14px;color:{{ $resume->primary_color }};">{{ $edu['degree'] }}
                                         </p>
                                         <p style="font-size: 14px; color:#000">Grade:{{ $edu['grade'] }}</p>

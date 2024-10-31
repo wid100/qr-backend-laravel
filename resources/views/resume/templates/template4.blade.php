@@ -11,8 +11,8 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            
-            font-family:Arial, Helvetica, sans-serif;
+
+            font-family: Arial, Helvetica, sans-serif;
         }
 
         body {
@@ -67,7 +67,7 @@
         .hobbies-item-4,
         .certification-item-4 {
             list-style: none;
-            font-size: 12px;
+            font-size: 14px;
             padding: 4px 0;
             color: #fff;
             line-height: 140%;
@@ -106,7 +106,7 @@
         .right-side-4 {
             background: #ffffff;
             color: #000000;
-            padding: 30px;
+            padding: 20px 30px 30px 30px;
         }
 
         .name-heading-4 {
@@ -198,7 +198,7 @@
                     @endif
 
                 </div>
-                <div >
+                <div>
                     <h2 class="sub-heading-4" style="color: {{ $resume->primary_color }}">Contact</h2>
                     <ul class="contact-list-4">
                         <li class="contact-item-4">
@@ -218,16 +218,16 @@
                     <ul class="education-list-4" style="margin-bottom: 7px">
                         @forelse($education as $edu)
                             <li class="education-item-4">
-                                <span style="font-size: 12px">
-                                    {{ \Carbon\Carbon::parse($edu['startYear'])->format('Y') }} -
-                                    {{ \Carbon\Carbon::parse($edu['endYear'])->format('Y') }}</span>
+                                <span style="font-size: 14px">
+                                    {{ \Carbon\Carbon::parse($edu['startYear'])->format('F Y') }} -
+                                    {{ \Carbon\Carbon::parse($edu['endYear'])->format('F Y') }}</span>
                                 <p style="font-size: 14px">{{ $edu['degree'] }}
                                 </p>
-                                <p style="font-size: 12px">Grade:{{ $edu['grade'] }}</p>
-                                <p style="font-size: 12px">{{ $edu['institution'] }}</p>
+                                <p style="font-size: 14px">Grade:{{ $edu['grade'] }}</p>
+                                <p style="font-size: 14px">{{ $edu['institution'] }}</p>
                             </li>
                         @empty
-                            <p style="font-size: 12px">No education data available</p>
+                            <p style="font-size: 14px">No education data available</p>
                         @endforelse
                     </ul>
                     <h2 class="sub-heading-4"style="color: {{ $resume->primary_color }};padding-bottom: 10px ">Skills
@@ -236,13 +236,13 @@
                     <table style="width: 100%; padding-top:10px">
                         @forelse($skills as $skill)
                             <tr>
-                                <td style="font-size: 12px;padding-bottom:3px; white-space:nowrap; color:#fff">
+                                <td style="font-size: 14px;padding-bottom:3px; white-space:nowrap; color:#fff">
                                     {{ $skill }}
                                 </td>
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="1" style="font-size: 12px; white-space:nowrap; color:#fff">
+                                <td colspan="1" style="font-size: 14px; white-space:nowrap; color:#fff">
                                     No skills available.
                                 </td>
                             </tr>
@@ -273,7 +273,7 @@
                             <td>
                                 <h1 class="name-heading-4"> <b>{{ $resume->fname }}</b> {{ $resume->lname }}</h1>
                                 <p class="designation-4">{{ $resume->profession }}</p>
-                                <p class="description-4" style="font-size: 12px">
+                                <p class="description-4" style="font-size: 14px">
                                     {!! strip_tags($resume->description) !!}
                                 </p>
                             </td>
@@ -288,17 +288,18 @@
                 </div>
                 <div class="right-side-4">
 
-                    <h2 class="section-heading-4" style="margin-top: 15px;color: {{ $resume->primary_color }}">Experience</h2>
+                    <h2 class="section-heading-4" style="margin-top: 0px;color: {{ $resume->primary_color }}">
+                        Experience</h2>
                     <ul class="experience-list-4">
                         @foreach ($experiences as $exp)
                             <li class="experience-item-4" style="color: #000; margin-bottom:20px">
 
                                 <p style="margin-bottom:5px; font-size:14px">
-                                    {{ \Carbon\Carbon::parse($exp['startYear'])->format('Y') }} -
+                                    {{ \Carbon\Carbon::parse($exp['startYear'])->format('F Y') }} -
                                     @if ($exp['workingNow'])
                                         Present
                                     @else
-                                        {{ $exp['endYear'] ? \Carbon\Carbon::parse($exp['endYear'])->format('Y') : 'N/A' }}
+                                        {{ $exp['endYear'] ? \Carbon\Carbon::parse($exp['endYear'])->format('F Y') : 'N/A' }}
                                     @endif
                                 </p>
                                 <h3 style="font-size:18px; font-weight: 600; padding-bottom:7px">
@@ -312,27 +313,28 @@
                         @endforeach
 
                     </ul>
-                    <h2 class="section-heading-4" style="margin-top: 15px;color: {{ $resume->primary_color }}">References</h2>
+                    <h2 class="section-heading-4" style="margin-top: 15px;color: {{ $resume->primary_color }}">
+                        References</h2>
                     <table style="width: 100%;">
                         <tr>
-                            <td>
-                                <h3 style="font-size: 16px; padding-bottom:7px">Name Surname</h3>
-                                <p style="font-size: 12px; padding-bottom:5px">Job Position, Company</p>
-                                <p style="font-size: 12px; padding-bottom:5px">Phone: <span> <a href="tel:123-456-7890"
-                                            class="contact-link-4">123-456-7890</a></span></p>
-                                <p style="font-size: 12px;padding-bottom:5px">Email: <a
-                                        href="mailto:jahanara.womeningdigital@gmail.com"
-                                        class="contact-link-4">jahanara.womeningdigital@gmail.com</a> </p>
-                            </td>
-                            <td>
-                                <h3 style="font-size: 16px; padding-bottom:7px">Name Surname</h3>
-                                <p style="font-size: 12px; padding-bottom:5px">Job Position, Company</p>
-                                <p style="font-size: 12px; padding-bottom:5px">Phone: <span> <a href="tel:123-456-7890"
-                                            class="contact-link-4">123-456-7890</a></span></p>
-                                <p style="font-size: 12px;padding-bottom:5px">Email: <a
-                                        href="mailto:jahanara.womeningdigital@gmail.com"
-                                        class="contact-link-4">jahanara.womeningdigital@gmail.com</a> </p>
-                            </td>
+                            @foreach ($references as $reference)
+                                <td>
+                                    <h3
+                                        style="font-size: 16px; padding-bottom:7px; color:{{ $resume->primary_color }}">
+                                        {{ $reference['firstName'] }}
+                                        {{ $reference['lastName'] }}</h3>
+                                    <p style="font-size: 14px; padding-bottom:5px">{{ $reference['jobTitle'] }}</p>
+                                    <p style="font-size: 14px; padding-bottom:5px"><span
+                                           >Phone:</span> <span> <a
+                                                href="tel:{{ $reference['phone'] }}"
+                                                class="contact-link-4">{{ $reference['phone'] }}</a></span></p>
+                                    <p style="font-size: 14px;padding-bottom:5px"><span
+                                          >Email:
+                                        </span><a href="mailto:{{ $reference['email'] }}"
+                                            class="contact-link-4">{{ $reference['email'] }}</a> </p>
+                                </td>
+                            @endforeach
+                   
                         </tr>
                     </table>
                 </div>

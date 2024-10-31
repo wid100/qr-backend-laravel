@@ -81,9 +81,12 @@ class ResumeController extends Controller
      * @param  \App\Models\Admin\Resume  $resume
      * @return \Illuminate\Http\Response
      */
-    public function edit(Resume $resume)
+    public function edit($slug)
     {
-        //
+        $resume =  Resume::where('slug', $slug)->first();
+
+        // Return the resume resource
+        return new ResumeResource($resume);
     }
 
     /**

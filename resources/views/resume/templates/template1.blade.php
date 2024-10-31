@@ -53,7 +53,7 @@
             text-transform: uppercase;
             padding-bottom: 6px;
             font-weight: 600;
-            font-family: Arial, Helvetica, sans-serif !important; 
+            font-family: Arial, Helvetica, sans-serif !important;
         }
 
         .contact-list-1,
@@ -63,7 +63,7 @@
         .hobbies-list-1,
         .certifications-list-1 {
             padding-left: 0;
-               font-family: Arial, Helvetica, sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
             padding-right: 20px;
         }
 
@@ -127,7 +127,7 @@
         .designation-1 {
             font-weight: 400;
             color: #000000;
-               font-family: Arial, Helvetica, sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
             margin-top: 10px;
         }
 
@@ -232,8 +232,8 @@
                             @forelse($education as $edu)
                                 <li class="education-item-1">
                                     <span style="font-size: 14px">
-                                        {{ \Carbon\Carbon::parse($edu['startYear'])->format('Y') }} -
-                                        {{ \Carbon\Carbon::parse($edu['endYear'])->format('Y') }}</span>
+                                        {{ \Carbon\Carbon::parse($edu['startYear'])->format('F Y') }} -
+                                        {{ \Carbon\Carbon::parse($edu['endYear'])->format('F Y') }}</span>
                                     <p style="font-size: 14px">{{ $edu['degree'] }}
                                     </p>
                                     <p style="font-size: 14px">Grade:{{ $edu['grade'] }}</p>
@@ -307,11 +307,11 @@
                             <li class="experience-item-1" style="color: #000; margin-bottom:20px">
 
                                 <p style="margin-bottom:5px; font-size:14px">
-                                    {{ \Carbon\Carbon::parse($exp['startYear'])->format('Y') }} -
+                                    {{ \Carbon\Carbon::parse($exp['startYear'])->format('F Y') }} -
                                     @if ($exp['workingNow'])
                                         Present
                                     @else
-                                        {{ $exp['endYear'] ? \Carbon\Carbon::parse($exp['endYear'])->format('Y') : 'N/A' }}
+                                        {{ $exp['endYear'] ? \Carbon\Carbon::parse($exp['endYear'])->format('F Y') : 'N/A' }}
                                     @endif
                                 </p>
                                 <h3 style="font-size:18px; font-weight: 600; padding-bottom:7px">
@@ -334,7 +334,7 @@
                                 <td>
                                     <h3 style="font-size: 16px; padding-bottom:7px">{{ $reference['firstName'] }}
                                         {{ $reference['lastName'] }}</h3>
-                                    <p style="font-size: 14px; padding-bottom:5px">{{ $reference['jobTitle'] }}</p>
+                                    <p style="font-size: 14px; padding-bottom:5px;">{{ $reference['jobTitle'] }}</p>
                                     <p style="font-size: 14px; padding-bottom:5px">Phone: <span> <a
                                                 href='tel:{{ $reference['phone'] }}'
                                                 class="contact-link-1">{{ $reference['phone'] }}</a></span>
