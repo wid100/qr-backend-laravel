@@ -83,14 +83,6 @@
             transition: background 0.3s;
         }
 
-        .experience-item-14 {
-            border-bottom: 1px solid #000;
-        }
-
-        .experience-item-14:last-child {
-            border-bottom: none;
-        }
-
         .contact-item-14,
         .reference-item-14 {
             text-align: center;
@@ -308,7 +300,7 @@
                     <ul class="experience-list-14">
                         @foreach ($experiences as $exp)
                             <li class="experience-item-14"
-                                style="color: #000;border-bottom: 1px solid #000; margin-bottom:20px">
+                                style="color: #000; margin-bottom:20px">
 
                                 <p style="margin-bottom:5px; font-size:14px">
                                     {{ \Carbon\Carbon::parse($exp['startYear'])->format('F Y') }} -
@@ -318,7 +310,7 @@
                                         {{ $exp['endYear'] ? \Carbon\Carbon::parse($exp['endYear'])->format('F Y') : 'N/A' }}
                                     @endif
                                 </p>
-                                <h3 style="font-size:18px; font-weight: 600; padding-bottom:7px">
+                                <h3 style="font-size:18px; font-weight: 600; line-height:140px; padding-bottom:7px">
                                     {{ $exp['employeeName'] }} | {{ $exp['location'] }}
 
                                 </h3>

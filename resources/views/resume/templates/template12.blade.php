@@ -263,21 +263,29 @@
                     <ul class="experience-list-12">
                         @foreach ($experiences as $exp)
                             <li class="experience-item-12" style="color: #000; margin-bottom:20px">
-                                <p style="margin-bottom:5px; font-size:14px">
-                                    {{ \Carbon\Carbon::parse($exp['startYear'])->format('F Y') }} -
-                                    @if ($exp['workingNow'])
-                                        Present
-                                    @else
-                                        {{ $exp['endYear'] ? \Carbon\Carbon::parse($exp['endYear'])->format('F Y') : 'N/A' }}
-                                    @endif
-                                </p>
-                                <h3 style="font-size:18px; font-weight: 600; padding-bottom:7px">
-                                    {{ $exp['employeeName'] }} | {{ $exp['location'] }}
-
-                                </h3>
-                                <p style="font-size: 17px; padding-bottom:7px">{{ $exp['jobTitle'] }}</p>
-                                <p style="font-size: 16px; line-height:130%; padding-right: 20px;">
-                                    {!! strip_tags($exp['description']) !!}</p>
+                                <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                                    <tr>
+                                        <td width="35%" valign="top" align="left">
+                                            <p style="margin-bottom:5px; font-size:14px;">
+                                                {{ \Carbon\Carbon::parse($exp['startYear'])->format('F Y') }} -
+                                                @if ($exp['workingNow'])
+                                                    Present
+                                                @else
+                                                    {{ $exp['endYear'] ? \Carbon\Carbon::parse($exp['endYear'])->format('F Y') : 'N/A' }}
+                                                @endif
+                                            </p>
+                                            <h3 style="font-size:18px; font-weight: bold; margin-bottom:7px;">
+                                                {{ $exp['employeeName'] }} | {{ $exp['location'] }}</h3>
+                                            <p style="font-size:14px; margin: 0; ">
+                                                {{ $exp['jobTitle'] }}
+                                            </p>
+                                        </td>
+                                        <td width="5%"></td>
+                                        <td width="60%" valign="top" align="right" style="text-align: left;">
+                                            <p style="font-size:14px; line-height:130%;"> {!! strip_tags($exp['description']) !!}</p>
+                                        </td>
+                                    </tr>
+                                </table>
                             </li>
                         @endforeach
                     </ul>

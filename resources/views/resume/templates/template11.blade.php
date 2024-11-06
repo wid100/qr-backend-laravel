@@ -325,7 +325,7 @@
                                             class="contact-link-11">{{ $resume->phone }}</a>
                                     </p>
                                     <p style="font-size: 14px;padding-bottom:5px"><span
-                                            style="font-size: 14px; word-break: break-all">Email</span>
+                                            style="font-size: 14px; display: block">Email</span>
                                         <a href="mailto:{{ $resume->email }}"
                                             class="contact-link-11" style="width:150px">{{ $resume->email }}</a>
                                     </p>
