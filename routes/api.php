@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\StripePaymentController;
 use App\Http\Controllers\Api\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -66,6 +67,10 @@ Route::post('/verify-payment', [PaymentController::class, 'verifyPayment']);
 Route::post('success', [paymentController::class, 'success'])->name('success');
 Route::post('fail', [paymentController::class, 'fail'])->name('fail');
 Route::get('cancel', [paymentController::class, 'cancel'])->name('cancel');
+
+// stripe
+Route::post('/create-payment-intent', [StripePaymentController::class, 'createPaymentIntent']);
+Route::post('/save-transaction', [StripePaymentController::class, 'store']);
 
 
 // Chaker Payment
