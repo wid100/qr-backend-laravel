@@ -8,6 +8,8 @@ use App\Models\Schedule;
 use App\Models\Appointment;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\AppointmentApprovedMail;
 
 class AppointmentController extends Controller
 {
@@ -124,24 +126,38 @@ class AppointmentController extends Controller
         // Find the appointment by ID
         $appointment = Appointment::findOrFail($id);
 
-        // Validate the incoming data
-        $validated = $request->validate([
-            'meeting_link' => 'required|string|max:255',
+        // Conditional validation based on meeting_type
+        $rules = [
             'password' => 'nullable|string|max:255',
-            'location' => 'nullable|string|max:255',
             'message' => 'nullable|string|max:1000',
-        ]);
+        ];
+
+        if ($appointment->meeting_type == 1) {
+            // Meeting type is 1 (online meeting), meeting_link is required, location is nullable
+            $rules['meeting_link'] = 'required|string|max:255';
+            $rules['location'] = 'nullable|string|max:255';
+        } elseif ($appointment->meeting_type == 2) {
+            // Meeting type is 2 (physical meeting), location is required, meeting_link is nullable
+            $rules['location'] = 'required|string|max:255';
+            $rules['meeting_link'] = 'nullable|string|max:255';
+        }
+
+        // Validate the incoming data
+        $validated = $request->validate($rules);
 
         // Update appointment details
         $appointment->meeting_link = $validated['meeting_link'];
         $appointment->meeting_pass = $validated['password'] ?? null;
         $appointment->location = $validated['location'] ?? null;
         $appointment->approval_message = $validated['message'] ?? null;
+        $appointment->status = 1; // Approved status
+
+        // Send the email
+        Mail::to($appointment->email)->send(new AppointmentApprovedMail($appointment));
 
         // Save changes
         $appointment->save();
 
-        // Return a response indicating success
-        return response()->json(['message' => 'Appointment updated successfully'], 200);
+        return response()->json(['message' => 'Appointment updated and email sent successfully'], 200);
     }
 }
