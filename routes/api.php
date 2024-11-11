@@ -20,6 +20,7 @@ use App\Http\Controllers\Api\MessageController;
 use App\Http\Controllers\InstagramController;
 use App\Http\Controllers\Auth\CustomAuthenticatedSessionController;
 use App\Http\Controllers\WebsiteController;
+use App\Http\Controllers\Admin\PayPalController;
 
 /*
 |--------------------------------------------------------------------------
@@ -71,6 +72,11 @@ Route::get('cancel', [paymentController::class, 'cancel'])->name('cancel');
 // stripe
 Route::post('/create-payment-intent', [StripePaymentController::class, 'createPaymentIntent']);
 Route::post('/save-transaction', [StripePaymentController::class, 'store']);
+// paypal
+Route::post('/paypal/create-payment', [PayPalController::class, 'createOrder']);
+Route::post('/paypal/capture-order', [PayPalController::class, 'captureOrder']);
+
+
 
 
 // Chaker Payment
