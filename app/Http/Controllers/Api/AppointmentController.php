@@ -100,4 +100,48 @@ class AppointmentController extends Controller
             ],
         );
     }
+
+
+    public function show($id)
+    {
+        // Fetch the appointment by ID
+        $appointment = Appointment::find($id);
+
+        // Check if the appointment exists
+        if (!$appointment) {
+            return response()->json(['message' => 'Appointment not found'], 404);
+        }
+
+        // Return the appointment details as a JSON response
+        return response()->json([
+            'appointment' => $appointment,
+        ], 200);
+    }
+
+
+    public function update(Request $request, $id)
+    {
+        // Find the appointment by ID
+        $appointment = Appointment::findOrFail($id);
+
+        // Validate the incoming data
+        $validated = $request->validate([
+            'meeting_link' => 'required|string|max:255',
+            'password' => 'nullable|string|max:255',
+            'location' => 'nullable|string|max:255',
+            'message' => 'nullable|string|max:1000',
+        ]);
+
+        // Update appointment details
+        $appointment->meeting_link = $validated['meeting_link'];
+        $appointment->meeting_pass = $validated['password'] ?? null;
+        $appointment->location = $validated['location'] ?? null;
+        $appointment->approval_message = $validated['message'] ?? null;
+
+        // Save changes
+        $appointment->save();
+
+        // Return a response indicating success
+        return response()->json(['message' => 'Appointment updated successfully'], 200);
+    }
 }

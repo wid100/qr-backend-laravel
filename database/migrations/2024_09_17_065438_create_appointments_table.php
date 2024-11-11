@@ -27,6 +27,14 @@ class CreateAppointmentsTable extends Migration
             $table->text('message')->nullable();
             $table->string('meeting_type')->nullable();
             $table->boolean('status')->default(0);
+
+
+            $table->text('approval_message')->nullable();
+            $table->string('meeting_link')->nullable();
+            $table->string('meeting_pass')->nullable();
+            $table->string('location')->nullable();
+
+
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

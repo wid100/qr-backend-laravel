@@ -130,6 +130,15 @@ Route::get('/schedule/{id}', [ScheduleController::class, 'index']);
 //appointments
 Route::post('/create-appointment', [AppointmentController::class, 'store']);
 Route::get('/all-appointment/{id}', [AppointmentController::class, 'index']);
+Route::get('/appointment/show/{id}', [AppointmentController::class, 'show']);
+Route::post('/appointment/approved/{id}', [AppointmentController::class, 'update']);
+
+
+
+
+
+
+
 // routes/api.php
 Route::get('/get-available-slots/{user_id}/{date}', [AppointmentController::class, 'getAvailableSlots']);
 // Route::get('/get-available-slots', [AppointmentController::class, 'getAvailableSlots']);
