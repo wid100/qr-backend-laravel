@@ -137,6 +137,8 @@ Route::post('/create-appointment', [AppointmentController::class, 'store']);
 Route::get('/all-appointment/{id}', [AppointmentController::class, 'index']);
 Route::get('/appointment/show/{id}', [AppointmentController::class, 'show']);
 Route::post('/appointment/approved/{id}', [AppointmentController::class, 'update']);
+Route::post('/appointment/decline/{id}', [AppointmentController::class, 'decline']);
+Route::delete('/appointment/{id}', [AppointmentController::class, 'destroy']);
 
 
 

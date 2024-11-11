@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\AppointmentApprovedMail;
+use App\Mail\AppointmentDeclined;
 
 class AppointmentController extends Controller
 {
@@ -159,5 +160,59 @@ class AppointmentController extends Controller
         $appointment->save();
 
         return response()->json(['message' => 'Appointment updated and email sent successfully'], 200);
+    }
+
+
+    public function decline($id, Request $request)
+    {
+        // Validate the message (ensure it's provided)
+        $validated = $request->validate([
+            'message' => 'required|string|max:1000',
+        ]);
+
+        // Find the appointment by ID
+        $appointment = Appointment::findOrFail($id);
+
+        // Update the appointment status to "2" (declined)
+        $appointment->status = 2;
+
+        // Save the decline message from the request
+        $appointment->decline_message = $validated['message'];
+
+        // Save the updated appointment status and message
+        $appointment->save();
+
+        // Send email to the user with the decline message
+        $this->sendDeclineEmail($appointment, $validated['message']);
+
+        // Return a success response
+        return response()->json(['message' => 'Appointment declined and email sent successfully'], 200);
+    }
+
+    protected function sendDeclineEmail(Appointment $appointment, $message)
+    {
+        // Get the user associated with the appointment (assuming user is related to the appointment)
+        $appointment_email = $appointment->email;
+
+        // Send the decline email with the message
+        Mail::to($appointment_email)->send(new AppointmentDeclined($appointment, $message));
+    }
+
+
+    public function destroy($id)
+    {
+        // Find the appointment by ID
+        $appointment = Appointment::find($id);
+
+        // Check if the appointment exists
+        if (!$appointment) {
+            return response()->json(['error' => 'Appointment not found.'], 404);
+        }
+
+        // Delete the appointment
+        $appointment->delete();
+
+        // Return success response
+        return response()->json(['message' => 'Appointment deleted successfully.'], 200);
     }
 }

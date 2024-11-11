@@ -21,7 +21,8 @@ class Appointment extends Model
         'address',
         'meeting_app',
         'message',
-        'meeting_type'
+        'meeting_type',
+        'decline_message'
     ];
 
 

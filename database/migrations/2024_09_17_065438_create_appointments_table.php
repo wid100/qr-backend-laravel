@@ -34,6 +34,7 @@ class CreateAppointmentsTable extends Migration
             $table->string('meeting_pass')->nullable();
             $table->string('location')->nullable();
 
+            $table->text('decline_message')->nullable();
 
             $table->timestamps();
 
