@@ -20,6 +20,7 @@
         "realrashid/sweet-alert": "^7.1",
         "simplesoftwareio/simple-qrcode": "^4.2",
         "stevebauman/location": "^7.3",
+        "stripe/stripe-php": "^16.2",
         "swiftmailer/swiftmailer": "^6.3"
     },
     "require-dev": {

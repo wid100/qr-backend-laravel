@@ -60,6 +60,7 @@ class PackageController extends Controller
 
     public function show($id)
     {
+        // return response()->json('hi');
         $package = Package::where('id', $id)->first();
         if (!$package) {
             return response()->json(['error' => 'Qrgen not found'], 404);
