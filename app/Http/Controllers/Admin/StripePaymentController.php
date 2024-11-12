@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Stripe\Stripe;
 use Stripe\PaymentIntent;
+use Stripe\StripeClient;
 
 class StripePaymentController extends Controller
 {
@@ -139,5 +140,17 @@ class StripePaymentController extends Controller
             'payment_method' => 'stripe',
             'status' => true,
         ]);
+    }
+
+    public function getAllTransactions()
+    {
+        $stripe = new StripeClient(env('STRIPE_SECRET'));
+        // $paymentIntents = $stripe->paymentIntents->all();
+        $paymentIntents = $stripe->paymentIntents->all([
+            'limit' => 3,  // Limit the results to 3
+            'status' => 'processing'
+        ]);
+
+        return response()->json($paymentIntents->data);
     }
 }

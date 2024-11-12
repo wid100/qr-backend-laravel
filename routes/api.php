@@ -20,6 +20,7 @@ use App\Http\Controllers\Api\MessageController;
 use App\Http\Controllers\InstagramController;
 use App\Http\Controllers\Auth\CustomAuthenticatedSessionController;
 use App\Http\Controllers\WebsiteController;
+use App\Http\Controllers\Admin\PayPalController;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,7 +59,7 @@ Route::get('/qr-details/{id}', [QrgenController::class, 'getQrDetails']);
 Route::get('/country', [CountryController::class, 'allCountry']);
 Route::get('/packages/filter', [PackageController::class, 'filterByCountry']);
 Route::get('/packages/{id}', [PackageController::class, 'show']);
-
+Route::get('/paypal/payments', [PayPalController::class, 'getPaymentList']);
 
 
 Route::post('/make-payment', [PaymentController::class, 'makePayment'])->middleware(\Fruitcake\Cors\HandleCors::class);
@@ -71,6 +72,9 @@ Route::get('cancel', [paymentController::class, 'cancel'])->name('cancel');
 // stripe
 Route::post('/create-payment-intent', [StripePaymentController::class, 'createPaymentIntent']);
 Route::post('/save-transaction', [StripePaymentController::class, 'store']);
+// paypal
+Route::post('/paypal/create-payment', [PayPalController::class, 'createPayment']);
+Route::post('/paypal/capture-order', [PayPalController::class, 'captureOrder']);
 
 
 // Chaker Payment
