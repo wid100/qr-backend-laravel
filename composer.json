@@ -9,7 +9,7 @@
         "barryvdh/laravel-dompdf": "^2.2",
         "barryvdh/laravel-snappy": "^1.0",
         "fruitcake/laravel-cors": "^3.0",
-        "guzzlehttp/guzzle": "^7.0.1",
+        "guzzlehttp/guzzle": "^7.9",
         "intervention/image": "^2.7",
         "jenssegers/agent": "^2.6",
         "laravel/framework": "^8.75",
