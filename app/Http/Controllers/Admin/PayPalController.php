@@ -30,23 +30,6 @@ class PayPalController extends Controller
     // Step 4: Create PayPal Order
     public function createPayment(Request $request)
     {
-
-        $request->validate([
-            'user_id' => 'required|integer',
-            'package_id' => 'required|integer',
-            'amount' => 'required|numeric',
-            'transaction_id' => 'required|string',
-            'end_date' => 'required|integer|min:1',
-            // Add validations for the order fields
-            'name' => 'required|string',
-            'phone' => 'required|string',
-            'email' => 'required|email',
-            'country' => 'required|string',
-            'address' => 'required|string',
-            'zip' => 'required|string',
-            'district' => 'required|string',
-        ]);
-
         $amountValue = $request->input('amount');
         $currency = $request->input('currency_code');
         try {
@@ -76,6 +59,22 @@ class PayPalController extends Controller
     public function captureOrder(Request $request)
     {
         $orderId = $request->input('orderID');
+
+        $request->validate([
+            'user_id' => 'required|integer',
+            'package_id' => 'required|integer',
+            'amount' => 'required|numeric',
+            'transaction_id' => 'required|string',
+            'end_date' => 'required|integer|min:1',
+            // Add validations for the order fields
+            'name' => 'required|string',
+            'phone' => 'required|string',
+            'email' => 'required|email',
+            'country' => 'required|string',
+            'address' => 'required|string',
+            'zip' => 'required|string',
+            'district' => 'required|string',
+        ]);
 
         try {
             DB::beginTransaction();
