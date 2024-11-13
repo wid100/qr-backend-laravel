@@ -31,7 +31,7 @@ class PayPalController extends Controller
     public function createPayment(Request $request)
     {
         $amountValue = $request->input('amount');
-        $currency = $request->input('currency_code');
+        $currency = $request->input('currency', 'usd');
         try {
             $response = $this->client->post("{$this->baseUrl}/v2/checkout/orders", [
                 'auth' => [$this->clientId, $this->secret],
@@ -40,7 +40,7 @@ class PayPalController extends Controller
                     'purchase_units' => [
                         [
                             'amount' => [
-                                'currency_code' => 'USD',
+                                'currency_code' => $currency,
                                 'value' => $amountValue,
                             ]
                         ]
@@ -109,7 +109,7 @@ class PayPalController extends Controller
             'package_id' => $request->input('package_id'),
             'amount' => $request->input('amount'),
             'transaction_id' => $request->input('transaction_id'),
-            'payment_method' => 'stripe',
+            'payment_method' => 'Paypal',
         ]);
     }
 
@@ -139,7 +139,7 @@ class PayPalController extends Controller
             'zip' => $request->input('zip'),
             'amount' => $request->input('amount'),
             'district' => $request->input('district'),
-            'payment_method' => 'stripe',
+            'payment_method' => 'Paypal',
             'status' => true,
         ]);
     }
