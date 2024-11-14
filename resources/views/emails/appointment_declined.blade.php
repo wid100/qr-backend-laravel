@@ -24,7 +24,8 @@
                             <td align="center" style="margin-bottom: 30px; width: 100%">
                                 <div>
 
-                                    <img src="https://i.postimg.cc/5twkrtKp/decline.png" style="width: 70px; margin-bottom: 0px;" alt="">
+                                    <img src="https://i.postimg.cc/5twkrtKp/decline.png"
+                                        style="width: 70px; margin-bottom: 0px;" alt="">
                                     <h1
                                         style="
                         font-family: sans-serif;
@@ -46,12 +47,12 @@
                       ">
                                         We regret to inform you that your appointment with ID #{{ $appointmentId }} has
                                         been declined.</p>
-                                        
+
                                     @if ($declineMessage)
-                                        <p >Message: {{ $declineMessage }}</p>
+                                        <p>Message: {{ $declineMessage }}</p>
                                     @endif
 
-                                    <p >Thank you for your understanding.</p>
+                                    <p>Thank you for your understanding.</p>
 
 
                                 </div>
