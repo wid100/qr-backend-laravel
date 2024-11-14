@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -101,37 +99,57 @@
                                                 </p>
                                             </td>
                                         </tr>
+                                        @if (!empty($appointment->location))
+                                            <tr>
+                                                <td style="padding-bottom: 10px;">
+                                                    <p
+                                                        style="margin: 0; font-size: 14px; font-family: sans-serif; color: #898989; padding: 0">
+                                                        Location:
+                                                    </p>
+                                                </td>
 
-                                        <tr>
-                                            <td style="padding-bottom: 10px;">
-                                                <p
-                                                    style="margin: 0; font-size: 14px; font-family: sans-serif; color: #898989; padding: 0">
-                                                    Location:
-                                                </p>
-                                            </td>
+                                                <td style="text-align: right; padding-bottom: 10px;">
+                                                    <p
+                                                        style="margin: 0; font-size: 14px; font-family: sans-serif; color: #555555; padding: 0">
+                                                        {{ $appointment->location ?? 'N/A' }}
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                        @endif
+                                        @if (!empty($appointment->meeting_link))
+                                            <tr>
+                                                <td style="padding-bottom: 10px;">
+                                                    <p
+                                                        style="margin: 0; font-size: 14px; font-family: sans-serif; color: #898989; padding: 0">
+                                                        Meeting Link:
+                                                    </p>
+                                                </td>
 
-                                            <td style="text-align: right; padding-bottom: 10px;">
-                                                <p
-                                                    style="margin: 0; font-size: 14px; font-family: sans-serif; color: #555555; padding: 0">
-                                                    {{ $appointment->location ?? 'N/A' }}
-                                                </p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td style="padding-bottom: 10px;">
-                                                <p
-                                                    style="margin: 0; font-size: 14px; font-family: sans-serif; color: #898989; padding: 0">
-                                                   Meeting Link:
-                                                </p>
-                                            </td>
+                                                <td style="text-align: right; padding-bottom: 10px;">
+                                                    <p
+                                                        style="margin: 0; font-size: 14px; font-family: sans-serif; color: #555555; padding: 0">
+                                                        {{ $appointment->meeting_link ?? 'N/A' }}
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                        @endif
+                                        @if (!empty($appointment->meeting_pass))
+                                            <tr>
+                                                <td style="padding-bottom: 10px;">
+                                                    <p
+                                                        style="margin: 0; font-size: 14px; font-family: sans-serif; color: #898989; padding: 0">
+                                                        Password:
+                                                    </p>
+                                                </td>
 
-                                            <td style="text-align: right; padding-bottom: 10px;">
-                                                <p
-                                                    style="margin: 0; font-size: 14px; font-family: sans-serif; color: #555555; padding: 0">
-                                                    {{ $appointment->meeting_link ?? 'N/A' }}
-                                                </p>
-                                            </td>
-                                        </tr>
+                                                <td style="text-align: right; padding-bottom: 10px;">
+                                                    <p
+                                                        style="margin: 0; font-size: 14px; font-family: sans-serif; color: #555555; padding: 0">
+                                                        {{ $appointment->meeting_pass ?? 'N/A' }}
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                        @endif
                                         <tr>
                                             <td style="padding-bottom: 10px;">
                                                 <p
@@ -143,7 +161,7 @@
                                             <td style="text-align: right; padding-bottom: 10px;">
                                                 <p
                                                     style="margin: 0; font-size: 14px; font-family: sans-serif; color: #555555; padding: 0">
-                                                 {{ $appointment->approval_message ?? 'No message' }}
+                                                    {{ $appointment->approval_message ?? 'No message' }}
                                                 </p>
                                             </td>
                                         </tr>
