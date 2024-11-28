@@ -167,7 +167,7 @@ class AppointmentController extends Controller
     {
         // Validate the message (ensure it's provided)
         $validated = $request->validate([
-            'message' => 'required|string|max:1000',
+            'message' => 'required|string',
         ]);
 
         // Find the appointment by ID
