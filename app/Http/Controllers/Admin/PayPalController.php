@@ -11,6 +11,7 @@ use App\Models\Payment;
 use App\Models\Subscription;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Http;
 
 class PayPalController extends Controller
 {
@@ -22,12 +23,13 @@ class PayPalController extends Controller
     public function __construct()
     {
         $this->client = new Client();
-        $this->baseUrl = config('app.env') === 'production' ? 'https://api.paypal.com' : 'https://api.sandbox.paypal.com';
+        // $this->baseUrl = config('app.env') === 'production' ? 'https://api.paypal.com' : 'https://api.sandbox.paypal.com';
+        $this->baseUrl = 'https://api.sandbox.paypal.com';
         $this->clientId = env('PAYPAL_CLIENT_ID');
         $this->secret = env('PAYPAL_SECRET');
     }
 
-    // Step 4: Create PayPal Order
+    //  Create PayPal Order
     public function createPayment(Request $request)
     {
         $amountValue = $request->input('amount');
@@ -40,12 +42,14 @@ class PayPalController extends Controller
                     'purchase_units' => [
                         [
                             'amount' => [
-                                'currency_code' => $currency,
+                                'currency_code' => 'USD',
                                 'value' => $amountValue,
                             ]
                         ]
                     ]
-                ]
+                ],
+                'verify' => false,
+                'timeout' => 60,
             ]);
 
             $data = json_decode($response->getBody(), true);
@@ -60,21 +64,21 @@ class PayPalController extends Controller
     {
         $orderId = $request->input('orderID');
 
-        $request->validate([
-            'user_id' => 'required|integer',
-            'package_id' => 'required|integer',
-            'amount' => 'required|numeric',
-            'transaction_id' => 'required|string',
-            'end_date' => 'required|integer|min:1',
-            // Add validations for the order fields
-            'name' => 'required|string',
-            'phone' => 'required|string',
-            'email' => 'required|email',
-            'country' => 'required|string',
-            'address' => 'required|string',
-            'zip' => 'required|string',
-            'district' => 'required|string',
-        ]);
+        // $request->validate([
+        //     'user_id' => 'required|integer',
+        //     'package_id' => 'required|integer',
+        //     'amount' => 'required|numeric',
+        //     'transaction_id' => 'required|string',
+        //     'end_date' => 'required|integer|min:1',
+        //     // Add validations for the order fields
+        //     'name' => 'required|string',
+        //     'phone' => 'required|string',
+        //     'email' => 'required|email',
+        //     'country' => 'required|string',
+        //     'address' => 'required|string',
+        //     'zip' => 'required|string',
+        //     'district' => 'required|string',
+        // ]);
 
         try {
             DB::beginTransaction();
@@ -101,7 +105,49 @@ class PayPalController extends Controller
         }
     }
 
+    // show payment details
+    protected function getAccessToken()
+    {
+        $response = Http::withBasicAuth($this->clientId, $this->secret)
+            ->asForm()
+            ->post("{$this->baseUrl}/v1/oauth2/token", [
+                'grant_type' => 'client_credentials',
+            ]);
 
+        if ($response->successful()) {
+            return $response->json()['access_token'];
+        }
+
+        throw new \Exception('Unable to retrieve PayPal access token');
+    }
+
+    /**
+     * Retrieve payment details from PayPal.
+     *
+     * @param string $paymentId
+     * @return JsonResponse
+     */
+    public function showPaymentDetails($paymentId)
+    {
+        try {
+            // Step 1: Get access token
+            $accessToken = $this->getAccessToken();
+
+            // Step 2: Retrieve payment details using the access token
+            $response = Http::withToken($accessToken)
+                ->get("{$this->baseUrl}/v1/payments/payment/{$paymentId}");
+
+            if ($response->successful()) {
+                return response()->json($response->json());
+            }
+
+            return response()->json(['error' => 'Unable to retrieve payment details'], $response->status());
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
+    }
+
+    // store payment
     private function storePayment($request)
     {
         return Payment::create([
@@ -113,6 +159,7 @@ class PayPalController extends Controller
         ]);
     }
 
+    // create subscription
     private function createSubscription($request, $paymentId)
     {
         return Subscription::create([
@@ -125,6 +172,7 @@ class PayPalController extends Controller
         ]);
     }
 
+    // create order
     private function createOrder($request, $paymentId)
     {
         return Order::create([
