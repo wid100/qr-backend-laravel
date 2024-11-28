@@ -18,12 +18,14 @@
             <tr>
                 <td bgcolor="#eeeeee" align="center" style="padding: 0px 15px 0px 15px">
                     <table border="0" bgcolor="#ffffff" cellpadding="0" cellspacing="0"
-                        style="max-width: 509px; width: 100%; border-radius: 5px; padding: 30px 50px 50px 50px;"
+                        style="max-width: 600px; width: 100%; border-radius: 5px; padding: 30px 50px 50px 50px;"
                         align="center">
                         <tr>
                             <td align="center" style="margin-bottom: 30px; width: 100%">
-                                <div style="padding: 20px 40px 30px 40px; border-radius: 5px">
+                                <div>
 
+                                    <img src="https://i.postimg.cc/5twkrtKp/decline.png"
+                                        style="width: 70px; margin-bottom: 0px;" alt="">
                                     <h1
                                         style="
                         font-family: sans-serif;
@@ -45,12 +47,12 @@
                       ">
                                         We regret to inform you that your appointment with ID #{{ $appointmentId }} has
                                         been declined.</p>
-                                        
+
                                     @if ($declineMessage)
-                                        <p >Message: {{ $declineMessage }}</p>
+                                        <p>Message: {{ $declineMessage }}</p>
                                     @endif
 
-                                    <p >Thank you for your understanding.</p>
+                                    <p>Thank you for your understanding.</p>
 
 
                                 </div>
