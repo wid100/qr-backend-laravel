@@ -48,12 +48,10 @@
                                             <td>{{ $user->city }}</td>
                                             <td>{{ $user->created_at }}</td>
                                             <td>
-                                                @if ($user->status == 1)
-                                                    <span class="badge bg-success">Active</span>
-                                                @elseif($user->status == 0)
-                                                    <span class="badge bg-danger">Unvarified</span>
+                                                @if ($user->email_verified_at)
+                                                    <span class="badge bg-success">Verified</span>
                                                 @else
-                                                    <span class="badge bg-danger">No Status</span>
+                                                    <span class="badge bg-danger">Unvarified</span>
                                                 @endif
                                             </td>
                                             <td>

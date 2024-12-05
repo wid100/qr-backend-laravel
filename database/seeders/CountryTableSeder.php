@@ -217,7 +217,7 @@ class CountryTableSeder extends Seeder
         foreach ($countries as $country) {
             DB::table('countries')->insert([
                 'name' => $country,
-                'status' => false,
+                'status' => 1,
             ]);
         }
     }

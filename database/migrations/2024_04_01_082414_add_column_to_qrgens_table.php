@@ -14,8 +14,8 @@ class AddColumnToQrgensTable extends Migration
     public function up()
     {
         Schema::table('qrgens', function (Blueprint $table) {
-          
-            $table->string('google_scholar')->nullable();
+
+            $table->string('appointment')->default('true');
         });
     }
 

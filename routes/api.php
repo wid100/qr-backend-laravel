@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\StripePaymentController;
+use App\Http\Controllers\Api\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QrgenController;
@@ -8,10 +9,18 @@ use App\Http\Controllers\Api\CountryController;
 use App\Http\Controllers\Api\InstaController;
 use App\Http\Controllers\Api\PackageController;
 use App\Http\Controllers\Api\PaymentController;
+use App\Http\Controllers\Api\ResumeController;
 use App\Http\Controllers\Api\SubscriptionController;
+use App\Http\Controllers\Api\TemplateCategory;
+use App\Http\Controllers\Api\TemplateController;
+use App\Http\Controllers\Api\ScheduleController;
+use App\Http\Controllers\Api\AppointmentController;
+use App\Http\Controllers\Api\FAQController;
+use App\Http\Controllers\Api\MessageController;
 use App\Http\Controllers\InstagramController;
 use App\Http\Controllers\Auth\CustomAuthenticatedSessionController;
 use App\Http\Controllers\WebsiteController;
+use App\Http\Controllers\Admin\PayPalController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,7 +59,7 @@ Route::get('/qr-details/{id}', [QrgenController::class, 'getQrDetails']);
 Route::get('/country', [CountryController::class, 'allCountry']);
 Route::get('/packages/filter', [PackageController::class, 'filterByCountry']);
 Route::get('/packages/{id}', [PackageController::class, 'show']);
-
+Route::get('/paypal/payments', [PayPalController::class, 'getPaymentList']);
 
 
 Route::post('/make-payment', [PaymentController::class, 'makePayment'])->middleware(\Fruitcake\Cors\HandleCors::class);
@@ -59,6 +68,13 @@ Route::post('/verify-payment', [PaymentController::class, 'verifyPayment']);
 Route::post('success', [paymentController::class, 'success'])->name('success');
 Route::post('fail', [paymentController::class, 'fail'])->name('fail');
 Route::get('cancel', [paymentController::class, 'cancel'])->name('cancel');
+
+// stripe
+Route::post('/create-payment-intent', [StripePaymentController::class, 'createPaymentIntent']);
+Route::post('/save-transaction', [StripePaymentController::class, 'store']);
+// paypal
+Route::post('/paypal/create-payment', [PayPalController::class, 'createPayment']);
+Route::post('/paypal/capture-order', [PayPalController::class, 'captureOrder']);
 
 
 // Chaker Payment
@@ -91,3 +107,53 @@ Route::delete('/delete_website/{id}', [WebsiteController::class, 'destroy']);
 // ==============insta systems============
 Route::get('category', [InstaController::class, 'allCategory']);
 Route::get('template', [InstaController::class, 'allTemplate']);
+
+//Resume
+// Route::middleware('auth:sanctum')->group(function () {
+//     Route::get('/resume', [ResumeController::class, 'index']);
+// });
+
+//get all resume
+// Route::get('/resume', [ResumeController::class, 'index']);
+Route::get('/user/{user}/resumes', [ResumeController::class, 'index']);
+Route::get('/resume/{slug}', [ResumeController::class, 'show']);
+Route::post('/resume', [ResumeController::class, 'store']);
+Route::get('/resume/edit/{slug}', [ResumeController::class, 'edit']);
+Route::post('/resume/{resume}', [ResumeController::class, 'update']); // resume mens id
+Route::delete('/resume/{resume}', [ResumeController::class, 'destroy']);
+
+Route::get('category', [InstaController::class, 'allCategory']);
+Route::get('/template-category', TemplateCategory::class);
+Route::get('/templates/{id}', [TemplateController::class, 'getTemplates']);
+Route::get('/template/{id}', [TemplateController::class, 'getTemplate']);
+
+//schedule
+Route::post('/schedules', [ScheduleController::class, 'store']);
+Route::get('/schedules/{id}', [ScheduleController::class, 'edit']);
+Route::put('/schedules/{id}', [ScheduleController::class, 'update']);
+Route::delete('/schedules/{id}', [ScheduleController::class, 'destroy']);
+Route::get('/schedule/{id}', [ScheduleController::class, 'index']);
+
+
+
+//appointments
+Route::post('/create-appointment', [AppointmentController::class, 'store']);
+Route::get('/all-appointment/{id}', [AppointmentController::class, 'index']);
+Route::get('/appointment/show/{id}', [AppointmentController::class, 'show']);
+Route::post('/appointment/approved/{id}', [AppointmentController::class, 'update']);
+Route::post('/appointment/decline/{id}', [AppointmentController::class, 'decline']);
+Route::delete('/appointment/{id}', [AppointmentController::class, 'destroy']);
+
+
+
+
+
+
+
+// routes/api.php
+Route::get('/get-available-slots/{user_id}/{date}', [AppointmentController::class, 'getAvailableSlots']);
+// Route::get('/get-available-slots', [AppointmentController::class, 'getAvailableSlots']);
+// contact us
+Route::post('/message', [MessageController::class, 'create']);
+//FAQ
+Route::get('/faqs', [FAQController::class, 'index']);

@@ -67,10 +67,10 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="mb-3">
-                                        <label for="ecommerch_limit" class="form-label">Ecommerch Limit</label>
+                                        <label for="ecommerch_limit" class="form-label">E-commerce Limit</label>
                                         <input type="text" class="form-control" name="ecommerch_limit"
                                             id="ecommerch_limit"
-                                            placeholder="Ecommerch Limit"value="{{ $package->ecommerch_limit }}">
+                                            placeholder="E-commerce Limit"value="{{ $package->ecommerch_limit }}">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -90,7 +90,7 @@
                                 <div class="col-md-12">
                                     <div class="mb-3">
                                         <label for="price" class="form-label">Description</label>
-                                        <textarea class="form-control" name="description" id="easyMdeExample" rows="5">{{ $package->description }}</textarea>
+                                        <textarea class="form-control" name="description" id="tinymceExample" rows="5">{{ $package->description }}</textarea>
                                     </div>
                                 </div>
                                 <div class="col-md-6">

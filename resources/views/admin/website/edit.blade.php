@@ -26,7 +26,14 @@
                                     <div class="mb-3">
                                         <label for="name" class="form-label">Name</label>
                                         <input type="text" class="form-control" id="name" name="name"
-                                            value="{{ $website->cardname }}" placeholder="Name">
+                                            value="{{ $website->website_name }}" placeholder="Name">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="name" class="form-label">Website url</label>
+                                        <input type="text" class="form-control" id="name" name="name"
+                                            value="{{ $website->website_url }}" placeholder="Enter Website url">
                                     </div>
                                 </div>
 

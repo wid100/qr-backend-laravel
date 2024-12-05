@@ -66,7 +66,7 @@ return new class extends Migration
             $table->string('tiktok')->nullable();
             $table->string('whatsapp')->nullable();
             $table->string('skype')->nullable();
-
+            $table->string('google_scholar')->nullable();
 
             $table->string('image')->nullable();
             $table->string('qrcodeimage')->nullable();
