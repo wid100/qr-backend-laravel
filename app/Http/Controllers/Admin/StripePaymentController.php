@@ -4,17 +4,28 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Order;
+use App\Models\Package;
 use App\Models\Payment;
 use App\Models\Subscription;
+use App\Services\InvoiceService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 use Stripe\Stripe;
 use Stripe\PaymentIntent;
 use Stripe\StripeClient;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class StripePaymentController extends Controller
 {
+    protected $invoiceService;
+
+    public function __construct(InvoiceService $invoiceService)
+    {
+        $this->invoiceService = $invoiceService;
+    }
+
     public function createPaymentIntent(Request $request)
     {
         Stripe::setApiKey(env('STRIPE_SECRET'));
@@ -80,11 +91,18 @@ class StripePaymentController extends Controller
                 // Create subscription
                 $this->createSubscription($request, $payment->id);
                 // Create order
-                $this->createOrder($request, $payment->id);
+                $order = $this->createOrder($request, $payment->id);
+
                 Log::info('Payment record created successfully', ['payment' => $payment]);
 
                 DB::commit();
-                return response()->json(['message' => 'Transaction saved successfully.', 'data' => $payment], 200);
+                $this->generateAndSendInvoice($order);
+
+                Log::info('Order created successfully', ['Order' => $order]);
+                return response()->json([
+                    'message' => 'Transaction saved successfully.',
+                    'data' => $payment,
+                ], 200);
             } catch (\Exception $e) {
                 DB::rollBack();
                 $attempts++;
@@ -152,5 +170,32 @@ class StripePaymentController extends Controller
         ]);
 
         return response()->json($paymentIntents->data);
+    }
+
+    //make invoice and send email
+    public function generateAndSendInvoice($order)
+    {
+        $order['package'] = Package::findOrFail($order->package_id);
+
+        // Generate PDF
+        $pdf = Pdf::loadView('invoice/package', compact('order'));
+
+        Log::info('Generate PDF', ['order' => $order]);
+
+        // Send the PDF via email
+        $this->sendInvoiceEmail($order, $pdf);
+        return true;
+    }
+
+    protected function sendInvoiceEmail($order, $pdf)
+    {
+        $pdfContent  = $pdf->output();
+        Mail::send('emails.package_invoice', ['order' => $order], function ($message) use ($order, $pdfContent) {
+            $message->to($order->email)
+                ->subject('Your Invoice')
+                ->attachData($pdfContent, "invoice.pdf", [
+                    'mime' => 'application/pdf',
+                ]);
+        });
     }
 }

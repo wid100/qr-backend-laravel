@@ -17,6 +17,7 @@
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.4",
         "mpdf/mpdf": "^8.2",
+        "opcodesio/log-viewer": "^3.12",
         "paypal/paypal-checkout-sdk": "^1.0",
         "realrashid/sweet-alert": "^7.1",
         "simplesoftwareio/simple-qrcode": "^4.2",

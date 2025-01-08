@@ -18,6 +18,7 @@ use App\Http\Controllers\Admin\MessageController;
 use App\Http\Controllers\Admin\AdminResumeController;
 use App\Http\Controllers\Admin\FAQSectionController;
 use App\Http\Controllers\Admin\FAQQuestionController;
+use App\Http\Controllers\Admin\InvoiceController;
 use App\Http\Controllers\Admin\VisitorController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
@@ -125,6 +126,10 @@ Route::namespace('App\Http\Controllers')->group(
             Route::resource('/resume', "AdminResumeController");
             Route::resource('faq-section', 'FAQSectionController');
             Route::resource('faq-question', 'FAQQuestionController');
+            // make invoice optional (not used but working)
+            Route::get('/send-invoice/{id}', [InvoiceController::class, 'sendInvoice'])->name('invoice.package');
+
+
 
             // visitor
             Route::get('visitor', [VisitorController::class, 'index'])->name('visitor');
