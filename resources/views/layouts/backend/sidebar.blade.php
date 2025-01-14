@@ -62,6 +62,14 @@
                 </a>
             </li>
             <li class="nav-item nav-category">Website Card</li>
+
+            <li class="nav-item">
+                <a href="{{ route('admin.smart-card.index') }}" class="nav-link">
+                    <i class="link-icon" data-feather="box"></i>
+                    <span class="link-title">Create Smart Card</span>
+                </a>
+            </li>
+
             <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="collapse" href="#qrapp2" role="button" aria-expanded="false"
                     aria-controls="qrapp2">

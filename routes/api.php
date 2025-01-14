@@ -21,6 +21,7 @@ use App\Http\Controllers\InstagramController;
 use App\Http\Controllers\Auth\CustomAuthenticatedSessionController;
 use App\Http\Controllers\WebsiteController;
 use App\Http\Controllers\Admin\PayPalController;
+use App\Http\Controllers\Api\SmartCardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -158,3 +159,5 @@ Route::get('/get-available-slots/{user_id}/{date}', [AppointmentController::clas
 Route::post('/message', [MessageController::class, 'create']);
 //FAQ
 Route::get('/faqs', [FAQController::class, 'index']);
+// get all smard card design
+Route::get('/get-card-design', SmartCardController::class);

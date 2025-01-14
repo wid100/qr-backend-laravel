@@ -22,6 +22,7 @@ use App\Http\Controllers\Admin\InvoiceController;
 use App\Http\Controllers\Admin\VisitorController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
+use App\Http\Controllers\Admin\SmartCardController;
 use App\Models\Admin\Resume;
 use App\Models\Admin\Template;
 
@@ -129,10 +130,9 @@ Route::namespace('App\Http\Controllers')->group(
             // make invoice optional (not used but working)
             Route::get('/send-invoice/{id}', [InvoiceController::class, 'sendInvoice'])->name('invoice.package');
 
-
-
             // visitor
             Route::get('visitor', [VisitorController::class, 'index'])->name('visitor');
+            Route::resource('smart-card', 'SmartCardController');
         });
     }
 );
