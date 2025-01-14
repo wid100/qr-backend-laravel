@@ -16,7 +16,7 @@ class SmartCardController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $cards = SmartCard::all()->map(function ($card) {
+        $cards = SmartCard::where('status', 0)->get()->map(function ($card) {
             $card->font_image = url('storage/' . $card->font_image);
             $card->back_image = url('storage/' . $card->back_image);
             $card->status = $card->status === 0 ? 'active' : 'inactive';
