@@ -8,6 +8,14 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+            color: black;
+        }
+        .invoice{
+            font-size: 30px;
+            color: black;
+        }
+        .black{
+            color: black;
         }
         .invoice-box {
             width: 650px;
@@ -43,7 +51,8 @@
             padding-bottom: 40px;
         }
         .invoice-box table tr.heading td {
-            background: #eee;
+            color: white;
+            background: #000000;
             border-bottom: 1px solid #ddd;
             font-weight: bold;
         }
@@ -71,25 +80,32 @@
             max-width: 100%;
             max-height: 100%;
         }
+        .remove-default{
+            margin: 0;
+            padding: 0;
+            font-weight: bold;
+            font-size: 20px;
+        }
 
     </style>
 </head>
 <body>
     <div class="invoice-box">
         <table>
-            <div class="logo-wrap">
-                <img class="logo" src="https://smartcardgenerator.net/img/logo.png" alt="Logo">
-            </div>
             <tr class="top">
                 <td colspan="2">
                     <table>
                         <tr>
-                            <td class="title">
-                                Invoice
+                            <td>
+                                <div class="logo-wrap">
+                                    <img class="logo" src="https://smartcardgenerator.net/img/logo.png" alt="Logo">
+                                </div>
                             </td>
                             <td>
                                 {{-- Invoice #: 53124<br> --}}
-                                Date: {{ $order->created_at ?? '' }}
+                                <strong class="invoice">Invoice</strong>
+                                <br>
+                                {{ $order->created_at ?? '' }}
                             </td>
                         </tr>
                     </table>
@@ -100,21 +116,26 @@
                     <table>
                         <tr>
                             <td>
-                                Maruf Billah<br>
-                                Janata Housing<br>
-                                House: 50/51, Road: 3, 1207 Ring Road, Dhaka 1207
+                                <strong class="remove-default black">Invoice To</strong>
+                                <br>
+                                <strong>Name:</strong> <strong>{{ $order->name ?? '' }}</strong> <br>
+                                <strong>Phone:</strong> {{ $order->phone ?? '' }} <br>
+                                <strong>Email:</strong> {{ $order->email ?? '' }} <br>
+                                <strong>Address:</strong> {{ $order->address ?? '' }} <br>
+
+                            </td>
+                            <td>
+                                <strong class="black">Smart Card LTD</strong>
+                                <br>
+                                smartcardgenerator@gmail.com
                             </td>
                         </tr>
                     </table>
                 </td>
             </tr>
             <tr class="heading">
-                <td>
-                    Package
-                </td>
-                <td>
-                    Price
-                </td>
+                <td>Package  </td>
+                <td> Price </td>
             </tr>
             <tr class="item">
                 <td>
@@ -125,16 +146,33 @@
                 </td>
             </tr>
 
+            <tfoot>
+                <tr class="total">
+                    <td></td>
+                    <td>
+                        <strong class="black">Total Amount:  {{ $order->amount?? '' }}</strong>
+                    </td>
+                </tr>
+            </tfoot>
+
         </table>
         <br><br>
         <table>
             <tr>
                 <td>
-                    <strong>Thank You For Your Business</strong><br>
-                    <em>Terms & Conditions: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.</em><br><br>
-                    <strong>Payment Info:</strong><br>
+                    <strong class="black">Payment Info:</strong><br>
                     Payment Method: {{ $order->payment_method ?? '' }}<br>
                     Transaction Id: {{ $order->payment->transaction_id ?? '' }}<br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong class="black">Thank You For Your Business</strong><br>
+                    <em>Thank you for your purchase! We appreciate your business and are thrilled to have you as a customer.
+                    If you have any questions, feel free to contact us at
+                     <a href="https://mail.google.com/mail/?view=cm&to=support@gmail.com" target="_blank">support@gmail.com</a>
+                      or <strong>01642872846</strong>.
+                    </em><br><br>
                 </td>
             </tr>
         </table>

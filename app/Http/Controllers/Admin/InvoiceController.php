@@ -25,7 +25,8 @@ class InvoiceController extends Controller
         // Generate PDF in memory
 
         $pdf = Pdf::loadView('invoice/package', compact('order'));
-        // dd($img);
+        // dd($order);
+        // $pdf->setPaper([0, 0, 612, 625]);
         return $pdf->stream('invoice.pdf');
         // dd($order);
 
