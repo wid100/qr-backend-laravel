@@ -31,6 +31,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'country_code',
         'gender',
         'password',
+        'email_verified_at',
     ];
     public function subscriptions()
     {

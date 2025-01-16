@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use App\Models\User;
 use Dotenv\Exception\ValidationException;
+use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use Intervention\Image\ImageManagerStatic as Image;
@@ -41,7 +42,6 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $user = User::findOrFail($id);
-
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users,email,' . $id,
@@ -51,7 +51,6 @@ class UserController extends Controller
             'address' => 'nullable',
             'phone' => 'nullable',
             'country_code' => 'nullable',
-            
         ]);
 
         $data = [
@@ -63,6 +62,7 @@ class UserController extends Controller
             'address' => $request->address,
             'phone' => $request->phone,
             'country_code' => $request->country_code,
+            'email_verified_at' => $request->email_verified_at === 'on' ?  now() : null,
         ];
 
         $image = $request->file('image');
