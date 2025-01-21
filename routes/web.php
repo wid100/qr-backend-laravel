@@ -12,7 +12,7 @@ use App\Http\Controllers\Admin\InstaTemplateController;
 use App\Http\Controllers\Admin\TemplateCategoryController;
 use App\Http\Controllers\Admin\ProductCategoryController;
 use App\Http\Controllers\Admin\ProductController;
-use App\Http\Controllers\Admin\colorController;
+use App\Http\Controllers\Admin\ColorController;
 use App\Http\Controllers\ResumeController;
 use App\Http\Controllers\Admin\MessageController;
 use App\Http\Controllers\Admin\AdminResumeController;
@@ -23,6 +23,7 @@ use App\Http\Controllers\Admin\VisitorController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
 use App\Http\Controllers\Admin\SmartCardController;
+use App\Http\Controllers\Api\SendEventController;
 use App\Models\Admin\Resume;
 use App\Models\Admin\Template;
 
@@ -121,8 +122,8 @@ Route::namespace('App\Http\Controllers')->group(
             Route::resource('/tempcategory', 'TemplateCategoryController');
             Route::resource('/template', 'TemplateController');
             Route::resource('/product_category', 'ProductCategoryController');
-            Route::resource('/product', "productController");
-            Route::resource('/color', "colorController");
+            Route::resource('/product', "ProductController");
+            Route::resource('/color', "ColorController");
             Route::resource('/message', "MessageController");
             Route::resource('/resume', "AdminResumeController");
             Route::resource('faq-section', 'FAQSectionController');
@@ -133,6 +134,9 @@ Route::namespace('App\Http\Controllers')->group(
             // visitor
             Route::get('visitor', [VisitorController::class, 'index'])->name('visitor');
             Route::resource('smart-card', 'SmartCardController');
+
+            // testing route for google calendar API integration not use
+            Route::get('/send-event', [SendEventController::class, 'sendInvitationEmail']); //this is testing route not use
         });
     }
 );

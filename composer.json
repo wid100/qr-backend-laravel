@@ -21,6 +21,7 @@
         "paypal/paypal-checkout-sdk": "^1.0",
         "realrashid/sweet-alert": "^7.1",
         "simplesoftwareio/simple-qrcode": "^4.2",
+        "spatie/laravel-google-calendar": "^3.8",
         "stevebauman/location": "^7.3",
         "stripe/stripe-php": "^16.2",
         "swiftmailer/swiftmailer": "^6.3"
