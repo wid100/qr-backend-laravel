@@ -154,20 +154,41 @@ class AppointmentController extends Controller
         $appointment->status = 1; // Approved status
 
 
-        $timeSlots = json_decode($appointment->time_slot, true); // Decode to array
-        $timeSlotsArray = explode(',', $timeSlots[0]); // Split into individual slots
+        $timeSlots = json_decode($appointment->time_slot, true);
 
-        // Extract the first and last slots
-        $firstSlot = explode(' to ', $timeSlotsArray[0]); // "09:00 AM to 09:30 AM"
-        $lastSlot = explode(' to ', end($timeSlotsArray)); // Last slot "10:00 AM to 10:30 AM"
+        if (is_array($timeSlots) && isset($timeSlots[0])) {
+            $timeSlotsArray = explode(',', $timeSlots[0]); // Split the first set of slots into individual items
 
-        // Parse start and end times using Carbon
-        $startDateTime = Carbon::createFromFormat('h:i A', $firstSlot[0]); // Start: "09:00 AM"
-        $endDateTime = Carbon::createFromFormat('h:i A', $lastSlot[1]); // End: "10:30 AM"
+            // Extract the first slot's start and end times
+            $firstSlot = explode(' to ', trim($timeSlotsArray[0] ?? '')); // "09:00 AM to 09:30 AM"
 
-        // Format for iCalendar (UTC format)
-        $appointment['start'] = $startDateTime->format('Ymd\THis\Z');
-        $appointment['end'] = $endDateTime->format('Ymd\THis\Z');
+            if (isset($firstSlot[0], $firstSlot[1])) { // Ensure both start and end times exist
+                try {
+                    $startDateTime = Carbon::createFromFormat('h:i A', $firstSlot[0]); // Start: "09:00 AM"
+                    $endDateTime = Carbon::createFromFormat('h:i A', $firstSlot[1]); // End: "09:30 AM"
+
+                    // Add the date to the times
+                    $date = $appointment->date ?? null; // Replace with the actual appointment date
+                    if ($date) {
+                        $startDateTime->setDateFrom(Carbon::parse($date));
+                        $endDateTime->setDateFrom(Carbon::parse($date));
+                    }
+
+                    // Convert to UTC
+                    $appointment['start'] = $startDateTime->format('Ymd\THis');
+                    $appointment['end'] =  $endDateTime->format('Ymd\THis');
+                } catch (\Exception $e) {
+                    throw new \Exception('Error parsing time slots: ' . $e->getMessage());
+                }
+            } else {
+                throw new \Exception('Invalid time slot data structure.');
+            }
+        } else {
+            throw new \Exception('Invalid time slot data.');
+        }
+
+
+
 
         // return response()->json([
         //     'message' => 'Appointment updated successfully',
@@ -179,54 +200,6 @@ class AppointmentController extends Controller
 
         // Send the email
         Mail::to($appointment->email)->send(new AppointmentApprovedMail($appointment));
-
-        // $event = [
-        //     'id' => 1,
-        //     'title' => 'Annual Company Meeting',
-        //     'description' => 'Join us for the annual meeting to discuss company goals and achievements.',
-        //     'start' => Carbon::parse('2025-02-15 10:00:00')->format('Ymd\THis\Z'), // UTC format
-        //     'end' => Carbon::parse('2025-02-15 12:00:00')->format('Ymd\THis\Z'),   // UTC format
-        //     'location' => 'Company HQ, 123 Business Ave, Cityville',
-        //     'organizer' => 'smaartcard@gmail.com', // Organizer email
-        //     'attendee' => $appointment->email,  // Attendee email
-        // ];
-
-
-
-        // $icsContent = <<<EOT
-        // BEGIN:VCALENDAR
-        // VERSION:2.0
-        // PRODID:-//Your Company//NONSGML Event//EN
-        // METHOD:REQUEST
-        // BEGIN:VEVENT
-        // UID:event-{$event['id']}@example.com
-        // SUMMARY:{$event['title']}
-        // DESCRIPTION:{$event['description']}
-        // DTSTART:{$event['start']}
-        // DTEND:{$event['end']}
-        // LOCATION:{$event['location']}
-        // ORGANIZER;CN=Organizer:mailto:{$event['organizer']}
-        // ATTENDEE;RSVP=TRUE:mailto:{$event['attendee']}
-        // STATUS:CONFIRMED
-        // SEQUENCE:0
-        // TRANSP:OPAQUE
-        // END:VEVENT
-        // END:VCALENDAR
-        // EOT;
-
-
-
-        // Mail::send('emails.appointment_approved', ['appointment' => $appointment], function ($message) use ($icsContent, $event) {
-        //     $message->to('mhshakil06@gmail.com')
-        //         ->subject("Appointment Approved Mail ")
-        //         ->attachData(
-        //             $icsContent,
-        //             "event_{$event['id']}.ics",
-        //             [
-        //                 'mime' => 'text/calendar; charset=utf-8',
-        //             ]
-        //         );
-        // });
 
 
         // Save changes
