@@ -11,10 +11,95 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\AppointmentApprovedMail;
 use App\Mail\AppointmentDeclined;
+use Google\Client;
+use Google\Service\Calendar\Event;
+use Google\Service\Calendar\EventAttendee;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class AppointmentController extends Controller
 {
+
+
+    public function update(Request $request, $id)
+{
+    $appointment = Appointment::findOrFail($id);
+
+    // Validation rules based on meeting type
+    $rules = [
+        'password' => 'nullable|string|max:255',
+        'message' => 'nullable|string|max:1000',
+    ];
+
+    if ($appointment->meeting_type == 1) {
+        $rules['meeting_link'] = 'required|string|max:255';
+    } elseif ($appointment->meeting_type == 2) {
+        $rules['location'] = 'required|string|max:255';
+    }
+
+    $validated = $request->validate($rules);
+
+    // Update appointment details
+    $appointment->meeting_link = $validated['meeting_link'] ?? null;
+    $appointment->meeting_pass = $validated['password'] ?? null;
+    $appointment->location = $validated['location'] ?? null;
+    $appointment->approval_message = $validated['message'] ?? null;
+    $appointment->status = 1; // Approved status
+
+    // Parse time slots and set event start/end times
+    $timeSlots = json_decode($appointment->time_slot, true);
+    if (is_array($timeSlots) && isset($timeSlots[0])) {
+        $timeSlotsArray = explode(',', $timeSlots[0]);
+        $firstSlot = explode(' to ', trim($timeSlotsArray[0] ?? ''));
+        if (isset($firstSlot[0], $firstSlot[1])) {
+            $startDateTime = Carbon::createFromFormat('h:i A', $firstSlot[0])
+                ->setDateFrom(Carbon::parse($appointment->date));
+            $endDateTime = Carbon::createFromFormat('h:i A', $firstSlot[1])
+                ->setDateFrom(Carbon::parse($appointment->date));
+
+            $appointment['start'] = $startDateTime->toIso8601String();
+            $appointment['end'] = $endDateTime->toIso8601String();
+        } else {
+            throw new \Exception('Invalid time slot data structure.');
+        }
+    } else {
+        throw new \Exception('Invalid time slot data.');
+    }
+
+    // Google Calendar Integration
+    $client = new Client();
+    $client->setAuthConfig(storage_path('app/google/credentials.json'));
+    $client->addScope(\Google\Service\Calendar::CALENDAR);
+    $service = new \Google\Service\Calendar($client);
+
+    $event = new Event([
+        'summary' => 'Appointment: ' . $appointment->id,
+        'description' => $appointment->approval_message,
+        'start' => [
+            'dateTime' => $appointment['start'],
+            'timeZone' => 'UTC',
+        ],
+        'end' => [
+            'dateTime' => $appointment['end'],
+            'timeZone' => 'UTC',
+        ],
+        'attendees' => [
+            new EventAttendee(['email' => $appointment->email]),
+        ],
+        'guestsCanModify' => true,
+    ]);
+
+    $calendarId = 'primary'; // Or use a specific calendar ID
+    $createdEvent = $service->events->insert($calendarId, $event, ['sendUpdates' => 'all']);
+
+    // Send the email
+    Mail::to($appointment->email)->send(new AppointmentApprovedMail($appointment));
+
+    // Save changes
+    $appointment->save();
+
+    return response()->json(['message' => 'Appointment updated and added to Google Calendar successfully'], 200);
+}
+
 
 
 
@@ -122,91 +207,6 @@ class AppointmentController extends Controller
         ], 200);
     }
 
-
-    public function update(Request $request, $id)
-    {
-        // Find the appointment by ID
-        $appointment = Appointment::findOrFail($id);
-        // Conditional validation based on meeting_type
-        $rules = [
-            'password' => 'nullable|string|max:255',
-            'message' => 'nullable|string|max:1000',
-        ];
-
-        if ($appointment->meeting_type == 1) {
-            // Meeting type is 1 (online meeting), meeting_link is required, location is nullable
-            $rules['meeting_link'] = 'required|string|max:255';
-            $rules['location'] = 'nullable|string|max:255';
-        } elseif ($appointment->meeting_type == 2) {
-            // Meeting type is 2 (physical meeting), location is required, meeting_link is nullable
-            $rules['location'] = 'required|string|max:255';
-            $rules['meeting_link'] = 'nullable|string|max:255';
-        }
-
-        // Validate the incoming data
-        $validated = $request->validate($rules);
-
-        // Update appointment details
-        $appointment->meeting_link = $validated['meeting_link'];
-        $appointment->meeting_pass = $validated['password'] ?? null;
-        $appointment->location = $validated['location'] ?? null;
-        $appointment->approval_message = $validated['message'] ?? null;
-        $appointment->status = 1; // Approved status
-
-
-        $timeSlots = json_decode($appointment->time_slot, true);
-
-        if (is_array($timeSlots) && isset($timeSlots[0])) {
-            $timeSlotsArray = explode(',', $timeSlots[0]); // Split the first set of slots into individual items
-
-            // Extract the first slot's start and end times
-            $firstSlot = explode(' to ', trim($timeSlotsArray[0] ?? '')); // "09:00 AM to 09:30 AM"
-
-            if (isset($firstSlot[0], $firstSlot[1])) { // Ensure both start and end times exist
-                try {
-                    $startDateTime = Carbon::createFromFormat('h:i A', $firstSlot[0]); // Start: "09:00 AM"
-                    $endDateTime = Carbon::createFromFormat('h:i A', $firstSlot[1]); // End: "09:30 AM"
-
-                    // Add the date to the times
-                    $date = $appointment->date ?? null; // Replace with the actual appointment date
-                    if ($date) {
-                        $startDateTime->setDateFrom(Carbon::parse($date));
-                        $endDateTime->setDateFrom(Carbon::parse($date));
-                    }
-
-                    // Convert to UTC
-                    $appointment['start'] = $startDateTime->format('Ymd\THis');
-                    $appointment['end'] =  $endDateTime->format('Ymd\THis');
-                } catch (\Exception $e) {
-                    throw new \Exception('Error parsing time slots: ' . $e->getMessage());
-                }
-            } else {
-                throw new \Exception('Invalid time slot data structure.');
-            }
-        } else {
-            throw new \Exception('Invalid time slot data.');
-        }
-
-
-
-
-        // return response()->json([
-        //     'message' => 'Appointment updated successfully',
-        //     'status' => 404,
-        //     'appointment' => $appointment
-        // ]);
-
-
-
-        // Send the email
-        Mail::to($appointment->email)->send(new AppointmentApprovedMail($appointment));
-
-
-        // Save changes
-        $appointment->save();
-
-        return response()->json(['message' => 'Appointment updated and email sent successfully'], 200);
-    }
 
 
     public function decline($id, Request $request)

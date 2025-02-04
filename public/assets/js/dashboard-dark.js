@@ -15,7 +15,7 @@ $(function() {
     muted          : "#7987a1",
     gridBorder     : "rgba(77, 138, 240, .15)",
     bodyColor      : "#b8c3d9",
-    cardBg         : "#0c1427"
+    cardBg         : "#fff"
   }
 
   var fontFamily = "'Roboto', Helvetica, sans-serif"
@@ -85,6 +85,7 @@ $(function() {
     34.73,
     31.03,
     32.63,
+
     36.89,
     35.89,
     32.74,
@@ -173,14 +174,33 @@ $(function() {
     36.97
   ];
 
-  var revenueChartCategories = [
-    "Jan 01 2022", "Jan 02 2022", "jan 03 2022", "Jan 04 2022", "Jan 05 2022", "Jan 06 2022", "Jan 07 2022", "Jan 08 2022", "Jan 09 2022", "Jan 10 2022", "Jan 11 2022", "Jan 12 2022", "Jan 13 2022", "Jan 14 2022", "Jan 15 2022", "Jan 16 2022", "Jan 17 2022", "Jan 18 2022", "Jan 19 2022", "Jan 20 2022","Jan 21 2022", "Jan 22 2022", "Jan 23 2022", "Jan 24 2022", "Jan 25 2022", "Jan 26 2022", "Jan 27 2022", "Jan 28 2022", "Jan 29 2022", "Jan 30 2022", "Jan 31 2022",
-    "Feb 01 2022", "Feb 02 2022", "Feb 03 2022", "Feb 04 2022", "Feb 05 2022", "Feb 06 2022", "Feb 07 2022", "Feb 08 2022", "Feb 09 2022", "Feb 10 2022", "Feb 11 2022", "Feb 12 2022", "Feb 13 2022", "Feb 14 2022", "Feb 15 2022", "Feb 16 2022", "Feb 17 2022", "Feb 18 2022", "Feb 19 2022", "Feb 20 2022","Feb 21 2022", "Feb 22 2022", "Feb 23 2022", "Feb 24 2022", "Feb 25 2022", "Feb 26 2022", "Feb 27 2022", "Feb 28 2022",
-    "Mar 01 2022", "Mar 02 2022", "Mar 03 2022", "Mar 04 2022", "Mar 05 2022", "Mar 06 2022", "Mar 07 2022", "Mar 08 2022", "Mar 09 2022", "Mar 10 2022", "Mar 11 2022", "Mar 12 2022", "Mar 13 2022", "Mar 14 2022", "Mar 15 2022", "Mar 16 2022", "Mar 17 2022", "Mar 18 2022", "Mar 19 2022", "Mar 20 2022","Mar 21 2022", "Mar 22 2022", "Mar 23 2022", "Mar 24 2022", "Mar 25 2022", "Mar 26 2022", "Mar 27 2022", "Mar 28 2022", "Mar 29 2022", "Mar 30 2022", "Mar 31 2022",
-    "Apr 01 2022", "Apr 02 2022", "Apr 03 2022", "Apr 04 2022", "Apr 05 2022", "Apr 06 2022", "Apr 07 2022", "Apr 08 2022", "Apr 09 2022", "Apr 10 2022", "Apr 11 2022", "Apr 12 2022", "Apr 13 2022", "Apr 14 2022", "Apr 15 2022", "Apr 16 2022", "Apr 17 2022", "Apr 18 2022", "Apr 19 2022", "Apr 20 2022","Apr 21 2022", "Apr 22 2022", "Apr 23 2022", "Apr 24 2022", "Apr 25 2022", "Apr 26 2022", "Apr 27 2022", "Apr 28 2022", "Apr 29 2022", "Apr 30 2022",
-    "May 01 2022", "May 02 2022", "May 03 2022", "May 04 2022", "May 05 2022", "May 06 2022", "May 07 2022", "May 08 2022", "May 09 2022", "May 10 2022", "May 11 2022", "May 12 2022", "May 13 2022", "May 14 2022", "May 15 2022", "May 16 2022", "May 17 2022", "May 18 2022", "May 19 2022", "May 20 2022","May 21 2022", "May 22 2022", "May 23 2022", "May 24 2022", "May 25 2022", "May 26 2022", "May 27 2022", "May 28 2022", "May 29 2022", "May 30 2022",
-  ]
-  
+//   var revenueChartCategories = [
+//     "Jan 01 2022", "Jan 02 2022", "jan 03 2022", "Jan 04 2022", "Jan 05 2022", "Jan 06 2022", "Jan 07 2022", "Jan 08 2022", "Jan 09 2022", "Jan 10 2022", "Jan 11 2022", "Jan 12 2022", "Jan 13 2022", "Jan 14 2022", "Jan 15 2022", "Jan 16 2022", "Jan 17 2022", "Jan 18 2022", "Jan 19 2022", "Jan 20 2022","Jan 21 2022", "Jan 22 2022", "Jan 23 2022", "Jan 24 2022", "Jan 25 2022", "Jan 26 2022", "Jan 27 2022", "Jan 28 2022", "Jan 29 2022", "Jan 30 2022", "Jan 31 2022",
+//     "Feb 01 2022", "Feb 02 2022", "Feb 03 2022", "Feb 04 2022", "Feb 05 2022", "Feb 06 2022", "Feb 07 2022", "Feb 08 2022", "Feb 09 2022", "Feb 10 2022", "Feb 11 2022", "Feb 12 2022", "Feb 13 2022", "Feb 14 2022", "Feb 15 2022", "Feb 16 2022", "Feb 17 2022", "Feb 18 2022", "Feb 19 2022", "Feb 20 2022","Feb 21 2022", "Feb 22 2022", "Feb 23 2022", "Feb 24 2022", "Feb 25 2022", "Feb 26 2022", "Feb 27 2022", "Feb 28 2022",
+//     "Mar 01 2022", "Mar 02 2022", "Mar 03 2022", "Mar 04 2022", "Mar 05 2022", "Mar 06 2022", "Mar 07 2022", "Mar 08 2022", "Mar 09 2022", "Mar 10 2022", "Mar 11 2022", "Mar 12 2022", "Mar 13 2022", "Mar 14 2022", "Mar 15 2022", "Mar 16 2022", "Mar 17 2022", "Mar 18 2022", "Mar 19 2022", "Mar 20 2022","Mar 21 2022", "Mar 22 2022", "Mar 23 2022", "Mar 24 2022", "Mar 25 2022", "Mar 26 2022", "Mar 27 2022", "Mar 28 2022", "Mar 29 2022", "Mar 30 2022", "Mar 31 2022",
+//     "Apr 01 2022", "Apr 02 2022", "Apr 03 2022", "Apr 04 2022", "Apr 05 2022", "Apr 06 2022", "Apr 07 2022", "Apr 08 2022", "Apr 09 2022", "Apr 10 2022", "Apr 11 2022", "Apr 12 2022", "Apr 13 2022", "Apr 14 2022", "Apr 15 2022", "Apr 16 2022", "Apr 17 2022", "Apr 18 2022", "Apr 19 2022", "Apr 20 2022","Apr 21 2022", "Apr 22 2022", "Apr 23 2022", "Apr 24 2022", "Apr 25 2022", "Apr 26 2022", "Apr 27 2022", "Apr 28 2022", "Apr 29 2022", "Apr 30 2022",
+//     "May 01 2022", "May 02 2022", "May 03 2022", "May 04 2022", "May 05 2022", "May 06 2022", "May 07 2022", "May 08 2022", "May 09 2022", "May 10 2022", "May 11 2022", "May 12 2022", "May 13 2022", "May 14 2022", "May 15 2022", "May 16 2022", "May 17 2022", "May 18 2022", "May 19 2022", "May 20 2022","May 21 2022", "May 22 2022", "May 23 2022", "May 24 2022", "May 25 2022", "May 26 2022", "May 27 2022", "May 28 2022", "May 29 2022", "May 30 2022",
+//   ]
+
+
+// Generate all dates for 2025
+var revenueChartCategories = [];
+var startDate = new Date("May 01 2024");
+var endDate = new Date("Jan 31 2025");
+
+while (startDate <= endDate) {
+    let formattedDate = startDate.toLocaleDateString('en-US', {
+        weekday: 'short', month: 'short', day: '2-digit', year: 'numeric'
+    });
+    revenueChartCategories.push(formattedDate);
+
+    // Move to the next day
+    startDate.setDate(startDate.getDate() + 1);
+}
+
+console.log(revenueChartCategories);
+
+
 
 
 
@@ -234,33 +254,48 @@ $(function() {
 
 
   // Orders Chart
-  if($('#ordersChart').length) {
+  if ($('#ordersChart').length) {
+    // Generate last 10 days including today
+    var revenueChartCategories = [];
+    var today = new Date();
+
+    for (let i = 10; i >= 0; i--) {
+        let pastDate = new Date();
+        pastDate.setDate(today.getDate() - i);
+        let formattedDate = pastDate.toLocaleDateString('en-US', {
+            month: 'short', day: '2-digit', year: 'numeric'
+        });
+        revenueChartCategories.push(formattedDate);
+    }
+
     var options2 = {
-      chart: {
-        type: "bar",
-        height: 60,
-        sparkline: {
-          enabled: !0
-        }
-      },
-      plotOptions: {
-        bar: {
-          borderRadius: 2,
-          columnWidth: "60%"
-        }
-      },
-      colors: [colors.primary],
-      series: [{
-        name: '',
-        data: [36, 77, 52, 90, 74, 35, 55, 23, 47, 10, 63]
-      }],
-      xaxis: {
-        type: 'datetime',
-        categories: ["Jan 01 2022", "Jan 02 2022", "Jan 03 2022", "Jan 04 2022", "Jan 05 2022", "Jan 06 2022", "Jan 07 2022", "Jan 08 2022", "Jan 09 2022", "Jan 10 2022", "Jan 11 2022",],
-      },
+        chart: {
+            type: "bar",
+            height: 60,
+            sparkline: {
+                enabled: !0
+            }
+        },
+        plotOptions: {
+            bar: {
+                borderRadius: 2,
+                columnWidth: "60%"
+            }
+        },
+        colors: [colors.primary],
+        series: [{
+            name: '',
+            data: [36, 77, 52, 90, 74, 35, 55, 23, 47, 10, 63] // Ensure this matches the 11 dates
+        }],
+        xaxis: {
+            type: 'datetime',
+            categories: revenueChartCategories, // Updated categories with dynamic dates
+        },
     };
-    new ApexCharts(document.querySelector("#ordersChart"),options2).render();
-  }
+
+    new ApexCharts(document.querySelector("#ordersChart"), options2).render();
+}
+
   // Orders Chart - END
 
 
@@ -298,93 +333,653 @@ $(function() {
   // Growth Chart - END
 
 
+//   if ($('#revenueChart').length) {
+//     var revenueChartData = [];
+//     var revenueChartCategories = [];
+//     var today = new Date();
+//     var revenue = 100; // Starting point for revenue
+//     var totalDataPoints = 500; // Total data points for the chart
+
+//     // Generate 500 data points
+//     for (let i = totalDataPoints - 1; i >= 0; i--) {
+//         let pastDate = new Date();
+//         pastDate.setDate(today.getDate() - i);
+//         let formattedDate = pastDate.toISOString().split('T')[0]; // Format as YYYY-MM-DD
+
+//         // Randomly decide whether the revenue should increase or decrease
+//         let change = Math.random() > 0.5 ? Math.floor(Math.random() * 5) : Math.floor(Math.random() * 5) * -1; // Random change (-5 to +5)
+
+//         // Update the revenue, allowing for both growth and decline
+//         revenue += change;
+
+//         // Ensure the revenue does not fall below a certain threshold
+//         revenue = Math.max(revenue, 100); // Prevent negative or very low revenue values
+//         revenue = Math.floor(revenue); // Ensure integer values (remove floating point)
+
+//         // Add the revenue and date to the respective arrays
+//         revenueChartCategories.push(formattedDate);
+//         revenueChartData.push(revenue);
+//     }
+
+//     // Output the generated data for console display
+//     console.log('Revenue Data: ', revenueChartData);
+//     console.log('Revenue Categories: ', revenueChartCategories);
+
+//     var lineChartOptions = {
+//         chart: {
+//             type: "line",
+//             height: 400,
+//             parentHeightOffset: 0,
+//             foreColor: colors.bodyColor,
+//             background: colors.cardBg,
+//             toolbar: { show: false },
+//         },
+//         theme: { mode: 'light' },
+//         tooltip: { theme: 'light' },
+//         colors: [colors.primary],
+//         grid: {
+//             padding: { bottom: -4 },
+//             borderColor: colors.gridBorder,
+//             xaxis: { lines: { show: true } }
+//         },
+//         series: [{ name: "Revenue", data: revenueChartData }],
+//         xaxis: {
+//             type: "datetime",
+//             categories: revenueChartCategories,
+//             lines: { show: true },
+//             axisBorder: { color: colors.gridBorder },
+//             axisTicks: { color: colors.gridBorder },
+//             crosshairs: { stroke: { color: colors.secondary } },
+//         },
+//         yaxis: {
+//             title: {
+//                 text: 'Revenue ( $1000 x )',
+//                 style: { size: 9, color: colors.muted }
+//             },
+//             tickAmount: 6,
+//             tooltip: { enabled: true },
+//             crosshairs: { stroke: { color: colors.secondary } },
+//         },
+//         markers: { size: 0 },
+//         stroke: { width: 2, curve: "smooth" },
+//     };
+
+//     var apexLineChart = new ApexCharts(document.querySelector("#revenueChart"), lineChartOptions);
+//     apexLineChart.render();
+// }
 
 
 
   // Revenue Chart
   if ($('#revenueChart').length) {
+    // Static data for the chart resembling a trading chart with fluctuations
+    var revenueChartData = [
+        100,
+        100,
+        103,
+        107,
+        109,
+        111,
+        112,
+        108,
+        107,
+        111,
+        111,
+        107,
+        105,
+        106,
+        108,
+        110,
+        110,
+        114,
+        110,
+        106,
+        105,
+        108,
+        111,
+        114,
+        116,
+        117,
+        121,
+        121,
+        118,
+        115,
+        113,
+        110,
+        112,
+        109,
+        111,
+        111,
+        110,
+        110,
+        110,
+        114,
+        112,
+        108,
+        104,
+        108,
+        111,
+        109,
+        109,
+        107,
+        109,
+        109,
+        110,
+        110,
+        113,
+        116,
+        119,
+        123,
+        121,
+        122,
+        122,
+        124,
+        123,
+        127,
+        126,
+        126,
+        129,
+        125,
+        122,
+        121,
+        123,
+        125,
+        129,
+        130,
+        132,
+        131,
+        131,
+        135,
+        135,
+        139,
+        136,
+        132,
+        128,
+        130,
+        131,
+        128,
+        132,
+        136,
+        139,
+        136,
+        132,
+        134,
+        134,
+        134,
+        134,
+        136,
+        140,
+        144,
+        144,
+        145,
+        143,
+        145,
+        145,
+        142,
+        142,
+        139,
+        143,
+        141,
+        140,
+        141,
+        142,
+        139,
+        139,
+        138,
+        142,
+        139,
+        140,
+        137,
+        135,
+        136,
+        137,
+        135,
+        139,
+        143,
+        140,
+        141,
+        138,
+        134,
+        138,
+        138,
+        141,
+        143,
+        147,
+        150,
+        153,
+        153,
+        155,
+        151,
+        155,
+        157,
+        160,
+        157,
+        154,
+        155,
+        153,
+        151,
+        148,
+        147,
+        151,
+        152,
+        155,
+        153,
+        150,
+        153,
+        155,
+        151,
+        155,
+        155,
+        157,
+        161,
+        163,
+        165,
+        169,
+        167,
+        165,
+        165,
+        163,
+        166,
+        163,
+        163,
+        162,
+        163,
+        159,
+        157,
+        159,
+        161,
+        157,
+        156,
+        159,
+        155,
+        153,
+        155,
+        151,
+        150,
+        154,
+        155,
+        155,
+        159,
+        157,
+        157,
+        156,
+        155,
+        154,
+        157,
+        157,
+        159,
+        159,
+        155,
+        158,
+        154,
+        152,
+        153,
+        157,
+        155,
+        155,
+        154,
+        154,
+        154,
+        153,
+        151,
+        148,
+        148,
+        152,
+        154,
+        156,
+        159,
+        160,
+        161,
+        157,
+        157,
+        155,
+        151,
+        149,
+        148,
+        151,
+        151,
+        150,
+        154,
+        154,
+        158,
+        159,
+        163,
+        163,
+        159,
+        156,
+        157,
+        154,
+        150,
+        149,
+        149,
+        146,
+        145,
+        147,
+        150,
+        152,
+        151,
+        152,
+        151,
+        150,
+        147,
+        144,
+        146,
+        144,
+        141,
+        143,
+        140,
+        140,
+        139,
+        137,
+        134,
+        138,
+        142,
+        144,
+        145,
+        144,
+        141,
+        144,
+        146,
+        147,
+        147,
+        151,
+        149,
+        149,
+        148,
+        152,
+        149,
+        153,
+        152,
+        152,
+        154,
+        153,
+        155,
+        154,
+        158,
+        154,
+        151,
+        147,
+        147,
+        146,
+        143,
+        143,
+        143,
+        143,
+        146,
+        150,
+        154,
+        156,
+        156,
+        157,
+        158,
+        158,
+        160,
+        156,
+        160,
+        160,
+        164,
+        164,
+        163,
+        164,
+        166,
+        164,
+        168,
+        165,
+        167,
+        163,
+        166,
+        163,
+        163,
+        165,
+        169,
+        165,
+        164,
+        163,
+        164,
+        164,
+        164,
+        165,
+        164,
+        168,
+        170,
+        172,
+        176,
+        176,
+        177,
+        179,
+        183,
+        184,
+        180,
+        179,
+        178,
+        181,
+        185,
+        182,
+        178,
+        179,
+        181,
+        181,
+        182,
+        186,
+        188,
+        188,
+        192,
+        188,
+        192,
+        195,
+        196,
+        195,
+        195,
+        196,
+        194,
+        194,
+        198,
+        198,
+        199,
+        201,
+        200,
+        196,
+        198,
+        199,
+        199,
+        203,
+        205,
+        206,
+        209,
+        213,
+        216,
+        220,
+        221,
+        217,
+        217,
+        218,
+        214,
+        217,
+        213,
+        216,
+        213,
+        217,
+        219,
+        219,
+        222,
+        225,
+        225,
+        228,
+        227,
+        226,
+        230,
+        234,
+        234,
+        234,
+        232,
+        233,
+        229,
+        232,
+        235,
+        231,
+        234,
+        232,
+        236,
+        240,
+        243,
+        246,
+        247,
+        250,
+        249,
+        251,
+        252,
+        256,
+        258,
+        254,
+        254,
+        258,
+        257,
+        259,
+        258,
+        256,
+        255,
+        252,
+        256,
+        258,
+        261,
+        262,
+        264,
+        266,
+        266,
+        268,
+        272,
+        268,
+        267,
+        264,
+        262,
+        262,
+        265,
+        262,
+        262,
+        263,
+        266,
+        265,
+        261,
+        264,
+        268,
+        267,
+        265,
+        267,
+        267,
+        269,
+        267,
+        269,
+        269,
+        267,
+        265,
+        269,
+        272,
+        275,
+        276,
+        276,
+        276,
+        279,
+        276,
+        273,
+        272,
+        268,
+        270,
+        270,
+        274,
+        270,
+        269,
+        273,
+        277,
+        274,
+        274,
+        276,
+        272,
+        270,
+        270,
+        270,
+        273,
+        271,
+        267,
+        266,
+        270,
+        267,
+        267,
+        263,
+        267,
+        266,
+        268,
+        272,
+        272,
+        270,
+        274,
+        274,
+        277
+    ]
+
+    // Ensure the data length matches the categories length (365+1 = 366)
+    revenueChartData = revenueChartData.slice(0, 366); // Adjust data length to match categories
+
+    // Generate the dates for the x-axis (past 365 days)
+    var revenueChartCategories = [];
+    var today = new Date();
+
+    for (let i = 365; i >= 0; i--) {
+        let pastDate = new Date();
+        pastDate.setDate(today.getDate() - i);
+        let timestamp = pastDate.getTime();  // Convert to Unix timestamp (milliseconds)
+        revenueChartCategories.push(timestamp);
+    }
+
+
+
     var lineChartOptions = {
-      chart: {
-        type: "line",
-        height: '400',
-        parentHeightOffset: 0,
-        foreColor: colors.bodyColor,
-        background: colors.cardBg,
-        toolbar: {
-          show: false
+        chart: {
+            type: "line",
+            height: 400,
+            parentHeightOffset: 0,
+            foreColor: colors.bodyColor,
+            background: colors.cardBg,
+            toolbar: { show: false },
         },
-      },
-      theme: {
-        mode: 'light'
-      },
-      tooltip: {
-        theme: 'light'
-      },
-      colors: [colors.primary, colors.danger, colors.warning],
-      grid: {
-        padding: {
-          bottom: -4,
+        theme: { mode: 'light' },
+        tooltip: { theme: 'light' },
+        colors: [colors.primary],
+        grid: {
+            padding: { bottom: -4 },
+            borderColor: colors.gridBorder,
+            xaxis: { lines: { show: true } }
         },
-        borderColor: colors.gridBorder,
+        series: [{ name: "Revenue", data: revenueChartData }],
         xaxis: {
-          lines: {
-            show: true
-          }
-        }
-      },
-      series: [
-        {
-          name: "Revenue",
-          data: revenueChartData
+            type: "datetime",
+            categories: revenueChartCategories,
+            lines: { show: true },
+            axisBorder: { color: colors.gridBorder },
+            axisTicks: { color: colors.gridBorder },
+            crosshairs: { stroke: { color: colors.secondary } },
         },
-      ],
-      xaxis: {
-        type: "datetime",
-        categories: revenueChartCategories,
-        lines: {
-          show: true
+        yaxis: {
+            title: {
+                text: 'Revenue ( $1000 x )',
+                style: { size: 9, color: colors.muted }
+            },
+            tickAmount: 6,
+            tooltip: { enabled: true },
+            crosshairs: { stroke: { color: colors.secondary } },
         },
-        axisBorder: {
-          color: colors.gridBorder,
-        },
-        axisTicks: {
-          color: colors.gridBorder,
-        },
-        crosshairs: {
-          stroke: {
-            color: colors.secondary,
-          },
-        },
-      },
-      yaxis: {
-        title: {
-          text: 'Revenue ( $1000 x )',
-          style:{
-            size: 9,
-            color: colors.muted
-          }
-        },
-        tickAmount: 4,
-        tooltip: {
-          enabled: true
-        },
-        crosshairs: {
-          stroke: {
-            color: colors.secondary,
-          },
-        },
-      },
-      markers: {
-        size: 0,
-      },
-      stroke: {
-        width: 2,
-        curve: "straight",
-      },
+        markers: { size: 0 },
+        stroke: { width: 2, curve: "smooth" },
     };
-    var apexLineChart = new ApexCharts(document.querySelector("#revenueChart"), lineChartOptions);
-    apexLineChart.render();
-  }
+
+    if (document.querySelector("#revenueChart")) {
+        var apexLineChart = new ApexCharts(document.querySelector("#revenueChart"), lineChartOptions);
+        apexLineChart.render();
+    }
+}
+
+
+
+
   // Revenue Chart - END
 
 
@@ -506,10 +1101,10 @@ $(function() {
       tooltip: {
         theme: 'light'
       },
-      colors: [colors.primary],  
+      colors: [colors.primary],
       fill: {
         opacity: .9
-      } , 
+      } ,
       grid: {
         padding: {
           bottom: -4
@@ -576,7 +1171,7 @@ $(function() {
         },
       },
     }
-    
+
     var apexBarChart = new ApexCharts(document.querySelector("#monthlySalesChart"), options);
     apexBarChart.render();
   }
@@ -605,10 +1200,10 @@ $(function() {
       tooltip: {
         theme: 'light'
       },
-      colors: [colors.primary],  
+      colors: [colors.primary],
       fill: {
         opacity: .9
-      } , 
+      } ,
       grid: {
         padding: {
           bottom: -4
@@ -681,7 +1276,7 @@ $(function() {
         },
       },
     }
-    
+
     var apexBarChart = new ApexCharts(document.querySelector("#monthlySalesChartRTL"), options);
     apexBarChart.render();
   }
@@ -711,7 +1306,7 @@ $(function() {
             background: colors.dark,
             strokeWidth: '100%',
             opacity: 1,
-            margin: 5, 
+            margin: 5,
           },
           dataLabels: {
             showOn: "always",
@@ -737,9 +1332,9 @@ $(function() {
       },
       labels: ["Storage Used"]
     };
-    
+
     var chart = new ApexCharts(document.querySelector("#storageChart"), options);
-    chart.render();    
+    chart.render();
   }
   // Cloud Storage Chart - END
 
