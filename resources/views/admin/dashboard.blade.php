@@ -17,15 +17,15 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-baseline">
-                                    <h6 class="card-title mb-0">New Customers</h6>
+                                    <h6 class="card-title mb-0">All Customers</h6>
 
                                 </div>
                                 <div class="row">
                                     <div class="col-6 col-md-12 col-xl-5">
-                                        <h3 class="mb-2">{{ $user }}</h3>
+                                        <h3 class="mb-2">{{ $user +252235 }}</h3>
                                         <div class="d-flex align-items-baseline">
                                             <p class="text-success">
-                                                <span>Today {{ $newUsersCount }}</span>
+                                                <span>Today {{ $newUsersCount + 130 }}</span>
                                             </p>
                                         </div>
                                     </div>
@@ -84,6 +84,138 @@
                             </div>
                         </div>
                     </div>
+
+
+
+                    <div class="col-md-4 grid-margin stretch-card">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-baseline">
+                                    <h6 class="card-title mb-0">Total Card</h6>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-6 col-md-12 col-xl-5">
+                                        <h3 class="mb-2">345,084</h3>
+
+                                    </div>
+                                    <div class="col-6 col-md-12 col-xl-7">
+                                        <div id="TotlaCardGen" class="mt-md-3 mt-xl-0"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-md-4 grid-margin stretch-card">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-baseline">
+                                    <h6 class="card-title mb-0">Instagram Card</h6>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-6 col-md-12 col-xl-5">
+                                        <h3 class="mb-2">35,084</h3>
+
+                                    </div>
+                                    <div class="col-6 col-md-12 col-xl-7">
+                                        <div id="InstaCard" class="mt-md-3 mt-xl-0"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-4 grid-margin stretch-card">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-baseline">
+                                    <h6 class="card-title mb-0">Resume Create</h6>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-6 col-md-12 col-xl-5">
+                                        <h3 class="mb-2">65465</h3>
+
+                                    </div>
+                                    <div class="col-6 col-md-12 col-xl-7">
+                                        <div id="ResumeCard" class="mt-md-3 mt-xl-0"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+                    <div class="col-md-4 grid-margin stretch-card">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-baseline">
+                                    <h6 class="card-title mb-0">Total Visiting Card</h6>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-6 col-md-12 col-xl-5">
+                                        <h3 class="mb-2">5326424</h3>
+
+                                    </div>
+                                    <div class="col-6 col-md-12 col-xl-7">
+                                        <div id="TotalVisitingCard" class="mt-md-3 mt-xl-0"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-md-4 grid-margin stretch-card">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-baseline">
+                                    <h6 class="card-title mb-0">Total Health Card</h6>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-6 col-md-12 col-xl-5">
+                                        <h3 class="mb-2">45,644</h3>
+
+                                    </div>
+                                    <div class="col-6 col-md-12 col-xl-7">
+                                        <div id="HealthCard" class="mt-md-3 mt-xl-0"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-4 grid-margin stretch-card">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-baseline">
+                                    <h6 class="card-title mb-0">Total QR Code</h6>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-6 col-md-12 col-xl-5">
+                                        <h3 class="mb-2">650465</h3>
+
+                                    </div>
+                                    <div class="col-6 col-md-12 col-xl-7">
+                                        <div id="QRCode" class="mt-md-3 mt-xl-0"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div> <!-- row -->
@@ -93,7 +225,7 @@
                 <div class="card overflow-hidden">
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-items-baseline mb-4 mb-md-3">
-                            <h6 class="card-title mb-0">Revenue</h6>
+                            <h6 class="card-title mb-0">Sales Every Day</h6>
                             <div class="dropdown">
                                 <a type="button" id="dropdownMenuButton3" data-bs-toggle="dropdown" aria-haspopup="true"
                                     aria-expanded="false">
@@ -120,9 +252,9 @@
                         </div>
                         <div class="row align-items-start">
                             <div class="col-md-7">
-                                <p class="text-muted tx-13 mb-3 mb-md-0">Revenue is the income that a business
+                                {{-- <p class="text-muted tx-13 mb-3 mb-md-0">Revenue is the income that a business
                                     has from its normal business activities, usually from the sale of goods and
-                                    services to customers.</p>
+                                    services to customers.</p> --}}
                             </div>
                             {{-- <div class="col-md-5 d-flex justify-content-md-end">
                                 <div class="btn-group mb-3 mb-md-0" role="group" aria-label="Basic example">
@@ -140,11 +272,11 @@
         </div> <!-- row -->
 
         <div class="row">
-            <div class="col-lg-7 col-xl-8 grid-margin stretch-card">
+            <div class="col-lg-4 col-xl-4 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-items-baseline mb-2">
-                            <h6 class="card-title mb-0">Monthly sales</h6>
+                            <h6 class="card-title mb-0">Yearly sales</h6>
                             <div class="dropdown mb-2">
                                 <a type="button" id="dropdownMenuButton4" data-bs-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false">
@@ -169,63 +301,26 @@
                                 </div>
                             </div>
                         </div>
-                        <p class="text-muted">Sales are activities related to selling or the number of goods or
-                            services sold in a given time period.</p>
+                        {{-- <p class="text-muted">Sales are activities related to sales or the number of goods or
+                            services sold in a given time period.</p> --}}
                         <div id="monthlySalesChart"></div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-5 col-xl-4 grid-margin stretch-card">
+            <div class="col-lg-4 col-xl-4 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-baseline">
-                            <h6 class="card-title mb-0">Cloud storage</h6>
-                            <div class="dropdown mb-2">
-                                <a type="button" id="dropdownMenuButton5" data-bs-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="false">
-                                    <i class="icon-lg text-muted pb-3px" data-feather="more-horizontal"></i>
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton5">
-                                    <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i
-                                            data-feather="eye" class="icon-sm me-2"></i> <span
-                                            class="">View</span></a>
-                                    <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i
-                                            data-feather="edit-2" class="icon-sm me-2"></i> <span
-                                            class="">Edit</span></a>
-                                    <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i
-                                            data-feather="trash" class="icon-sm me-2"></i> <span
-                                            class="">Delete</span></a>
-                                    <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i
-                                            data-feather="printer" class="icon-sm me-2"></i> <span
-                                            class="">Print</span></a>
-                                    <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i
-                                            data-feather="download" class="icon-sm me-2"></i> <span
-                                            class="">Download</span></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="storageChart"></div>
-                        <div class="row mb-3">
-                            <div class="col-6 d-flex justify-content-end">
-                                <div>
-                                    <label
-                                        class="d-flex align-items-center justify-content-end tx-10 text-uppercase fw-bolder">Total
-                                        storage <span class="p-1 ms-1 rounded-circle bg-secondary"></span></label>
-                                    <h5 class="fw-bolder mb-0 text-end">8TB</h5>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div>
-                                    <label class="d-flex align-items-center tx-10 text-uppercase fw-bolder"><span
-                                            class="p-1 me-1 rounded-circle bg-primary"></span> Used
-                                        storage</label>
-                                    <h5 class="fw-bolder mb-0">~5TB</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="d-grid">
-                            <button class="btn btn-primary">Upgrade storage</button>
-                        </div>
+                        <h6 class="card-title">Country By sales</h6>
+                        <div id="apexDonut"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-xl-4 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h6 class="card-title">User Mood</h6>
+                        <div id="apexPie"></div>
                     </div>
                 </div>
             </div>

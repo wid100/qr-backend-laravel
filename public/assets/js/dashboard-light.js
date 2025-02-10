@@ -232,6 +232,71 @@ $(function() {
 
 
 
+    // New Customers Chart
+    if($('#TotlaCardGen').length) {
+        var options1 = {
+          chart: {
+            type: "line",
+            height: 60,
+            sparkline: {
+              enabled: !0
+            }
+          },
+          series: [{
+            name: '',
+            data: [3844, 3855, 3841, 3867, 3822, 3843, 3821, 3841, 3856, 3827, 3843]
+          }],
+          xaxis: {
+            type: 'datetime',
+            categories: ["Jan 01 2022", "Jan 02 2022", "Jan 03 2022", "Jan 04 2022", "Jan 05 2022", "Jan 06 2022", "Jan 07 2022", "Jan 08 2022", "Jan 09 2022", "Jan 10 2022", "Jan 11 2022",],
+          },
+          stroke: {
+            width: 2,
+            curve: "smooth"
+          },
+          markers: {
+            size: 0
+          },
+          colors: [colors.primary],
+        };
+        new ApexCharts(document.querySelector("#TotlaCardGen"),options1).render();
+      }
+      // New Customers Chart - END
+
+
+
+      if($('#TotalVisitingCard').length) {
+        var options1 = {
+          chart: {
+            type: "line",
+            height: 60,
+            sparkline: {
+              enabled: !0
+            }
+          },
+          series: [{
+            name: '',
+            data: [3844, 3855, 564, 3867, 3822, 3843, 4545, 3841, 5487, 3827, 3843]
+          }],
+          xaxis: {
+            type: 'datetime',
+            categories: ["Jan 01 2022", "Jan 02 2022", "Jan 03 2022", "Jan 04 2022", "Jan 05 2022", "Jan 06 2022", "Jan 07 2022", "Jan 08 2022", "Jan 09 2022", "Jan 10 2022", "Jan 11 2022",],
+          },
+          stroke: {
+            width: 2,
+            curve: "smooth"
+          },
+          markers: {
+            size: 0
+          },
+          colors: [colors.primary],
+        };
+        new ApexCharts(document.querySelector("#TotalVisitingCard"),options1).render();
+      }
+      // New Customers Chart - END
+
+
+
 
   // Orders Chart
   if($('#ordersChart').length) {
@@ -262,6 +327,72 @@ $(function() {
     new ApexCharts(document.querySelector("#ordersChart"),options2).render();
   }
   // Orders Chart - END
+
+
+
+
+    // Orders Chart
+    if($('#InstaCard').length) {
+        var options2 = {
+          chart: {
+            type: "bar",
+            height: 60,
+            sparkline: {
+              enabled: !0
+            }
+          },
+          plotOptions: {
+            bar: {
+              borderRadius: 2,
+              columnWidth: "60%"
+            }
+          },
+          colors: [colors.primary],
+          series: [{
+            name: '',
+            data: [36, 77, 52, 90, 74, 35, 55, 23, 47, 10, 63]
+          }],
+          xaxis: {
+            type: 'datetime',
+            categories: ["Jan 01 2022", "Jan 02 2022", "Jan 03 2022", "Jan 04 2022", "Jan 05 2022", "Jan 06 2022", "Jan 07 2022", "Jan 08 2022", "Jan 09 2022", "Jan 10 2022", "Jan 11 2022",],
+          },
+        };
+        new ApexCharts(document.querySelector("#InstaCard"),options2).render();
+      }
+      // Orders Chart - END
+
+
+
+
+          // Orders Chart
+    if($('#HealthCard').length) {
+        var options2 = {
+          chart: {
+            type: "bar",
+            height: 60,
+            sparkline: {
+              enabled: !0
+            }
+          },
+          plotOptions: {
+            bar: {
+              borderRadius: 2,
+              columnWidth: "60%"
+            }
+          },
+          colors: [colors.primary],
+          series: [{
+            name: '',
+            data: [36, 77, 52, 566, 74, 235, 55, 23, 575, 10, 63]
+          }],
+          xaxis: {
+            type: 'datetime',
+            categories: ["Jan 01 2022", "Jan 02 2022", "Jan 03 2022", "Jan 04 2022", "Jan 05 2022", "Jan 06 2022", "Jan 07 2022", "Jan 08 2022", "Jan 09 2022", "Jan 10 2022", "Jan 11 2022",],
+          },
+        };
+        new ApexCharts(document.querySelector("#HealthCard"),options2).render();
+      }
+      // Orders Chart - END
 
 
 
@@ -298,95 +429,722 @@ $(function() {
   // Growth Chart - END
 
 
+    // Growth Chart
+    if($('#ResumeCard').length) {
+        var options3 = {
+          chart: {
+            type: "line",
+            height: 60,
+            sparkline: {
+              enabled: !0
+            }
+          },
+          series: [{
+            name: '',
+            data: [41, 45, 44, 46, 52, 54, 43, 74, 82, 82, 89]
+          }],
+          xaxis: {
+            type: 'datetime',
+            categories: ["Jan 01 2022", "Jan 02 2022", "Jan 03 2022", "Jan 04 2022", "Jan 05 2022", "Jan 06 2022", "Jan 07 2022", "Jan 08 2022", "Jan 09 2022", "Jan 10 2022", "Jan 11 2022",],
+          },
+          stroke: {
+            width: 2,
+            curve: "smooth"
+          },
+          markers: {
+            size: 0
+          },
+          colors: [colors.primary],
+        };
+        new ApexCharts(document.querySelector("#ResumeCard"),options3).render();
+      }
+      // Growth Chart - END
+
+         // Growth Chart
+    if($('#QRCode').length) {
+        var options3 = {
+          chart: {
+            type: "line",
+            height: 60,
+            sparkline: {
+              enabled: !0
+            }
+          },
+          series: [{
+            name: '',
+            data: [41, 45, 44, 465, 52, 200, 120, 74, 82, 82, 89]
+          }],
+          xaxis: {
+            type: 'datetime',
+            categories: ["Jan 01 2022", "Jan 02 2022", "Jan 03 2022", "Jan 04 2022", "Jan 05 2022", "Jan 06 2022", "Jan 07 2022", "Jan 08 2022", "Jan 09 2022", "Jan 10 2022", "Jan 11 2022",],
+          },
+          stroke: {
+            width: 2,
+            curve: "smooth"
+          },
+          markers: {
+            size: 0
+          },
+          colors: [colors.primary],
+        };
+        new ApexCharts(document.querySelector("#QRCode"),options3).render();
+      }
+      // Growth Chart - END
+
+
 
 
 
   // Revenue Chart
-  if ($('#revenueChart').length) {
-    var lineChartOptions = {
-      chart: {
-        type: "line",
-        height: '400',
-        parentHeightOffset: 0,
-        foreColor: colors.bodyColor,
-        background: colors.cardBg,
-        toolbar: {
-          show: false
-        },
-      },
-      theme: {
-        mode: 'light'
-      },
-      tooltip: {
-        theme: 'light'
-      },
-      colors: [colors.primary, colors.danger, colors.warning],
-      grid: {
-        padding: {
-          bottom: -4,
-        },
-        borderColor: colors.gridBorder,
-        xaxis: {
-          lines: {
-            show: true
-          }
-        }
-      },
-      series: [
-        {
-          name: "Revenue",
-          data: revenueChartData
-        },
-      ],
-      xaxis: {
-        type: "datetime",
-        categories: revenueChartCategories,
-        lines: {
-          show: true
-        },
-        axisBorder: {
-          color: colors.gridBorder,
-        },
-        axisTicks: {
-          color: colors.gridBorder,
-        },
-        crosshairs: {
-          stroke: {
-            color: colors.secondary,
-          },
-        },
-      },
-      yaxis: {
-        title: {
-          text: 'Revenue ( $1000 x )',
-          style:{
-            size: 9,
-            color: colors.muted
-          }
-        },
-        tickAmount: 4,
-        tooltip: {
-          enabled: true
-        },
-        crosshairs: {
-          stroke: {
-            color: colors.secondary,
-          },
-        },
-      },
-      markers: {
-        size: 0,
-      },
-      stroke: {
-        width: 2,
-        curve: "straight",
-      },
-    };
-    var apexLineChart = new ApexCharts(document.querySelector("#revenueChart"), lineChartOptions);
-    apexLineChart.render();
-  }
+//   if ($('#revenueChart').length) {
+//     var lineChartOptions = {
+//       chart: {
+//         type: "line",
+//         height: '400',
+//         parentHeightOffset: 0,
+//         foreColor: colors.bodyColor,
+//         background: colors.cardBg,
+//         toolbar: {
+//           show: false
+//         },
+//       },
+//       theme: {
+//         mode: 'light'
+//       },
+//       tooltip: {
+//         theme: 'light'
+//       },
+//       colors: [colors.primary, colors.danger, colors.warning],
+//       grid: {
+//         padding: {
+//           bottom: -4,
+//         },
+//         borderColor: colors.gridBorder,
+//         xaxis: {
+//           lines: {
+//             show: true
+//           }
+//         }
+//       },
+//       series: [
+//         {
+//           name: "Revenue",
+//           data: revenueChartData
+//         },
+//       ],
+//       xaxis: {
+//         type: "datetime",
+//         categories: revenueChartCategories,
+//         lines: {
+//           show: true
+//         },
+//         axisBorder: {
+//           color: colors.gridBorder,
+//         },
+//         axisTicks: {
+//           color: colors.gridBorder,
+//         },
+//         crosshairs: {
+//           stroke: {
+//             color: colors.secondary,
+//           },
+//         },
+//       },
+//       yaxis: {
+//         title: {
+//           text: 'Revenue ( $1000 x )',
+//           style:{
+//             size: 9,
+//             color: colors.muted
+//           }
+//         },
+//         tickAmount: 4,
+//         tooltip: {
+//           enabled: true
+//         },
+//         crosshairs: {
+//           stroke: {
+//             color: colors.secondary,
+//           },
+//         },
+//       },
+//       markers: {
+//         size: 0,
+//       },
+//       stroke: {
+//         width: 2,
+//         curve: "straight",
+//       },
+//     };
+//     var apexLineChart = new ApexCharts(document.querySelector("#revenueChart"), lineChartOptions);
+//     apexLineChart.render();
+//   }
   // Revenue Chart - END
+  if ($('#revenueChart').length) {
+    // Static data for the chart resembling a trading chart with fluctuations
+    var revenueChartData = [
+        100,
+        100,
+        103,
+        107,
+        109,
+        111,
+        112,
+        108,
+        107,
+        111,
+        111,
+        107,
+        105,
+        106,
+        108,
+        110,
+        110,
+        114,
+        110,
+        106,
+        105,
+        108,
+        111,
+        114,
+        116,
+        117,
+        121,
+        121,
+        118,
+        115,
+        113,
+        110,
+        112,
+        109,
+        111,
+        111,
+        110,
+        110,
+        110,
+        114,
+        112,
+        108,
+        104,
+        108,
+        111,
+        109,
+        109,
+        107,
+        109,
+        109,
+        110,
+        110,
+        113,
+        116,
+        119,
+        123,
+        121,
+        122,
+        122,
+        124,
+        123,
+        127,
+        126,
+        126,
+        129,
+        125,
+        122,
+        121,
+        123,
+        125,
+        129,
+        130,
+        132,
+        131,
+        131,
+        135,
+        135,
+        139,
+        136,
+        132,
+        128,
+        130,
+        131,
+        128,
+        132,
+        136,
+        139,
+        136,
+        132,
+        134,
+        134,
+        134,
+        134,
+        136,
+        140,
+        144,
+        144,
+        145,
+        143,
+        145,
+        145,
+        142,
+        142,
+        139,
+        143,
+        141,
+        140,
+        141,
+        142,
+        139,
+        139,
+        138,
+        142,
+        139,
+        140,
+        137,
+        135,
+        136,
+        137,
+        135,
+        139,
+        143,
+        140,
+        141,
+        138,
+        134,
+        138,
+        138,
+        141,
+        143,
+        147,
+        150,
+        153,
+        153,
+        155,
+        151,
+        155,
+        157,
+        160,
+        157,
+        154,
+        155,
+        153,
+        151,
+        148,
+        147,
+        151,
+        152,
+        155,
+        153,
+        150,
+        153,
+        155,
+        151,
+        155,
+        155,
+        157,
+        161,
+        163,
+        165,
+        169,
+        167,
+        165,
+        165,
+        163,
+        166,
+        163,
+        163,
+        162,
+        163,
+        159,
+        157,
+        159,
+        161,
+        157,
+        156,
+        159,
+        155,
+        153,
+        155,
+        151,
+        150,
+        154,
+        155,
+        155,
+        159,
+        157,
+        157,
+        156,
+        155,
+        154,
+        157,
+        157,
+        159,
+        159,
+        155,
+        158,
+        154,
+        152,
+        153,
+        157,
+        155,
+        155,
+        154,
+        154,
+        154,
+        153,
+        151,
+        148,
+        148,
+        152,
+        154,
+        156,
+        159,
+        160,
+        161,
+        157,
+        157,
+        155,
+        151,
+        149,
+        148,
+        151,
+        151,
+        150,
+        154,
+        154,
+        158,
+        159,
+        163,
+        163,
+        159,
+        156,
+        157,
+        154,
+        150,
+        149,
+        149,
+        146,
+        145,
+        147,
+        150,
+        152,
+        151,
+        152,
+        151,
+        150,
+        147,
+        144,
+        146,
+        144,
+        141,
+        143,
+        140,
+        140,
+        139,
+        137,
+        134,
+        138,
+        142,
+        144,
+        145,
+        144,
+        141,
+        144,
+        146,
+        147,
+        147,
+        151,
+        149,
+        149,
+        148,
+        152,
+        149,
+        153,
+        152,
+        152,
+        154,
+        153,
+        155,
+        154,
+        158,
+        154,
+        151,
+        147,
+        147,
+        146,
+        143,
+        143,
+        143,
+        143,
+        146,
+        150,
+        154,
+        156,
+        156,
+        157,
+        158,
+        158,
+        160,
+        156,
+        160,
+        160,
+        164,
+        164,
+        163,
+        164,
+        166,
+        164,
+        168,
+        165,
+        167,
+        163,
+        166,
+        163,
+        163,
+        165,
+        169,
+        165,
+        164,
+        163,
+        164,
+        164,
+        164,
+        165,
+        164,
+        168,
+        170,
+        172,
+        176,
+        176,
+        177,
+        179,
+        183,
+        184,
+        180,
+        179,
+        178,
+        181,
+        185,
+        182,
+        178,
+        179,
+        181,
+        181,
+        182,
+        186,
+        188,
+        188,
+        192,
+        188,
+        192,
+        195,
+        196,
+        195,
+        195,
+        196,
+        194,
+        194,
+        198,
+        198,
+        199,
+        201,
+        200,
+        196,
+        198,
+        199,
+        199,
+        203,
+        205,
+        206,
+        209,
+        213,
+        216,
+        220,
+        221,
+        217,
+        217,
+        218,
+        214,
+        217,
+        213,
+        216,
+        213,
+        217,
+        219,
+        219,
+        222,
+        225,
+        225,
+        228,
+        227,
+        226,
+        230,
+        234,
+        234,
+        234,
+        232,
+        233,
+        229,
+        232,
+        235,
+        231,
+        234,
+        232,
+        236,
+        240,
+        243,
+        246,
+        247,
+        250,
+        249,
+        251,
+        252,
+        256,
+        258,
+        254,
+        254,
+        258,
+        257,
+        259,
+        258,
+        256,
+        255,
+        252,
+        256,
+        258,
+        261,
+        262,
+        264,
+        266,
+        266,
+        268,
+        272,
+        268,
+        267,
+        264,
+        262,
+        262,
+        265,
+        262,
+        262,
+        263,
+        266,
+        265,
+        261,
+        264,
+        268,
+        267,
+        265,
+        267,
+        267,
+        269,
+        267,
+        269,
+        269,
+        267,
+        265,
+        269,
+        272,
+        275,
+        276,
+        276,
+        276,
+        279,
+        276,
+        273,
+        272,
+        268,
+        270,
+        270,
+        274,
+        270,
+        269,
+        273,
+        277,
+        274,
+        274,
+        276,
+        272,
+        270,
+        270,
+        270,
+        273,
+        271,
+        267,
+        266,
+        270,
+        267,
+        267,
+        263,
+        267,
+        266,
+        268,
+        272,
+        272,
+        270,
+        274,
+        274,
+        277
+    ]
 
+    // Ensure the data length matches the categories length (365+1 = 366)
+    revenueChartData = revenueChartData.slice(0, 366); // Adjust data length to match categories
+
+    // Generate the dates for the x-axis (past 365 days)
+    var revenueChartCategories = [];
+    var today = new Date();
+
+    for (let i = 365; i >= 0; i--) {
+        let pastDate = new Date();
+        pastDate.setDate(today.getDate() - i);
+        let timestamp = pastDate.getTime();  // Convert to Unix timestamp (milliseconds)
+        revenueChartCategories.push(timestamp);
+    }
+
+
+
+    var lineChartOptions = {
+        chart: {
+            type: "line",
+            height: 400,
+            parentHeightOffset: 0,
+            foreColor: colors.bodyColor,
+            background: colors.cardBg,
+            toolbar: { show: false },
+        },
+        theme: { mode: 'light' },
+        tooltip: { theme: 'light' },
+        colors: [colors.primary],
+        grid: {
+            padding: { bottom: -4 },
+            borderColor: colors.gridBorder,
+            xaxis: { lines: { show: true } }
+        },
+        series: [{ name: "Day", data: revenueChartData }],
+        xaxis: {
+            type: "datetime",
+            categories: revenueChartCategories,
+            lines: { show: true },
+            axisBorder: { color: colors.gridBorder },
+            axisTicks: { color: colors.gridBorder },
+            crosshairs: { stroke: { color: colors.secondary } },
+        },
+        yaxis: {
+            title: {
+                text: 'Day ( $1000 x )',
+                style: { size: 9, color: colors.muted }
+            },
+            tickAmount: 6,
+            tooltip: { enabled: true },
+            crosshairs: { stroke: { color: colors.secondary } },
+        },
+        markers: { size: 0 },
+        stroke: { width: 2, curve: "smooth" },
+    };
+
+    if (document.querySelector("#revenueChart")) {
+        var apexLineChart = new ApexCharts(document.querySelector("#revenueChart"), lineChartOptions);
+        apexLineChart.render();
+    }
+}
 
 
 
@@ -504,7 +1262,10 @@ $(function() {
         mode: 'light'
       },
       tooltip: {
-        theme: 'light'
+        theme: 'light',
+        x: {
+          format: 'yyyy' // Ensures tooltip shows the year
+        }
       },
       colors: [colors.primary],
       fill: {
@@ -523,11 +1284,21 @@ $(function() {
       },
       series: [{
         name: 'Sales',
-        data: [152,109,93,113,126,161,188,143,102,113,116,124]
+        data: [5000,12000,17000,4000]
       }],
       xaxis: {
         type: 'datetime',
-        categories: ['01/01/2022','02/01/2022','03/01/2022','04/01/2022','05/01/2022','06/01/2022','07/01/2022', '08/01/2022','09/01/2022','10/01/2022', '11/01/2022', '12/01/2022'],
+        categories: [
+          new Date('2022-01-01').getTime(),
+          new Date('2023-01-01').getTime(),
+          new Date('2024-01-01').getTime(),
+          new Date('2025-01-01').getTime()
+        ],
+        labels: {
+          formatter: function(value) {
+            return new Date(value).getFullYear(); // Formats x-axis labels to show only year
+          }
+        },
         axisBorder: {
           color: colors.gridBorder,
         },
@@ -579,7 +1350,8 @@ $(function() {
 
     var apexBarChart = new ApexCharts(document.querySelector("#monthlySalesChart"), options);
     apexBarChart.render();
-  }
+}
+
   // Monthly Sales Chart - END
 
 

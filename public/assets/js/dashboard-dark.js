@@ -949,7 +949,7 @@ console.log(revenueChartCategories);
             borderColor: colors.gridBorder,
             xaxis: { lines: { show: true } }
         },
-        series: [{ name: "Revenue", data: revenueChartData }],
+        series: [{ name: "Day", data: revenueChartData }],
         xaxis: {
             type: "datetime",
             categories: revenueChartCategories,
@@ -960,7 +960,7 @@ console.log(revenueChartCategories);
         },
         yaxis: {
             title: {
-                text: 'Revenue ( $1000 x )',
+                text: 'Day ( $1000 x )',
                 style: { size: 9, color: colors.muted }
             },
             tickAmount: 6,
