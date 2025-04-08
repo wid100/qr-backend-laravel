@@ -1355,9 +1355,6 @@ $(function () {
             },
             tooltip: {
                 theme: 'light',
-                x: {
-                    format: 'yyyy' // Ensures tooltip shows the year
-                }
             },
             colors: [colors.primary],
             fill: {
@@ -1376,19 +1373,13 @@ $(function () {
             },
             series: [{
                 name: 'Sales',
-                data: [5000, 12000, 17000, 4000]
+                data: [143098, 244169, 263179]
             }],
             xaxis: {
-                type: 'datetime',
-                categories: [
-                    new Date('2022-01-01').getTime(),
-                    new Date('2023-01-01').getTime(),
-                    new Date('2024-01-01').getTime(),
-                    new Date('2025-01-01').getTime()
-                ],
+                categories: ['2023', '2024', '2025'],
                 labels: {
                     formatter: function (value) {
-                        return new Date(value).getFullYear(); // Formats x-axis labels to show only year
+                        return value;
                     }
                 },
                 axisBorder: {
@@ -1422,18 +1413,20 @@ $(function () {
             },
             dataLabels: {
                 enabled: true,
+                position: 'center', // 👈 Brings label inside the bar
+                offsetY: 0, // 👈 Keep it vertically centered
                 style: {
-                    fontSize: '10px',
+                    fontSize: '12px',
                     fontFamily: fontFamily,
-                },
-                offsetY: -27
+                    colors: ['#ffffff'] // 👈 White text inside blue bars for visibility
+                }
             },
             plotOptions: {
                 bar: {
                     columnWidth: "50%",
                     borderRadius: 4,
                     dataLabels: {
-                        position: 'top',
+                        position: 'center', // 👈 Center the labels inside bar
                         orientation: 'vertical',
                     }
                 },
@@ -1443,6 +1436,7 @@ $(function () {
         var apexBarChart = new ApexCharts(document.querySelector("#monthlySalesChart"), options);
         apexBarChart.render();
     }
+
 
     // Monthly Sales Chart - END
 
