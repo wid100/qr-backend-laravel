@@ -22,7 +22,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-6 col-md-12 col-xl-5">
-                                        <h3 class="mb-2">{{ $user +252235 }}</h3>
+                                        <h3 class="mb-2">{{ $user + 252235 }}</h3>
                                         <div class="d-flex align-items-baseline">
                                             <p class="text-success">
                                                 <span>Today {{ $newUsersCount + 130 }}</span>
@@ -216,6 +216,72 @@
                             </div>
                         </div>
                     </div>
+
+
+
+
+                    <div class="col-md-4 grid-margin stretch-card">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-baseline">
+                                    <h6 class="card-title mb-0">Total Students ID Card</h6>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-6 col-md-12 col-xl-5">
+                                        <h3 class="mb-2">13000</h3>
+
+                                    </div>
+                                    <div class="col-6 col-md-12 col-xl-7">
+                                        <div id="studentCard" class="mt-md-3 mt-xl-0"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-md-4 grid-margin stretch-card">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-baseline">
+                                    <h6 class="card-title mb-0">Number of the University</h6>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-6 col-md-12 col-xl-5">
+                                        <h3 class="mb-2">23,644</h3>
+
+                                    </div>
+                                    <div class="col-6 col-md-12 col-xl-7">
+                                        <div id="university" class="mt-md-3 mt-xl-0"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-4 grid-margin stretch-card">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-baseline">
+                                    <h6 class="card-title mb-0">Total Website QR Code</h6>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-6 col-md-12 col-xl-5">
+                                        <h3 class="mb-2">15600</h3>
+
+                                    </div>
+                                    <div class="col-6 col-md-12 col-xl-7">
+                                        <div id="website" class="mt-md-3 mt-xl-0"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div> <!-- row -->
@@ -227,8 +293,8 @@
                         <div class="d-flex justify-content-between align-items-baseline mb-4 mb-md-3">
                             <h6 class="card-title mb-0">Sales Every Day</h6>
                             <div class="dropdown">
-                                <a type="button" id="dropdownMenuButton3" data-bs-toggle="dropdown" aria-haspopup="true"
-                                    aria-expanded="false">
+                                <a type="button" id="dropdownMenuButton3" data-bs-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
                                     <i class="icon-lg text-muted pb-3px" data-feather="more-horizontal"></i>
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
