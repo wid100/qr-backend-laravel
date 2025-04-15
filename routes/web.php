@@ -136,7 +136,8 @@ Route::namespace('App\Http\Controllers')->group(
             Route::resource('smart-card', 'SmartCardController');
 
             // testing route for google calendar API integration not use
-            Route::get('/send-event', [SendEventController::class, 'sendInvitationEmail']); //this is testing route not use
+            Route::get('/send-event', [SendEventController::class, 'sendInvitationEmail']);
+            Route::resource('/profile', 'AdminProfileController');
         });
     }
 );
