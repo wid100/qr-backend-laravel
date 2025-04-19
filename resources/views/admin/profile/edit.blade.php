@@ -32,8 +32,7 @@
                                 <div class="col-md-6">
                                     <div class="mb-3">
                                         <label for="email" class="form-label">Email</label>
-                                        <input type="text" class="form-control" id="email" name="email" disabled
-                                            value="{{ $user->email }}" placeholder="Email">
+                                        <input type="text" class="form-control" id="email" name="email"                                             value="{{ $user->email }}" placeholder="Email">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
