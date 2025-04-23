@@ -22,6 +22,7 @@ use App\Http\Controllers\Auth\CustomAuthenticatedSessionController;
 use App\Http\Controllers\WebsiteController;
 use App\Http\Controllers\Admin\PayPalController;
 use App\Http\Controllers\Api\SmartCardController;
+use App\Http\Controllers\Api\ScheduleAreaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -161,3 +162,12 @@ Route::post('/message', [MessageController::class, 'create']);
 Route::get('/faqs', [FAQController::class, 'index']);
 // get all smard card design
 Route::get('/get-card-design', SmartCardController::class);
+
+
+// Schedule Area
+Route::post('/schedule-area', [ScheduleAreaController::class, 'store']);
+Route::get('/schedule-area/{id}', [ScheduleAreaController::class, 'edit']);
+Route::post('/schedule-area/update/{id}', [ScheduleAreaController::class, 'update']);
+
+Route::delete('/schedule-area/delete/{id}', [ScheduleAreaController::class, 'destroy']);
+Route::get('/schedule/areas/{userId}', [ScheduleAreaController::class, 'index']);

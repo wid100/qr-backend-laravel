@@ -70,4 +70,9 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany(Schedule::class);
     }
+
+    public function scheduleAreas()
+    {
+        return $this->hasMany(ScheduleArea::class);
+    }
 }
