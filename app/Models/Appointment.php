@@ -22,12 +22,18 @@ class Appointment extends Model
         'meeting_app',
         'message',
         'meeting_type',
-        'decline_message'
+        'decline_message',
+        'appointment_area',
     ];
 
 
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function scheduleArea()
+    {
+        return $this->belongsTo(ScheduleArea::class, 'appointment_area');
     }
 }

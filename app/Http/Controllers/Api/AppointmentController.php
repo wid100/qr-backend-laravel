@@ -171,15 +171,25 @@ class AppointmentController extends Controller
 
 
 
-    public function index(Request $request, $id)
-    {
-        $appointments = Appointment::where('user_id', $id)->get();
+    // public function index(Request $request, $id)
+    // {
+    //     $appointments = Appointment::where('user_id', $id)->get();
 
-        return response()->json([
-            'status' => 200,
-            'appointments' => $appointments,
-        ]);
+    //     return response()->json([
+    //         'status' => 200,
+    //         'appointments' => $appointments,
+    //     ]);
+    // }
+
+    public function index($userId)
+    {
+        $appointments = Appointment::where('user_id', $userId)
+            ->with('scheduleArea') // Include related schedule_area data
+            ->get();
+
+        return response()->json(['appointments' => $appointments]);
     }
+
 
 
 
@@ -201,7 +211,8 @@ class AppointmentController extends Controller
             'address' => 'nullable|string',
             'meeting_app' => 'nullable|string',
             'message' => 'nullable|string',
-            'meeting_type' => 'required'
+            'meeting_type' => 'required',
+            'meeting_area' => 'nullable|string',
         ]);
 
         Appointment::create([
@@ -216,6 +227,7 @@ class AppointmentController extends Controller
             'meeting_app' => $request->meeting_app,
             'message' => $request->message,
             'meeting_type' => $request->meeting_type,
+            'appointment_area' => $request->meeting_area,
         ]);
 
         return response()->json(
