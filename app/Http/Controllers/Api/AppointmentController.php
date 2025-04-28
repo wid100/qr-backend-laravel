@@ -242,7 +242,7 @@ class AppointmentController extends Controller
     public function show($id)
     {
         // Fetch the appointment by ID
-        $appointment = Appointment::find($id);
+        $appointment = Appointment::with('scheduleArea')->find($id);
 
         // Check if the appointment exists
         if (!$appointment) {
