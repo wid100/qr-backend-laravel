@@ -73,5 +73,4 @@ class AppointmentApprovedMail extends Mailable
 
         return $email;
     }
-
 }

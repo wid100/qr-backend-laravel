@@ -11,10 +11,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\AppointmentApprovedMail;
 use App\Mail\AppointmentDeclined;
-use Google\Client;
-use Google\Service\Calendar\Event;
-use Google\Service\Calendar\EventAttendee;
-use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class AppointmentController extends Controller
 {
@@ -22,74 +18,34 @@ class AppointmentController extends Controller
 
     public function update(Request $request, $id)
     {
+        // Find the appointment by ID
         $appointment = Appointment::findOrFail($id);
 
-        // Validation rules based on meeting type
+        // Conditional validation based on meeting_type
         $rules = [
             'password' => 'nullable|string|max:255',
             'message' => 'nullable|string|max:1000',
         ];
 
         if ($appointment->meeting_type == 1) {
+            // Meeting type is 1 (online meeting), meeting_link is required, location is nullable
             $rules['meeting_link'] = 'required|string|max:255';
+            $rules['location'] = 'nullable|string|max:255';
         } elseif ($appointment->meeting_type == 2) {
+            // Meeting type is 2 (physical meeting), location is required, meeting_link is nullable
             $rules['location'] = 'required|string|max:255';
+            $rules['meeting_link'] = 'nullable|string|max:255';
         }
 
+        // Validate the incoming data
         $validated = $request->validate($rules);
 
         // Update appointment details
-        $appointment->meeting_link = $validated['meeting_link'] ?? null;
+        $appointment->meeting_link = $validated['meeting_link'];
         $appointment->meeting_pass = $validated['password'] ?? null;
         $appointment->location = $validated['location'] ?? null;
         $appointment->approval_message = $validated['message'] ?? null;
         $appointment->status = 1; // Approved status
-
-        // Parse time slots and set event start/end times
-        $timeSlots = json_decode($appointment->time_slot, true);
-        if (is_array($timeSlots) && isset($timeSlots[0])) {
-            $timeSlotsArray = explode(',', $timeSlots[0]);
-            $firstSlot = explode(' to ', trim($timeSlotsArray[0] ?? ''));
-            if (isset($firstSlot[0], $firstSlot[1])) {
-                $startDateTime = Carbon::createFromFormat('h:i A', $firstSlot[0])
-                    ->setDateFrom(Carbon::parse($appointment->date));
-                $endDateTime = Carbon::createFromFormat('h:i A', $firstSlot[1])
-                    ->setDateFrom(Carbon::parse($appointment->date));
-
-                $appointment['start'] = $startDateTime->toIso8601String();
-                $appointment['end'] = $endDateTime->toIso8601String();
-            } else {
-                throw new \Exception('Invalid time slot data structure.');
-            }
-        } else {
-            throw new \Exception('Invalid time slot data.');
-        }
-
-        // Google Calendar Integration
-        $client = new Client();
-        $client->setAuthConfig(storage_path('app/google/credentials.json'));
-        $client->addScope(\Google\Service\Calendar::CALENDAR);
-        $service = new \Google\Service\Calendar($client);
-
-        $event = new Event([
-            'summary' => 'Appointment: ' . $appointment->id,
-            'description' => $appointment->approval_message,
-            'start' => [
-                'dateTime' => $appointment['start'],
-                'timeZone' => 'UTC',
-            ],
-            'end' => [
-                'dateTime' => $appointment['end'],
-                'timeZone' => 'UTC',
-            ],
-            'attendees' => [
-                new EventAttendee(['email' => $appointment->email]),
-            ],
-            'guestsCanModify' => true,
-        ]);
-
-        $calendarId = 'primary'; // Or use a specific calendar ID
-        $createdEvent = $service->events->insert($calendarId, $event, ['sendUpdates' => 'all']);
 
         // Send the email
         Mail::to($appointment->email)->send(new AppointmentApprovedMail($appointment));
@@ -97,42 +53,10 @@ class AppointmentController extends Controller
         // Save changes
         $appointment->save();
 
-        return response()->json(['message' => 'Appointment updated and added to Google Calendar successfully'], 200);
+        return response()->json(['message' => 'Appointment updated and email sent successfully'], 200);
     }
 
 
-
-
-
-    // public function getAvailableSlots($user_id, $date)
-    // {
-    //     $parsedDate = Carbon::parse($date)->format('Y-m-d');
-
-    //     $schedules = Schedule::where('user_id', $user_id)
-    //         ->where('status', true)
-    //         ->get();
-
-    //     $availableSlots = [];
-
-    //     foreach ($schedules as $schedule) {
-    //         $dates = json_decode(
-    //             $schedule->date,
-    //             true
-    //         );
-    //         $times = json_decode($schedule->time, true);
-
-    //         if (in_array($parsedDate, $dates)) {
-    //             $availableSlots = array_merge($availableSlots, $times);
-    //         }
-    //     }
-
-    //     $availableSlots = array_unique($availableSlots);
-    //     return response()->json([
-    //         'status' => 200,
-    //         'availableSlots' => $availableSlots
-    //     ]);
-    //     // return response()->json(['availableSlots' => $availableSlots]);
-    // }
 
     public function getAvailableSlots($user_id, $date)
     {
@@ -171,15 +95,7 @@ class AppointmentController extends Controller
 
 
 
-    // public function index(Request $request, $id)
-    // {
-    //     $appointments = Appointment::where('user_id', $id)->get();
 
-    //     return response()->json([
-    //         'status' => 200,
-    //         'appointments' => $appointments,
-    //     ]);
-    // }
 
     public function index($userId)
     {

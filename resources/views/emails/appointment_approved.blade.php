@@ -283,7 +283,7 @@
                                         ">
                                     {{ $appointment->approval_message ??
                                         'No
-                                                                            message' }}
+                                                                                                                message' }}
                                 </p>
                             </td>
                         </tr>
@@ -292,7 +292,7 @@
                                 <a href="https://smartcardgenerator.net/"
                                     style="
                                             width: 100px;
-                                          
+
                                         ">
                                     <img style="width: 150px;" src="https://i.postimg.cc/FF0w6D8N/logo.png"
                                         alt="" />
