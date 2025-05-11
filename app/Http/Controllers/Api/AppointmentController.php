@@ -2,59 +2,180 @@
 
 namespace App\Http\Controllers\Api;
 
-use Carbon\Carbon;
-
 use App\Models\Schedule;
 use App\Models\Appointment;
-use Illuminate\Http\Request;
+use App\Mail\AppointmentDeclined;
+
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use Google\Client;
+use Google\Service\Calendar as GoogleCalendarService;
+use Google\Service\Calendar\Event as GoogleCalendarEvent;
+use Google\Service\Calendar\EventDateTime as GoogleCalendarEventDateTime;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\AppointmentApprovedMail;
-use App\Mail\AppointmentDeclined;
+use DateTime;
+use DateTimeZone;
 
 class AppointmentController extends Controller
 {
 
 
+    public function addToGoogleCalendar(Appointment $appointment)
+    {
+        $client = new Client();
+        $client->setClientId(config('services.google.client_id'));
+        $client->setClientSecret(config('services.google.client_secret'));
+        $client->setRedirectUri(config('services.google.redirect_uri'));
+        $client->addScope(GoogleCalendarService::CALENDAR);
+
+        // Laravel এর সেশন ব্যবহার করুন
+        if (!session()->has('access_token')) {
+            $authUrl = $client->createAuthUrl();
+            return redirect()->away($authUrl);
+        } else {
+            $client->setAccessToken(session('access_token'));
+        }
+
+        $service = new GoogleCalendarService($client);
+
+        try {
+            // তারিখ এবং সময় একত্রিত করে DateTime অবজেক্ট তৈরি করুন
+            $startDateTime = Carbon::parse($appointment->date . ' ' . $appointment->start_time, 'Asia/Dhaka')->setTimezone('UTC');
+            // Google Calendar API UTC টাইম ফরম্যাটে আশা করে
+            $endDateTime = (clone $startDateTime)->addHour(); // উদাহরণস্বরূপ, ১ ঘণ্টার অ্যাপয়েন্টমেন্ট
+
+            $event = new GoogleCalendarEvent([
+                'summary' => 'Appointment with ' . $appointment->first_name . ' ' . $appointment->last_name,
+                'location' => $appointment->location ?? 'Online',
+                'description' => $appointment->message ?? 'Appointment scheduled.',
+                'start' => [
+                    'dateTime' => $startDateTime->format(DateTime::RFC3339),
+                    'timeZone' => 'UTC',
+                ],
+                'end' => [
+                    'dateTime' => $endDateTime->format(DateTime::RFC3339),
+                    'timeZone' => 'UTC',
+                ],
+                'reminders' => [
+                    'useDefault' => false,
+                    'overrides' => [
+                        ['method' => 'popup', 'minutes' => 10],
+                    ],
+                ],
+            ]);
+
+            $calendarId = 'primary';
+            $googleEvent = $service->events->insert($calendarId, $event);
+
+            // Optionally, আপনি Google Calendar ইভেন্টের আইডি আপনার ডাটাবেসে সংরক্ষণ করতে পারেন
+            // $appointment->google_calendar_event_id = $googleEvent->getId();
+            // $appointment->save();
+
+            return back()->with('success', 'Appointment added to Google Calendar.');
+        } catch (\Google\Service\Exception $e) {
+            error_log('Google Calendar API error: ' . $e->getMessage());
+            return back()->with('error', 'Failed to add event to Google Calendar: ' . $e->getMessage());
+        } catch (\Exception $e) {
+            error_log('General error: ' . $e->getMessage());
+            return back()->with('error', 'An unexpected error occurred while adding to Google Calendar.');
+        }
+    }
+
     public function update(Request $request, $id)
     {
-        // Find the appointment by ID
         $appointment = Appointment::findOrFail($id);
 
-        // Conditional validation based on meeting_type
         $rules = [
             'password' => 'nullable|string|max:255',
             'message' => 'nullable|string|max:1000',
         ];
 
         if ($appointment->meeting_type == 1) {
-            // Meeting type is 1 (online meeting), meeting_link is required, location is nullable
             $rules['meeting_link'] = 'required|string|max:255';
             $rules['location'] = 'nullable|string|max:255';
         } elseif ($appointment->meeting_type == 2) {
-            // Meeting type is 2 (physical meeting), location is required, meeting_link is nullable
             $rules['location'] = 'required|string|max:255';
             $rules['meeting_link'] = 'nullable|string|max:255';
         }
 
-        // Validate the incoming data
         $validated = $request->validate($rules);
 
-        // Update appointment details
         $appointment->meeting_link = $validated['meeting_link'];
         $appointment->meeting_pass = $validated['password'] ?? null;
         $appointment->location = $validated['location'] ?? null;
         $appointment->approval_message = $validated['message'] ?? null;
-        $appointment->status = 1; // Approved status
+        $appointment->status = 1;
 
-        // Send the email
-        Mail::to($appointment->email)->send(new AppointmentApprovedMail($appointment));
+        // তারিখ এবং সময় একত্রিত করে Carbon অবজেক্ট তৈরি করুন
+        $startTime = Carbon::parse($appointment->date . ' ' . $appointment->start_time, 'Asia/Dhaka');
+        $endTime = (clone $startTime)->addHour();
 
-        // Save changes
+        $appointment->start = $startTime->format('Y-m-d H:i:s');
+        $appointment->end = $endTime->format('Y-m-d H:i:s');
+
+        $icsContent = $this->generateIcsContent($appointment);
+
         $appointment->save();
 
-        return response()->json(['message' => 'Appointment updated and email sent successfully'], 200);
+        Mail::to($appointment->email)->send(new AppointmentApprovedMail($appointment, $icsContent));
+
+        return response()->json(['message' => 'Appointment updated successfully and email sent.'], 200);
     }
+
+    /**
+     * Generate ICS content with RSVP options (Yes/No/Maybe)
+     *
+     * @param Appointment $appointment
+     * @return string
+     */
+    private function generateIcsContent(Appointment $appointment)
+    {
+        $startDateTime = new DateTime($appointment->start, new DateTimeZone('UTC'));
+        $endDateTime = new DateTime($appointment->end, new DateTimeZone('UTC'));
+
+        $event = [
+            'id' => $appointment->id,
+            'title' => 'Appointment Approved',
+            'description' => $appointment->approval_message ?? 'Your appointment has been approved.',
+            'start' => $startDateTime->format('Ymd\THis\Z'),
+            'end' => $endDateTime->format('Ymd\THis\Z'),
+            'location' => $appointment->location ?? '',
+            'organizer' => 'CN=Organizer:mailto:' . config('mail.from.address'), // Use configured email
+            'attendee' => 'RSVP=TRUE;CN=' . $appointment->email . ':mailto:' . $appointment->email,
+        ];
+
+        $icsContent = <<<EOT
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Laravel//EN
+METHOD:REQUEST
+BEGIN:VEVENT
+UID:{$event['id']}@{$_SERVER['HTTP_HOST']}
+SUMMARY:{$event['title']}
+DESCRIPTION:{$event['description']}
+DTSTART:{$event['start']}
+DTEND:{$event['end']}
+LOCATION:{$event['location']}
+ORGANIZER:{$event['organizer']}
+ATTENDEE:{$event['attendee']}
+STATUS:CONFIRMED
+SEQUENCE:0
+TRANSP:OPAQUE
+BEGIN:VALARM
+TRIGGER:-PT10M
+DESCRIPTION:Reminder
+ACTION:DISPLAY
+END:VALARM
+END:VEVENT
+END:VCALENDAR
+EOT;
+
+        return $icsContent;
+    }
+
+
 
 
 
