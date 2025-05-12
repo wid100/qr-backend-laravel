@@ -24,8 +24,8 @@
                             <td align="center" style="margin-bottom: 30px; width: 100%">
                                 <div>
 
-                                    <img src="https://i.postimg.cc/5twkrtKp/decline.png"
-                                        style="width: 70px; margin-bottom: 0px;" alt="">
+                                    {{-- <img src="https://i.postimg.cc/5twkrtKp/decline.png"
+                                        style="width: 70px; margin-bottom: 0px;" alt=""> --}}
                                     <h1
                                         style="
                         font-family: sans-serif;
@@ -45,11 +45,10 @@
                         line-height: 150%;
                         font-family: sans-serif;
                       ">
-                                        We regret to inform you that your appointment with ID #{{ $appointmentId }} has
-                                        been declined.</p>
+                                        We regret to inform you that your appointment has been declined.</p>
 
                                     @if ($declineMessage)
-                                        <p>Message: {{ $declineMessage }}</p>
+                                        <p>Resone: <br> {{ $declineMessage }}</p>
                                     @endif
 
                                     <p>Thank you for your understanding.</p>
@@ -60,12 +59,12 @@
                         </tr>
                         <!-- The 50% width on each cell -->
 
-                        <tr>
+                        {{-- <tr>
                             <td align="center">
                                 <a href="https://smartcardgenerator.net/"
                                     style="width: 100px; background: #FFB317; text-decoration: none; padding: 7px; border-radius: 3px; border: none; color: white; font-family: sans-serif; font-weight: 700;">Back</a>
                             </td>
-                        </tr>
+                        </tr> --}}
                     </table>
                 </td>
             </tr>

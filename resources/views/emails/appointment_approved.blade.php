@@ -31,11 +31,11 @@
                                             padding: 20px 40px 30px 40px;
                                             border-radius: 5px;
                                         ">
-                                    <img style="
+                                    {{-- <img style="
                                                 text-align: center;
                                                 width: 80px;
                                             "
-                                        src="https://i.postimg.cc/TwqpqP6h/image-81.png" alt="Bits of Dev" />
+                                        src="https://i.postimg.cc/TwqpqP6h/image-81.png" alt="Bits of Dev" /> --}}
                                     <h1
                                         style="
                                                 font-family: sans-serif;
@@ -283,7 +283,7 @@
                                         ">
                                     {{ $appointment->approval_message ??
                                         'No
-                                                                                                                message' }}
+                                                                                                                                                                                                                                                                                                                                                                            message' }}
                                 </p>
                             </td>
                         </tr>
@@ -294,7 +294,7 @@
                                             width: 100px;
 
                                         ">
-                                    <img style="width: 150px;" src="https://i.postimg.cc/FF0w6D8N/logo.png"
+                                    <img style="width: 150px;" src="https://smartcardgenerator.net/img/logo.png"
                                         alt="" />
                                 </a>
                             </td>

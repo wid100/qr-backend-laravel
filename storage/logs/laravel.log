@@ -1757,3 +1757,5 @@
 #65 G:\\WWW\\full compleate\\qr-backend\\server.php(21): require_once('G:\\\\WWW\\\\full com...')
 #66 {main}
 "} 
+[2025-05-12 05:18:12] local.DEBUG: Country Name: {"name":"Afghanistan"} 
+[2025-05-12 05:18:13] local.DEBUG: Country Name: {"name":"Bangladesh"} 
