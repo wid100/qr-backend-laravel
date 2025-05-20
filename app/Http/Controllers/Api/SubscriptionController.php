@@ -6,6 +6,7 @@ use App\Models\Qrgen;
 use App\Models\Subscription;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\User;
 
 class SubscriptionController extends Controller
 {
@@ -14,6 +15,7 @@ class SubscriptionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
 
 
 
@@ -49,10 +51,7 @@ class SubscriptionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
-    }
+
 
     /**
      * Store a newly created resource in storage.
