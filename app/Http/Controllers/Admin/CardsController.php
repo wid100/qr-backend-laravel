@@ -82,6 +82,8 @@ class CardsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $card = Qrgen::findOrFail($id);
+        $card->delete();
+        return redirect()->route('admin.card.index')->with('success', 'Card deleted successfully.');
     }
 }
