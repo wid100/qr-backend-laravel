@@ -123,6 +123,7 @@ class QrgenController extends Controller
                 'whatsapp' => 'nullable',
                 'skype' => 'nullable',
                 'google_scholar' => 'nullable',
+                'medium' => 'nullable',
 
 
 
@@ -300,6 +301,7 @@ class QrgenController extends Controller
                 'whatsapp' => 'nullable|url',
                 'skype' => 'nullable|url',
                 'google_scholar' => 'nullable|url',
+                'medium' => 'nullable|url',
 
 
 
