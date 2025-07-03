@@ -66,9 +66,9 @@
                                                 @endif
                                             </td>
                                             <td>
-                                                {{-- <a href="{{ route('admin.card.edit', $card->id) }}"
+                                                <a href="{{ route('admin.card.edit', $card->id) }}"
                                                     class="btn btn-primary btn-icon">
-                                                    <i data-feather="edit"></i></a> --}}
+                                                    <i data-feather="edit"></i></a>
 
                                                 <form id="delete_form_{{ $card->id }}"
                                                     action="{{ route('admin.card.destroy', $card->id) }}" method="post"
