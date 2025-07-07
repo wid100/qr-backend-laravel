@@ -63,11 +63,27 @@
             </li>
             <li class="nav-item nav-category">Website Card</li>
 
+
+
             <li class="nav-item">
-                <a href="{{ route('admin.smart-card.index') }}" class="nav-link">
-                    <i class="link-icon" data-feather="box"></i>
-                    <span class="link-title">Create Smart Card</span>
+                <a class="nav-link" data-bs-toggle="collapse" href="#ordared_card" role="button" aria-expanded="false"
+                    aria-controls="ordared_card">
+                    <i class="link-icon" data-feather="credit-card"></i>
+                    <span class="link-title">Oraderd Cards</span>
+                    <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
+                <div class="collapse" id="ordared_card">
+                    <ul class="nav sub-menu">
+                        <li class="nav-item">
+                            <a href="{{ route('admin.smart-card.index') }}" class="nav-link">Smard Cards</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{{ route('admin.card-order.index') }}" class="nav-link">Smard Cards</a>
+                        </li>
+
+                    </ul>
+                </div>
             </li>
 
             <li class="nav-item">

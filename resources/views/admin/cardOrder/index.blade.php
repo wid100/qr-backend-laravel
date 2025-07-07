@@ -46,7 +46,7 @@
                                             <td>{{ $order->email }}</td>
                                             <td>{{ $order->phone }}</td>
                                             <td>{{ $order->payment_method }}</td>
-                                            <td>{{ number_format($order->total_price, 2) }} {{ $order->currency ?? 'USD' }}
+                                            <td>{{ number_format($order->total_price, 2) }} {{ $order->currency ?? 'BDT' }}
 
                                             <td>
                                                 <span

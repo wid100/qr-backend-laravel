@@ -23,6 +23,7 @@ use App\Http\Controllers\WebsiteController;
 use App\Http\Controllers\Admin\PayPalController;
 use App\Http\Controllers\Api\SmartCardController;
 use App\Http\Controllers\Api\ScheduleAreaController;
+use App\Http\Controllers\Api\CardOrderController;
 
 use App\Models\Subscription;
 use App\Models\User;
@@ -194,3 +195,10 @@ Route::post('/schedule-area/update/{id}', [ScheduleAreaController::class, 'updat
 
 Route::delete('/schedule-area/delete/{id}', [ScheduleAreaController::class, 'destroy']);
 Route::get('/schedule/areas/{userId}', [ScheduleAreaController::class, 'index']);
+
+
+Route::get('/card-details/{id}', [SmartCardController::class, 'getCardDetails']);
+Route::post('/create-payment-intent', [SmartCardController::class, 'createPaymentIntent']);
+Route::post('/create-checkout-session', [SmartCardController::class, 'createCheckoutSession']);
+Route::post('/make-order', [SmartCardController::class, 'store']);
+Route::get('/cards', SmartCardController::class);

@@ -24,8 +24,10 @@ use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
 use App\Http\Controllers\Admin\SmartCardController;
 use App\Http\Controllers\Api\SendEventController;
+use App\Http\Controllers\Admin\CardOrderController;
 use App\Models\Admin\Resume;
 use App\Models\Admin\Template;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -138,6 +140,8 @@ Route::namespace('App\Http\Controllers')->group(
             // testing route for google calendar API integration not use
             Route::get('/send-event', [SendEventController::class, 'sendInvitationEmail']);
             Route::resource('/profile', 'AdminProfileController');
+
+            Route::resource('/card-order', 'CardOrderController');
         });
     }
 );

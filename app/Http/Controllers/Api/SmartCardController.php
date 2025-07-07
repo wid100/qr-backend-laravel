@@ -65,7 +65,8 @@ class SmartCardController extends Controller
     {
         Stripe::setApiKey(env('STRIPE_SECRET'));
 
-        $amount = $request->amount * 100; // Stripe expects amount in cents/poisha
+
+        $amount = $request->amount * 100;
 
         $intent = PaymentIntent::create([
             'amount' => $amount,
@@ -118,12 +119,12 @@ class SmartCardController extends Controller
         $order->quantity = $request->quantity ?? 1;
         $order->total_price = $request->amount;
         $order->status = 'pending';
-        // $order->currency = $request->currency ?? 'usd';
+        $order->currency = $request->currency ?? 'BDT';
 
         $order->save();
 
         // 🔔 Send email to admin
-        Mail::to('Womenindigitalbd@gmail.com')->send(new AdminNewOrderNotification($order));
+        Mail::to('womenindigitalbd@gmail.com')->send(new AdminNewOrderNotification($order));
         return response()->json(['message' => 'Order created successfully'], 201);
     }
 
