@@ -5,23 +5,25 @@
         <nav class="page-breadcrumb d-flex align-center justify-content-between">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="#">Tables</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Color List Table</li>
+                <li class="breadcrumb-item active" aria-current="page">Card List Table</li>
             </ol>
-            <a href="{{ route('admin.color.create') }}" class="btn btn-primary">Create
-                Color </a>
+            {{-- <a href="{{ route('admin.color.create') }}" class="btn btn-primary">Create
+                Color </a> --}}
         </nav>
 
         <div class="row">
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <h6 class="card-title">Color List Table</h6>
+                        <h6 class="card-title">Card List</h6>
                         <div class="table-responsive">
                             <table id="dataTableExample" class="table">
                                 <thead>
                                     <tr>
+                                        <th>SL</th>
                                         <th>Smart Card</th>
                                         <th>Font Image</th>
+                                        <th>QR Code</th>
                                         <th>Order No</th>
                                         <th>Customer</th>
                                         <th>Email</th>
@@ -35,25 +37,36 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @forelse($orders as $order)
+                                    @forelse($orders as $key=> $order)
                                         <tr>
+                                            <td>{{ $key + 1 }}</td>
                                             <td>{{ $order->smartCard->name ?? 'N/A' }}</td>
                                             <td><img src="{{ asset('storage/' . $order->smartCard->font_image) }}"
                                                     width="100" alt=""></td>
+                                            </td>
+                                            <td>
+                                                <a href="https://smartcardgenerator.net/{{ $order->qrgen->slug }}"
+                                                    target="_blank">
+                                                    {{ $order->qrgen_id }}
+                                                </a>
+                                            </td>
+
                                             </td>
                                             <td>{{ $order->order_number }}</td>
                                             <td>{{ $order->name }}</td>
                                             <td>{{ $order->email }}</td>
                                             <td>{{ $order->phone }}</td>
                                             <td>{{ $order->payment_method }}</td>
-                                            <td>{{ number_format($order->total_price, 2) }} {{ $order->currency ?? 'BDT' }}
+                                            <td>{{ number_format($order->total_price, 2) }}
+                                                {{ $order->currency ?? 'BDT' }}
 
                                             <td>
                                                 <span
-                                                    class="badge bg-{{ $order->status == 'pending' ? 'warning' : 'success' }}">
+                                                    class="badge bg-{{ $order->status == 'pending' ? 'warning' : ($order->status == 'cancelled' ? 'danger' : 'success') }}">
                                                     {{ ucfirst($order->status) }}
                                                 </span>
                                             </td>
+
                                             <td>{{ $order->created_at->format('Y-m-d H:i') }}</td>
 
                                             <td>

@@ -19,4 +19,8 @@ class CardOrder extends Model
     {
         return $this->belongsTo(SmartCard::class);
     }
+    public function qrgen()
+    {
+        return $this->belongsTo(Qrgen::class, 'qrgen_id');
+    }
 }
