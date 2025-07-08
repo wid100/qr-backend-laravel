@@ -119,11 +119,7 @@ class SmartCardController extends Controller
         $order->quantity = $request->quantity ?? 1;
         $order->total_price = $request->amount;
         $order->status = 'pending';
-<<<<<<< HEAD
         // $order->currency = $request->currency ?? 'BDT';
-=======
-        $order->currency = $request->currency ?? 'BDT';
->>>>>>> 918daa7d7360959f92e64a91d0f34bf69ace54c4
 
         $order->save();
 
