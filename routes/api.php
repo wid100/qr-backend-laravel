@@ -23,7 +23,10 @@ use App\Http\Controllers\WebsiteController;
 use App\Http\Controllers\Admin\PayPalController;
 use App\Http\Controllers\Api\SmartCardController;
 use App\Http\Controllers\Api\ScheduleAreaController;
+use App\Http\Controllers\Api\CardOrderController;
 
+use App\Models\Subscription;
+use App\Models\User;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -35,10 +38,31 @@ use App\Http\Controllers\Api\ScheduleAreaController;
 |
 */
 
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return response()->json($request->user());
+// });
+
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return response()->json($request->user());
+    $user = $request->user();
+
+    // Check only the Subscription table
+    $subscription = Subscription::where('user_id', $user->id)->first();
+
+    $isSubscribed = false;
+
+    if ($subscription && ($subscription->end_date > now() || $subscription->status == 1)) {
+        $isSubscribed = true;
+    }
+
+    // Convert user to array and add subscribed field
+    $userData = $user->toArray();
+    $userData['subscribed'] = $isSubscribed;
+
+    // Return only user data (not inside 'user' key)
+    return response()->json($userData);
 });
-// User
+
 
 Route::post('/users/{id}', [UserController::class, 'update']);
 
@@ -171,3 +195,10 @@ Route::post('/schedule-area/update/{id}', [ScheduleAreaController::class, 'updat
 
 Route::delete('/schedule-area/delete/{id}', [ScheduleAreaController::class, 'destroy']);
 Route::get('/schedule/areas/{userId}', [ScheduleAreaController::class, 'index']);
+
+
+Route::get('/card-details/{id}', [SmartCardController::class, 'getCardDetails']);
+Route::post('/create-payment-intent', [SmartCardController::class, 'createPaymentIntent']);
+Route::post('/create-checkout-session', [SmartCardController::class, 'createCheckoutSession']);
+Route::post('/make-order', [SmartCardController::class, 'store']);
+Route::get('/cards', SmartCardController::class);

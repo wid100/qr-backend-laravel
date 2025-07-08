@@ -63,6 +63,7 @@ class Qrgen extends Model
         'whatsapp',
         'skype',
         'google_scholar',
+        'medium',
 
     ];
     public function visitors()

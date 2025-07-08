@@ -123,6 +123,7 @@ class QrgenController extends Controller
                 'whatsapp' => 'nullable',
                 'skype' => 'nullable',
                 'google_scholar' => 'nullable',
+                'medium' => 'nullable',
 
 
 
@@ -160,6 +161,7 @@ class QrgenController extends Controller
 
             return response()->json([
                 'status' => 200,
+                'id' => $qrgen->id,
                 'message' => 'Qrgen created successfully',
             ]);
         } catch (ValidationException $e) {
@@ -300,6 +302,7 @@ class QrgenController extends Controller
                 'whatsapp' => 'nullable|url',
                 'skype' => 'nullable|url',
                 'google_scholar' => 'nullable|url',
+                'medium' => 'nullable|url',
 
 
 

@@ -67,12 +67,19 @@
                                             </td>
                                             <td>
                                                 <a href="{{ route('admin.card.edit', $card->id) }}"
-                                                    class="btn btn-danger btn-icon">
+                                                    class="btn btn-primary btn-icon">
                                                     <i data-feather="edit"></i></a>
 
-                                                <button type="button" class="btn btn-primary btn-icon">
-                                                    <i data-feather="trash-2"></i>
-                                                </button>
+                                                <form id="delete_form_{{ $card->id }}"
+                                                    action="{{ route('admin.card.destroy', $card->id) }}" method="post"
+                                                    class="d-inline">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="button" class="btn btn-danger btn-icon delete-button"
+                                                        onclick="deleteId({{ $card->id }})">
+                                                        <i data-feather="trash"></i>
+                                                    </button>
+                                                </form>
                                         </tr>
                                     @endforeach
 

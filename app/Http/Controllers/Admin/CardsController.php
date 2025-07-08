@@ -59,7 +59,8 @@ class CardsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $card = Qrgen::findOrFail($id);
+        return view('admin.card.edit', compact('card'));
     }
 
     /**
@@ -71,7 +72,25 @@ class CardsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+
+            'image' => 'nullable',
+        ]);
+
+
+        $card = Qrgen::findOrFail($id);
+
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = uniqid() . '-' . $image->getClientOriginalName();
+            $image->move(public_path('image/qrgen/'), $imageName);
+            $card->image = 'image/qrgen/' . $imageName;
+        }
+
+        $card->save();
+
+        return redirect()->route('admin.card.index')->with('success', 'Card updated successfully.');
     }
 
     /**
@@ -82,6 +101,8 @@ class CardsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $card = Qrgen::findOrFail($id);
+        $card->delete();
+        return redirect()->route('admin.card.index')->with('success', 'Card deleted successfully.');
     }
 }
