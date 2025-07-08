@@ -36,7 +36,7 @@ class SmartCardController extends Controller
 
     public function createCheckoutSession(Request $request)
     {
-        Stripe::setApiKey(env('STRIPE_SECRET'));
+
         $session = Session::create([
             'payment_method_types' => ['card'],
             'line_items' => [[
@@ -62,7 +62,6 @@ class SmartCardController extends Controller
 
     public function createPaymentIntent(Request $request)
     {
-        Stripe::setApiKey(env('STRIPE_SECRET'));
 
         $amount = $request->amount * 100;
 
