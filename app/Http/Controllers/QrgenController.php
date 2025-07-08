@@ -161,7 +161,6 @@ class QrgenController extends Controller
 
             return response()->json([
                 'status' => 200,
-                'id' => $qrgen->id,
                 'message' => 'Qrgen created successfully',
             ]);
         } catch (ValidationException $e) {

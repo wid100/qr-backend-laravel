@@ -19,21 +19,6 @@ class CreateCardOrdersTable extends Migration
             $table->foreignId('qrgen_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->unsignedBigInteger('smart_card_id')->index();
 
-<<<<<<< HEAD
-            // User details
-            $table->string('name')->nullable();
-            $table->string('email')->nullable();
-            $table->string('phone')->nullable();
-            $table->string('currency')->default('BDT'); // Default currency set to BDT
-            $table->string('country')->nullable();
-            $table->string('town')->nullable(); // Changed from 'district' to 'town
-
-            $table->string('address')->nullable();
-            $table->string('city')->nullable();
-            $table->string('zip')->nullable();
-
-=======
->>>>>>> 918daa7d7360959f92e64a91d0f34bf69ace54c4
             // Order details
             $table->string('order_number')->unique();
             $table->dateTime('order_date')->default(now());
