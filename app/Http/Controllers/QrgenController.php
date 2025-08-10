@@ -6,15 +6,12 @@ use App\Models\Qrgen;
 use Illuminate\Http\Request;
 
 use App\Models\User;
+use App\Services\VisitorService;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\ValidationException;
 
 class QrgenController extends Controller
 {
-
-
-
-
     public function getPauseeQr($userId)
     {
         $pauseQr = Qrgen::where('user_id', $userId)
@@ -59,7 +56,7 @@ class QrgenController extends Controller
 
     public function getGetqrByUser(User $user)
     {
-        $getqr = Qrgen::where('user_id', $user->id)->get();
+        $getqr = Qrgen::with(['visitors'])->where('user_id', $user->id)->get();
 
         return response()->json(['getqr' => $getqr]);
     }
@@ -74,33 +71,34 @@ class QrgenController extends Controller
                 'cardname' => 'required|string',
                 'firstname' => 'required|string',
                 'lastname' => 'required|string',
-                'email1' => 'required|email',
-                'mobile1' => 'required|numeric',
-                'address1' => 'required|string',
+                'email1' => 'nullable|email',
+                'mobile1' => 'nullable',
+                'address1' => 'nullable|string',
 
-                'maincolor' => 'required|string',
-                'gradientcolor' => 'required|string',
-                'buttoncolor' => 'required|string',
-                'summary' => 'required|string',
-                'cardtype' => 'required|string',
-                'status' => 'required|string',
+                'maincolor' => 'nullable|string',
+                'gradientcolor' => 'nullable|string',
+                'buttoncolor' => 'nullable|string',
+                'summary' => 'nullable|string',
+                'cardtype' => 'nullable|string',
+                'status' => 'nullable|string',
 
                 // Example: nullable status field
                 'companyname' => 'nullable|string',
                 'jobtitle' => 'nullable|string',
                 'webaddress1' => 'nullable',
-                'phone1' => 'nullable|numeric',
+                'phone1' => 'nullable',
                 'email2' => 'nullable|email',
                 'slug' => 'nullable|string',
-                'phone2' => 'nullable|numeric',
-                'mobile2' => 'nullable|numeric',
-                'mobile3' => 'nullable|numeric',
-                'mobile4' => 'nullable|numeric',
-                'fax' => 'nullable|numeric',
-                'fax2' => 'nullable|numeric',
+                'phone2' => 'nullable',
+                'mobile2' => 'nullable',
+                'mobile3' => 'nullable',
+                'mobile4' => 'nullable',
+                'fax' => 'nullable',
+                'fax2' => 'nullable',
                 'address2' => 'nullable|string',
                 'webaddress2' => 'nullable',
                 'checkgradient' => 'nullable|string',
+                // 'appointment' => 'required',
 
                 //social id
                 'facebook' => 'nullable',
@@ -125,6 +123,7 @@ class QrgenController extends Controller
                 'whatsapp' => 'nullable',
                 'skype' => 'nullable',
                 'google_scholar' => 'nullable',
+                'medium' => 'nullable',
 
 
 
@@ -132,20 +131,10 @@ class QrgenController extends Controller
 
                 'qrcodeimage' => 'nullable',
                 // ... other fields and validation rules
-                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5120',
-                'welcomeimage' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            ], [
-                'phone1.numeric' => 'The Phone field accepet only number.',
-                'cardname.required' => 'The card name field is required.',
-                'firstname.required' => 'The first name field is required.',
-                'lastname.required' => 'The last name field is required.',
-                'email1.required' => 'The email field is required.',
-                'email1.email' => 'The email field must be an email.',
-                // ... other custom error messages
-                'image.required' => 'The image field is required.',
-                'image.image' => 'The file must be an image.',
-                'image.mimes' => 'The image must be a file of type: jpeg, png, jpg, gif, svg.',
-                'image.max' => 'The image may not be greater than 5MB.',
+                'image' => 'nullable',
+                'welcomeimage' => 'nullable',
+
+
 
             ]);
 
@@ -186,7 +175,7 @@ class QrgenController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($slug)
+    public function show(Request $request, $slug, VisitorService $visitorService)
     {
         $showpost = Qrgen::where('slug', $slug)->first();
         if (!$showpost) {
@@ -196,6 +185,15 @@ class QrgenController extends Controller
 
         if ($showpost->status === 'active') {
             $showpost->increment('viewcount');
+
+            // Get user IP and User-Agent
+            $userIp = $request->ip();
+            // $ip = '59.153.103.119';
+            $userAgent = $request->header('User-Agent');
+            // Use the service to gather user info
+            $userInfo = $visitorService->getUserInfo($userIp, $userAgent, $showpost->id, 'visiting_id');
+            $visitorService->saveVisitorInfo($userInfo, 'visiting_id');
+
             return response()->json($showpost);
         } else {
             return response()->json(['error' => 'Qrgen is paused'], 403);
@@ -254,15 +252,15 @@ class QrgenController extends Controller
                 'cardname' => 'required|string',
                 'firstname' => 'required|string',
                 'lastname' => 'required|string',
-                'email1' => 'required|email',
-                'mobile1' => 'required|numeric',
-                'address1' => 'required|string',
-                'maincolor' => 'required|string',
-                'gradientcolor' => 'required|string',
-                'buttoncolor' => 'required|string',
-                'summary' => 'required|string',
-                'cardtype' => 'required|string',
-                'status' => 'required|string',
+                'email1' => 'nullable|email',
+                'mobile1' => 'nullable|numeric',
+                'address1' => 'nullable|string',
+                'maincolor' => 'nullable|string',
+                'gradientcolor' => 'nullable|string',
+                'buttoncolor' => 'nullable|string',
+                'summary' => 'nullable|string',
+                'cardtype' => 'nullable|string',
+                'status' => 'nullable|string',
                 // Example: nullable status field
                 'webaddress1' => 'nullable',
                 'companyname' => 'nullable|string',
@@ -279,7 +277,7 @@ class QrgenController extends Controller
                 'address2' => 'nullable|string',
                 'webaddress2' => 'nullable',
                 'checkgradient' => 'nullable|string',
-
+                // 'appointment' => 'required',
 
                 'facebook' => 'nullable|url',
                 'twitter' => 'nullable|url',
@@ -302,7 +300,8 @@ class QrgenController extends Controller
                 'tiktok' => 'nullable|url',
                 'whatsapp' => 'nullable|url',
                 'skype' => 'nullable|url',
-                'google_scholar' => 'nullable|url', 
+                'google_scholar' => 'nullable|url',
+                'medium' => 'nullable|url',
 
 
 

@@ -745,3 +745,8 @@ body {
 table {
   border-collapse: collapse;
 }
+
+
+.mce-content-body {
+    color: #fff !important;
+}

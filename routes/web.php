@@ -4,11 +4,29 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
 use Symfony\Component\HttpFoundation\Request;
+use App\Http\Controllers\Admin\TemplateController;
+use App\Http\Controllers\Admin\InstaCardController;
 use App\Http\Controllers\Auth\VerifyEmailController;
-use App\Http\Controllers\Auth\PasswordResetLinkController;
-use App\Http\Controllers\Auth\EmailVerificationNotificationController;
 use App\Http\Controllers\Admin\InstaCategoryController;
 use App\Http\Controllers\Admin\InstaTemplateController;
+use App\Http\Controllers\Admin\TemplateCategoryController;
+use App\Http\Controllers\Admin\ProductCategoryController;
+use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\ColorController;
+use App\Http\Controllers\ResumeController;
+use App\Http\Controllers\Admin\MessageController;
+use App\Http\Controllers\Admin\AdminResumeController;
+use App\Http\Controllers\Admin\FAQSectionController;
+use App\Http\Controllers\Admin\FAQQuestionController;
+use App\Http\Controllers\Admin\InvoiceController;
+use App\Http\Controllers\Admin\VisitorController;
+use App\Http\Controllers\Auth\PasswordResetLinkController;
+use App\Http\Controllers\Auth\EmailVerificationNotificationController;
+use App\Http\Controllers\Admin\SmartCardController;
+use App\Http\Controllers\Api\SendEventController;
+use App\Models\Admin\Resume;
+use App\Models\Admin\Template;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -50,6 +68,10 @@ Route::get('/verify-email/{id}/{hash}', [App\Http\Controllers\Auth\VerifyEmailCo
 Route::post('/email/verification-notification', [EmailVerificationNotificationController::class, 'store'])
     ->name('verification.send');
 
+
+Route::get('/resume/pdf/{userId}/{resumeId}/{templateId}', [ResumeController::class, 'generatePdf'])->name('resume.pdf');
+Route::get('/resume/view/{userId}/{resumeId}/{templateId}', [ResumeController::class, 'viewPdf'])->name('resume.view');
+
 // Route::post('/forgot-password', [PasswordResetLinkController::class, 'store'])
 //     ->middleware('guest')
 //     ->name('password.email');
@@ -87,14 +109,64 @@ Route::namespace('App\Http\Controllers')->group(
             Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
             Route::resource('/users', 'UserController');
+            Route::get('/block', 'UserController@block')->name('block');
             Route::resource('/card', 'CardsController');
             Route::resource('/package', 'PackagesController');
             Route::resource('/payment', 'PaymentController');
             Route::resource('/subscription', 'SubscriptionsController');
 
             Route::resource('/website', 'WebsiteCardController');
+            Route::resource('/instagram', 'InstaCardController');
             Route::resource('/instacategory', 'InstaCategoryController');
-            Route::resource('/instatemplate', 'InstatemplateController');
+            Route::resource('/instatemplate', 'InstaTemplateController');
+            Route::resource('/tempcategory', 'TemplateCategoryController');
+            Route::resource('/template', 'TemplateController');
+            Route::resource('/product_category', 'ProductCategoryController');
+            Route::resource('/product', "ProductController");
+            Route::resource('/color', "ColorController");
+            Route::resource('/message', "MessageController");
+            Route::resource('/resume', "AdminResumeController");
+            Route::resource('faq-section', 'FAQSectionController');
+            Route::resource('faq-question', 'FAQQuestionController');
+            // make invoice optional (not used but working)
+            Route::get('/send-invoice/{id}', [InvoiceController::class, 'sendInvoice'])->name('invoice.package');
+
+            // visitor
+            Route::get('visitor', [VisitorController::class, 'index'])->name('visitor');
+            Route::resource('smart-card', 'SmartCardController');
+
+            // testing route for google calendar API integration not use
+            Route::get('/send-event', [SendEventController::class, 'sendInvitationEmail']);
+            Route::resource('/profile', 'AdminProfileController');
         });
     }
 );
+
+Route::get('/cv', function () {
+    $template = Template::findOrFail(9);
+    $resume = Resume::findOrFail(3);
+    $experience = json_decode($resume->experience);
+    // dd($experience);
+
+    // foreach ($experience as $item) {
+    //     var_dump($item->location);
+    // }
+    // dd($resume->title);
+
+    // return view('resume.resume', compact('template', 'experience'));
+
+    $htmlContent = $template->code;
+    $htmlContent = str_replace('{resume.fname}', $resume->fname, $htmlContent);
+    $htmlContent = str_replace('{resume.lname}', $resume->lname, $htmlContent);
+    $htmlContent = str_replace('{resume.email}', $resume->email, $htmlContent);
+    $htmlContent = str_replace('{resume.description}', $resume->description, $htmlContent);
+    $htmlContent = str_replace('{resume.title}', $resume->title, $htmlContent);
+
+    $data = gettype($experience);
+    dd($data);
+    return view('resume.resume', [
+        'htmlContent' => $htmlContent,
+        'template' => $template,
+        'experience' => $experience,
+    ]);
+});

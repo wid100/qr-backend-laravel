@@ -30,12 +30,12 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    
+
                                     @foreach ($websites as $website)
                                         <tr>
                                             <td>{{ $website->id }}</td>
-                                            <td>{{ $website->cardname }}</td>
-                                            <td>{{ $website->username }}</td>
+                                            <td>{{ $website->website_name }}</td>
+                                            <td>{{ $website->website_url }}</td>
                                             <td>
                                                 @if ($website->image)
                                                     <img src="{{ asset($website->image) }}" alt="Image not found">
@@ -44,12 +44,10 @@
                                                 @endif
                                             </td>
                                             <td>
-                                                @if ($website->status == 1)
+                                                @if ($website->status == 'active')
                                                     <span class="badge bg-success">Active</span>
-                                                @elseif($website->status == 0)
-                                                    <span class="badge bg-danger">Unverified</span>
                                                 @else
-                                                    <span class="badge bg-danger">No Status</span>
+                                                    <span class="badge bg-danger">Deactive</span>
                                                 @endif
                                             </td>
                                             <td>
@@ -69,7 +67,7 @@
                                                         </button>
                                                     </form>
                                                 @endif --}}
-                                                 @if (Auth::user()->role_id == 1)
+                                                @if (Auth::user()->role_id == 1)
                                                     <form id="delete_form_{{ $website->id }}"
                                                         action="{{ route('admin.website.destroy', $website->id) }}"
                                                         method="post" class="d-inline">

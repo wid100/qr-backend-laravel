@@ -8,7 +8,8 @@
                 <li class="breadcrumb-item"><a href="#">Subscription</a></li>
                 <li class="breadcrumb-item active" aria-current="page">All Subscription</li>
             </ol>
-
+            <a href="{{ route('admin.subscription.create') }}" class="btn btn-primary active" role="button"
+                aria-pressed="true">Create Subscription</a>
         </nav>
 
         <div class="row">

@@ -2,3 +2,17 @@ tr.insta-template-tr td svg {
     width: 100px;
     height: 100px;
 }
+
+.table td img{
+    height: initial !important;
+    border-radius: 0 !important;
+}
+
+.CodeMirror-cursor{
+    border-color: white;
+}
+
+
+.mce-content-body {
+    color: #fff !important;
+}

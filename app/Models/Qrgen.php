@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Admin\Visitor;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -39,6 +40,7 @@ class Qrgen extends Model
         'address2',
         'webaddress2',
         'checkgradient',
+        'appointment',
         'facebook',
         'twitter',
         'instagram',
@@ -61,6 +63,11 @@ class Qrgen extends Model
         'whatsapp',
         'skype',
         'google_scholar',
+        'medium',
 
     ];
+    public function visitors()
+    {
+        return $this->hasMany(Visitor::class, 'visiting_id');
+    }
 }

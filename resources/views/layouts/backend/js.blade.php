@@ -14,17 +14,20 @@
   <script src="{{ asset('assets/js/template.js') }}"></script>
   <!-- endinject -->
   <script src="{{ asset('assets/js/data-table.js') }}"></script>
+  <script src="{{ asset('assets/vendors/tinymce/tinymce.min.js') }}"></script>
 
   <!-- Custom js for this page -->
-  <script src="{{ asset('assets/js/dashboard-dark.js') }}"></script>
+  <script src="{{ asset('assets/js/dashboard-light.js') }}"></script>
   <!-- End custom js for this page -->
   <script src="{{ asset('assets/vendors/easymde/easymde.min.js') }}"></script>
-
+  <script src="{{ asset('assets/js/tinymce.js') }}"></script>
   <script src="{{ asset('assets/js/easymde.js') }}"></script>
   <script src="{{ asset('assets/vendors/select2/select2.min.js') }}"></script>
   <script src="{{ asset('assets/js/sweetalert2.all.min.js') }}"></script>
   <script src="{{ asset('assets/js/select2.js') }}"></script>
 
+
+  <script src="{{ asset('assets/js/apexcharts-light.js') }}"></script>
   <script>
       function deleteId(id) {
           const swalWithBootstrapButtons = Swal.mixin({

@@ -7,7 +7,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use App\Models\User;
 use Dotenv\Exception\ValidationException;
+use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Str;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class UserController extends Controller
 {
@@ -17,56 +20,76 @@ class UserController extends Controller
 
         return view('admin.user.index', compact('users'));
     }
+
+    public function block()
+    {
+        $users = User::where('role_id', 4)->get();
+        return view('admin.user.block', compact('users'));
+    }
+
+
+
+    public function edit($id)
+    {
+        $user = User::findOrFail($id);
+
+        return view('admin.user.edit', compact('user'));
+    }
+
+
+
+
     public function update(Request $request, $id)
     {
-        try {
-            // Validation
-            $validatedData = $request->validate([
-                'name' => 'required',
-                'email' => 'required|email',
-                'gender' => 'nullable',
-                'country' => 'nullable',
-                'city' => 'nullable',
-                'address' => 'nullable',
-                'country_code' => 'nullable',
-                'phone' => 'nullable',
-                'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:5120',
-            ]);
+        $user = User::findOrFail($id);
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users,email,' . $id,
+            'gender' => 'nullable',
+            'country' => 'nullable',
+            'city' => 'nullable',
+            'address' => 'nullable',
+            'phone' => 'nullable',
+            'country_code' => 'nullable',
+        ]);
 
-            // Find user by ID
-            $user = User::findOrFail($id);
+        $data = [
+            'name' => $request->name,
+            'email' => $request->email,
+            'gender' => $request->gender,
+            'country' => $request->country,
+            'city' => $request->city,
+            'address' => $request->address,
+            'phone' => $request->phone,
+            'country_code' => $request->country_code,
+            'email_verified_at' => $request->email_verified_at === 'on' ?  now() : null,
+        ];
 
-            if ($request->hasFile('image')) {
-                // Delete old image if it exists
-                if ($user->image && file_exists(public_path($user->image))) {
-                    unlink(public_path($user->image));
+        $image = $request->file('image');
+        if ($image) {
+            if ($user->image) {
+                $filePath = public_path('storage/user/' . $user->image);
+                if ($filePath) {
+                    unlink($filePath);
                 }
-
-                // Upload new image
-                $image = $request->file('image');
-                $imageName = uniqid() . '-' . $image->getClientOriginalName();
-                $image->move(public_path('image/user/'), $imageName);
-                $validatedData['image'] = 'image/user/' . $imageName;
             }
 
+            $reviewDirectory = public_path('storage/user');
+            File::makeDirectory($reviewDirectory, 0755, true, true);
 
-            // Update user data
-            $user->update($validatedData);
+            $originalName = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME);
+            $uniqueName = $originalName . '_' . Str::random(20) . '_' . uniqid() . '.' . '.webp';
+            Image::make($image)->save('storage/user/' . $uniqueName, 90, 'webp');
 
-            // Save the changes to the database
-            $user->save();
-
-            Log::info('Profile updated successfully', ['id' => $user->id]);
-
-            return response()->json([
-                'status' => 200,
-                'message' => 'Profile updated successfully',
-            ]);
-        } catch (\Throwable $e) {
-            Log::error('Error updating profile', ['error' => $e->getMessage()]);
-            return response()->json(['status' => 500, 'error' => $e->getMessage()]);
+            $data['image'] = $uniqueName;
         }
+        $user->update($data);
+
+
+        // Redirect back with success message
+        return redirect()->route('admin.users.index')->with('success', 'User updated successfully');
     }
+
 
 
     public function destroy(User $user)
