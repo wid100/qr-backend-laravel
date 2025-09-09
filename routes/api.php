@@ -43,26 +43,51 @@ use App\Models\User;
 // });
 
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    $user = $request->user();
+/*
+|--------------------------------------------------------------------------
+| Smart Health Card Authentication Routes
+|--------------------------------------------------------------------------
+| These routes are specifically for the Smart Health Card frontend
+| and don't interfere with existing smart card generator functionality
+*/
 
-    // Check only the Subscription table
-    $subscription = Subscription::where('user_id', $user->id)->first();
+// Smart Health Card Auth Routes
+Route::prefix('health-card')->group(function () {
+    Route::post('/register', [App\Http\Controllers\Auth\RegisteredUserController::class, 'store'])
+        ->middleware('guest')
+        ->name('health-card.register');
 
-    $isSubscribed = false;
+    Route::post('/login', [App\Http\Controllers\Auth\AuthenticatedSessionController::class, 'store'])
+        ->middleware('guest')
+        ->name('health-card.login');
 
-    if ($subscription && ($subscription->end_date > now() || $subscription->status == 1)) {
-        $isSubscribed = true;
-    }
+    Route::post('/forgot-password', [App\Http\Controllers\Auth\PasswordResetLinkController::class, 'store'])
+        ->middleware('guest')
+        ->name('health-card.password.email');
 
-    // Convert user to array and add subscribed field
-    $userData = $user->toArray();
-    $userData['subscribed'] = $isSubscribed;
+    Route::post('/reset-password', [App\Http\Controllers\Auth\NewPasswordController::class, 'store'])
+        ->middleware('guest')
+        ->name('health-card.password.update');
 
-    // Return only user data (not inside 'user' key)
-    return response()->json($userData);
+
+    Route::post('/logout', [App\Http\Controllers\Auth\AuthenticatedSessionController::class, 'destroy'])
+        ->middleware('auth:sanctum')
+        ->name('health-card.logout');
+
+    Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+        $user = $request->user();
+        $subscription = Subscription::where('user_id', $user->id)->first();
+        $isSubscribed = false;
+
+        if ($subscription && ($subscription->end_date > now() || $subscription->status == 1)) {
+            $isSubscribed = true;
+        }
+
+        $userData = $user->toArray();
+        $userData['subscribed'] = $isSubscribed;
+        return response()->json($userData);
+    });
 });
-
 
 Route::post('/users/{id}', [UserController::class, 'update']);
 
