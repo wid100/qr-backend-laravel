@@ -53,12 +53,10 @@ use App\Models\User;
 
 // Smart Health Card Auth Routes
 Route::prefix('health-card')->group(function () {
-    Route::post('/register', [App\Http\Controllers\Auth\RegisteredUserController::class, 'store'])
-        ->middleware('guest')
+    Route::post('/register', [App\Http\Controllers\Auth\ApiRegisteredUserController::class, 'store'])
         ->name('health-card.register');
 
-    Route::post('/login', [App\Http\Controllers\Auth\AuthenticatedSessionController::class, 'store'])
-        ->middleware('guest')
+    Route::post('/login', [App\Http\Controllers\Auth\ApiAuthenticatedSessionController::class, 'store'])
         ->name('health-card.login');
 
     Route::post('/forgot-password', [App\Http\Controllers\Auth\PasswordResetLinkController::class, 'store'])
@@ -69,8 +67,12 @@ Route::prefix('health-card')->group(function () {
         ->middleware('guest')
         ->name('health-card.password.update');
 
+    // Email Verification Routes
+    Route::post('/email/verification-notification', [App\Http\Controllers\Auth\EmailVerificationNotificationController::class, 'store'])
+        ->middleware(['auth:sanctum', 'throttle:6,1'])
+        ->name('health-card.verification.send');
 
-    Route::post('/logout', [App\Http\Controllers\Auth\AuthenticatedSessionController::class, 'destroy'])
+    Route::post('/logout', [App\Http\Controllers\Auth\ApiAuthenticatedSessionController::class, 'destroy'])
         ->middleware('auth:sanctum')
         ->name('health-card.logout');
 
