@@ -32,6 +32,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'gender',
         'password',
         'email_verified_at',
+        'role',
     ];
     public function subscriptions()
     {
@@ -59,6 +60,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'role' => 'string',
     ];
 
     public function sendEmailVerificationNotification()
@@ -74,5 +76,32 @@ class User extends Authenticatable implements MustVerifyEmail
     public function scheduleAreas()
     {
         return $this->hasMany(ScheduleArea::class);
+    }
+
+    // Health Card System Relationships
+    public function patient()
+    {
+        return $this->hasOne(Patient::class);
+    }
+
+    public function doctor()
+    {
+        return $this->hasOne(Doctor::class);
+    }
+
+    // Helper methods
+    public function isPatient(): bool
+    {
+        return $this->role === 'patient';
+    }
+
+    public function isDoctor(): bool
+    {
+        return $this->role === 'doctor';
+    }
+
+    public function isAdmin(): bool
+    {
+        return $this->role === 'admin';
     }
 }

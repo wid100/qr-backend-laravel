@@ -33,12 +33,15 @@ class RedirectIfAuthenticated
 
     public function handle($request, Closure $next, $guard = null)
     {
-        if (Auth::guard($guard)->check() && Auth::user()->role->id == 1) {
-            return redirect()->route('admin.dashboard');
-        } elseif (Auth::guard($guard)->check() && Auth::user()->role->id == 3) {
-            return redirect()->route('admin.dashboard');
-        } else {
-            return $next($request);
+        if (Auth::guard($guard)->check()) {
+            $user = Auth::user();
+            if ($user->role === 'admin') {
+                return redirect()->route('admin.dashboard');
+            } elseif ($user->role === 'doctor') {
+                return redirect()->route('doctor.dashboard');
+            }
         }
+
+        return $next($request);
     }
 }

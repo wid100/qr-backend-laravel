@@ -24,6 +24,7 @@ use App\Http\Controllers\Admin\PayPalController;
 use App\Http\Controllers\Api\SmartCardController;
 use App\Http\Controllers\Api\ScheduleAreaController;
 use App\Http\Controllers\Api\CardOrderController;
+use App\Http\Controllers\Api\HealthCardController;
 
 use App\Models\Subscription;
 use App\Models\User;
@@ -229,3 +230,51 @@ Route::post('/create-payment-intent', [SmartCardController::class, 'createPaymen
 Route::post('/create-checkout-session', [SmartCardController::class, 'createCheckoutSession']);
 Route::post('/make-order', [SmartCardController::class, 'store']);
 Route::get('/cards', SmartCardController::class);
+
+/*
+|--------------------------------------------------------------------------
+| Health Card System Routes
+|--------------------------------------------------------------------------
+| These routes are for the Health Card Generator & Medical Record Management System
+*/
+
+// Health Card Routes
+Route::prefix('health-card')->middleware('auth:sanctum')->group(function () {
+    // Health Card Management
+    Route::post('/generate', [HealthCardController::class, 'generate']);
+    Route::get('/my-card', [HealthCardController::class, 'show']);
+    Route::post('/deactivate', [HealthCardController::class, 'deactivate']);
+    Route::post('/reactivate', [HealthCardController::class, 'reactivate']);
+
+    // QR Code Scanning (for doctors)
+    Route::post('/scan-qr', [HealthCardController::class, 'scanQR']);
+    Route::post('/scan-card', [HealthCardController::class, 'getByCardNumber']);
+
+    // Patient Profile Routes
+    Route::prefix('patient')->group(function () {
+        Route::get('/profile', [App\Http\Controllers\Api\PatientController::class, 'profile']);
+        Route::post('/profile', [App\Http\Controllers\Api\PatientController::class, 'createProfile']);
+        Route::put('/profile', [App\Http\Controllers\Api\PatientController::class, 'updateProfile']);
+        Route::get('/medical-history', [App\Http\Controllers\Api\PatientController::class, 'medicalHistory']);
+    });
+
+    // Prescription Routes
+    Route::prefix('prescriptions')->group(function () {
+        Route::get('/', [App\Http\Controllers\Api\PrescriptionController::class, 'index']);
+        Route::post('/upload', [App\Http\Controllers\Api\PrescriptionController::class, 'upload']);
+        Route::get('/{id}', [App\Http\Controllers\Api\PrescriptionController::class, 'show']);
+        Route::put('/{id}', [App\Http\Controllers\Api\PrescriptionController::class, 'update']);
+        Route::post('/{id}/verify', [App\Http\Controllers\Api\PrescriptionController::class, 'verify']);
+        Route::delete('/{id}', [App\Http\Controllers\Api\PrescriptionController::class, 'destroy']);
+    });
+
+    // Medical Report Routes
+    Route::prefix('medical-reports')->group(function () {
+        Route::get('/', [App\Http\Controllers\Api\MedicalReportController::class, 'index']);
+        Route::post('/upload', [App\Http\Controllers\Api\MedicalReportController::class, 'upload']);
+        Route::get('/{id}', [App\Http\Controllers\Api\MedicalReportController::class, 'show']);
+        Route::put('/{id}', [App\Http\Controllers\Api\MedicalReportController::class, 'update']);
+        Route::post('/{id}/verify', [App\Http\Controllers\Api\MedicalReportController::class, 'verify']);
+        Route::delete('/{id}', [App\Http\Controllers\Api\MedicalReportController::class, 'destroy']);
+    });
+});
