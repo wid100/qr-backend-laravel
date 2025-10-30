@@ -46,17 +46,29 @@ class HealthCardController extends Controller
 
             return response()->json([
                 'message' => 'Health card generated successfully',
-                'health_card' => [
+                'data' => [
                     'id' => $healthCard->id,
                     'card_number' => $healthCard->card_number,
                     'qr_code' => $healthCard->qr_code,
-                    'issued_at' => $healthCard->issued_at,
-                    'expires_at' => $healthCard->expires_at,
-                    'card_image_url' => asset('storage/' . $healthCard->card_image_path),
+                    'issued_at' => $healthCard->issued_at ? $healthCard->issued_at->toISOString() : now()->toISOString(),
+                    'expires_at' => $healthCard->expires_at ? $healthCard->expires_at->toISOString() : null,
+                    'is_active' => $healthCard->is_active,
+                    'card_image_path' => $healthCard->card_image_path,
+                    'card_image_url' => $healthCard->card_image_path ? asset('storage/' . $healthCard->card_image_path) : null,
                 ]
             ], 201);
         } catch (\Exception $e) {
-            return response()->json(['message' => 'Failed to generate health card'], 500);
+            \Log::error('Failed to generate health card', [
+                'user_id' => $user->id,
+                'patient_id' => $patient->id ?? null,
+                'error' => $e->getMessage(),
+                'trace' => $e->getTraceAsString(),
+            ]);
+
+            return response()->json([
+                'message' => 'Failed to generate health card',
+                'error' => config('app.debug') ? $e->getMessage() : 'Internal server error',
+            ], 500);
         }
     }
 
