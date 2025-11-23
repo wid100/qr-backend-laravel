@@ -230,3 +230,26 @@ Route::post('/create-checkout-session', [SmartCardController::class, 'createChec
 Route::post('/make-order', [SmartCardController::class, 'store']);
 Route::get('/cards', SmartCardController::class);
 
+// Health Card System Routes
+Route::middleware('auth:sanctum')->prefix('healthcards')->group(function () {
+    // Health Card CRUD
+    Route::get('/', [App\Modules\HealthCard\Http\Controllers\HealthCardController::class, 'index']);
+    Route::post('/', [App\Modules\HealthCard\Http\Controllers\HealthCardController::class, 'store']);
+    Route::get('/{id}', [App\Modules\HealthCard\Http\Controllers\HealthCardController::class, 'show']);
+    Route::put('/{id}', [App\Modules\HealthCard\Http\Controllers\HealthCardController::class, 'update']);
+    Route::delete('/{id}', [App\Modules\HealthCard\Http\Controllers\HealthCardController::class, 'destroy']);
+
+    // Health Card Medical Reports
+    Route::get('/{healthCardId}/medical-reports', [App\Modules\HealthCard\Http\Controllers\MedicalReportController::class, 'index']);
+    Route::post('/{healthCardId}/medical-reports', [App\Modules\HealthCard\Http\Controllers\MedicalReportController::class, 'store']);
+
+    // Medical Report CRUD
+    Route::get('/medical-reports/{id}', [App\Modules\HealthCard\Http\Controllers\MedicalReportController::class, 'show']);
+    Route::put('/medical-reports/{id}', [App\Modules\HealthCard\Http\Controllers\MedicalReportController::class, 'update']);
+    Route::delete('/medical-reports/{id}', [App\Modules\HealthCard\Http\Controllers\MedicalReportController::class, 'destroy']);
+});
+
+// Public Health Card Routes (based on access_type)
+Route::get('/healthcards/qr/{hash}', [App\Modules\HealthCard\Http\Controllers\HealthCardController::class, 'getByQrHash']);
+Route::get('/healthcards/public/{slug}', [App\Modules\HealthCard\Http\Controllers\HealthCardController::class, 'getBySlug']);
+

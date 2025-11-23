@@ -79,6 +79,11 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     // Health Card System Relationships
+    public function healthCards()
+    {
+        return $this->hasMany(\App\Modules\HealthCard\Models\HealthCard::class);
+    }
+
     public function patient()
     {
         return $this->hasOne(Patient::class);

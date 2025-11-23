@@ -15,22 +15,26 @@ class CreateModuleHealthCardsTable extends Migration
     {
         Schema::create('health_cards', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->string('title', 191);
-            $table->text('description')->nullable();
-            $table->string('qr_code_hash')->unique();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->string('person_name');
+            $table->string('person_photo')->nullable();
+            $table->date('date_of_birth')->nullable();
+            $table->string('blood_group')->nullable();
+            $table->enum('gender', ['male', 'female', 'other'])->nullable();
+            $table->enum('card_type', ['pregnant', 'child', 'adult', 'senior']);
+            $table->date('expected_delivery_date')->nullable();
+            $table->text('emergency_contact')->nullable();
+            $table->text('allergies')->nullable();
+            $table->string('slug')->unique();
+            $table->string('username')->nullable(); // For public URL
+            $table->string('qr_code_hash')->unique()->nullable();
             $table->enum('access_type', ['private', 'protected', 'public'])->default('private');
-            $table->json('meta')->nullable();
             $table->timestamps();
-
-            // Foreign key constraint
-            $table->foreign('user_id')
-                  ->references('id')
-                  ->on('users')
-                  ->onDelete('cascade');
 
             // Indexes
             $table->index('user_id');
+            $table->index('slug');
+            $table->index('username');
             $table->index('qr_code_hash');
             $table->index('access_type');
         });

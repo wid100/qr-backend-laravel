@@ -15,15 +15,24 @@ class HealthCard extends Model
 
     protected $fillable = [
         'user_id',
-        'title',
-        'description',
+        'person_name',
+        'person_photo',
+        'date_of_birth',
+        'blood_group',
+        'gender',
+        'card_type',
+        'expected_delivery_date',
+        'emergency_contact',
+        'allergies',
+        'slug',
+        'username',
         'qr_code_hash',
         'access_type',
-        'meta',
     ];
 
     protected $casts = [
-        'meta' => 'array',
+        'date_of_birth' => 'date',
+        'expected_delivery_date' => 'date',
     ];
 
     /**
@@ -32,6 +41,31 @@ class HealthCard extends Model
     public function user(): BelongsTo
     {
         return $this->belongsTo(\App\Models\User::class);
+    }
+
+    /**
+     * Relationship: HealthCard has many MedicalReports
+     */
+    public function medicalReports()
+    {
+        return $this->hasMany(\App\Modules\HealthCard\Models\MedicalReport::class, 'health_card_id');
+    }
+
+    /**
+     * Generate a unique slug
+     */
+    public static function generateSlug(string $personName): string
+    {
+        $baseSlug = Str::slug($personName);
+        $slug = $baseSlug;
+        $counter = 1;
+
+        while (self::where('slug', $slug)->exists()) {
+            $slug = $baseSlug . '-' . $counter;
+            $counter++;
+        }
+
+        return $slug;
     }
 
     /**
