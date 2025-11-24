@@ -28,11 +28,13 @@ class HealthCard extends Model
         'username',
         'qr_code_hash',
         'access_type',
+        'meta',
     ];
 
     protected $casts = [
         'date_of_birth' => 'date',
         'expected_delivery_date' => 'date',
+        'meta' => 'array',
     ];
 
     /**
