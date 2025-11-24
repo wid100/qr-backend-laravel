@@ -10,6 +10,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Log;
 
 class MedicalReportController extends Controller
 {
@@ -80,16 +81,19 @@ class MedicalReportController extends Controller
             ], 403);
         }
 
-        $validator = Validator::make($request->all(), [
+        // Merge input and files for FormData validation
+        $requestData = array_merge($request->post(), $request->allFiles());
+
+        $validator = Validator::make($requestData, [
             'visit_date' => 'required|date',
             'doctor_name' => 'required|string|max:255',
             'hospital_name' => 'nullable|string|max:255',
             'medicines' => 'nullable|string',
             'diet_rules' => 'nullable|string',
             'recommendations' => 'nullable|string',
-            'test_data' => 'nullable|array',
-            'prescription_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,pdf|max:5120',
-            'test_report_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,pdf|max:5120',
+            'test_data' => 'nullable|string', // Accept as string (JSON) from FormData
+            'prescription_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:5120',
+            'test_report_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:5120',
             'notes' => 'nullable|string',
         ]);
 
@@ -102,23 +106,51 @@ class MedicalReportController extends Controller
         }
 
         try {
-            $data = $request->only([
-                'visit_date', 'doctor_name', 'hospital_name', 'medicines',
-                'diet_rules', 'recommendations', 'test_data', 'notes'
-            ]);
+            $data = [];
+            $data['visit_date'] = $request->post('visit_date');
+            $data['doctor_name'] = $request->post('doctor_name');
+            $data['hospital_name'] = $request->post('hospital_name') ?: null;
+            $data['medicines'] = $request->post('medicines') ?: null;
+            $data['diet_rules'] = $request->post('diet_rules') ?: null;
+            $data['recommendations'] = $request->post('recommendations') ?: null;
+            $data['notes'] = $request->post('notes') ?: null;
             $data['health_card_id'] = $healthCardId;
+
+            // Handle test_data - parse JSON string if provided
+            $testDataInput = $request->post('test_data');
+            if ($testDataInput) {
+                if (is_string($testDataInput)) {
+                    $decoded = json_decode($testDataInput, true);
+                    $data['test_data'] = json_last_error() === JSON_ERROR_NONE ? $decoded : null;
+                } else {
+                    $data['test_data'] = $testDataInput;
+                }
+            } else {
+                $data['test_data'] = null;
+            }
 
             // Handle prescription image upload
             if ($request->hasFile('prescription_image')) {
                 $prescription = $request->file('prescription_image');
-                $data['prescription_image'] = $prescription->store('health-cards/prescriptions', 'public');
+                if ($prescription->isValid()) {
+                    $data['prescription_image'] = $prescription->store('health-cards/prescriptions', 'public');
+                }
             }
 
             // Handle test report image upload
             if ($request->hasFile('test_report_image')) {
                 $testReport = $request->file('test_report_image');
-                $data['test_report_image'] = $testReport->store('health-cards/test-reports', 'public');
+                if ($testReport->isValid()) {
+                    $data['test_report_image'] = $testReport->store('health-cards/test-reports', 'public');
+                }
             }
+
+            Log::info('Creating medical report', [
+                'health_card_id' => $healthCardId,
+                'data_keys' => array_keys($data),
+                'has_prescription' => isset($data['prescription_image']),
+                'has_test_report' => isset($data['test_report_image']),
+            ]);
 
             $medicalReport = MedicalReport::create($data);
             $medicalReport->load('healthCard');
@@ -130,6 +162,11 @@ class MedicalReportController extends Controller
             if ($medicalReport->test_report_image) {
                 $medicalReport->test_report_image_url = Storage::url($medicalReport->test_report_image);
             }
+
+            Log::info('Medical report created successfully', [
+                'id' => $medicalReport->id,
+                'health_card_id' => $healthCardId,
+            ]);
 
             return response()->json([
                 'status' => 'success',
