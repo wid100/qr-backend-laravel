@@ -242,14 +242,17 @@ class MedicalReportController extends Controller
             ], 403);
         }
 
-        $validator = Validator::make($request->all(), [
+        // Handle FormData for PUT requests with files
+        $requestData = array_merge($request->post(), $request->allFiles());
+
+        $validator = Validator::make($requestData, [
             'visit_date' => 'sometimes|required|date',
             'doctor_name' => 'sometimes|required|string|max:255',
             'hospital_name' => 'nullable|string|max:255',
             'medicines' => 'nullable|string',
             'diet_rules' => 'nullable|string',
             'recommendations' => 'nullable|string',
-            'test_data' => 'nullable|array',
+            'test_data' => 'nullable|string', // Will be JSON string from frontend
             'prescription_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,pdf|max:5120',
             'test_report_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,pdf|max:5120',
             'notes' => 'nullable|string',
@@ -264,10 +267,26 @@ class MedicalReportController extends Controller
         }
 
         try {
-            $data = $request->only([
-                'visit_date', 'doctor_name', 'hospital_name', 'medicines',
-                'diet_rules', 'recommendations', 'test_data', 'notes'
-            ]);
+            $data = [];
+
+            // Get all fields from request
+            if ($request->has('visit_date')) $data['visit_date'] = $request->input('visit_date');
+            if ($request->has('doctor_name')) $data['doctor_name'] = $request->input('doctor_name');
+            if ($request->has('hospital_name')) $data['hospital_name'] = $request->input('hospital_name');
+            if ($request->has('medicines')) $data['medicines'] = $request->input('medicines');
+            if ($request->has('diet_rules')) $data['diet_rules'] = $request->input('diet_rules');
+            if ($request->has('recommendations')) $data['recommendations'] = $request->input('recommendations');
+            if ($request->has('notes')) $data['notes'] = $request->input('notes');
+
+            // Handle test_data - parse JSON string if provided
+            if ($request->has('test_data')) {
+                $testData = $request->input('test_data');
+                if (is_string($testData)) {
+                    $data['test_data'] = json_decode($testData, true);
+                } else {
+                    $data['test_data'] = $testData;
+                }
+            }
 
             // Handle prescription image upload
             if ($request->hasFile('prescription_image')) {

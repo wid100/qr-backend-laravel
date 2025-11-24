@@ -3757,3 +3757,11 @@
 [2025-11-24 07:04:09] local.INFO: Medical report created successfully {"id":1,"health_card_id":"1"} 
 [2025-11-24 08:03:59] local.INFO: Creating medical report {"health_card_id":"1","data_keys":["visit_date","doctor_name","hospital_name","medicines","diet_rules","recommendations","notes","health_card_id","test_data","prescription_image","test_report_image"],"has_prescription":true,"has_test_report":true} 
 [2025-11-24 08:03:59] local.INFO: Medical report created successfully {"id":2,"health_card_id":"1"} 
+[2025-11-24 09:16:07] local.INFO: Photo uploaded successfully {"path":"health-cards/photos/CqRWuHwe1ccUpHKtJMLtouKydi9zRyniH3PlHikJ.jpg","size":95802,"url":"/storage/health-cards/photos/CqRWuHwe1ccUpHKtJMLtouKydi9zRyniH3PlHikJ.jpg"} 
+[2025-11-24 09:16:29] local.INFO: Update request received {"id":"3","request_data_keys":["person_name","card_type","access_type","date_of_birth","blood_group","gender","emergency_contact","allergies","meta"],"has_file":false,"all_files":[],"request_method":"PUT","content_type":"application/json"} 
+[2025-11-24 09:16:29] local.INFO: Photo upload check {"hasFile":false,"in_requestData":false,"allFiles_keys":[]} 
+[2025-11-24 09:16:29] local.INFO: Meta data parsed successfully  
+[2025-11-24 09:16:29] local.INFO: Data to update {"data":{"person_name":"Helal Uddin","card_type":"adult","access_type":"public","date_of_birth":"2000-09-09","blood_group":"B+","gender":"male","expected_delivery_date":null,"emergency_contact":"01729892198","allergies":"khfaskj","username":null,"meta":{"primaryColor":"#FFB317","secondaryColor":"#4F46E5","accentColor":"#10B981","textColor":"#ffffff","backgroundColor":"#FFFFFF","useGradient":true,"cardStyle":"modern"}}} 
+[2025-11-24 09:16:29] local.INFO: Health card updated successfully {"id":3,"updated_fields":["person_name","card_type","access_type","date_of_birth","blood_group","gender","expected_delivery_date","emergency_contact","allergies","username","meta"]} 
+[2025-11-24 09:18:53] local.INFO: Creating medical report {"health_card_id":"3","data_keys":["visit_date","doctor_name","hospital_name","medicines","diet_rules","recommendations","notes","health_card_id","test_data","prescription_image","test_report_image"],"has_prescription":true,"has_test_report":true} 
+[2025-11-24 09:18:53] local.INFO: Medical report created successfully {"id":3,"health_card_id":"3"} 
