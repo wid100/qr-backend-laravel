@@ -10,7 +10,6 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Log;
 use Intervention\Image\ImageManagerStatic as Image;
 use Illuminate\Support\Str;
 
@@ -142,28 +141,6 @@ class MedicalReportController extends Controller
      */
     public function update(Request $request, $id): JsonResponse
     {
-        // Get all request data for logging
-        $allData = $request->all();
-        $allFiles = $request->allFiles();
-
-        Log::info('Medical report update request received', [
-            'id' => $id,
-            'method' => $request->method(),
-            'actual_method' => $request->input('_method', $request->method()),
-            'content_type' => $request->header('Content-Type'),
-            'has_files' => !empty($allFiles),
-            'prescription_image' => $request->hasFile('prescription_image'),
-            'test_report_image' => $request->hasFile('test_report_image'),
-            'all_files_keys' => array_keys($allFiles),
-            'all_data_keys' => array_keys($allData),
-            'sample_data' => [
-                'visit_date' => $request->input('visit_date'),
-                'doctor_name' => $request->input('doctor_name'),
-                'medicines_exists' => array_key_exists('medicines', $allData),
-                'test_data_exists' => array_key_exists('test_data', $allData),
-            ],
-        ]);
-
         $medicalReport = MedicalReport::with('healthCard')->find($id);
 
         if (!$medicalReport) {
@@ -177,9 +154,6 @@ class MedicalReportController extends Controller
         $validator = $this->validateUpdateRequest($request);
 
         if ($validator->fails()) {
-            Log::error('Medical report update validation failed', [
-                'errors' => $validator->errors()->toArray(),
-            ]);
             return response()->json([
                 'status' => 'error',
                 'message' => 'Validation failed',
@@ -190,67 +164,36 @@ class MedicalReportController extends Controller
         try {
             $data = $this->prepareUpdateData($request);
 
-            Log::info('Prepared update data', [
-                'data_keys' => array_keys($data),
-                'data_values' => array_map(function($value) {
-                    if (is_string($value) && strlen($value) > 100) {
-                        return substr($value, 0, 100) . '...';
-                    }
-                    return $value;
-                }, $data),
-            ]);
-
             // Handle prescription images
             // Laravel handles array fields: prescription_image[] becomes prescription_image in request
             $prescriptionFiles = $request->file('prescription_image');
-            Log::info('Checking prescription images', [
-                'has_file' => $request->hasFile('prescription_image'),
-                'file_value' => $prescriptionFiles ? 'exists' : 'null',
-                'is_array' => is_array($prescriptionFiles),
-            ]);
 
             if ($prescriptionFiles) {
-                Log::info('Processing prescription images');
                 $this->deleteOldImages($medicalReport->prescription_image);
                 $prescriptionImages = $this->processMultipleImages($request, 'prescription_image', 'health-cards/prescriptions');
                 if (!empty($prescriptionImages)) {
                     $data['prescription_image'] = count($prescriptionImages) > 1
                         ? json_encode($prescriptionImages)
                         : $prescriptionImages[0];
-                    Log::info('Prescription images processed', ['count' => count($prescriptionImages)]);
                 }
             }
 
             // Handle test report images
             // Laravel handles array fields: test_report_image[] becomes test_report_image in request
             $testReportFiles = $request->file('test_report_image');
-            Log::info('Checking test report images', [
-                'has_file' => $request->hasFile('test_report_image'),
-                'file_value' => $testReportFiles ? 'exists' : 'null',
-                'is_array' => is_array($testReportFiles),
-            ]);
 
             if ($testReportFiles) {
-                Log::info('Processing test report images');
                 $this->deleteOldImages($medicalReport->test_report_image);
                 $testReportImages = $this->processMultipleImages($request, 'test_report_image', 'health-cards/test-reports');
                 if (!empty($testReportImages)) {
                     $data['test_report_image'] = count($testReportImages) > 1
                         ? json_encode($testReportImages)
                         : $testReportImages[0];
-                    Log::info('Test report images processed', ['count' => count($testReportImages)]);
                 }
             }
 
-            Log::info('Final data to update', [
-                'data_keys' => array_keys($data),
-                'data_count' => count($data),
-            ]);
-
             $medicalReport->update($data);
             $medicalReport->refresh();
-
-            Log::info('Medical report updated successfully', ['id' => $medicalReport->id]);
 
             $this->formatImageUrls($medicalReport);
 
@@ -260,8 +203,6 @@ class MedicalReportController extends Controller
                 'data' => $medicalReport,
             ]);
         } catch (\Exception $e) {
-            \Log::error('Medical report update error: ' . $e->getMessage());
-            \Log::error('Stack trace: ' . $e->getTraceAsString());
             return $this->errorResponse(
                 'Failed to update medical report',
                 500,
@@ -359,12 +300,6 @@ class MedicalReportController extends Controller
         // Merge all data including files
         $requestData = array_merge($allData, $files);
 
-        Log::info('Validation request data', [
-            'all_data_keys' => array_keys($allData),
-            'files_keys' => array_keys($files),
-            'merged_keys' => array_keys($requestData),
-        ]);
-
         // Build dynamic validation rules based on whether images are arrays or single files
         $rules = [
             'visit_date' => 'sometimes|required|date',
@@ -441,8 +376,6 @@ class MedicalReportController extends Controller
         // Check if key exists in request by checking input() with default null
         $allInput = $request->all();
 
-        Log::info('prepareUpdateData - All input keys', ['keys' => array_keys($allInput)]);
-
         // Required fields - always update if present
         if (array_key_exists('visit_date', $allInput)) {
             $data['visit_date'] = $request->input('visit_date');
@@ -486,8 +419,6 @@ class MedicalReportController extends Controller
             }
         }
 
-        Log::info('prepareUpdateData - Prepared data', ['data_keys' => array_keys($data)]);
-
         return $data;
     }
 
@@ -498,16 +429,6 @@ class MedicalReportController extends Controller
     private function processMultipleImages(Request $request, string $fieldName, string $storagePath): array
     {
         $files = $request->file($fieldName);
-
-        \Log::info("Processing images for field: {$fieldName}");
-        \Log::info("Files received: " . ($files ? 'yes' : 'no'));
-        \Log::info("Files type: " . gettype($files));
-        if ($files) {
-            \Log::info("Files is array: " . (is_array($files) ? 'yes' : 'no'));
-            if (is_array($files)) {
-                \Log::info("Files count: " . count($files));
-            }
-        }
 
         if (!$files) {
             return [];
