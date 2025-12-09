@@ -164,31 +164,109 @@ class MedicalReportController extends Controller
         try {
             $data = $this->prepareUpdateData($request);
 
-            // Handle prescription images
-            // Laravel handles array fields: prescription_image[] becomes prescription_image in request
+            // Handle prescription images with keep/merge logic
             $prescriptionFiles = $request->file('prescription_image');
+            $keepPrescriptionPaths = $this->getKeepImagePaths($request, 'keep_existing_prescription_images');
 
-            if ($prescriptionFiles) {
-                $this->deleteOldImages($medicalReport->prescription_image);
-                $prescriptionImages = $this->processMultipleImages($request, 'prescription_image', 'health-cards/prescriptions');
-                if (!empty($prescriptionImages)) {
-                    $data['prescription_image'] = count($prescriptionImages) > 1
-                        ? json_encode($prescriptionImages)
-                        : $prescriptionImages[0];
+            if ($prescriptionFiles || $keepPrescriptionPaths !== null) {
+                // Get existing images
+                $existingPrescription = $this->getExistingImagePaths($medicalReport->prescription_image);
+
+                // Process new images
+                $newPrescriptionImages = [];
+                if ($prescriptionFiles) {
+                    $newPrescriptionImages = $this->processMultipleImages($request, 'prescription_image', 'health-cards/prescriptions');
+                }
+
+                // Merge: keep existing + new images
+                $finalPrescriptionImages = [];
+
+                // Add existing images that should be kept
+                if ($keepPrescriptionPaths !== null && is_array($keepPrescriptionPaths)) {
+                    foreach ($keepPrescriptionPaths as $keepPath) {
+                        if (in_array($keepPath, $existingPrescription)) {
+                            $finalPrescriptionImages[] = $keepPath;
+                        }
+                    }
+                } elseif ($keepPrescriptionPaths === null && !$prescriptionFiles) {
+                    // No keep list and no new files = keep all existing
+                    $finalPrescriptionImages = $existingPrescription;
+                }
+
+                // Add new images
+                $finalPrescriptionImages = array_merge($finalPrescriptionImages, $newPrescriptionImages);
+
+                // Delete removed images
+                if ($keepPrescriptionPaths !== null) {
+                    $imagesToDelete = array_diff($existingPrescription, $keepPrescriptionPaths);
+                    foreach ($imagesToDelete as $deletePath) {
+                        Storage::disk('public')->delete($deletePath);
+                    }
+                } elseif ($prescriptionFiles) {
+                    // If new files uploaded but no keep list, delete all old
+                    $this->deleteOldImages($medicalReport->prescription_image);
+                }
+
+                // Update database
+                if (!empty($finalPrescriptionImages)) {
+                    $data['prescription_image'] = count($finalPrescriptionImages) > 1
+                        ? json_encode($finalPrescriptionImages)
+                        : $finalPrescriptionImages[0];
+                } else {
+                    $data['prescription_image'] = null;
                 }
             }
 
-            // Handle test report images
-            // Laravel handles array fields: test_report_image[] becomes test_report_image in request
+            // Handle test report images with keep/merge logic
             $testReportFiles = $request->file('test_report_image');
+            $keepTestReportPaths = $this->getKeepImagePaths($request, 'keep_existing_test_report_images');
 
-            if ($testReportFiles) {
-                $this->deleteOldImages($medicalReport->test_report_image);
-                $testReportImages = $this->processMultipleImages($request, 'test_report_image', 'health-cards/test-reports');
-                if (!empty($testReportImages)) {
-                    $data['test_report_image'] = count($testReportImages) > 1
-                        ? json_encode($testReportImages)
-                        : $testReportImages[0];
+            if ($testReportFiles || $keepTestReportPaths !== null) {
+                // Get existing images
+                $existingTestReport = $this->getExistingImagePaths($medicalReport->test_report_image);
+
+                // Process new images
+                $newTestReportImages = [];
+                if ($testReportFiles) {
+                    $newTestReportImages = $this->processMultipleImages($request, 'test_report_image', 'health-cards/test-reports');
+                }
+
+                // Merge: keep existing + new images
+                $finalTestReportImages = [];
+
+                // Add existing images that should be kept
+                if ($keepTestReportPaths !== null && is_array($keepTestReportPaths)) {
+                    foreach ($keepTestReportPaths as $keepPath) {
+                        if (in_array($keepPath, $existingTestReport)) {
+                            $finalTestReportImages[] = $keepPath;
+                        }
+                    }
+                } elseif ($keepTestReportPaths === null && !$testReportFiles) {
+                    // No keep list and no new files = keep all existing
+                    $finalTestReportImages = $existingTestReport;
+                }
+
+                // Add new images
+                $finalTestReportImages = array_merge($finalTestReportImages, $newTestReportImages);
+
+                // Delete removed images
+                if ($keepTestReportPaths !== null) {
+                    $imagesToDelete = array_diff($existingTestReport, $keepTestReportPaths);
+                    foreach ($imagesToDelete as $deletePath) {
+                        Storage::disk('public')->delete($deletePath);
+                    }
+                } elseif ($testReportFiles) {
+                    // If new files uploaded but no keep list, delete all old
+                    $this->deleteOldImages($medicalReport->test_report_image);
+                }
+
+                // Update database
+                if (!empty($finalTestReportImages)) {
+                    $data['test_report_image'] = count($finalTestReportImages) > 1
+                        ? json_encode($finalTestReportImages)
+                        : $finalTestReportImages[0];
+                } else {
+                    $data['test_report_image'] = null;
                 }
             }
 
@@ -310,6 +388,8 @@ class MedicalReportController extends Controller
             'recommendations' => 'nullable|string',
             'test_data' => 'nullable|string',
             'notes' => 'nullable|string',
+            'keep_existing_prescription_images' => 'nullable|string', // JSON string of array
+            'keep_existing_test_report_images' => 'nullable|string', // JSON string of array
         ];
 
         // Handle prescription_image validation (single or array)
@@ -509,17 +589,31 @@ class MedicalReportController extends Controller
      */
     private function formatImageUrls($medicalReport): void
     {
+        // Helper function to get absolute URL with storage/ prefix
+        $getImageUrl = function($path) {
+            if (!$path) return null;
+            // Remove leading slash if exists
+            $path = ltrim($path, '/');
+            // Ensure storage/ prefix is present
+            if (strpos($path, 'storage/') !== 0) {
+                $path = 'storage/' . $path;
+            }
+            return url($path);
+        };
+
         // Handle prescription images
         if ($medicalReport->prescription_image) {
             $decoded = json_decode($medicalReport->prescription_image, true);
             if (json_last_error() === JSON_ERROR_NONE && is_array($decoded)) {
-                $medicalReport->prescription_images = array_map(function($path) {
-                    return Storage::url($path);
-                }, $decoded);
+                $medicalReport->prescription_images = array_filter(array_map(function($path) use ($getImageUrl) {
+                    return $getImageUrl($path);
+                }, $decoded));
+                $medicalReport->prescription_images = array_values($medicalReport->prescription_images);
                 $medicalReport->prescription_image_url = $medicalReport->prescription_images[0] ?? null;
             } else {
-                $medicalReport->prescription_image_url = Storage::url($medicalReport->prescription_image);
-                $medicalReport->prescription_images = [$medicalReport->prescription_image_url];
+                $url = $getImageUrl($medicalReport->prescription_image);
+                $medicalReport->prescription_image_url = $url;
+                $medicalReport->prescription_images = $url ? [$url] : [];
             }
         }
 
@@ -527,15 +621,65 @@ class MedicalReportController extends Controller
         if ($medicalReport->test_report_image) {
             $decoded = json_decode($medicalReport->test_report_image, true);
             if (json_last_error() === JSON_ERROR_NONE && is_array($decoded)) {
-                $medicalReport->test_report_images = array_map(function($path) {
-                    return Storage::url($path);
-                }, $decoded);
+                $medicalReport->test_report_images = array_filter(array_map(function($path) use ($getImageUrl) {
+                    return $getImageUrl($path);
+                }, $decoded));
+                $medicalReport->test_report_images = array_values($medicalReport->test_report_images);
                 $medicalReport->test_report_image_url = $medicalReport->test_report_images[0] ?? null;
             } else {
-                $medicalReport->test_report_image_url = Storage::url($medicalReport->test_report_image);
-                $medicalReport->test_report_images = [$medicalReport->test_report_image_url];
+                $url = $getImageUrl($medicalReport->test_report_image);
+                $medicalReport->test_report_image_url = $url;
+                $medicalReport->test_report_images = $url ? [$url] : [];
             }
         }
+    }
+
+    /**
+     * Get existing image paths from database field
+     */
+    private function getExistingImagePaths($imageField): array
+    {
+        if (!$imageField) {
+            return [];
+        }
+
+        // Check if it's JSON array
+        $decoded = json_decode($imageField, true);
+        if (json_last_error() === JSON_ERROR_NONE && is_array($decoded)) {
+            return $decoded;
+        }
+
+        // Single image
+        return [$imageField];
+    }
+
+    /**
+     * Get keep existing image paths from request
+     */
+    private function getKeepImagePaths(Request $request, string $fieldName): ?array
+    {
+        if (!$request->has($fieldName)) {
+            return null; // Field not present in request = no change
+        }
+
+        $value = $request->input($fieldName);
+
+        if ($value === null || $value === '') {
+            return []; // Empty = remove all
+        }
+
+        if (is_string($value)) {
+            $decoded = json_decode($value, true);
+            if (json_last_error() === JSON_ERROR_NONE && is_array($decoded)) {
+                return $decoded;
+            }
+        }
+
+        if (is_array($value)) {
+            return $value;
+        }
+
+        return null;
     }
 
     /**
