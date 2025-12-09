@@ -29,7 +29,43 @@ class MedicalReport extends Model
     protected $casts = [
         'visit_date' => 'date',
         'test_data' => 'array',
+        // Cast prescription_image and test_report_image to array when they are JSON
+        // Note: Single images will be strings, multiple images will be arrays
     ];
+
+    /**
+     * Get prescription images as array (handles both JSON and string)
+     */
+    public function getPrescriptionImagesAttribute()
+    {
+        if (!$this->prescription_image) {
+            return [];
+        }
+
+        $decoded = json_decode($this->prescription_image, true);
+        if (json_last_error() === JSON_ERROR_NONE && is_array($decoded)) {
+            return $decoded;
+        }
+
+        return [$this->prescription_image];
+    }
+
+    /**
+     * Get test report images as array (handles both JSON and string)
+     */
+    public function getTestReportImagesAttribute()
+    {
+        if (!$this->test_report_image) {
+            return [];
+        }
+
+        $decoded = json_decode($this->test_report_image, true);
+        if (json_last_error() === JSON_ERROR_NONE && is_array($decoded)) {
+            return $decoded;
+        }
+
+        return [$this->test_report_image];
+    }
 
     /**
      * Relationship: MedicalReport belongs to HealthCard

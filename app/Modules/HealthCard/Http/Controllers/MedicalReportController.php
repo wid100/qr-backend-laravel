@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Log;
+use Intervention\Image\ImageManagerStatic as Image;
+use Illuminate\Support\Str;
 
 class MedicalReportController extends Controller
 {
@@ -23,18 +25,11 @@ class MedicalReportController extends Controller
         $healthCard = HealthCard::find($healthCardId);
 
         if (!$healthCard) {
-            return response()->json([
-                'status' => 'error',
-                'message' => 'Health card not found',
-            ], 404);
+            return $this->errorResponse('Health card not found', 404);
         }
 
-        // Check ownership
         if ($healthCard->user_id !== Auth::id()) {
-            return response()->json([
-                'status' => 'error',
-                'message' => 'Unauthorized: You can only view medical reports for your own health cards',
-            ], 403);
+            return $this->errorResponse('Unauthorized: You can only view medical reports for your own health cards', 403);
         }
 
         $reports = MedicalReport::where('health_card_id', $healthCardId)
@@ -43,12 +38,7 @@ class MedicalReportController extends Controller
 
         // Format image URLs
         $reports->transform(function ($report) {
-            if ($report->prescription_image) {
-                $report->prescription_image_url = Storage::url($report->prescription_image);
-            }
-            if ($report->test_report_image) {
-                $report->test_report_image_url = Storage::url($report->test_report_image);
-            }
+            $this->formatImageUrls($report);
             return $report;
         });
 
@@ -67,35 +57,14 @@ class MedicalReportController extends Controller
         $healthCard = HealthCard::find($healthCardId);
 
         if (!$healthCard) {
-            return response()->json([
-                'status' => 'error',
-                'message' => 'Health card not found',
-            ], 404);
+            return $this->errorResponse('Health card not found', 404);
         }
 
-        // Check ownership
         if ($healthCard->user_id !== Auth::id()) {
-            return response()->json([
-                'status' => 'error',
-                'message' => 'Unauthorized: You can only add medical reports to your own health cards',
-            ], 403);
+            return $this->errorResponse('Unauthorized: You can only add medical reports to your own health cards', 403);
         }
 
-        // Merge input and files for FormData validation
-        $requestData = array_merge($request->post(), $request->allFiles());
-
-        $validator = Validator::make($requestData, [
-            'visit_date' => 'required|date',
-            'doctor_name' => 'required|string|max:255',
-            'hospital_name' => 'nullable|string|max:255',
-            'medicines' => 'nullable|string',
-            'diet_rules' => 'nullable|string',
-            'recommendations' => 'nullable|string',
-            'test_data' => 'nullable|string', // Accept as string (JSON) from FormData
-            'prescription_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:5120',
-            'test_report_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:5120',
-            'notes' => 'nullable|string',
-        ]);
+        $validator = $this->validateRequest($request);
 
         if ($validator->fails()) {
             return response()->json([
@@ -106,67 +75,28 @@ class MedicalReportController extends Controller
         }
 
         try {
-            $data = [];
-            $data['visit_date'] = $request->post('visit_date');
-            $data['doctor_name'] = $request->post('doctor_name');
-            $data['hospital_name'] = $request->post('hospital_name') ?: null;
-            $data['medicines'] = $request->post('medicines') ?: null;
-            $data['diet_rules'] = $request->post('diet_rules') ?: null;
-            $data['recommendations'] = $request->post('recommendations') ?: null;
-            $data['notes'] = $request->post('notes') ?: null;
-            $data['health_card_id'] = $healthCardId;
+            $data = $this->prepareData($request, $healthCardId);
 
-            // Handle test_data - parse JSON string if provided
-            $testDataInput = $request->post('test_data');
-            if ($testDataInput) {
-                if (is_string($testDataInput)) {
-                    $decoded = json_decode($testDataInput, true);
-                    $data['test_data'] = json_last_error() === JSON_ERROR_NONE ? $decoded : null;
-                } else {
-                    $data['test_data'] = $testDataInput;
-                }
-            } else {
-                $data['test_data'] = null;
+            // Handle prescription images
+            $prescriptionImages = $this->processMultipleImages($request, 'prescription_image', 'health-cards/prescriptions');
+            if (!empty($prescriptionImages)) {
+                $data['prescription_image'] = count($prescriptionImages) > 1
+                    ? json_encode($prescriptionImages)
+                    : $prescriptionImages[0];
             }
 
-            // Handle prescription image upload
-            if ($request->hasFile('prescription_image')) {
-                $prescription = $request->file('prescription_image');
-                if ($prescription->isValid()) {
-                    $data['prescription_image'] = $prescription->store('health-cards/prescriptions', 'public');
-                }
+            // Handle test report images
+            $testReportImages = $this->processMultipleImages($request, 'test_report_image', 'health-cards/test-reports');
+            if (!empty($testReportImages)) {
+                $data['test_report_image'] = count($testReportImages) > 1
+                    ? json_encode($testReportImages)
+                    : $testReportImages[0];
             }
-
-            // Handle test report image upload
-            if ($request->hasFile('test_report_image')) {
-                $testReport = $request->file('test_report_image');
-                if ($testReport->isValid()) {
-                    $data['test_report_image'] = $testReport->store('health-cards/test-reports', 'public');
-                }
-            }
-
-            Log::info('Creating medical report', [
-                'health_card_id' => $healthCardId,
-                'data_keys' => array_keys($data),
-                'has_prescription' => isset($data['prescription_image']),
-                'has_test_report' => isset($data['test_report_image']),
-            ]);
 
             $medicalReport = MedicalReport::create($data);
             $medicalReport->load('healthCard');
 
-            // Format image URLs
-            if ($medicalReport->prescription_image) {
-                $medicalReport->prescription_image_url = Storage::url($medicalReport->prescription_image);
-            }
-            if ($medicalReport->test_report_image) {
-                $medicalReport->test_report_image_url = Storage::url($medicalReport->test_report_image);
-            }
-
-            Log::info('Medical report created successfully', [
-                'id' => $medicalReport->id,
-                'health_card_id' => $healthCardId,
-            ]);
+            $this->formatImageUrls($medicalReport);
 
             return response()->json([
                 'status' => 'success',
@@ -174,44 +104,31 @@ class MedicalReportController extends Controller
                 'data' => $medicalReport,
             ], 201);
         } catch (\Exception $e) {
-            return response()->json([
-                'status' => 'error',
-                'message' => 'Failed to create medical report',
-                'error' => config('app.debug') ? $e->getMessage() : 'Internal server error',
-            ], 500);
+            return $this->errorResponse(
+                'Failed to create medical report',
+                500,
+                config('app.debug') ? $e->getMessage() : null
+            );
         }
     }
 
     /**
      * Get a single medical report
-     * GET /api/medical-reports/{id}
+     * GET /api/healthcards/medical-reports/{id}
      */
     public function show($id): JsonResponse
     {
         $medicalReport = MedicalReport::with('healthCard')->find($id);
 
         if (!$medicalReport) {
-            return response()->json([
-                'status' => 'error',
-                'message' => 'Medical report not found',
-            ], 404);
+            return $this->errorResponse('Medical report not found', 404);
         }
 
-        // Check ownership through health card
         if ($medicalReport->healthCard->user_id !== Auth::id()) {
-            return response()->json([
-                'status' => 'error',
-                'message' => 'Unauthorized: You can only view your own medical reports',
-            ], 403);
+            return $this->errorResponse('Unauthorized: You can only view your own medical reports', 403);
         }
 
-        // Format image URLs
-        if ($medicalReport->prescription_image) {
-            $medicalReport->prescription_image_url = Storage::url($medicalReport->prescription_image);
-        }
-        if ($medicalReport->test_report_image) {
-            $medicalReport->test_report_image_url = Storage::url($medicalReport->test_report_image);
-        }
+        $this->formatImageUrls($medicalReport);
 
         return response()->json([
             'status' => 'success',
@@ -221,44 +138,48 @@ class MedicalReportController extends Controller
 
     /**
      * Update a medical report
-     * PUT /api/medical-reports/{id}
+     * PUT /api/healthcards/medical-reports/{id}
      */
     public function update(Request $request, $id): JsonResponse
     {
+        // Get all request data for logging
+        $allData = $request->all();
+        $allFiles = $request->allFiles();
+
+        Log::info('Medical report update request received', [
+            'id' => $id,
+            'method' => $request->method(),
+            'actual_method' => $request->input('_method', $request->method()),
+            'content_type' => $request->header('Content-Type'),
+            'has_files' => !empty($allFiles),
+            'prescription_image' => $request->hasFile('prescription_image'),
+            'test_report_image' => $request->hasFile('test_report_image'),
+            'all_files_keys' => array_keys($allFiles),
+            'all_data_keys' => array_keys($allData),
+            'sample_data' => [
+                'visit_date' => $request->input('visit_date'),
+                'doctor_name' => $request->input('doctor_name'),
+                'medicines_exists' => array_key_exists('medicines', $allData),
+                'test_data_exists' => array_key_exists('test_data', $allData),
+            ],
+        ]);
+
         $medicalReport = MedicalReport::with('healthCard')->find($id);
 
         if (!$medicalReport) {
-            return response()->json([
-                'status' => 'error',
-                'message' => 'Medical report not found',
-            ], 404);
+            return $this->errorResponse('Medical report not found', 404);
         }
 
-        // Check ownership through health card
         if ($medicalReport->healthCard->user_id !== Auth::id()) {
-            return response()->json([
-                'status' => 'error',
-                'message' => 'Unauthorized: You can only update your own medical reports',
-            ], 403);
+            return $this->errorResponse('Unauthorized: You can only update your own medical reports', 403);
         }
 
-        // Handle FormData for PUT requests with files
-        $requestData = array_merge($request->post(), $request->allFiles());
-
-        $validator = Validator::make($requestData, [
-            'visit_date' => 'sometimes|required|date',
-            'doctor_name' => 'sometimes|required|string|max:255',
-            'hospital_name' => 'nullable|string|max:255',
-            'medicines' => 'nullable|string',
-            'diet_rules' => 'nullable|string',
-            'recommendations' => 'nullable|string',
-            'test_data' => 'nullable|string', // Will be JSON string from frontend
-            'prescription_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,pdf|max:5120',
-            'test_report_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,pdf|max:5120',
-            'notes' => 'nullable|string',
-        ]);
+        $validator = $this->validateUpdateRequest($request);
 
         if ($validator->fails()) {
+            Log::error('Medical report update validation failed', [
+                'errors' => $validator->errors()->toArray(),
+            ]);
             return response()->json([
                 'status' => 'error',
                 'message' => 'Validation failed',
@@ -267,57 +188,71 @@ class MedicalReportController extends Controller
         }
 
         try {
-            $data = [];
+            $data = $this->prepareUpdateData($request);
 
-            // Get all fields from request
-            if ($request->has('visit_date')) $data['visit_date'] = $request->input('visit_date');
-            if ($request->has('doctor_name')) $data['doctor_name'] = $request->input('doctor_name');
-            if ($request->has('hospital_name')) $data['hospital_name'] = $request->input('hospital_name');
-            if ($request->has('medicines')) $data['medicines'] = $request->input('medicines');
-            if ($request->has('diet_rules')) $data['diet_rules'] = $request->input('diet_rules');
-            if ($request->has('recommendations')) $data['recommendations'] = $request->input('recommendations');
-            if ($request->has('notes')) $data['notes'] = $request->input('notes');
+            Log::info('Prepared update data', [
+                'data_keys' => array_keys($data),
+                'data_values' => array_map(function($value) {
+                    if (is_string($value) && strlen($value) > 100) {
+                        return substr($value, 0, 100) . '...';
+                    }
+                    return $value;
+                }, $data),
+            ]);
 
-            // Handle test_data - parse JSON string if provided
-            if ($request->has('test_data')) {
-                $testData = $request->input('test_data');
-                if (is_string($testData)) {
-                    $data['test_data'] = json_decode($testData, true);
-                } else {
-                    $data['test_data'] = $testData;
+            // Handle prescription images
+            // Laravel handles array fields: prescription_image[] becomes prescription_image in request
+            $prescriptionFiles = $request->file('prescription_image');
+            Log::info('Checking prescription images', [
+                'has_file' => $request->hasFile('prescription_image'),
+                'file_value' => $prescriptionFiles ? 'exists' : 'null',
+                'is_array' => is_array($prescriptionFiles),
+            ]);
+
+            if ($prescriptionFiles) {
+                Log::info('Processing prescription images');
+                $this->deleteOldImages($medicalReport->prescription_image);
+                $prescriptionImages = $this->processMultipleImages($request, 'prescription_image', 'health-cards/prescriptions');
+                if (!empty($prescriptionImages)) {
+                    $data['prescription_image'] = count($prescriptionImages) > 1
+                        ? json_encode($prescriptionImages)
+                        : $prescriptionImages[0];
+                    Log::info('Prescription images processed', ['count' => count($prescriptionImages)]);
                 }
             }
 
-            // Handle prescription image upload
-            if ($request->hasFile('prescription_image')) {
-                // Delete old image if exists
-                if ($medicalReport->prescription_image) {
-                    Storage::disk('public')->delete($medicalReport->prescription_image);
+            // Handle test report images
+            // Laravel handles array fields: test_report_image[] becomes test_report_image in request
+            $testReportFiles = $request->file('test_report_image');
+            Log::info('Checking test report images', [
+                'has_file' => $request->hasFile('test_report_image'),
+                'file_value' => $testReportFiles ? 'exists' : 'null',
+                'is_array' => is_array($testReportFiles),
+            ]);
+
+            if ($testReportFiles) {
+                Log::info('Processing test report images');
+                $this->deleteOldImages($medicalReport->test_report_image);
+                $testReportImages = $this->processMultipleImages($request, 'test_report_image', 'health-cards/test-reports');
+                if (!empty($testReportImages)) {
+                    $data['test_report_image'] = count($testReportImages) > 1
+                        ? json_encode($testReportImages)
+                        : $testReportImages[0];
+                    Log::info('Test report images processed', ['count' => count($testReportImages)]);
                 }
-                $prescription = $request->file('prescription_image');
-                $data['prescription_image'] = $prescription->store('health-cards/prescriptions', 'public');
             }
 
-            // Handle test report image upload
-            if ($request->hasFile('test_report_image')) {
-                // Delete old image if exists
-                if ($medicalReport->test_report_image) {
-                    Storage::disk('public')->delete($medicalReport->test_report_image);
-                }
-                $testReport = $request->file('test_report_image');
-                $data['test_report_image'] = $testReport->store('health-cards/test-reports', 'public');
-            }
+            Log::info('Final data to update', [
+                'data_keys' => array_keys($data),
+                'data_count' => count($data),
+            ]);
 
             $medicalReport->update($data);
             $medicalReport->refresh();
 
-            // Format image URLs
-            if ($medicalReport->prescription_image) {
-                $medicalReport->prescription_image_url = Storage::url($medicalReport->prescription_image);
-            }
-            if ($medicalReport->test_report_image) {
-                $medicalReport->test_report_image_url = Storage::url($medicalReport->test_report_image);
-            }
+            Log::info('Medical report updated successfully', ['id' => $medicalReport->id]);
+
+            $this->formatImageUrls($medicalReport);
 
             return response()->json([
                 'status' => 'success',
@@ -325,45 +260,36 @@ class MedicalReportController extends Controller
                 'data' => $medicalReport,
             ]);
         } catch (\Exception $e) {
-            return response()->json([
-                'status' => 'error',
-                'message' => 'Failed to update medical report',
-                'error' => config('app.debug') ? $e->getMessage() : 'Internal server error',
-            ], 500);
+            \Log::error('Medical report update error: ' . $e->getMessage());
+            \Log::error('Stack trace: ' . $e->getTraceAsString());
+            return $this->errorResponse(
+                'Failed to update medical report',
+                500,
+                config('app.debug') ? $e->getMessage() : null
+            );
         }
     }
 
     /**
      * Delete a medical report
-     * DELETE /api/medical-reports/{id}
+     * DELETE /api/healthcards/medical-reports/{id}
      */
     public function destroy($id): JsonResponse
     {
         $medicalReport = MedicalReport::with('healthCard')->find($id);
 
         if (!$medicalReport) {
-            return response()->json([
-                'status' => 'error',
-                'message' => 'Medical report not found',
-            ], 404);
+            return $this->errorResponse('Medical report not found', 404);
         }
 
-        // Check ownership through health card
         if ($medicalReport->healthCard->user_id !== Auth::id()) {
-            return response()->json([
-                'status' => 'error',
-                'message' => 'Unauthorized: You can only delete your own medical reports',
-            ], 403);
+            return $this->errorResponse('Unauthorized: You can only delete your own medical reports', 403);
         }
 
         try {
             // Delete associated images
-            if ($medicalReport->prescription_image) {
-                Storage::disk('public')->delete($medicalReport->prescription_image);
-            }
-            if ($medicalReport->test_report_image) {
-                Storage::disk('public')->delete($medicalReport->test_report_image);
-            }
+            $this->deleteOldImages($medicalReport->prescription_image);
+            $this->deleteOldImages($medicalReport->test_report_image);
 
             $medicalReport->delete();
 
@@ -372,12 +298,339 @@ class MedicalReportController extends Controller
                 'message' => 'Medical report deleted successfully',
             ]);
         } catch (\Exception $e) {
-            return response()->json([
-                'status' => 'error',
-                'message' => 'Failed to delete medical report',
-                'error' => config('app.debug') ? $e->getMessage() : 'Internal server error',
-            ], 500);
+            return $this->errorResponse(
+                'Failed to delete medical report',
+                500,
+                config('app.debug') ? $e->getMessage() : null
+            );
         }
     }
-}
 
+    /**
+     * Validate request for creating medical report
+     */
+    private function validateRequest(Request $request)
+    {
+        $requestData = array_merge($request->post(), $request->allFiles());
+
+        // Build dynamic validation rules based on whether images are arrays or single files
+        $rules = [
+            'visit_date' => 'required|date',
+            'doctor_name' => 'required|string|max:255',
+            'hospital_name' => 'nullable|string|max:255',
+            'medicines' => 'nullable|string',
+            'diet_rules' => 'nullable|string',
+            'recommendations' => 'nullable|string',
+            'test_data' => 'nullable|string',
+            'notes' => 'nullable|string',
+        ];
+
+        // Handle prescription_image validation (single or array)
+        $prescriptionImage = $request->file('prescription_image');
+        if (is_array($prescriptionImage)) {
+            $rules['prescription_image'] = 'nullable|array';
+            $rules['prescription_image.*'] = 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:5120';
+        } else {
+            $rules['prescription_image'] = 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:5120';
+        }
+
+        // Handle test_report_image validation (single or array)
+        $testReportImage = $request->file('test_report_image');
+        if (is_array($testReportImage)) {
+            $rules['test_report_image'] = 'nullable|array';
+            $rules['test_report_image.*'] = 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:5120';
+        } else {
+            $rules['test_report_image'] = 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:5120';
+        }
+
+        return Validator::make($requestData, $rules);
+    }
+
+    /**
+     * Validate request for updating medical report
+     */
+    private function validateUpdateRequest(Request $request)
+    {
+        // Use all() instead of post() for PUT requests with FormData
+        // post() returns empty array for PUT requests with multipart/form-data
+        $allData = $request->all();
+        $files = $request->allFiles();
+
+        // Merge all data including files
+        $requestData = array_merge($allData, $files);
+
+        Log::info('Validation request data', [
+            'all_data_keys' => array_keys($allData),
+            'files_keys' => array_keys($files),
+            'merged_keys' => array_keys($requestData),
+        ]);
+
+        // Build dynamic validation rules based on whether images are arrays or single files
+        $rules = [
+            'visit_date' => 'sometimes|required|date',
+            'doctor_name' => 'sometimes|required|string|max:255',
+            'hospital_name' => 'nullable|string|max:255',
+            'medicines' => 'nullable|string',
+            'diet_rules' => 'nullable|string',
+            'recommendations' => 'nullable|string',
+            'test_data' => 'nullable|string',
+            'notes' => 'nullable|string',
+        ];
+
+        // Handle prescription_image validation (single or array)
+        $prescriptionImage = $request->file('prescription_image');
+        if (is_array($prescriptionImage)) {
+            $rules['prescription_image'] = 'nullable|array';
+            $rules['prescription_image.*'] = 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:5120';
+        } else {
+            $rules['prescription_image'] = 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:5120';
+        }
+
+        // Handle test_report_image validation (single or array)
+        $testReportImage = $request->file('test_report_image');
+        if (is_array($testReportImage)) {
+            $rules['test_report_image'] = 'nullable|array';
+            $rules['test_report_image.*'] = 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:5120';
+        } else {
+            $rules['test_report_image'] = 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:5120';
+        }
+
+        return Validator::make($requestData, $rules);
+    }
+
+    /**
+     * Prepare data for creating medical report
+     */
+    private function prepareData(Request $request, $healthCardId): array
+    {
+        $data = [
+            'visit_date' => $request->post('visit_date'),
+            'doctor_name' => $request->post('doctor_name'),
+            'hospital_name' => $request->post('hospital_name') ?: null,
+            'medicines' => $request->post('medicines') ?: null,
+            'diet_rules' => $request->post('diet_rules') ?: null,
+            'recommendations' => $request->post('recommendations') ?: null,
+            'notes' => $request->post('notes') ?: null,
+            'health_card_id' => $healthCardId,
+        ];
+
+        // Handle test_data - parse JSON string if provided
+        $testDataInput = $request->post('test_data');
+        if ($testDataInput) {
+            if (is_string($testDataInput)) {
+                $decoded = json_decode($testDataInput, true);
+                $data['test_data'] = json_last_error() === JSON_ERROR_NONE ? $decoded : null;
+            } else {
+                $data['test_data'] = $testDataInput;
+            }
+        } else {
+            $data['test_data'] = null;
+        }
+
+        return $data;
+    }
+
+    /**
+     * Prepare data for updating medical report
+     */
+    private function prepareUpdateData(Request $request): array
+    {
+        $data = [];
+
+        // Get all input data (including empty strings)
+        // Check if key exists in request by checking input() with default null
+        $allInput = $request->all();
+
+        Log::info('prepareUpdateData - All input keys', ['keys' => array_keys($allInput)]);
+
+        // Required fields - always update if present
+        if (array_key_exists('visit_date', $allInput)) {
+            $data['visit_date'] = $request->input('visit_date');
+        }
+        if (array_key_exists('doctor_name', $allInput)) {
+            $data['doctor_name'] = $request->input('doctor_name');
+        }
+
+        // Optional fields - update if present (even if empty/null)
+        if (array_key_exists('hospital_name', $allInput)) {
+            $value = $request->input('hospital_name');
+            $data['hospital_name'] = ($value !== null && $value !== '') ? $value : null;
+        }
+        if (array_key_exists('medicines', $allInput)) {
+            $value = $request->input('medicines');
+            $data['medicines'] = ($value !== null && $value !== '') ? $value : null;
+        }
+        if (array_key_exists('diet_rules', $allInput)) {
+            $value = $request->input('diet_rules');
+            $data['diet_rules'] = ($value !== null && $value !== '') ? $value : null;
+        }
+        if (array_key_exists('recommendations', $allInput)) {
+            $value = $request->input('recommendations');
+            $data['recommendations'] = ($value !== null && $value !== '') ? $value : null;
+        }
+        if (array_key_exists('notes', $allInput)) {
+            $value = $request->input('notes');
+            $data['notes'] = ($value !== null && $value !== '') ? $value : null;
+        }
+
+        // Handle test_data
+        if (array_key_exists('test_data', $allInput)) {
+            $testData = $request->input('test_data');
+            if ($testData === null || $testData === '') {
+                $data['test_data'] = null;
+            } elseif (is_string($testData)) {
+                $decoded = json_decode($testData, true);
+                $data['test_data'] = json_last_error() === JSON_ERROR_NONE ? $decoded : null;
+            } else {
+                $data['test_data'] = $testData;
+            }
+        }
+
+        Log::info('prepareUpdateData - Prepared data', ['data_keys' => array_keys($data)]);
+
+        return $data;
+    }
+
+    /**
+     * Process multiple images using Intervention Image
+     * Supports both single file and array of files
+     */
+    private function processMultipleImages(Request $request, string $fieldName, string $storagePath): array
+    {
+        $files = $request->file($fieldName);
+
+        \Log::info("Processing images for field: {$fieldName}");
+        \Log::info("Files received: " . ($files ? 'yes' : 'no'));
+        \Log::info("Files type: " . gettype($files));
+        if ($files) {
+            \Log::info("Files is array: " . (is_array($files) ? 'yes' : 'no'));
+            if (is_array($files)) {
+                \Log::info("Files count: " . count($files));
+            }
+        }
+
+        if (!$files) {
+            return [];
+        }
+
+        $processedImages = [];
+        $filesArray = is_array($files) ? $files : [$files];
+
+        foreach ($filesArray as $file) {
+            if (!$file || !$file->isValid()) {
+                continue;
+            }
+
+            try {
+                // Generate unique filename
+                $originalName = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
+                $extension = $file->getClientOriginalExtension();
+                $uniqueName = Str::slug($originalName) . '_' . Str::random(20) . '_' . time() . '.' . $extension;
+
+                // Ensure storage directory exists
+                $fullStoragePath = storage_path('app/public/' . $storagePath);
+                if (!file_exists($fullStoragePath)) {
+                    mkdir($fullStoragePath, 0755, true);
+                }
+
+                // Process image with Intervention Image
+                $image = Image::make($file);
+
+                // Resize if image is too large (max width 1920px, maintain aspect ratio)
+                if ($image->width() > 1920) {
+                    $image->resize(1920, null, function ($constraint) {
+                        $constraint->aspectRatio();
+                        $constraint->upsize();
+                    });
+                }
+
+                // Save optimized image directly to storage
+                $savePath = $fullStoragePath . '/' . $uniqueName;
+                $image->save($savePath, 85);
+
+                // Store relative path for database
+                $relativePath = $storagePath . '/' . $uniqueName;
+                $processedImages[] = $relativePath;
+
+            } catch (\Exception $e) {
+                // Continue processing other images on error
+                continue;
+            }
+        }
+
+        return $processedImages;
+    }
+
+    /**
+     * Delete old images (supports both single and JSON array format)
+     */
+    private function deleteOldImages($imageField): void
+    {
+        if (!$imageField) {
+            return;
+        }
+
+        // Check if it's JSON array
+        $decoded = json_decode($imageField, true);
+        if (json_last_error() === JSON_ERROR_NONE && is_array($decoded)) {
+            // Multiple images
+            foreach ($decoded as $path) {
+                Storage::disk('public')->delete($path);
+            }
+        } else {
+            // Single image
+            Storage::disk('public')->delete($imageField);
+        }
+    }
+
+    /**
+     * Format image URLs for response (supports multiple images)
+     */
+    private function formatImageUrls($medicalReport): void
+    {
+        // Handle prescription images
+        if ($medicalReport->prescription_image) {
+            $decoded = json_decode($medicalReport->prescription_image, true);
+            if (json_last_error() === JSON_ERROR_NONE && is_array($decoded)) {
+                $medicalReport->prescription_images = array_map(function($path) {
+                    return Storage::url($path);
+                }, $decoded);
+                $medicalReport->prescription_image_url = $medicalReport->prescription_images[0] ?? null;
+            } else {
+                $medicalReport->prescription_image_url = Storage::url($medicalReport->prescription_image);
+                $medicalReport->prescription_images = [$medicalReport->prescription_image_url];
+            }
+        }
+
+        // Handle test report images
+        if ($medicalReport->test_report_image) {
+            $decoded = json_decode($medicalReport->test_report_image, true);
+            if (json_last_error() === JSON_ERROR_NONE && is_array($decoded)) {
+                $medicalReport->test_report_images = array_map(function($path) {
+                    return Storage::url($path);
+                }, $decoded);
+                $medicalReport->test_report_image_url = $medicalReport->test_report_images[0] ?? null;
+            } else {
+                $medicalReport->test_report_image_url = Storage::url($medicalReport->test_report_image);
+                $medicalReport->test_report_images = [$medicalReport->test_report_image_url];
+            }
+        }
+    }
+
+    /**
+     * Return error response
+     */
+    private function errorResponse(string $message, int $status = 400, ?string $error = null): JsonResponse
+    {
+        $response = [
+            'status' => 'error',
+            'message' => $message,
+        ];
+
+        if ($error && config('app.debug')) {
+            $response['error'] = $error;
+        }
+
+        return response()->json($response, $status);
+    }
+}

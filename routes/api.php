@@ -245,7 +245,7 @@ Route::middleware('auth:sanctum')->prefix('healthcards')->group(function () {
 
     // Medical Report CRUD
     Route::get('/medical-reports/{id}', [App\Modules\HealthCard\Http\Controllers\MedicalReportController::class, 'show']);
-    Route::put('/medical-reports/{id}', [App\Modules\HealthCard\Http\Controllers\MedicalReportController::class, 'update']);
+    Route::match(['put', 'post'], '/medical-reports/{id}', [App\Modules\HealthCard\Http\Controllers\MedicalReportController::class, 'update']);
     Route::delete('/medical-reports/{id}', [App\Modules\HealthCard\Http\Controllers\MedicalReportController::class, 'destroy']);
 });
 

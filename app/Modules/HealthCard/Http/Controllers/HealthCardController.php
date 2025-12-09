@@ -543,6 +543,9 @@ class HealthCardController extends Controller
     {
         $healthCard = HealthCard::where('slug', $slug)
             ->orWhere('username', $slug)
+            ->with(['medicalReports' => function ($query) {
+                $query->orderBy('visit_date', 'desc');
+            }])
             ->first();
 
         if (!$healthCard) {
@@ -565,6 +568,32 @@ class HealthCardController extends Controller
         // Format photo URL if exists
         if ($healthCard->person_photo) {
             $healthCard->person_photo_url = Storage::url($healthCard->person_photo);
+        }
+
+        // Format medical report image URLs
+        if ($healthCard->medicalReports) {
+            foreach ($healthCard->medicalReports as $report) {
+                if ($report->prescription_image) {
+                    $decoded = json_decode($report->prescription_image, true);
+                    if (json_last_error() === JSON_ERROR_NONE && is_array($decoded)) {
+                        $report->prescription_images = array_map(fn($path) => Storage::url($path), $decoded);
+                        $report->prescription_image_url = $report->prescription_images[0] ?? null;
+                    } else {
+                        $report->prescription_image_url = Storage::url($report->prescription_image);
+                        $report->prescription_images = [$report->prescription_image_url];
+                    }
+                }
+                if ($report->test_report_image) {
+                    $decoded = json_decode($report->test_report_image, true);
+                    if (json_last_error() === JSON_ERROR_NONE && is_array($decoded)) {
+                        $report->test_report_images = array_map(fn($path) => Storage::url($path), $decoded);
+                        $report->test_report_image_url = $report->test_report_images[0] ?? null;
+                    } else {
+                        $report->test_report_image_url = Storage::url($report->test_report_image);
+                        $report->test_report_images = [$report->test_report_image_url];
+                    }
+                }
+            }
         }
 
         return response()->json([
