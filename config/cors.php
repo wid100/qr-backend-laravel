@@ -19,12 +19,16 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => [
-        'http://localhost:3000',
-        'http://127.0.0.1:3000',
-        'https://sandbox.aamarpay.com',
-        env('FRONTEND_URL', 'http://localhost:3000')
-    ],
+    // 'allowed_origins' => [env('FRONTEND_URL','https://smart-health-card-rho.vercel.app', 'http://localhost:3000', 'https://sandbox.aamarpay.com')],
+    // 'allowed_origins' => explode(',', env('FRONTEND_URL', 'https://smart-health-card-rho.vercel.app')),
+
+    // 'allowed_origins' => [
+    //     'https://smartcardgenerator.net',
+    //     'https://smart-health-card-rho.vercel.app',
+    //     'http://localhost:3000',
+    //     'https://sandbox.aamarpay.com'
+    // ],
+    'allowed_origins' => array_filter(array_map('trim', explode(',', env('FRONTEND_URL', 'https://smart-health-card-rho.vercel.app,http://localhost:3000')))),
 
     'allowed_origins_patterns' => [],
 

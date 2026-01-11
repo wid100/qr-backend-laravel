@@ -91,9 +91,40 @@ Route::prefix('health-card')->group(function () {
     });
 });
 
-Route::post('/users/{id}', [UserController::class, 'update']);
+/*
+|--------------------------------------------------------------------------
+| Smart-Card-generator-V4 Authentication Routes (Session-based)
+|--------------------------------------------------------------------------
+| These routes are for the Smart-Card-generator-V4 frontend
+| Uses session-based authentication with Sanctum CSRF cookies
+*/
 
-// Route::post('/login', [CustomAuthenticatedSessionController::class, 'store']);
+// Smart-Card-generator-V4 Auth Routes
+Route::post('/login', [App\Http\Controllers\Auth\CustomAuthenticatedSessionController::class, 'store'])
+    ->name('api.login');
+
+Route::post('/register', [App\Http\Controllers\Auth\RegisteredUserController::class, 'store'])
+    ->name('api.register');
+
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+    return response()->json($request->user());
+})->name('api.user');
+
+Route::post('/logout', [App\Http\Controllers\Auth\CustomAuthenticatedSessionController::class, 'destroy'])
+    ->middleware('auth:sanctum')
+    ->name('api.logout');
+
+Route::post('/password/email', [App\Http\Controllers\Auth\PasswordResetLinkController::class, 'store'])
+    ->name('api.password.email');
+
+Route::post('/password/reset', [App\Http\Controllers\Auth\NewPasswordController::class, 'store'])
+    ->name('api.password.update');
+
+Route::post('/email/verification-notification', [App\Http\Controllers\Auth\EmailVerificationNotificationController::class, 'store'])
+    ->middleware(['auth:sanctum', 'throttle:6,1'])
+    ->name('api.verification.send');
+
+Route::post('/users/{id}', [UserController::class, 'update']);
 
 Route::post('qrcreate', [QrgenController::class, 'store']);
 Route::get('information/{slug}', [QrgenController::class, 'show']);
