@@ -119,9 +119,17 @@ class AppointmentController extends Controller
 
         $appointment->save();
 
-        Mail::to($appointment->email)->send(new AppointmentApprovedMail($appointment, $icsContent));
+        try {
+            Mail::to($appointment->email)->send(new AppointmentApprovedMail($appointment, $icsContent));
+        } catch (\Throwable $mailError) {
+            // Don't fail the approval flow if SMTP is misconfigured.
+            \Log::error('Appointment approval email failed (ignored)', [
+                'appointment_id' => $appointment->id,
+                'error' => $mailError->getMessage(),
+            ]);
+        }
 
-        return response()->json(['message' => 'Appointment updated successfully and email sent.'], 200);
+        return response()->json(['message' => 'Appointment updated successfully.'], 200);
     }
 
     /**
