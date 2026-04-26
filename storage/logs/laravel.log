@@ -924,3 +924,4 @@
 #77 F:\\WWW\\full compleate\\SmartCardBackend\\server.php(21): require_once('F:\\\\WWW\\\\full com...')
 #78 {main}
 "} 
+[2026-04-26 04:09:37] local.INFO: Qrgen created successfully {"id":288} 
