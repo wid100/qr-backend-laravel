@@ -25,7 +25,7 @@ class AdminMiddleware
     {
         $user = Auth::user();
 
-        if ($user && $user->role && ($user->role->id == 1 || $user->role->id == 3)) {
+        if ($user && in_array($user->role_id, [1, 3])) {
             return $next($request);
         } else {
             return redirect()->route('login');
