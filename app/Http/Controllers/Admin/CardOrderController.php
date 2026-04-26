@@ -10,7 +10,7 @@ class CardOrderController extends Controller
 {
     public function index()
     {
-        $orders = CardOrder::with('user', 'smartCard')
+        $orders = CardOrder::with(['user', 'smartCard', 'qrgen'])
             ->orderByDesc('created_at')
             ->get();
 

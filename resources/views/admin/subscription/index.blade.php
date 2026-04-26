@@ -39,11 +39,11 @@
                                         <tr>
                                             <td>{{ $key + 1 }}</td>
 
-                                            <td>{{ $subscription->user->name }}</td>
-                                            <td>{{ $subscription->package->name }}</td>
-                                            <td>{{ $subscription->payment->payment_method }}</td>
-                                            <td>{{ $subscription->payment->amount }}</td>
-                                            <td>{{ $subscription->payment->transaction_id }}</td>
+                                            <td>{{ $subscription->user->name ?? 'N/A' }}</td>
+                                            <td>{{ $subscription->package->name ?? 'N/A' }}</td>
+                                            <td>{{ $subscription->payment->payment_method ?? 'N/A' }}</td>
+                                            <td>{{ $subscription->payment->amount ?? 'N/A' }}</td>
+                                            <td>{{ $subscription->payment->transaction_id ?? 'N/A' }}</td>
                                             <td>{{ \Carbon\Carbon::parse($subscription->start_date)->format('d/m/Y') }}</td>
                                             <td>{{ \Carbon\Carbon::parse($subscription->end_date)->format('d/m/Y') }}</td>
 

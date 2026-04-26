@@ -30,7 +30,7 @@ class PaymentController extends Controller
 
     public function index()
     {
-        $payment = Payment::all();
+        $payment = Payment::with(['user', 'package'])->get();
         return view('admin.payment.index', compact('payment'));
     }
 }

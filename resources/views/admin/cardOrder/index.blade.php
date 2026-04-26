@@ -41,14 +41,21 @@
                                         <tr>
                                             <td>{{ $key + 1 }}</td>
                                             <td>{{ $order->smartCard->name ?? 'N/A' }}</td>
-                                            <td><img src="{{ asset('storage/' . $order->smartCard->font_image) }}"
-                                                    width="100" alt=""></td>
+                                            <td>
+                                                @if($order->smartCard && $order->smartCard->font_image)
+                                                    <img src="{{ asset('storage/' . $order->smartCard->font_image) }}" width="100" alt="">
+                                                @else
+                                                    N/A
+                                                @endif
                                             </td>
                                             <td>
-                                                <a href="https://smartcardgenerator.net/{{ $order->qrgen->slug }}"
-                                                    target="_blank">
-                                                    {{ $order->qrgen_id }}
-                                                </a>
+                                                @if($order->qrgen)
+                                                    <a href="https://smartcardgenerator.net/{{ $order->qrgen->slug }}" target="_blank">
+                                                        {{ $order->qrgen_id }}
+                                                    </a>
+                                                @else
+                                                    {{ $order->qrgen_id ?? 'N/A' }}
+                                                @endif
                                             </td>
 
                                             </td>

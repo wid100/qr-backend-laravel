@@ -18,7 +18,7 @@ class SubscriptionsController extends Controller
      */
     public function index()
     {
-        $subscriptions = Subscription::latest()->get();
+        $subscriptions = Subscription::with(['user', 'package', 'payment'])->latest()->get();
 
         return view('admin.subscription.index', compact('subscriptions'));
     }

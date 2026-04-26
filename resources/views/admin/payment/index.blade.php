@@ -37,8 +37,8 @@
                                         <tr>
                                             <td>{{ $key + 1 }}</td>
 
-                                            <td>{{ $payment->user->name }}</td>
-                                            <td>{{ $payment->package->name }}</td>
+                                            <td>{{ optional($payment->user)->name ?? 'N/A' }}</td>
+                                            <td>{{ optional($payment->package)->name ?? 'N/A' }}</td>
                                             <td>{{ $payment->amount }}</td>
                                             <td>{{ $payment->payment_method }}</td>
                                             <td>{{ $payment->transaction_id }}</td>
