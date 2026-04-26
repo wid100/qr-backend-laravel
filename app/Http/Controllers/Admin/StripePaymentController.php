@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Database\QueryException;
 use Stripe\Stripe;
 use Stripe\PaymentIntent;
 use Stripe\StripeClient;
@@ -78,39 +79,70 @@ class StripePaymentController extends Controller
             'district' => 'required|string',
         ]);
 
+        // Idempotency guard: if the same Stripe PI is posted again, don't create duplicates.
+        $existing = Payment::where('transaction_id', $request->input('transaction_id'))->latest('id')->first();
+        if ($existing) {
+            return response()->json([
+                'message' => 'Transaction already saved.',
+                'data' => $existing,
+            ], 200);
+        }
 
         $maxRetries = 3;
         $attempts = 0;
 
         while ($attempts < $maxRetries) {
             try {
-                DB::beginTransaction();
+                [$payment, $order] = DB::transaction(function () use ($request) {
+                    // Create payment (idempotent inside transaction as well)
+                    $payment = Payment::firstOrCreate(
+                        ['transaction_id' => $request->input('transaction_id')],
+                        [
+                            'user_id' => $request->input('user_id'),
+                            'package_id' => $request->input('package_id'),
+                            'amount' => $request->input('amount'),
+                            'payment_method' => 'stripe',
+                        ]
+                    );
 
-                // Create payment
-                $payment = $this->createPayment($request);
-                // Create subscription
-                $this->createSubscription($request, $payment->id);
-                // Create order
-                $order = $this->createOrder($request, $payment->id);
+                    // Subscription & Order: keep them tied to this payment
+                    $this->createSubscription($request, $payment->id);
+                    $order = $this->createOrder($request, $payment->id);
 
-                Log::info('Payment record created successfully', ['payment' => $payment]);
+                    Log::info('Payment record created successfully', ['payment' => $payment]);
 
-                DB::commit();
-                $this->generateAndSendInvoice($order);
+                    return [$payment, $order];
+                }, 3);
+
+                // IMPORTANT: invoice/email must NOT fail the transaction save.
+                try {
+                    $this->generateAndSendInvoice($order);
+                } catch (\Throwable $mailOrPdfError) {
+                    Log::error('Invoice generation/email failed (ignored)', [
+                        'transaction_id' => $request->input('transaction_id'),
+                        'error' => $mailOrPdfError->getMessage(),
+                    ]);
+                }
 
                 Log::info('Order created successfully', ['Order' => $order]);
                 return response()->json([
                     'message' => 'Transaction saved successfully.',
                     'data' => $payment,
                 ], 200);
-            } catch (\Exception $e) {
-                DB::rollBack();
+            } catch (QueryException $e) {
                 $attempts++;
                 Log::error("Transaction attempt $attempts failed: " . $e->getMessage());
 
                 if ($attempts < $maxRetries) {
                     sleep(1);
                 }
+            } catch (\Throwable $e) {
+                // Non-DB errors shouldn't be retried here (often SMTP/PDF/etc).
+                Log::error('Transaction save failed (non-db)', [
+                    'attempt' => $attempts + 1,
+                    'error' => $e->getMessage(),
+                ]);
+                break;
             }
         }
 

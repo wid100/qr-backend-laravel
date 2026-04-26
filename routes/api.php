@@ -216,7 +216,10 @@ Route::get('/schedule/areas/{userId}', [ScheduleAreaController::class, 'index'])
 
 
 Route::get('/card-details/{id}', [SmartCardController::class, 'getCardDetails']);
-Route::post('/create-payment-intent', [SmartCardController::class, 'createPaymentIntent']);
+// NOTE: `/api/create-payment-intent` is reserved for subscription Stripe flow
+// handled by `StripePaymentController::createPaymentIntent`.
+// Keep SmartCard payment intent under a distinct path to avoid route override bugs.
+Route::post('/smartcard/create-payment-intent', [SmartCardController::class, 'createPaymentIntent']);
 Route::post('/create-checkout-session', [SmartCardController::class, 'createCheckoutSession']);
 Route::post('/make-order', [SmartCardController::class, 'store']);
 Route::get('/cards', SmartCardController::class);
