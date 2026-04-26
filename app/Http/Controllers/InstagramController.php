@@ -113,8 +113,9 @@ class InstagramController extends Controller
                 $image->move($imagePath, $imageName);
                 $validatedData['image'] = 'image/qrgen/' . $imageName;
             }
-
-            Log::info('Image uploaded successfully', ['imagePath' => $validatedData['image']]);
+            if (isset($validatedData['image'])) {
+                Log::info('Image uploaded successfully', ['imagePath' => $validatedData['image']]);
+            }
 
             Instagram::create($validatedData);
 
