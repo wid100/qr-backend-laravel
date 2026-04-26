@@ -18,7 +18,11 @@ use App\Http\Controllers\Api\AppointmentController;
 use App\Http\Controllers\Api\FAQController;
 use App\Http\Controllers\Api\MessageController;
 use App\Http\Controllers\InstagramController;
-use App\Http\Controllers\Auth\CustomAuthenticatedSessionController;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\Auth\PasswordResetLinkController;
+use App\Http\Controllers\Auth\NewPasswordController;
+use App\Http\Controllers\Auth\EmailVerificationNotificationController;
 use App\Http\Controllers\WebsiteController;
 use App\Http\Controllers\Admin\PayPalController;
 use App\Http\Controllers\Api\SmartCardController;
@@ -45,84 +49,40 @@ use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
-| Smart Health Card Authentication Routes
+| Authentication Routes (Sanctum SPA, cookie/session)
 |--------------------------------------------------------------------------
-| These routes are specifically for the Smart Health Card frontend
-| and don't interfere with existing smart card generator functionality
+| Single, secure auth pipeline used by the Next.js frontend.
+| - HttpOnly + SameSite=Lax cookies (Secure in production)
+| - CSRF protected via Sanctum's EnsureFrontendRequestsAreStateful
+| - Rate-limited to mitigate brute-force
+| - Email verification mandatory before login is allowed
 */
 
-// Smart Health Card Auth Routes
-Route::prefix('health-card')->group(function () {
-    Route::post('/register', [App\Http\Controllers\Auth\ApiRegisteredUserController::class, 'store'])
-        ->name('health-card.register');
-
-    Route::post('/login', [App\Http\Controllers\Auth\ApiAuthenticatedSessionController::class, 'store'])
-        ->name('health-card.login');
-
-    Route::post('/forgot-password', [App\Http\Controllers\Auth\PasswordResetLinkController::class, 'store'])
-        ->middleware('guest')
-        ->name('health-card.password.email');
-
-    Route::post('/reset-password', [App\Http\Controllers\Auth\NewPasswordController::class, 'store'])
-        ->middleware('guest')
-        ->name('health-card.password.update');
-
-    // Email Verification Routes
-    Route::post('/email/verification-notification', [App\Http\Controllers\Auth\EmailVerificationNotificationController::class, 'store'])
-        ->middleware(['auth:sanctum', 'throttle:6,1'])
-        ->name('health-card.verification.send');
-
-    Route::post('/logout', [App\Http\Controllers\Auth\ApiAuthenticatedSessionController::class, 'destroy'])
-        ->middleware('auth:sanctum')
-        ->name('health-card.logout');
-
-    Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-        $user = $request->user();
-        $subscription = Subscription::where('user_id', $user->id)->first();
-        $isSubscribed = false;
-
-        if ($subscription && ($subscription->end_date > now() || $subscription->status == 1)) {
-            $isSubscribed = true;
-        }
-
-        $userData = $user->toArray();
-        $userData['subscribed'] = $isSubscribed;
-        return response()->json($userData);
-    });
+Route::middleware('throttle:10,1')->group(function () {
+    Route::post('/register', [RegisteredUserController::class, 'store'])->name('api.register');
+    Route::post('/login',    [AuthenticatedSessionController::class, 'store'])->name('api.login');
+    Route::post('/password/email', [PasswordResetLinkController::class, 'store'])->name('api.password.email');
+    Route::post('/password/reset', [NewPasswordController::class, 'store'])->name('api.password.update');
 });
 
-/*
-|--------------------------------------------------------------------------
-| Smart-Card-generator-V4 Authentication Routes (Session-based)
-|--------------------------------------------------------------------------
-| These routes are for the Smart-Card-generator-V4 frontend
-| Uses session-based authentication with Sanctum CSRF cookies
-*/
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('/user', function (Request $request) {
+        $user = $request->user();
+        $subscription = Subscription::where('user_id', $user->id)->first();
+        $isSubscribed = $subscription
+            && ($subscription->end_date > now() || $subscription->status == 1);
 
-// Smart-Card-generator-V4 Auth Routes
-Route::post('/login', [App\Http\Controllers\Auth\CustomAuthenticatedSessionController::class, 'store'])
-    ->name('api.login');
+        $userData = $user->toArray();
+        $userData['subscribed'] = (bool) $isSubscribed;
+        return response()->json($userData);
+    })->name('api.user');
 
-Route::post('/register', [App\Http\Controllers\Auth\RegisteredUserController::class, 'store'])
-    ->name('api.register');
+    Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('api.logout');
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return response()->json($request->user());
-})->name('api.user');
-
-Route::post('/logout', [App\Http\Controllers\Auth\CustomAuthenticatedSessionController::class, 'destroy'])
-    ->middleware('auth:sanctum')
-    ->name('api.logout');
-
-Route::post('/password/email', [App\Http\Controllers\Auth\PasswordResetLinkController::class, 'store'])
-    ->name('api.password.email');
-
-Route::post('/password/reset', [App\Http\Controllers\Auth\NewPasswordController::class, 'store'])
-    ->name('api.password.update');
-
-Route::post('/email/verification-notification', [App\Http\Controllers\Auth\EmailVerificationNotificationController::class, 'store'])
-    ->middleware(['auth:sanctum', 'throttle:6,1'])
-    ->name('api.verification.send');
+    Route::post('/email/verification-notification', [EmailVerificationNotificationController::class, 'store'])
+        ->middleware('throttle:6,1')
+        ->name('api.verification.send');
+});
 
 Route::post('/users/{id}', [UserController::class, 'update']);
 

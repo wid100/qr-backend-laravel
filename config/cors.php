@@ -28,7 +28,11 @@ return [
     //     'http://localhost:3000',
     //     'https://sandbox.aamarpay.com'
     // ],
-    'allowed_origins' => array_filter(array_map('trim', explode(',', env('FRONTEND_URL', 'https://smart-health-card-rho.vercel.app,http://localhost:3000')))),
+    'allowed_origins' => array_values(array_filter(array_map(function ($origin) {
+        $origin = trim((string) $origin);
+        $origin = rtrim($origin, '/');
+        return $origin === '' ? null : $origin;
+    }, explode(',', env('FRONTEND_URL', 'https://smart-health-card-rho.vercel.app,http://localhost:3000'))))),
 
     'allowed_origins_patterns' => [],
 

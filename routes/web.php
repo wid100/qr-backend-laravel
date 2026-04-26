@@ -64,7 +64,7 @@ Route::get('/clear-cache', function () {
 
 
 Route::get('/verify-email/{id}/{hash}', [App\Http\Controllers\Auth\VerifyEmailController::class, '__invoke'])
-    ->middleware(['auth', 'signed', 'throttle:6,1'])
+    ->middleware(['signed', 'throttle:6,1'])
     ->name('verification.verify');
 
 Route::post('/email/verification-notification', [EmailVerificationNotificationController::class, 'store'])
@@ -73,29 +73,6 @@ Route::post('/email/verification-notification', [EmailVerificationNotificationCo
 
 Route::get('/resume/pdf/{userId}/{resumeId}/{templateId}', [ResumeController::class, 'generatePdf'])->name('resume.pdf');
 Route::get('/resume/view/{userId}/{resumeId}/{templateId}', [ResumeController::class, 'viewPdf'])->name('resume.view');
-
-// Route::post('/forgot-password', [PasswordResetLinkController::class, 'store'])
-//     ->middleware('guest')
-//     ->name('password.email');
-
-
-Route::get('verify-email/{id}/{hash}', function (Request $request, $id, $hash) {
-    $user = \App\Models\User::findOrFail($id);
-
-    if (!hash_equals((string) $hash, sha1($user->getEmailForVerification()))) {
-        throw new \Illuminate\Auth\Access\AuthorizationException;
-    }
-
-    if ($user->hasVerifiedEmail()) {
-        return redirect(config('app.frontend_url') . '/email-already-verified');
-    }
-
-    if ($user->markEmailAsVerified()) {
-        event(new \Illuminate\Auth\Events\Verified($user));
-    }
-
-    return redirect(config('app.frontend_url') . '/email-verified');
-})->name('verification.verify');
 
 
 
