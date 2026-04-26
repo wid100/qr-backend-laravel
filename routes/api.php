@@ -23,6 +23,7 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
+use App\Http\Controllers\Auth\PublicEmailVerificationNotificationController;
 use App\Http\Controllers\WebsiteController;
 use App\Http\Controllers\Admin\PayPalController;
 use App\Http\Controllers\Api\SmartCardController;
@@ -63,6 +64,9 @@ Route::middleware('throttle:10,1')->group(function () {
     Route::post('/login',    [AuthenticatedSessionController::class, 'store'])->name('api.login');
     Route::post('/password/email', [PasswordResetLinkController::class, 'store'])->name('api.password.email');
     Route::post('/password/reset', [NewPasswordController::class, 'store'])->name('api.password.update');
+    Route::post('/email/verification-notification-public', [PublicEmailVerificationNotificationController::class, 'store'])
+        ->middleware('throttle:6,1')
+        ->name('api.verification.send.public');
 });
 
 Route::middleware('auth:sanctum')->group(function () {
