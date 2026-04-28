@@ -161,7 +161,7 @@ class QrgenController extends Controller
 
             if ($request->hasFile('welcomeimage')) {
                 $image = $request->file('welcomeimage');
-                $imageName = str_replace(' ', '-', $image->getClientOriginalName()); // Replace spaces with dashes
+                $imageName = uniqid() . '-' . str_replace(' ', '-', $image->getClientOriginalName());
                 $image->move(public_path('image/qrgen/'), $imageName);
                 $qrgen->welcome = 'image/qrgen/' . $imageName;
             }
@@ -338,9 +338,13 @@ class QrgenController extends Controller
             }
             if ($request->hasFile('welcomeimage')) {
                 $image = $request->file('welcomeimage');
-                $imageName = str_replace(' ', '-', $image->getClientOriginalName());
+                $oldWelcome = $qrgen->welcome;
+                $imageName = uniqid() . '-' . str_replace(' ', '-', $image->getClientOriginalName());
                 $image->move(public_path('image/qrgen/'), $imageName);
                 $qrgen->welcome = 'image/qrgen/' . $imageName;
+                if ($oldWelcome && file_exists(public_path($oldWelcome))) {
+                    unlink(public_path($oldWelcome));
+                }
             }
             $qrgen->save();
             Log::info('Qrgen updated successfully', ['id' => $qrgen->id]);
