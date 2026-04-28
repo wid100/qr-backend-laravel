@@ -4246,3 +4246,20 @@
 #59 F:\\WWW\\full compleate\\SmartCardBackend\\server.php(21): require_once('F:\\\\WWW\\\\full com...')
 #60 {main}
 "} 
+[2026-04-26 10:28:24] local.DEBUG: Country Name: {"name":"Afghanistan"} 
+[2026-04-26 10:28:27] local.DEBUG: Country Name: {"name":"Afghanistan"} 
+[2026-04-26 10:28:27] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2026-04-26 10:28:33] local.DEBUG: Country Name: {"name":"Afghanistan"} 
+[2026-04-26 10:28:34] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2026-04-26 10:29:43] local.DEBUG: Country Name: {"name":"Afghanistan"} 
+[2026-04-26 10:29:44] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2026-04-26 10:30:29] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2026-04-26 10:53:10] local.DEBUG: Country Name: {"name":"Afghanistan"} 
+[2026-04-26 10:53:11] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2026-04-28 04:51:49] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2026-04-28 04:51:55] local.DEBUG: Country Name: {"name":"Afghanistan"} 
+[2026-04-28 04:51:56] local.DEBUG: Country Name: {"name":"Bangladesh"} 
+[2026-04-28 04:55:37] local.INFO: User updated successfully {"id":42} 
+[2026-04-28 04:55:59] local.INFO: User updated successfully {"id":42} 
+[2026-04-28 05:36:18] local.DEBUG: Country Name: {"name":"Afghanistan"} 
+[2026-04-28 05:36:19] local.DEBUG: Country Name: {"name":"Bangladesh"} 

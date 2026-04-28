@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Subscription;
 use App\Models\User;
 use App\Models\Package;
 use App\Models\Payment;
-use App\Models\Subscription;
+use App\Services\SubscriptionService;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 
 class SubscriptionsController extends Controller
 {
@@ -57,25 +59,28 @@ class SubscriptionsController extends Controller
         // Determine status
         $status = $request->has('status') ? 'active' : 'inactive';
 
-        // Create payment
+        // Create payment record
         $payment = Payment::create([
-            'user_id' => $request->user_id,
-            'package_id' => $request->package_id,
-            'amount' => $request->pay_amount,
+            'user_id'        => $request->user_id,
+            'package_id'     => $request->package_id,
+            'amount'         => $request->pay_amount,
             'payment_method' => $request->payment_method,
             'transaction_id' => $request->transaction_id,
         ]);
 
-        // Create subscription
-        Subscription::create([
-            'user_id' => $request->user_id,
-            'package_id' => $request->package_id,
-            'start_date' => $request->start_date,
-            'end_date' => $request->end_date,
-            'payment_id' => $payment->id,
-            'status' => $status,
-        ]);
+        /** @var SubscriptionService $svc */
+        $svc = app(SubscriptionService::class);
+        ['renewed' => $renewed] = $svc->createOrRenew(
+            userId:    (int) $request->user_id,
+            packageId: (int) $request->package_id,
+            paymentId: $payment->id,
+            startDate: Carbon::parse($request->start_date),
+            endDate:   Carbon::parse($request->end_date),
+            status:    $status,
+        );
 
-        return redirect()->route('admin.subscription.index')->with('success', 'Subscription created successfully.');
+        $message = $renewed ? 'Subscription renewed successfully.' : 'Subscription created successfully.';
+
+        return redirect()->route('admin.subscription.index')->with('success', $message);
     }
 }

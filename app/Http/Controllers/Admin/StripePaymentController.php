@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Order;
 use App\Models\Package;
 use App\Models\Payment;
-use App\Models\Subscription;
+use App\Services\SubscriptionService;
 use App\Services\InvoiceService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -163,14 +163,18 @@ class StripePaymentController extends Controller
 
     private function createSubscription($request, $paymentId)
     {
-        return Subscription::create([
-            'user_id' => $request->input('user_id'),
-            'payment_id' => $paymentId,
-            'package_id' => $request->input('package_id'),
-            'start_date' => now(),
-            'end_date' => now()->addMonths($request->input('end_date')),
-            'status' => true,
-        ]);
+        /** @var SubscriptionService $svc */
+        $svc = app(SubscriptionService::class);
+
+        ['subscription' => $sub] = $svc->createOrRenew(
+            userId:    (int) $request->input('user_id'),
+            packageId: (int) $request->input('package_id'),
+            paymentId: $paymentId,
+            startDate: now(),
+            endDate:   now()->addMonths((int) $request->input('end_date', 1)),
+        );
+
+        return $sub;
     }
 
     private function createOrder($request, $paymentId)

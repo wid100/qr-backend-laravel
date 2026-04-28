@@ -8,7 +8,7 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 use App\Models\Order;
 use App\Models\Payment;
-use App\Models\Subscription;
+use App\Services\SubscriptionService;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Http;
@@ -162,14 +162,18 @@ class PayPalController extends Controller
     // create subscription
     private function createSubscription($request, $paymentId)
     {
-        return Subscription::create([
-            'user_id' => $request->input('user_id'),
-            'payment_id' => $paymentId,
-            'package_id' => $request->input('package_id'),
-            'start_date' => now(),
-            'end_date' => now()->addMonths($request->input('end_date')),
-            'status' => true,
-        ]);
+        /** @var SubscriptionService $svc */
+        $svc = app(SubscriptionService::class);
+
+        ['subscription' => $sub] = $svc->createOrRenew(
+            userId:    (int) $request->input('user_id'),
+            packageId: (int) $request->input('package_id'),
+            paymentId: $paymentId,
+            startDate: now(),
+            endDate:   now()->addMonths((int) $request->input('end_date', 1)),
+        );
+
+        return $sub;
     }
 
     // create order

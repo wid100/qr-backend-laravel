@@ -25,7 +25,8 @@ class AdminMiddleware
     {
         $user = Auth::user();
 
-        if ($user && in_array($user->role_id, [1, 3])) {
+        // Support both legacy role_id and enum role.
+        if ($user && (($user->role ?? null) === 'admin' || in_array((int) $user->role_id, [1, 3], true))) {
             return $next($request);
         } else {
             return redirect()->route('login');

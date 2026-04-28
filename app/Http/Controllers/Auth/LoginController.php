@@ -24,8 +24,15 @@ class LoginController extends Controller
      */
     protected function authenticated(Request $request, $user)
     {
-        if (in_array($user->role_id, [1, 3])) {
+        // NOTE: This project uses both legacy `role_id` and newer enum `role`.
+        // Keep redirect logic compatible with both.
+        if (($user->role ?? null) === 'admin' || in_array((int) $user->role_id, [1, 3], true)) {
             return redirect()->route('admin.dashboard');
+        }
+
+        // If doctor dashboard exists in future, redirect there.
+        if (($user->role ?? null) === 'doctor') {
+            return redirect('/home');
         }
 
         return redirect('/home');

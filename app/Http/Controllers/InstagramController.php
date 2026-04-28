@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Instagram;
 use App\Models\User;
+use App\Services\SubscriptionService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
@@ -82,6 +83,16 @@ class InstagramController extends Controller
 
     public function store(Request $request)
     {
+        /** @var SubscriptionService $svc */
+        $svc = app(SubscriptionService::class);
+        $sub = $svc->latestForUser((int) $request->input('user_id'));
+        if (!$svc->isActive($sub)) {
+            return response()->json([
+                'message' => 'An active subscription is required to create an Instagram QR.',
+                'code'    => 'SUBSCRIPTION_REQUIRED',
+            ], 403);
+        }
+
         try {
             Log::info('Store method called', ['request' => $request->all()]);
 

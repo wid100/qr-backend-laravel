@@ -30,8 +30,6 @@ use App\Http\Controllers\Api\SmartCardController;
 use App\Http\Controllers\Api\ScheduleAreaController;
 use App\Http\Controllers\Api\CardOrderController;
 
-use App\Models\Subscription;
-use App\Models\User;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -72,12 +70,12 @@ Route::middleware('throttle:10,1')->group(function () {
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user', function (Request $request) {
         $user = $request->user();
-        $subscription = Subscription::where('user_id', $user->id)->first();
-        $isSubscribed = $subscription
-            && ($subscription->end_date > now() || $subscription->status == 1);
 
-        $userData = $user->toArray();
-        $userData['subscribed'] = (bool) $isSubscribed;
+        /** @var \App\Services\SubscriptionService $svc */
+        $svc = app(\App\Services\SubscriptionService::class);
+
+        $userData = array_merge($user->toArray(), $svc->payloadForUser($user));
+
         return response()->json($userData);
     })->name('api.user');
 
@@ -86,9 +84,10 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/email/verification-notification', [EmailVerificationNotificationController::class, 'store'])
         ->middleware('throttle:6,1')
         ->name('api.verification.send');
-});
 
-Route::post('/users/{id}', [UserController::class, 'update']);
+    Route::post('/users/{id}', [UserController::class, 'update'])
+        ->name('api.users.update');
+});
 
 Route::post('qrcreate', [QrgenController::class, 'store']);
 Route::get('information/{slug}', [QrgenController::class, 'show']);

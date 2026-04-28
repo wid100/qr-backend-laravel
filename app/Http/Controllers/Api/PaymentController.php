@@ -9,8 +9,8 @@ use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Http;
-use App\Models\Payment; // Import the Payment model
-use App\Models\Subscription; // Import the Subscription model
+use App\Models\Payment;
+use App\Services\SubscriptionService;
 
 class PaymentController extends Controller
 {
@@ -99,30 +99,30 @@ class PaymentController extends Controller
         // Check if the end date key exists in the response data
         $endDate = isset($responseData['opt_c']) ? Carbon::now()->addMonths((int)$responseData['opt_c']) : null;
 
-        // Create a new Payment instance and save it to the database
+        // Create payment record
         $payment = new Payment();
-        $payment->user_id = $paymentData['user_id'];
+        $payment->user_id        = $paymentData['user_id'];
         $payment->transaction_id = $paymentData['transaction_id'];
-        $payment->amount = $paymentData['amount'];
+        $payment->amount         = $paymentData['amount'];
         $payment->payment_method = $paymentData['payment_method'];
-        $payment->package_id = $paymentData['package_id'];
+        $payment->package_id     = $paymentData['package_id'];
         $payment->save();
-        $paymentId = $payment->id;
 
-        // Create a new Subscription instance and save it to the database
-        $subscription = new Subscription();
-        $subscription->user_id = $paymentData['user_id'];
-        $subscription->payment_id = $paymentId;
-        $subscription->package_id = $paymentData['package_id'];
-        $subscription->start_date = Carbon::now();
-        $subscription->end_date = $endDate;
-        $subscription->status = true;
-        $subscription->save();
+        // Create or renew subscription via service (one row per user)
+        /** @var SubscriptionService $svc */
+        $svc = app(SubscriptionService::class);
+        $svc->createOrRenew(
+            userId:    (int) $paymentData['user_id'],
+            packageId: (int) $paymentData['package_id'],
+            paymentId: $payment->id,
+            startDate: Carbon::now(),
+            endDate:   $endDate ?? Carbon::now()->addMonths(1),
+        );
 
         // Create a new Order instance and save it to the database
         $order = new Order();
         $order->user_id = $paymentData['user_id'];
-        $order->payment_id = $paymentId;
+        $order->payment_id = $payment->id;
         $order->package_id = $paymentData['package_id'];
         $order->phone = $paymentData['cus_phone'];
         $order->name = $paymentData['cus_phone'];

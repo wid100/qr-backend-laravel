@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Qrgen;
-use Illuminate\Http\Request;
-
-use App\Models\User;
+use App\Services\SubscriptionService;
 use App\Services\VisitorService;
+use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\ValidationException;
 
@@ -65,6 +65,16 @@ class QrgenController extends Controller
      */
     public function store(Request $request)
     {
+        /** @var SubscriptionService $svc */
+        $svc = app(SubscriptionService::class);
+        $sub = $svc->latestForUser((int) $request->input('user_id'));
+        if (!$svc->isActive($sub)) {
+            return response()->json([
+                'message' => 'An active subscription is required to create a smart card.',
+                'code'    => 'SUBSCRIPTION_REQUIRED',
+            ], 403);
+        }
+
         try {
             $validatedData = $request->validate([
                 'user_id' => 'required|integer',
@@ -182,22 +192,30 @@ class QrgenController extends Controller
             return response()->json(['error' => 'Qrgen not found'], 404);
         }
 
-
-        if ($showpost->status === 'active') {
-            $showpost->increment('viewcount');
-
-            // Get user IP and User-Agent
-            $userIp = $request->ip();
-            // $ip = '59.153.103.119';
-            $userAgent = $request->header('User-Agent');
-            // Use the service to gather user info
-            $userInfo = $visitorService->getUserInfo($userIp, $userAgent, $showpost->id, 'visiting_id');
-            $visitorService->saveVisitorInfo($userInfo, 'visiting_id');
-
-            return response()->json($showpost);
-        } else {
+        if ($showpost->status === 'paused') {
             return response()->json(['error' => 'Qrgen is paused'], 403);
         }
+
+        // Check the card owner's subscription regardless of card status
+        /** @var SubscriptionService $svc */
+        $svc = app(SubscriptionService::class);
+        $sub = $svc->latestForUser((int) $showpost->user_id);
+        if (!$svc->isActive($sub)) {
+            return response()->json([
+                'error'     => 'This card is currently unavailable. The owner\'s subscription has expired.',
+                'code'      => 'SUBSCRIPTION_EXPIRED',
+                'renew_url' => '/pricing',
+            ], 403);
+        }
+
+        $showpost->increment('viewcount');
+
+        $userIp    = $request->ip();
+        $userAgent = $request->header('User-Agent');
+        $userInfo  = $visitorService->getUserInfo($userIp, $userAgent, $showpost->id, 'visiting_id');
+        $visitorService->saveVisitorInfo($userInfo, 'visiting_id');
+
+        return response()->json($showpost);
     }
 
     public function getQrDetails($id)

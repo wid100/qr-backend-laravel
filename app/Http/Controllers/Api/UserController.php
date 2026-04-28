@@ -14,6 +14,10 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         try {
+            if ((int) $request->user()->id !== (int) $id) {
+                return response()->json(['message' => 'Forbidden'], 403);
+            }
+
             $validatedData = $request->validate([
                 'name' => 'required|string',
                 'email' => 'required|string|email',

@@ -36,7 +36,7 @@ class User extends Authenticatable implements MustVerifyEmail
     ];
     public function subscriptions()
     {
-        return $this->hasMany('App\Models\Subscriptions');
+        return $this->hasMany(\App\Models\Subscription::class);
     }
 
     public function role()
