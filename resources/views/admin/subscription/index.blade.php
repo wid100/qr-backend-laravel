@@ -47,7 +47,18 @@
                                             <td>{{ \Carbon\Carbon::parse($subscription->start_date)->format('d/m/Y') }}</td>
                                             <td>{{ \Carbon\Carbon::parse($subscription->end_date)->format('d/m/Y') }}</td>
 
-                                            <td> <span class="badge bg-success">{{ $subscription->status }}</span></td>
+                                            <td>
+                                                @php
+                                                    $st = $subscription->status;
+                                                    $badge =
+                                                        $st === 'active'
+                                                            ? 'success'
+                                                            : ($st === 'expired'
+                                                                ? 'danger'
+                                                                : 'secondary');
+                                                @endphp
+                                                <span class="badge bg-{{ $badge }}">{{ $st }}</span>
+                                            </td>
 
                                             {{-- <td>
                                                 <a href="{{ route('admin.payment.edit', $payment->id) }}"

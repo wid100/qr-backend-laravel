@@ -23,6 +23,11 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->command('qrgen:update-status')->everyMinute();
+
+        // Daily at midnight (app timezone: config app.timezone / APP_TIMEZONE). Expire subs + queue renewal emails.
+        $schedule->command('subscriptions:process-reminders')
+            ->dailyAt('00:00')
+            ->timezone(config('app.timezone'));
     }
 
 
