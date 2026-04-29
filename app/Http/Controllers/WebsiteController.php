@@ -7,6 +7,7 @@ use App\Models\Website;
 use App\Services\SubscriptionService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Validation\ValidationException;
 
 class WebsiteController extends Controller
 {
@@ -99,8 +100,8 @@ class WebsiteController extends Controller
                 'user_id' => 'required|integer',
                 'website_name' => 'required',
                 'website_url' => 'required',
-                'image' => 'required',
-                'status' => 'nullable',
+                'image' => 'required|file|image|max:5120',
+                'status' => 'nullable|string',
             ]);
 
             // Handle file upload for the image
@@ -115,10 +116,13 @@ class WebsiteController extends Controller
                 'status' => 200,
                 'message' => 'Website created successfully',
             ]);
+        } catch (ValidationException $e) {
+            return response()->json([
+                'status' => 422,
+                'errors' => $e->errors(),
+            ], 422);
         } catch (\Throwable $e) {
-            // Log error
             Log::error('Error creating Website', ['error' => $e->getMessage()]);
-            // Return internal server error
             return response()->json(['status' => 500, 'error' => 'Internal Server Error'], 500);
         }
     }

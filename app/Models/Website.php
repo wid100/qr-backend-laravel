@@ -13,5 +13,6 @@ class Website extends Model
         'website_name',
         'website_url',
         'image',
+        'status',
     ];
 }
