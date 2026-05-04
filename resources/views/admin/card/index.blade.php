@@ -21,7 +21,7 @@
                                 <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>User Id</th>
+                                        <th>User name</th>
                                         <th>Image</th>
                                         <th>Logo</th>
                                         <th>Name</th>
@@ -37,7 +37,7 @@
                                     @foreach ($cards as $key => $card)
                                         <tr>
                                             <td>{{ $key + 1 }}</td>
-                                            <td>{{ $card->user_id }}</td>
+                                            <td>{{ optional($card->user)->name ?? '—' }}</td>
                                             <td>
                                                 @if ($card->image)
                                                     <img src="{{ asset($card->image) }}" alt="Image not found">
@@ -80,6 +80,7 @@
                                                         <i data-feather="trash"></i>
                                                     </button>
                                                 </form>
+                                            </td>
                                         </tr>
                                     @endforeach
 

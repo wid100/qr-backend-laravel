@@ -20,7 +20,7 @@
                             <table id="dataTableExample" class="table">
                                 <thead>
                                     <tr>
-                                        <th>ID</th>
+                                        <th>SL</th>
                                         <th>Image</th>
                                         <th>Name</th>
                                         <th>Email</th>
@@ -34,7 +34,7 @@
                                 <tbody>
                                     @foreach ($users as $user)
                                         <tr>
-                                            <td>{{ $user->id }}</td>
+                                            <td>{{ $loop->iteration }}</td>
                                             <td>
                                                 @if ($user->image)
                                                     <img src="{{ asset($user->image) }}" alt="Image not found">
@@ -71,7 +71,7 @@
                                                         </button>
                                                     </form>
                                                 @endif
-
+                                            </td>
                                         </tr>
                                     @endforeach
 

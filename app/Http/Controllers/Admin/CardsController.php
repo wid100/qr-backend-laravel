@@ -15,7 +15,7 @@ class CardsController extends Controller
      */
     public function index()
     {
-        $cards = Qrgen::get();
+        $cards = Qrgen::with('user')->get();
         return view('admin.card.index', compact('cards'));
     }
 
