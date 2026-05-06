@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Admin\SmartCard;
+use App\Models\CardOrder;
 use App\Models\Qrgen;
 use App\Services\SubscriptionService;
 use App\Services\VisitorService;
@@ -144,9 +146,18 @@ class QrgenController extends Controller
                 'image' => 'nullable',
                 'welcomeimage' => 'nullable',
 
-
+                'smart_card_id' => 'nullable|exists:smart_cards,id',
 
             ]);
+
+            $smartCardId = $validatedData['smart_card_id'] ?? null;
+
+            if ($smartCardId !== null && $smartCardId !== '') {
+                $authUser = $request->user();
+                if (! $authUser || (int) $authUser->id !== (int) $request->input('user_id')) {
+                    return response()->json(['message' => 'Unauthorized'], 403);
+                }
+            }
 
             $qrgen = new Qrgen($validatedData);
 
@@ -169,9 +180,40 @@ class QrgenController extends Controller
             $qrgen->save();
             Log::info('Qrgen created successfully', ['id' => $qrgen->id]);
 
+            $orderId = null;
+            $skipCheckout = false;
+            if ($smartCardId !== null && $smartCardId !== '') {
+                $smartCard = SmartCard::find($smartCardId);
+                if (! $smartCard) {
+                    return response()->json(['status' => 422, 'errors' => ['smart_card_id' => ['Invalid design selected.']]], 422);
+                }
+                $unitPrice = $this->resolveSmartCardUnitPrice($smartCard);
+                $noPaymentRequired = $this->isSmartCardPriceAndDiscountZero($smartCard);
+
+                $order = new CardOrder();
+                $order->user_id = $qrgen->user_id;
+                $order->qrgen_id = $qrgen->id;
+                $order->smart_card_id = (int) $smartCardId;
+                $order->order_number = 'ORD-' . strtoupper(uniqid());
+                $order->quantity = 1;
+                $order->total_price = $unitPrice;
+                if ($noPaymentRequired) {
+                    $order->status = 'completed';
+                    $order->payment_method = 'free';
+                    $skipCheckout = true;
+                } else {
+                    $order->status = 'awaiting_checkout';
+                }
+                $order->save();
+                $orderId = $order->id;
+            }
+
             return response()->json([
                 'status' => 200,
                 'message' => 'Qrgen created successfully',
+                'id' => $qrgen->id,
+                'order_id' => $orderId,
+                'skip_checkout' => $skipCheckout,
             ]);
         } catch (ValidationException $e) {
             // Return validation errors
@@ -389,5 +431,26 @@ class QrgenController extends Controller
         }
 
         return response()->json(['message' => 'Qrgen deleted successfully']);
+    }
+
+    private function resolveSmartCardUnitPrice(SmartCard $card): float
+    {
+        $discount = $card->discount_price;
+        if ($discount !== null && $discount !== '' && (float) $discount > 0) {
+            return round((float) $discount, 2);
+        }
+
+        return round((float) ($card->price ?? 0), 2);
+    }
+
+    /**
+     * True when list price and discount list price are both zero (no checkout / payment).
+     */
+    private function isSmartCardPriceAndDiscountZero(SmartCard $card): bool
+    {
+        $p = (float) ($card->price ?? 0);
+        $d = (float) ($card->discount_price ?? 0);
+
+        return $p <= 0.0 && $d <= 0.0;
     }
 }

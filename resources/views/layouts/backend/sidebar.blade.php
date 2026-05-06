@@ -75,11 +75,11 @@
                 <div class="collapse" id="ordared_card">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
-                            <a href="{{ route('admin.smart-card.index') }}" class="nav-link">Smard Cards</a>
+                            <a href="{{ route('admin.smart-card.index') }}" class="nav-link">Smart Cards</a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="{{ route('admin.card-order.index') }}" class="nav-link">Smard Cards</a>
+                            <a href="{{ route('admin.card-order.index') }}" class="nav-link">Smart Cards</a>
                         </li>
 
                     </ul>

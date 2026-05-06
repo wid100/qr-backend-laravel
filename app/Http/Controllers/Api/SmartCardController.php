@@ -83,6 +83,7 @@ class SmartCardController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'order_id' => 'nullable|integer|exists:card_orders,id',
             'user_id' => 'required|exists:users,id',
             'qrgen_id' => 'required|exists:qrgens,id',
             'smart_card_id' => 'required|exists:smart_cards,id',
@@ -99,6 +100,48 @@ class SmartCardController extends Controller
             'transaction_id' => 'nullable|string|max:255',
             'amount' => 'required|numeric|min:0.01',
         ]);
+
+        $authUser = $request->user();
+        if ($authUser && (int) $authUser->id !== (int) $request->user_id) {
+            return response()->json(['message' => 'Unauthorized'], 403);
+        }
+
+        if ($request->filled('order_id')) {
+            if (! $authUser || (int) $authUser->id !== (int) $request->user_id) {
+                return response()->json(['message' => 'Unauthorized'], 403);
+            }
+
+            $order = CardOrder::findOrFail($request->order_id);
+            if (
+                (int) $order->user_id !== (int) $request->user_id
+                || (int) $order->qrgen_id !== (int) $request->qrgen_id
+                || (int) $order->smart_card_id !== (int) $request->smart_card_id
+            ) {
+                return response()->json(['message' => 'Order does not match checkout details'], 422);
+            }
+
+            $order->name = $request->name;
+            $order->email = $request->email;
+            $order->phone = $request->phone;
+            $order->country = $request->country;
+            $order->town = $request->district;
+            $order->address = $request->address;
+            $order->city = $request->city;
+            $order->zip = $request->zip;
+            $order->payment_method = $request->payment_method ?? 'stripe';
+            $order->tracking_number = $request->transaction_id;
+            $order->quantity = $request->quantity ?? 1;
+            $order->total_price = $request->amount;
+            if ($request->filled('currency')) {
+                $order->currency = $request->currency;
+            }
+            $order->status = 'pending';
+            $order->save();
+
+            Mail::to('womenindigitalbd@gmail.com')->send(new AdminNewOrderNotification($order));
+
+            return response()->json(['message' => 'Order updated successfully'], 200);
+        }
 
         $order = new CardOrder();
         $order->user_id = $request->user_id;
@@ -118,13 +161,15 @@ class SmartCardController extends Controller
         $order->order_number = 'ORD-' . strtoupper(uniqid());
         $order->quantity = $request->quantity ?? 1;
         $order->total_price = $request->amount;
+        if ($request->filled('currency')) {
+            $order->currency = $request->currency;
+        }
         $order->status = 'pending';
-        // $order->currency = $request->currency ?? 'BDT';
 
         $order->save();
 
-        // 🔔 Send email to admin
         Mail::to('womenindigitalbd@gmail.com')->send(new AdminNewOrderNotification($order));
+
         return response()->json(['message' => 'Order created successfully'], 201);
     }
 

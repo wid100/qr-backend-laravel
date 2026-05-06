@@ -205,7 +205,7 @@ Route::get('/get-available-slots/{user_id}/{date}', [AppointmentController::clas
 Route::post('/message', [MessageController::class, 'create']);
 //FAQ
 Route::get('/faqs', [FAQController::class, 'index']);
-// get all smard card design
+// get all smart card design
 Route::get('/get-card-design', SmartCardController::class);
 
 
