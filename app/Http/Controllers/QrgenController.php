@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Admin\SmartCard;
 use App\Models\CardOrder;
+use App\Models\QrVisitorContact;
 use App\Models\Qrgen;
 use App\Services\SubscriptionService;
 use App\Services\VisitorService;
@@ -58,9 +59,80 @@ class QrgenController extends Controller
 
     public function getGetqrByUser(User $user)
     {
-        $getqr = Qrgen::with(['visitors'])->where('user_id', $user->id)->get();
+        $getqr = Qrgen::with(['visitors', 'visitorContacts'])->where('user_id', $user->id)->get();
 
         return response()->json(['getqr' => $getqr]);
+    }
+
+    /**
+     * Visitor shares their own contact (name / phone / note) after saving the card owner's vCard.
+     */
+    public function shareVisitorContact(Request $request, string $slug)
+    {
+        $showpost = Qrgen::where('slug', $slug)->first();
+        if (!$showpost) {
+            return response()->json(['message' => 'Card not found'], 404);
+        }
+
+        if ($showpost->status === 'paused') {
+            return response()->json(['message' => 'This card is not accepting shares right now.'], 403);
+        }
+
+        /** @var SubscriptionService $svc */
+        $svc = app(SubscriptionService::class);
+        $sub = $svc->latestForUser((int) $showpost->user_id);
+        if (!$svc->isActive($sub)) {
+            return response()->json([
+                'message' => 'This card is currently unavailable.',
+                'code' => 'SUBSCRIPTION_EXPIRED',
+            ], 403);
+        }
+
+        $validated = $request->validate([
+            'visitor_name' => 'required|string|max:255',
+            'visitor_phone' => 'required|string|max:64',
+            'note' => 'nullable|string|max:2000',
+        ]);
+
+        QrVisitorContact::create([
+            'qrgen_id' => $showpost->id,
+            'visitor_name' => $validated['visitor_name'],
+            'visitor_phone' => $validated['visitor_phone'],
+            'note' => $validated['note'] ?? null,
+            'ip' => $request->ip(),
+        ]);
+
+        return response()->json(['message' => 'Thank you — your details were shared with the card owner.'], 201);
+    }
+
+    /**
+     * All phone/contact shares from visitors across the authenticated user's smart cards (newest first).
+     */
+    public function myVisitorContacts(Request $request)
+    {
+        $user = $request->user();
+
+        $rows = QrVisitorContact::query()
+            ->whereHas('qrgen', function ($q) use ($user) {
+                $q->where('user_id', $user->id);
+            })
+            ->with(['qrgen:id,cardname,slug'])
+            ->orderByDesc('created_at')
+            ->get()
+            ->map(function (QrVisitorContact $c) {
+                return [
+                    'id' => $c->id,
+                    'created_at' => $c->created_at,
+                    'visitor_name' => $c->visitor_name,
+                    'visitor_phone' => $c->visitor_phone,
+                    'note' => $c->note,
+                    'ip' => $c->ip,
+                    'card_name' => $c->qrgen?->cardname,
+                    'card_slug' => $c->qrgen?->slug,
+                ];
+            });
+
+        return response()->json(['contacts' => $rows]);
     }
     /**
      * Store a newly created resource in storage.

@@ -31,5 +31,6 @@ class VerifyCsrfToken extends Middleware
         'api/verify-payment',
         'api/make-payment',
         'api/check-subscription',
+        'api/information/*/share-contact',
     ];
 }

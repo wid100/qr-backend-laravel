@@ -87,10 +87,14 @@ Route::middleware('auth:sanctum')->group(function () {
 
     Route::post('/users/{id}', [UserController::class, 'update'])
         ->name('api.users.update');
+
+    Route::get('/my-visitor-contacts', [QrgenController::class, 'myVisitorContacts']);
 });
 
 Route::post('qrcreate', [QrgenController::class, 'store']);
 Route::get('information/{slug}', [QrgenController::class, 'show']);
+Route::post('/information/{slug}/share-contact', [QrgenController::class, 'shareVisitorContact'])
+    ->middleware('throttle:30,1');
 Route::get('/getqr/{user}', [QrgenController::class, 'getGetqrByUser']);
 
 Route::post('/updateqr/{id}', [QrgenController::class, 'update']);

@@ -70,6 +70,11 @@ class Qrgen extends Model
     {
         return $this->hasMany(Visitor::class, 'visiting_id');
     }
+
+    public function visitorContacts()
+    {
+        return $this->hasMany(QrVisitorContact::class, 'qrgen_id');
+    }
     public function user()
     {
         return $this->belongsTo(User::class);
