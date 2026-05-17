@@ -11,21 +11,35 @@
         $user = $subscription->user;
         $end = \Carbon\Carbon::parse($subscription->end_date);
         $renewUrl = rtrim(config('app.frontend_url', config('app.url')), '/') . '/pricing';
+        $days = (int) $daysRemaining;
+
+        if ($days === 30) {
+            $timePhrase = '1 month';
+        } elseif ($days === 1) {
+            $timePhrase = '1 day';
+        } else {
+            $timePhrase = $days . ' days';
+        }
     @endphp
 
     <p>Hello {{ $user->name ?? 'there' }},</p>
 
-    @if ($variant === 'urgent')
+    @if ($days <= 1)
         <p>
-            Your Smart Visiting Card subscription will expire on <strong>{{ $end->format('F j, Y') }}</strong>
-            ({{ $end->format('g:i A') }}).
-            Please renew to keep your card active.
+            Your Smart Visiting Card subscription will expire on
+            <strong>{{ $end->format('F j, Y') }}</strong>
+            @if ($days === 1)
+                (tomorrow).
+            @else
+                (today).
+            @endif
+            Please renew now to keep your card active.
         </p>
     @else
         <p>
             This is a reminder that your Smart Visiting Card subscription will expire on
             <strong>{{ $end->format('F j, Y') }}</strong>.
-            You still have a few days — please renew in advance to avoid interruption.
+            You have <strong>{{ $timePhrase }}</strong> left — please renew in advance to avoid interruption.
         </p>
     @endif
 

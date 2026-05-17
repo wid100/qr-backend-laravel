@@ -12,13 +12,16 @@ class ProcessSubscriptionReminders extends Command
 {
     protected $signature = 'subscriptions:process-reminders';
 
-    protected $description = 'Mark expired subscriptions, queue renewal emails (2–5 days & urgent last days)';
+    protected $description = 'Mark expired subscriptions and send renewal emails (30, 15, 7, 3, 1 days before expiry)';
 
     public function handle(): int
     {
         $tz = config('app.timezone');
         $now = Carbon::now($tz);
         $todayStart = $now->copy()->startOfDay();
+
+        $reminderDays = array_map('intval', config('subscription.reminder_days', [30, 15, 7, 3, 1]));
+        sort($reminderDays);
 
         $expiredCount = Subscription::query()
             ->where('status', 'active')
@@ -38,42 +41,37 @@ class ProcessSubscriptionReminders extends Command
             ->whereIn('id', $latestIds)
             ->get();
 
-        $queuedUpcoming = 0;
-        $queuedUrgent = 0;
+        $queuedByDay = array_fill_keys($reminderDays, 0);
 
         foreach ($subscriptions as $subscription) {
             $user = $subscription->user;
-            if (!$user || !$user->email) {
+            if (! $user || ! $user->email) {
                 continue;
             }
 
             $endDay = Carbon::parse($subscription->end_date)->timezone($tz)->startOfDay();
-            $startToday = $todayStart->copy();
 
-            if ($endDay->lt($startToday)) {
+            if ($endDay->lt($todayStart)) {
                 continue;
             }
 
-            $diffDays = (int) $startToday->diffInDays($endDay, false);
+            $daysRemaining = (int) $todayStart->diffInDays($endDay);
 
-            if ($diffDays >= 2 && $diffDays <= 5) {
-                Mail::to($user->email)->queue(
-                    new SubscriptionReminderMail($subscription, 'upcoming')
-                );
-                $queuedUpcoming++;
+            if (! in_array($daysRemaining, $reminderDays, true)) {
                 continue;
             }
 
-            if ($diffDays === 0 || $diffDays === 1) {
-                Mail::to($user->email)->queue(
-                    new SubscriptionReminderMail($subscription, 'urgent')
-                );
-                $queuedUrgent++;
-            }
+            Mail::to($user->email)->queue(
+                new SubscriptionReminderMail($subscription, $daysRemaining)
+            );
+
+            $queuedByDay[$daysRemaining]++;
         }
 
-        $this->info("Queued upcoming reminders (2–5 days): {$queuedUpcoming}");
-        $this->info("Queued urgent reminders (today / tomorrow): {$queuedUrgent}");
+        foreach ($reminderDays as $days) {
+            $label = $days === 30 ? '30 days (1 month)' : "{$days} day(s)";
+            $this->info("Queued reminders ({$label} before expiry): {$queuedByDay[$days]}");
+        }
 
         return self::SUCCESS;
     }
