@@ -8,6 +8,7 @@ use App\Models\QrVisitorContact;
 use App\Models\Qrgen;
 use App\Services\SubscriptionService;
 use App\Services\VisitorService;
+use App\Support\SocialLinksHelper;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -208,8 +209,8 @@ class QrgenController extends Controller
                 'skype' => 'nullable',
                 'google_scholar' => 'nullable',
                 'medium' => 'nullable',
-
-
+                'wechat' => 'nullable',
+                'social_links' => 'nullable|string',
 
                 //social id end
 
@@ -232,6 +233,7 @@ class QrgenController extends Controller
             }
 
             $qrgen = new Qrgen($validatedData);
+            SocialLinksHelper::hydrateQrgen($qrgen, $request);
 
             if ($request->hasFile('image')) {
                 $image = $request->file('image');
@@ -434,8 +436,8 @@ class QrgenController extends Controller
                 'skype' => 'nullable|url',
                 'google_scholar' => 'nullable|url',
                 'medium' => 'nullable|url',
-
-
+                'wechat' => 'nullable|url',
+                'social_links' => 'nullable|string',
 
                 'qrcodeimage' => 'nullable',
                 // ... other fields and validation rules
@@ -443,7 +445,9 @@ class QrgenController extends Controller
                 'welcomeimage' => 'nullable',
             ]);
             $qrgen = Qrgen::findOrFail($id);
-            $qrgen->update($validatedData);
+            $qrgen->fill($validatedData);
+            SocialLinksHelper::hydrateQrgen($qrgen, $request);
+            $qrgen->save();
             if ($request->hasFile('image')) {
                 $image = $request->file('image');
                 $imageName = uniqid() . '-' . $image->getClientOriginalName();

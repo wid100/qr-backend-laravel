@@ -64,7 +64,13 @@ class Qrgen extends Model
         'skype',
         'google_scholar',
         'medium',
+        'wechat',
+        'social_links',
 
+    ];
+
+    protected $casts = [
+        'social_links' => 'array',
     ];
     public function visitors()
     {
