@@ -30,6 +30,7 @@ use App\Http\Controllers\Api\SmartCardController;
 use App\Http\Controllers\Api\ScheduleAreaController;
 use App\Http\Controllers\Api\CardOrderController;
 use App\Modules\HealthCard\Http\Controllers\HealthCardAuthController;
+use App\Modules\HealthCard\Http\Controllers\PatientRecordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -111,6 +112,14 @@ Route::prefix('health-card')->group(function () {
         Route::post('/logout', [HealthCardAuthController::class, 'logout']);
         Route::post('/email/verification-notification', [HealthCardAuthController::class, 'resendVerificationEmail'])
             ->middleware('throttle:6,1');
+
+        Route::get('/prescriptions', [PatientRecordController::class, 'indexPrescriptions']);
+        Route::post('/prescriptions/upload', [PatientRecordController::class, 'uploadPrescription']);
+        Route::get('/prescriptions/{id}', [PatientRecordController::class, 'showPrescription']);
+        Route::put('/prescriptions/{id}', [PatientRecordController::class, 'updatePrescription']);
+
+        Route::get('/medical-reports', [PatientRecordController::class, 'indexMedicalReports']);
+        Route::post('/medical-reports/upload', [PatientRecordController::class, 'uploadMedicalReport']);
     });
 });
 
