@@ -117,9 +117,13 @@ Route::prefix('health-card')->group(function () {
         Route::post('/prescriptions/upload', [PatientRecordController::class, 'uploadPrescription']);
         Route::get('/prescriptions/{id}', [PatientRecordController::class, 'showPrescription']);
         Route::put('/prescriptions/{id}', [PatientRecordController::class, 'updatePrescription']);
+        Route::delete('/prescriptions/{id}', [PatientRecordController::class, 'destroyPrescription']);
 
         Route::get('/medical-reports', [PatientRecordController::class, 'indexMedicalReports']);
         Route::post('/medical-reports/upload', [PatientRecordController::class, 'uploadMedicalReport']);
+        Route::get('/medical-reports/{id}', [PatientRecordController::class, 'showMedicalReport']);
+        Route::put('/medical-reports/{id}', [PatientRecordController::class, 'updateMedicalReport']);
+        Route::delete('/medical-reports/{id}', [PatientRecordController::class, 'destroyMedicalReport']);
     });
 });
 

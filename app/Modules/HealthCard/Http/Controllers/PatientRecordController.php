@@ -100,11 +100,11 @@ class PatientRecordController extends Controller
         }
 
         $validator = Validator::make($request->all(), [
-            'doctor_name'       => 'nullable|string|max:255',
-            'clinic_name'       => 'nullable|string|max:255',
-            'prescription_date' => 'nullable|date',
-            'notes'             => 'nullable|string',
-            'medicines'         => 'nullable|array',
+            'doctor_name'         => 'nullable|string|max:255',
+            'clinic_name'         => 'nullable|string|max:255',
+            'prescription_date'   => 'nullable|date',
+            'notes'               => 'nullable|string',
+            'medicines'           => 'nullable|array',
             'dosage_instructions' => 'nullable|array',
         ]);
 
@@ -129,6 +129,30 @@ class PatientRecordController extends Controller
             'status'  => 'success',
             'message' => 'Prescription updated successfully',
             'data'    => $this->formatPrescription($prescription->fresh()),
+        ]);
+    }
+
+    public function destroyPrescription(int $id): JsonResponse
+    {
+        $prescription = $this->findPrescriptionForUser($id);
+
+        if (! $prescription) {
+            return response()->json([
+                'status'  => 'error',
+                'message' => 'Prescription not found',
+            ], 404);
+        }
+
+        $this->deleteStoredFiles([
+            $prescription->original_image_path,
+            $prescription->processed_image_path,
+        ]);
+
+        $prescription->delete();
+
+        return response()->json([
+            'status'  => 'success',
+            'message' => 'Prescription deleted successfully',
         ]);
     }
 
@@ -192,6 +216,89 @@ class PatientRecordController extends Controller
         ], 201);
     }
 
+    public function showMedicalReport(int $id): JsonResponse
+    {
+        $report = $this->findMedicalReportForUser($id);
+
+        if (! $report) {
+            return response()->json([
+                'status'  => 'error',
+                'message' => 'Medical report not found',
+            ], 404);
+        }
+
+        return response()->json([
+            'status' => 'success',
+            'data'   => $this->formatMedicalReport($report),
+        ]);
+    }
+
+    public function updateMedicalReport(Request $request, int $id): JsonResponse
+    {
+        $report = $this->findMedicalReportForUser($id);
+
+        if (! $report) {
+            return response()->json([
+                'status'  => 'error',
+                'message' => 'Medical report not found',
+            ], 404);
+        }
+
+        $validator = Validator::make($request->all(), [
+            'report_type' => 'sometimes|required|string|max:255',
+            'lab_name'    => 'nullable|string|max:255',
+            'doctor_name' => 'nullable|string|max:255',
+            'test_date'   => 'nullable|date',
+            'test_notes'  => 'nullable|string',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status'  => 'error',
+                'message' => 'Validation failed',
+                'errors'  => $validator->errors(),
+            ], 422);
+        }
+
+        $report->update($request->only([
+            'report_type',
+            'lab_name',
+            'doctor_name',
+            'test_date',
+            'test_notes',
+        ]));
+
+        return response()->json([
+            'status'  => 'success',
+            'message' => 'Medical report updated successfully',
+            'data'    => $this->formatMedicalReport($report->fresh()),
+        ]);
+    }
+
+    public function destroyMedicalReport(int $id): JsonResponse
+    {
+        $report = $this->findMedicalReportForUser($id);
+
+        if (! $report) {
+            return response()->json([
+                'status'  => 'error',
+                'message' => 'Medical report not found',
+            ], 404);
+        }
+
+        $this->deleteStoredFiles([
+            $report->original_image_path,
+            $report->processed_image_path,
+        ]);
+
+        $report->delete();
+
+        return response()->json([
+            'status'  => 'success',
+            'message' => 'Medical report deleted successfully',
+        ]);
+    }
+
     protected function patientForUser(): Patient
     {
         return Patient::findOrCreateForUser(Auth::user());
@@ -202,6 +309,26 @@ class PatientRecordController extends Controller
         $patient = $this->patientForUser();
 
         return Prescription::where('patient_id', $patient->id)->where('id', $id)->first();
+    }
+
+    protected function findMedicalReportForUser(int $id): ?MedicalReport
+    {
+        $patient = $this->patientForUser();
+
+        return MedicalReport::where('patient_id', $patient->id)->where('id', $id)->first();
+    }
+
+    protected function deleteStoredFiles(array $paths): void
+    {
+        foreach ($paths as $path) {
+            if (! $path || str_starts_with($path, 'http://') || str_starts_with($path, 'https://')) {
+                continue;
+            }
+
+            if (Storage::disk('public')->exists($path)) {
+                Storage::disk('public')->delete($path);
+            }
+        }
     }
 
     protected function formatPrescription(Prescription $prescription): array
