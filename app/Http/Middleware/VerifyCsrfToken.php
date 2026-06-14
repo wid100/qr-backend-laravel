@@ -21,7 +21,9 @@ class VerifyCsrfToken extends Middleware
      * @var array<int, string>
      */
     protected $except = [
+        'api/health-card',
         'api/health-card/*',
+        'api/healthcards',
         'api/healthcards/*',
         'api/success',
         'api/fail',
