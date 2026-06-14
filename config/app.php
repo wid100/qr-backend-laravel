@@ -56,6 +56,8 @@ return [
 
     'frontend_url' => env('FRONTEND_URL', 'http://localhost:3000'),
 
+    'health_card_frontend_url' => env('HEALTH_CARD_FRONTEND_URL', 'http://localhost:3000'),
+
     'asset_url' => env('ASSET_URL', null),
 
     /*

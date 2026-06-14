@@ -29,6 +29,7 @@ use App\Http\Controllers\Admin\PayPalController;
 use App\Http\Controllers\Api\SmartCardController;
 use App\Http\Controllers\Api\ScheduleAreaController;
 use App\Http\Controllers\Api\CardOrderController;
+use App\Modules\HealthCard\Http\Controllers\HealthCardAuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -89,6 +90,28 @@ Route::middleware('auth:sanctum')->group(function () {
         ->name('api.users.update');
 
     Route::get('/my-visitor-contacts', [QrgenController::class, 'myVisitorContacts']);
+});
+
+/*
+|--------------------------------------------------------------------------
+| Health Card Frontend Auth (Bearer token / Sanctum)
+|--------------------------------------------------------------------------
+| Used by Smart-health-card Next.js app at /api/health-card/*
+*/
+Route::prefix('health-card')->group(function () {
+    Route::middleware('throttle:10,1')->group(function () {
+        Route::post('/login', [HealthCardAuthController::class, 'login']);
+        Route::post('/register', [HealthCardAuthController::class, 'register']);
+        Route::post('/forgot-password', [HealthCardAuthController::class, 'forgotPassword']);
+        Route::post('/reset-password', [HealthCardAuthController::class, 'resetPassword']);
+    });
+
+    Route::middleware('auth:sanctum')->group(function () {
+        Route::get('/user', [HealthCardAuthController::class, 'user']);
+        Route::post('/logout', [HealthCardAuthController::class, 'logout']);
+        Route::post('/email/verification-notification', [HealthCardAuthController::class, 'resendVerificationEmail'])
+            ->middleware('throttle:6,1');
+    });
 });
 
 Route::post('qrcreate', [QrgenController::class, 'store']);

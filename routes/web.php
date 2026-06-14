@@ -67,6 +67,10 @@ Route::get('/verify-email/{id}/{hash}', [App\Http\Controllers\Auth\VerifyEmailCo
     ->middleware(['signed', 'throttle:6,1'])
     ->name('verification.verify');
 
+Route::get('/health-card/verify-email/{id}/{hash}', App\Modules\HealthCard\Http\Controllers\HealthCardVerifyEmailController::class)
+    ->middleware(['signed', 'throttle:6,1'])
+    ->name('health-card.verification.verify');
+
 Route::post('/email/verification-notification', [EmailVerificationNotificationController::class, 'store'])
     ->name('verification.send');
 
