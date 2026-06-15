@@ -22,6 +22,7 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\NewPasswordController;
+use App\Http\Controllers\Auth\VerifyPasswordResetCodeController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
 use App\Http\Controllers\Auth\PublicEmailVerificationNotificationController;
 use App\Http\Controllers\Auth\VerifyEmailCodeController;
@@ -64,6 +65,7 @@ Route::middleware('throttle:10,1')->group(function () {
     Route::post('/register', [RegisteredUserController::class, 'store'])->name('api.register');
     Route::post('/login',    [AuthenticatedSessionController::class, 'store'])->name('api.login');
     Route::post('/password/email', [PasswordResetLinkController::class, 'store'])->name('api.password.email');
+    Route::post('/password/verify-code', [VerifyPasswordResetCodeController::class, 'store'])->name('api.password.verify-code');
     Route::post('/password/reset', [NewPasswordController::class, 'store'])->name('api.password.update');
     Route::post('/email/verify-code', [VerifyEmailCodeController::class, 'store'])
         ->middleware('throttle:10,1')

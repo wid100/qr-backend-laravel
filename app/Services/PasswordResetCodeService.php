@@ -29,12 +29,12 @@ class PasswordResetCodeService
         return $code;
     }
 
-    public function sendResetEmail(User $user): void
+    public function sendResetEmail(User $user, string $appLabel = 'Smart Card Generator'): void
     {
         $code = $this->issueCode($user);
 
         Mail::to($user->email)->send(
-            new PasswordResetCodeMail($code, 'Smart Health Card', $user)
+            new PasswordResetCodeMail($code, $appLabel, $user)
         );
     }
 

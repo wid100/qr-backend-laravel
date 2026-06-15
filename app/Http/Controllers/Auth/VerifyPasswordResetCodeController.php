@@ -7,20 +7,15 @@ use App\Models\User;
 use App\Services\PasswordResetCodeService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rules;
 use Illuminate\Validation\ValidationException;
 
-class NewPasswordController extends Controller
+class VerifyPasswordResetCodeController extends Controller
 {
-    /**
-     * Reset password using email + 6-digit code.
-     */
     public function store(Request $request): JsonResponse
     {
         $validated = $request->validate([
-            'code' => ['required', 'string'],
             'email' => ['required', 'email'],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'code' => ['required', 'string', 'min:6', 'max:6'],
         ]);
 
         $user = User::where('email', $validated['email'])->first();
@@ -31,21 +26,20 @@ class NewPasswordController extends Controller
             ]);
         }
 
-        $reset = app(PasswordResetCodeService::class)->resetPassword(
-            $user,
-            $validated['code'],
-            $validated['password']
+        $valid = app(PasswordResetCodeService::class)->verifyCode(
+            $validated['email'],
+            $validated['code']
         );
 
-        if (! $reset) {
+        if (! $valid) {
             throw ValidationException::withMessages([
                 'code' => ['Invalid or expired reset code.'],
             ]);
         }
 
         return response()->json([
-            'status' => 'password-reset',
-            'message' => 'Password has been reset successfully.',
+            'status' => 'code-verified',
+            'message' => 'Reset code verified.',
         ]);
     }
 }

@@ -3,37 +3,48 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
+use App\Services\PasswordResetCodeService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Password;
 use Illuminate\Validation\ValidationException;
 
 class PasswordResetLinkController extends Controller
 {
     /**
-     * Handle an incoming password reset link request.
-     *
-     * @throws \Illuminate\Validation\ValidationException
+     * Send a 6-digit password reset code to the user's email.
      */
     public function store(Request $request): JsonResponse
     {
-        $request->validate([
+        $validated = $request->validate([
             'email' => ['required', 'email'],
         ]);
 
-        // We will send the password reset link to this user. Once we have attempted
-        // to send the link, we will examine the response then see the message we
-        // need to show to the user. Finally, we'll send out a proper response.
-        $status = Password::sendResetLink(
-            $request->only('email')
-        );
+        $user = User::where('email', $validated['email'])->first();
 
-        if ($status != Password::RESET_LINK_SENT) {
-            throw ValidationException::withMessages([
-                'email' => [__($status)],
+        if (! $user) {
+            return response()->json([
+                'status' => 'reset-code-sent',
+                'message' => 'If that email address exists, we have sent a password reset code.',
             ]);
         }
 
-        return response()->json(['status' => __($status)]);
+        try {
+            app(PasswordResetCodeService::class)->sendResetEmail(
+                $user,
+                'Smart Card Generator'
+            );
+        } catch (\Throwable $e) {
+            report($e);
+
+            return response()->json([
+                'message' => 'Unable to send password reset email at this time. Please try again later.',
+            ], 503);
+        }
+
+        return response()->json([
+            'status' => 'reset-code-sent',
+            'message' => 'Password reset code sent to your email.',
+        ]);
     }
 }

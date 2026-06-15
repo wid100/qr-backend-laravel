@@ -121,7 +121,10 @@ class HealthCardAuthController extends Controller
         }
 
         try {
-            app(PasswordResetCodeService::class)->sendResetEmail($user);
+            app(PasswordResetCodeService::class)->sendResetEmail(
+                $user,
+                'Smart Health Card'
+            );
         } catch (\Throwable $e) {
             report($e);
 
