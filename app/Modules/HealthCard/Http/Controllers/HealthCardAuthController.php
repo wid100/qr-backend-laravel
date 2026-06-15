@@ -4,15 +4,12 @@ namespace App\Modules\HealthCard\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
-use App\Modules\HealthCard\Notifications\HealthCardResetPassword;
 use App\Services\EmailVerificationCodeService;
-use Illuminate\Auth\Events\PasswordReset;
+use App\Services\PasswordResetCodeService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Password;
-use Illuminate\Support\Str;
 use Illuminate\Validation\Rules;
 use Illuminate\Validation\ValidationException;
 
@@ -118,14 +115,13 @@ class HealthCardAuthController extends Controller
 
         if (! $user) {
             return response()->json([
-                'message' => 'If that email address exists, we have sent a password reset link.',
+                'message' => 'If that email address exists, we have sent a password reset code.',
+                'status'  => 'reset-code-sent',
             ], 200);
         }
 
-        $token = Password::createToken($user);
-
         try {
-            $user->notify(new HealthCardResetPassword($token));
+            app(PasswordResetCodeService::class)->sendResetEmail($user);
         } catch (\Throwable $e) {
             report($e);
 
@@ -135,41 +131,75 @@ class HealthCardAuthController extends Controller
         }
 
         return response()->json([
-            'message' => 'Password reset link sent to your email.',
+            'message' => 'Password reset code sent to your email.',
+            'status'  => 'reset-code-sent',
+        ], 200);
+    }
+
+    public function verifyResetCode(Request $request): JsonResponse
+    {
+        $validated = $request->validate([
+            'email' => ['required', 'email'],
+            'code'  => ['required', 'string', 'min:6', 'max:6'],
+        ]);
+
+        $user = User::where('email', $validated['email'])->first();
+
+        if (! $user) {
+            throw ValidationException::withMessages([
+                'code' => ['Invalid or expired reset code.'],
+            ]);
+        }
+
+        $valid = app(PasswordResetCodeService::class)->verifyCode(
+            $validated['email'],
+            $validated['code']
+        );
+
+        if (! $valid) {
+            throw ValidationException::withMessages([
+                'code' => ['Invalid or expired reset code.'],
+            ]);
+        }
+
+        return response()->json([
+            'message' => 'Reset code verified.',
+            'status'  => 'code-verified',
         ], 200);
     }
 
     public function resetPassword(Request $request): JsonResponse
     {
         $validated = $request->validate([
-            'token'                 => ['required', 'string'],
+            'code'                  => ['required', 'string'],
             'email'                 => ['required', 'email'],
             'password'              => ['required', 'confirmed', Rules\Password::defaults()],
             'password_confirmation' => ['required', 'string'],
         ]);
 
-        $status = Password::reset(
-            $request->only('email', 'password', 'password_confirmation', 'token'),
-            function (User $user) use ($request) {
-                $user->forceFill([
-                    'password'       => Hash::make($request->password),
-                    'remember_token' => Str::random(60),
-                ])->save();
+        $user = User::where('email', $validated['email'])->first();
 
-                $user->tokens()->delete();
+        if (! $user) {
+            throw ValidationException::withMessages([
+                'code' => ['Invalid or expired reset code.'],
+            ]);
+        }
 
-                event(new PasswordReset($user));
-            }
+        $reset = app(PasswordResetCodeService::class)->resetPassword(
+            $user,
+            $validated['code'],
+            $validated['password']
         );
 
-        if ($status !== Password::PASSWORD_RESET) {
+        if (! $reset) {
             throw ValidationException::withMessages([
-                'email' => [__($status)],
+                'code' => ['Invalid or expired reset code.'],
             ]);
         }
 
         return response()->json([
             'message' => 'Password has been reset successfully.',
+            'status'  => 'password-reset',
         ], 200);
     }
 

@@ -108,6 +108,7 @@ Route::prefix('health-card')->group(function () {
         Route::post('/login', [HealthCardAuthController::class, 'login']);
         Route::post('/register', [HealthCardAuthController::class, 'register']);
         Route::post('/forgot-password', [HealthCardAuthController::class, 'forgotPassword']);
+        Route::post('/password/verify-code', [HealthCardAuthController::class, 'verifyResetCode']);
         Route::post('/reset-password', [HealthCardAuthController::class, 'resetPassword']);
         Route::post('/email/verify-code', [VerifyEmailCodeController::class, 'store']);
         Route::post('/email/verification-notification-public', [HealthCardAuthController::class, 'resendVerificationEmailPublic'])
