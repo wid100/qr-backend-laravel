@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-use App\Notifications\CustomVerifyEmail;
 
 class User extends Authenticatable implements MustVerifyEmail
 
@@ -32,6 +31,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'gender',
         'password',
         'email_verified_at',
+        'verify_code',
+        'verify_code_expires_at',
         'role',
     ];
     public function subscriptions()
@@ -51,6 +52,7 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $hidden = [
         'password',
         'remember_token',
+        'verify_code',
     ];
 
     /**
@@ -60,12 +62,16 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'verify_code_expires_at' => 'datetime',
         'role' => 'string',
     ];
 
     public function sendEmailVerificationNotification()
     {
-        $this->notify(new CustomVerifyEmail);
+        app(\App\Services\EmailVerificationCodeService::class)->sendVerificationEmail(
+            $this,
+            'Smart Card Generator'
+        );
     }
 
     public function schedules()

@@ -34,7 +34,7 @@ class RegisteredUserController extends Controller
         event(new Registered($user));
 
         return response()->json([
-            'message'      => 'Registration successful. Please verify your email address.',
+            'message'      => 'Registration successful. Please check your email for a 6-digit verification code.',
             'user'         => $user,
             'redirect_url' => '/verify-email',
         ], 201);

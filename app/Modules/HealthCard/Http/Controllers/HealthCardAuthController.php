@@ -5,7 +5,7 @@ namespace App\Modules\HealthCard\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Modules\HealthCard\Notifications\HealthCardResetPassword;
-use App\Modules\HealthCard\Notifications\HealthCardVerifyEmail;
+use App\Services\EmailVerificationCodeService;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -74,7 +74,10 @@ class HealthCardAuthController extends Controller
         ]);
 
         try {
-            $user->notify(new HealthCardVerifyEmail());
+            app(EmailVerificationCodeService::class)->sendVerificationEmail(
+                $user,
+                'Smart Health Card'
+            );
         } catch (\Throwable $e) {
             report($e);
         }
@@ -182,17 +185,65 @@ class HealthCardAuthController extends Controller
         }
 
         try {
-            $user->notify(new HealthCardVerifyEmail());
+            app(EmailVerificationCodeService::class)->sendVerificationEmail(
+                $user,
+                'Smart Health Card'
+            );
         } catch (\Throwable $e) {
             report($e);
 
             return response()->json([
-                'message' => 'Unable to send verification email at this time. Please try again later.',
+                'message' => 'Unable to send verification email. Check mail server settings (SMTP credentials).',
             ], 503);
         }
 
         return response()->json([
-            'message' => 'Verification link sent.',
+            'message' => 'Verification code sent.',
+            'status'  => 'verification-code-sent',
         ], 200);
+    }
+
+    /**
+     * Resend verification code by email (no auth — for /verify page).
+     */
+    public function resendVerificationEmailPublic(Request $request): JsonResponse
+    {
+        $validated = $request->validate([
+            'email' => ['required', 'string', 'email', 'max:255'],
+        ]);
+
+        $user = User::where('email', $validated['email'])->first();
+
+        if (! $user) {
+            return response()->json([
+                'status'  => 'verification-code-sent',
+                'message' => 'If that email is registered, a verification code has been sent.',
+            ]);
+        }
+
+        if ($user->hasVerifiedEmail()) {
+            return response()->json([
+                'status'  => 'already-verified',
+                'message' => 'Email already verified.',
+            ]);
+        }
+
+        try {
+            app(EmailVerificationCodeService::class)->sendVerificationEmail(
+                $user,
+                'Smart Health Card'
+            );
+        } catch (\Throwable $e) {
+            report($e);
+
+            return response()->json([
+                'message' => 'Unable to send verification email. Check mail server settings (SMTP credentials).',
+            ], 503);
+        }
+
+        return response()->json([
+            'status'  => 'verification-code-sent',
+            'message' => 'Verification code sent.',
+        ]);
     }
 }

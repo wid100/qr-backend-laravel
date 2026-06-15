@@ -26,7 +26,7 @@ class AuthenticatedSessionController extends Controller
 
             return response()->json([
                 'message'      => 'Please verify your email before logging in.',
-                'redirect_url' => '/verify-email',
+                'redirect_url' => '/verify-email?email=' . urlencode($user->email),
             ], 403);
         }
 
