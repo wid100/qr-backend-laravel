@@ -279,4 +279,68 @@ class HealthCardAuthController extends Controller
             'message' => 'Verification code sent.',
         ]);
     }
+
+    public function updateProfile(Request $request): JsonResponse
+    {
+        /** @var User $user */
+        $user = $request->user();
+
+        $validated = $request->validate([
+            'name'         => ['required', 'string', 'max:255'],
+            'phone'        => ['nullable', 'string', 'max:50'],
+            'gender'       => ['nullable', 'string', 'max:50'],
+            'address'      => ['nullable', 'string', 'max:500'],
+            'city'         => ['nullable', 'string', 'max:100'],
+            'country'      => ['nullable', 'string', 'max:100'],
+            'country_code' => ['nullable', 'string', 'max:100'],
+            'image'        => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,webp', 'max:5120'],
+        ]);
+
+        $user->fill(collect($validated)->except('image')->all());
+
+        if ($request->hasFile('image')) {
+            if ($user->image && file_exists(public_path($user->image))) {
+                @unlink(public_path($user->image));
+            }
+
+            $image = $request->file('image');
+            $imageName = uniqid() . '-' . $image->getClientOriginalName();
+            $image->move(public_path('image/user'), $imageName);
+            $user->image = 'image/user/' . $imageName;
+        }
+
+        $user->save();
+
+        return response()->json([
+            'message' => 'Profile updated successfully.',
+            'user'    => $user->fresh(),
+        ]);
+    }
+
+    public function updatePassword(Request $request): JsonResponse
+    {
+        /** @var User $user */
+        $user = $request->user();
+
+        $validated = $request->validate([
+            'current_password'      => ['required', 'string'],
+            'password'              => ['required', 'confirmed', Rules\Password::defaults()],
+            'password_confirmation' => ['required', 'string'],
+        ]);
+
+        if (! Hash::check($validated['current_password'], $user->password)) {
+            throw ValidationException::withMessages([
+                'current_password' => ['The current password is incorrect.'],
+            ]);
+        }
+
+        $user->forceFill([
+            'password' => Hash::make($validated['password']),
+        ])->save();
+
+        return response()->json([
+            'message' => 'Password updated successfully.',
+            'status'  => 'password-updated',
+        ]);
+    }
 }

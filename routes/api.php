@@ -119,6 +119,8 @@ Route::prefix('health-card')->group(function () {
 
     Route::middleware('auth:sanctum')->group(function () {
         Route::get('/user', [HealthCardAuthController::class, 'user']);
+        Route::match(['put', 'post'], '/profile', [HealthCardAuthController::class, 'updateProfile']);
+        Route::post('/update-password', [HealthCardAuthController::class, 'updatePassword']);
         Route::post('/logout', [HealthCardAuthController::class, 'logout']);
         Route::post('/email/verification-notification', [HealthCardAuthController::class, 'resendVerificationEmail'])
             ->middleware('throttle:6,1');
