@@ -4,6 +4,7 @@ namespace App\Modules\HealthCard\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Modules\HealthCard\Models\HealthCard;
+use App\Modules\HealthCard\Models\HealthCardCondition;
 use App\Modules\HealthCard\Models\MedicalReport;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
@@ -71,6 +72,11 @@ class MedicalReportController extends Controller
                 'message' => 'Validation failed',
                 'errors' => $validator->errors(),
             ], 422);
+        }
+
+        $conditionError = $this->validateConditionId($request, $healthCard);
+        if ($conditionError) {
+            return $conditionError;
         }
 
         try {
@@ -159,6 +165,11 @@ class MedicalReportController extends Controller
                 'message' => 'Validation failed',
                 'errors' => $validator->errors(),
             ], 422);
+        }
+
+        $conditionError = $this->validateConditionId($request, $medicalReport->healthCard);
+        if ($conditionError) {
+            return $conditionError;
         }
 
         try {
@@ -342,6 +353,7 @@ class MedicalReportController extends Controller
             'recommendations' => 'nullable|string',
             'test_data' => 'nullable|string',
             'notes' => 'nullable|string',
+            'condition_id' => 'nullable|integer',
         ];
 
         // Handle prescription_image validation (single or array)
@@ -390,6 +402,7 @@ class MedicalReportController extends Controller
             'notes' => 'nullable|string',
             'keep_existing_prescription_images' => 'nullable|string', // JSON string of array
             'keep_existing_test_report_images' => 'nullable|string', // JSON string of array
+            'condition_id' => 'nullable|integer',
         ];
 
         // Handle prescription_image validation (single or array)
@@ -428,6 +441,13 @@ class MedicalReportController extends Controller
             'notes' => $request->post('notes') ?: null,
             'health_card_id' => $healthCardId,
         ];
+
+        $conditionId = $request->post('condition_id');
+        if ($conditionId !== null && $conditionId !== '') {
+            $data['condition_id'] = (int) $conditionId;
+        } else {
+            $data['condition_id'] = null;
+        }
 
         // Handle test_data - parse JSON string if provided
         $testDataInput = $request->post('test_data');
@@ -484,6 +504,10 @@ class MedicalReportController extends Controller
         if (array_key_exists('notes', $allInput)) {
             $value = $request->input('notes');
             $data['notes'] = ($value !== null && $value !== '') ? $value : null;
+        }
+        if (array_key_exists('condition_id', $allInput)) {
+            $value = $request->input('condition_id');
+            $data['condition_id'] = ($value !== null && $value !== '') ? (int) $value : null;
         }
 
         // Handle test_data
@@ -677,6 +701,35 @@ class MedicalReportController extends Controller
 
         if (is_array($value)) {
             return $value;
+        }
+
+        return null;
+    }
+
+    /**
+     * Validate condition_id belongs to the health card
+     */
+    private function validateConditionId(Request $request, HealthCard $healthCard): ?JsonResponse
+    {
+        if (!$request->has('condition_id')) {
+            return null;
+        }
+
+        $conditionId = $request->input('condition_id');
+        if ($conditionId === null || $conditionId === '') {
+            return null;
+        }
+
+        $exists = HealthCardCondition::where('id', (int) $conditionId)
+            ->where('health_card_id', $healthCard->id)
+            ->exists();
+
+        if (!$exists) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Validation failed',
+                'errors' => ['condition_id' => ['The selected condition is invalid for this health card.']],
+            ], 422);
         }
 
         return null;

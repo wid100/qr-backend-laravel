@@ -14,6 +14,7 @@ class MedicalReport extends Model
 
     protected $fillable = [
         'health_card_id',
+        'condition_id',
         'visit_date',
         'doctor_name',
         'hospital_name',
@@ -73,6 +74,14 @@ class MedicalReport extends Model
     public function healthCard(): BelongsTo
     {
         return $this->belongsTo(HealthCard::class, 'health_card_id');
+    }
+
+    /**
+     * Relationship: MedicalReport belongs to HealthCardCondition
+     */
+    public function condition(): BelongsTo
+    {
+        return $this->belongsTo(HealthCardCondition::class, 'condition_id');
     }
 }
 

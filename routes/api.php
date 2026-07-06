@@ -288,6 +288,14 @@ Route::middleware('auth:sanctum')->prefix('healthcards')->group(function () {
     Route::put('/{id}', [App\Modules\HealthCard\Http\Controllers\HealthCardController::class, 'update']);
     Route::delete('/{id}', [App\Modules\HealthCard\Http\Controllers\HealthCardController::class, 'destroy']);
 
+    // Health Card Conditions
+    Route::get('/{healthCardId}/conditions', [App\Modules\HealthCard\Http\Controllers\HealthCardConditionController::class, 'index']);
+    Route::post('/{healthCardId}/conditions', [App\Modules\HealthCard\Http\Controllers\HealthCardConditionController::class, 'store']);
+    Route::put('/conditions/{id}', [App\Modules\HealthCard\Http\Controllers\HealthCardConditionController::class, 'update']);
+    Route::delete('/conditions/{id}', [App\Modules\HealthCard\Http\Controllers\HealthCardConditionController::class, 'destroy']);
+    Route::post('/conditions/{id}/enable-emergency', [App\Modules\HealthCard\Http\Controllers\HealthCardConditionController::class, 'enableEmergency']);
+    Route::post('/conditions/{id}/disable-emergency', [App\Modules\HealthCard\Http\Controllers\HealthCardConditionController::class, 'disableEmergency']);
+
     // Health Card Medical Reports
     Route::get('/{healthCardId}/medical-reports', [App\Modules\HealthCard\Http\Controllers\MedicalReportController::class, 'index']);
     Route::post('/{healthCardId}/medical-reports', [App\Modules\HealthCard\Http\Controllers\MedicalReportController::class, 'store']);

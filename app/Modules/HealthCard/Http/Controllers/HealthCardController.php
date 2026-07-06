@@ -4,6 +4,7 @@ namespace App\Modules\HealthCard\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Modules\HealthCard\Models\HealthCard;
+use App\Modules\HealthCard\Models\MedicalReport;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Auth;
@@ -484,7 +485,9 @@ class HealthCardController extends Controller
      */
     public function getByQrHash($hash): JsonResponse
     {
-        $healthCard = HealthCard::where('qr_code_hash', $hash)->first();
+        $healthCard = HealthCard::where('qr_code_hash', $hash)
+            ->with(['emergencyCondition'])
+            ->first();
 
         if (!$healthCard) {
             return response()->json([
@@ -493,23 +496,29 @@ class HealthCardController extends Controller
             ], 404);
         }
 
-        // Check access permissions
         $isOwner = auth()->check() && auth()->id() === $healthCard->user_id;
+        $viewMode = $this->resolveViewMode($healthCard, $isOwner);
 
-        if (!$isOwner && !$healthCard->isAccessible()) {
+        if ($viewMode === 'denied') {
             return response()->json([
                 'status' => 'error',
                 'message' => 'This health card is private',
             ], 403);
         }
 
-        // Format photo URL if exists
+        if ($viewMode === 'emergency') {
+            return response()->json([
+                'status' => 'success',
+                'data' => $this->buildEmergencyResponse($healthCard),
+            ]);
+        }
+
         if ($healthCard->person_photo) {
             $healthCard->person_photo_url = Storage::url($healthCard->person_photo);
         }
 
-        // Return basic info for public/protected cards, full info for owner
         $responseData = [
+            'view_mode' => 'full',
             'person_name' => $healthCard->person_name,
             'person_photo_url' => $healthCard->person_photo_url ?? null,
             'blood_group' => $healthCard->blood_group,
@@ -543,9 +552,12 @@ class HealthCardController extends Controller
     {
         $healthCard = HealthCard::where('slug', $slug)
             ->orWhere('username', $slug)
-            ->with(['medicalReports' => function ($query) {
-                $query->orderBy('visit_date', 'desc');
-            }])
+            ->with([
+                'emergencyCondition',
+                'medicalReports' => function ($query) {
+                    $query->orderBy('visit_date', 'desc');
+                },
+            ])
             ->first();
 
         if (!$healthCard) {
@@ -555,50 +567,139 @@ class HealthCardController extends Controller
             ], 404);
         }
 
-        // Check access permissions
         $isOwner = auth()->check() && auth()->id() === $healthCard->user_id;
+        $viewMode = $this->resolveViewMode($healthCard, $isOwner);
 
-        if (!$isOwner && !$healthCard->isAccessible()) {
+        if ($viewMode === 'denied') {
             return response()->json([
                 'status' => 'error',
                 'message' => 'This health card is private',
             ], 403);
         }
 
-        // Format photo URL if exists
+        if ($viewMode === 'emergency') {
+            return response()->json([
+                'status' => 'success',
+                'data' => $this->buildEmergencyResponse($healthCard),
+            ]);
+        }
+
         if ($healthCard->person_photo) {
             $healthCard->person_photo_url = Storage::url($healthCard->person_photo);
         }
 
-        // Format medical report image URLs
-        if ($healthCard->medicalReports) {
-            foreach ($healthCard->medicalReports as $report) {
-                if ($report->prescription_image) {
-                    $decoded = json_decode($report->prescription_image, true);
-                    if (json_last_error() === JSON_ERROR_NONE && is_array($decoded)) {
-                        $report->prescription_images = array_map(fn($path) => Storage::url($path), $decoded);
-                        $report->prescription_image_url = $report->prescription_images[0] ?? null;
-                    } else {
-                        $report->prescription_image_url = Storage::url($report->prescription_image);
-                        $report->prescription_images = [$report->prescription_image_url];
-                    }
-                }
-                if ($report->test_report_image) {
-                    $decoded = json_decode($report->test_report_image, true);
-                    if (json_last_error() === JSON_ERROR_NONE && is_array($decoded)) {
-                        $report->test_report_images = array_map(fn($path) => Storage::url($path), $decoded);
-                        $report->test_report_image_url = $report->test_report_images[0] ?? null;
-                    } else {
-                        $report->test_report_image_url = Storage::url($report->test_report_image);
-                        $report->test_report_images = [$report->test_report_image_url];
-                    }
-                }
-            }
-        }
+        $this->formatMedicalReportImages($healthCard->medicalReports);
+
+        $cardData = $healthCard->toArray();
+        $cardData['view_mode'] = 'full';
+        $cardData['person_photo_url'] = $healthCard->person_photo_url ?? null;
+        $cardData['medical_reports'] = $healthCard->medicalReports
+            ? $healthCard->medicalReports->toArray()
+            : [];
+        unset($cardData['medicalReports']);
 
         return response()->json([
             'status' => 'success',
-            'data' => $healthCard,
+            'data' => $cardData,
         ]);
+    }
+
+    /**
+     * Resolve public view mode: full, emergency, or denied
+     */
+    private function resolveViewMode(HealthCard $healthCard, bool $isOwner): string
+    {
+        if ($isOwner) {
+            return 'full';
+        }
+
+        if ($healthCard->isAccessible()) {
+            return 'full';
+        }
+
+        $emergencyCondition = $healthCard->relationLoaded('emergencyCondition')
+            ? $healthCard->emergencyCondition
+            : $healthCard->emergencyCondition()->first();
+
+        if ($emergencyCondition) {
+            return 'emergency';
+        }
+
+        return 'denied';
+    }
+
+    /**
+     * Build limited emergency response for private/protected unauthenticated visitors
+     */
+    private function buildEmergencyResponse(HealthCard $healthCard): array
+    {
+        $emergencyCondition = $healthCard->relationLoaded('emergencyCondition')
+            ? $healthCard->emergencyCondition
+            : $healthCard->emergencyCondition()->first();
+
+        if (!$emergencyCondition) {
+            return [];
+        }
+
+        if ($healthCard->person_photo) {
+            $personPhotoUrl = Storage::url($healthCard->person_photo);
+        } else {
+            $personPhotoUrl = null;
+        }
+
+        $reports = MedicalReport::where('health_card_id', $healthCard->id)
+            ->where('condition_id', $emergencyCondition->id)
+            ->orderBy('visit_date', 'desc')
+            ->get();
+
+        $this->formatMedicalReportImages($reports);
+
+        return [
+            'view_mode' => 'emergency',
+            'person_name' => $healthCard->person_name,
+            'person_photo_url' => $personPhotoUrl,
+            'blood_group' => $healthCard->blood_group,
+            'allergies' => $healthCard->allergies,
+            'emergency_contact' => $healthCard->emergency_contact,
+            'emergency_condition' => [
+                'id' => $emergencyCondition->id,
+                'name' => $emergencyCondition->name,
+                'description' => $emergencyCondition->description,
+            ],
+            'medical_reports' => $reports->toArray(),
+        ];
+    }
+
+    /**
+     * Format prescription and test report image URLs on medical reports
+     */
+    private function formatMedicalReportImages($reports): void
+    {
+        if (!$reports) {
+            return;
+        }
+
+        foreach ($reports as $report) {
+            if ($report->prescription_image) {
+                $decoded = json_decode($report->prescription_image, true);
+                if (json_last_error() === JSON_ERROR_NONE && is_array($decoded)) {
+                    $report->prescription_images = array_map(fn($path) => Storage::url($path), $decoded);
+                    $report->prescription_image_url = $report->prescription_images[0] ?? null;
+                } else {
+                    $report->prescription_image_url = Storage::url($report->prescription_image);
+                    $report->prescription_images = [$report->prescription_image_url];
+                }
+            }
+            if ($report->test_report_image) {
+                $decoded = json_decode($report->test_report_image, true);
+                if (json_last_error() === JSON_ERROR_NONE && is_array($decoded)) {
+                    $report->test_report_images = array_map(fn($path) => Storage::url($path), $decoded);
+                    $report->test_report_image_url = $report->test_report_images[0] ?? null;
+                } else {
+                    $report->test_report_image_url = Storage::url($report->test_report_image);
+                    $report->test_report_images = [$report->test_report_image_url];
+                }
+            }
+        }
     }
 }

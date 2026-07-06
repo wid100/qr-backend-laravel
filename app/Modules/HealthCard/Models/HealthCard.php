@@ -54,6 +54,23 @@ class HealthCard extends Model
     }
 
     /**
+     * Relationship: HealthCard has many conditions
+     */
+    public function conditions()
+    {
+        return $this->hasMany(HealthCardCondition::class, 'health_card_id');
+    }
+
+    /**
+     * Get the condition marked for emergency access (only one per card)
+     */
+    public function emergencyCondition()
+    {
+        return $this->hasOne(HealthCardCondition::class, 'health_card_id')
+            ->where('is_emergency_enabled', true);
+    }
+
+    /**
      * Generate a unique slug
      */
     public static function generateSlug(string $personName): string
