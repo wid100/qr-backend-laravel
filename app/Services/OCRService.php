@@ -3,419 +3,285 @@
 namespace App\Services;
 
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Http;
+use RuntimeException;
 
 class OCRService
 {
+    protected GeminiService $gemini;
+
+    public function __construct(GeminiService $gemini)
+    {
+        $this->gemini = $gemini;
+    }
+
     /**
-     * Extract text from prescription image using OCR
+     * Extract structured prescription data from an UploadedFile.
      */
     public function extractPrescriptionData(UploadedFile $image): array
     {
-        // Save uploaded image temporarily
-        $imagePath = $image->store('temp/ocr', 'public');
-        $fullPath = Storage::disk('public')->path($imagePath);
-
-        try {
-            // Extract text using OCR
-            $extractedText = $this->performOCR($fullPath);
-
-            // Parse prescription data from extracted text
-            $prescriptionData = $this->parsePrescriptionText($extractedText);
-
-            // Clean up temporary file
-            Storage::disk('public')->delete($imagePath);
-
-            return $prescriptionData;
-        } catch (\Exception $e) {
-            // Clean up on error
-            Storage::disk('public')->delete($imagePath);
-            throw $e;
-        }
+        return $this->withTempFile($image, function (string $fullPath, string $mime) {
+            return $this->analyzePrescriptionPath($fullPath, $mime);
+        });
     }
 
     /**
-     * Extract text from medical report image using OCR
+     * Extract structured medical report data from an UploadedFile.
      */
     public function extractMedicalReportData(UploadedFile $image): array
     {
-        // Save uploaded image temporarily
-        $imagePath = $image->store('temp/ocr', 'public');
-        $fullPath = Storage::disk('public')->path($imagePath);
-
-        try {
-            // Extract text using OCR
-            $extractedText = $this->performOCR($fullPath);
-
-            // Parse medical report data from extracted text
-            $reportData = $this->parseMedicalReportText($extractedText);
-
-            // Clean up temporary file
-            Storage::disk('public')->delete($imagePath);
-
-            return $reportData;
-        } catch (\Exception $e) {
-            // Clean up on error
-            Storage::disk('public')->delete($imagePath);
-            throw $e;
-        }
+        return $this->withTempFile($image, function (string $fullPath, string $mime) {
+            return $this->analyzeMedicalReportPath($fullPath, $mime);
+        });
     }
 
     /**
-     * Perform OCR on image file
+     * Extract health-visit form fields from an UploadedFile.
      */
-    private function performOCR(string $imagePath): string
+    public function extractHealthCardVisitData(UploadedFile $image): array
     {
-        // For now, we'll use a simple approach
-        // In production, you would integrate with Google Vision API, Tesseract, or similar
+        return $this->withTempFile($image, function (string $fullPath, string $mime) {
+            return $this->analyzeHealthVisitPath($fullPath, $mime);
+        });
+    }
 
-        // This is a placeholder - you would implement actual OCR here
-        // For example, using Google Vision API:
+    /**
+     * Analyze a file already stored on the public disk (relative path).
+     */
+    public function extractPrescriptionFromStored(string $relativePath): array
+    {
+        $fullPath = $this->resolvePath($relativePath);
+        $mime = mime_content_type($fullPath) ?: 'application/octet-stream';
 
-        /*
-        $response = Http::withHeaders([
-            'Authorization' => 'Bearer ' . config('services.google.vision_api_key'),
-        ])->post('https://vision.googleapis.com/v1/images:annotate', [
-            'requests' => [
-                [
-                    'image' => [
-                        'content' => base64_encode(file_get_contents($imagePath))
-                    ],
-                    'features' => [
-                        ['type' => 'TEXT_DETECTION']
-                    ]
-                ]
-            ]
+        return $this->analyzePrescriptionPath($fullPath, $mime);
+    }
+
+    public function extractMedicalReportFromStored(string $relativePath): array
+    {
+        $fullPath = $this->resolvePath($relativePath);
+        $mime = mime_content_type($fullPath) ?: 'application/octet-stream';
+
+        return $this->analyzeMedicalReportPath($fullPath, $mime);
+    }
+
+    protected function analyzePrescriptionPath(string $fullPath, string $mime): array
+    {
+        $prompt = <<<'PROMPT'
+You are a medical document OCR assistant. Extract prescription data from this image/PDF.
+Return ONLY valid JSON with this exact shape:
+{
+  "doctor_name": "",
+  "clinic_name": "",
+  "prescription_date": "YYYY-MM-DD or empty string",
+  "diagnosis": "",
+  "symptoms": "",
+  "medicines": [
+    {
+      "name": "",
+      "dosage": "",
+      "frequency": "",
+      "duration": "",
+      "instructions": ""
+    }
+  ],
+  "notes": "",
+  "raw_text": "full extracted text"
+}
+Rules:
+- Prefer ISO date YYYY-MM-DD when a date is visible.
+- If a field is unknown, use "" or [] as appropriate.
+- Do not invent medicines that are not on the document.
+PROMPT;
+
+        $data = $this->gemini->analyzeFileJson($fullPath, $prompt, $mime, [
+            'temperature' => 0.1,
+            'max_output_tokens' => 4096,
         ]);
 
-        $data = $response->json();
-        return $data['responses'][0]['textAnnotations'][0]['description'] ?? '';
-        */
-
-        // Placeholder return for now
-        return "Sample extracted text from prescription image";
+        return $this->normalizePrescription($data);
     }
 
-    /**
-     * Parse prescription text to extract structured data
-     */
-    private function parsePrescriptionText(string $text): array
+    protected function analyzeMedicalReportPath(string $fullPath, string $mime): array
     {
-        // This is a simplified parser - in production, you would use more sophisticated NLP
-        $data = [
-            'doctor_name' => $this->extractDoctorName($text),
-            'clinic_name' => $this->extractClinicName($text),
-            'prescription_date' => $this->extractDate($text),
-            'diagnosis' => $this->extractDiagnosis($text),
-            'symptoms' => $this->extractSymptoms($text),
-            'medicines' => $this->extractMedicines($text),
-            'notes' => $this->extractNotes($text),
-            'raw_text' => $text,
-        ];
+        $prompt = <<<'PROMPT'
+You are a medical document OCR assistant. Extract lab/medical report data from this image/PDF.
+Return ONLY valid JSON with this exact shape:
+{
+  "report_type": "blood_test|xray|mri|ct_scan|ultrasound|ecg|urine_test|other or short label",
+  "lab_name": "",
+  "test_date": "YYYY-MM-DD or empty string",
+  "doctor_name": "",
+  "test_results": [
+    {
+      "test_name": "",
+      "value": "",
+      "unit": "",
+      "normal_range": "",
+      "status": "normal|high|low|critical|unknown"
+    }
+  ],
+  "normal_ranges": {},
+  "test_notes": "",
+  "raw_text": "full extracted text"
+}
+Rules:
+- Prefer ISO date YYYY-MM-DD when a date is visible.
+- If a field is unknown, use "" / [] / {} as appropriate.
+- Do not invent test results that are not on the document.
+PROMPT;
 
-        return $data;
+        $data = $this->gemini->analyzeFileJson($fullPath, $prompt, $mime, [
+            'temperature' => 0.1,
+            'max_output_tokens' => 4096,
+        ]);
+
+        return $this->normalizeMedicalReport($data);
     }
 
-    /**
-     * Parse medical report text to extract structured data
-     */
-    private function parseMedicalReportText(string $text): array
+    protected function analyzeHealthVisitPath(string $fullPath, string $mime): array
     {
-        $data = [
-            'report_type' => $this->extractReportType($text),
-            'lab_name' => $this->extractLabName($text),
-            'test_date' => $this->extractDate($text),
-            'doctor_name' => $this->extractDoctorName($text),
-            'test_results' => $this->extractTestResults($text),
-            'normal_ranges' => $this->extractNormalRanges($text),
-            'test_notes' => $this->extractTestNotes($text),
-            'raw_text' => $text,
-        ];
+        $prompt = <<<'PROMPT'
+You are a medical document OCR assistant for a health card app.
+Extract visit / prescription / report details from this image/PDF.
+Return ONLY valid JSON with this exact shape:
+{
+  "visit_date": "YYYY-MM-DD or empty string",
+  "doctor_name": "",
+  "specialty": "",
+  "hospital_name": "",
+  "phone": "",
+  "recommendations": "",
+  "tests": [
+    { "test_name": "", "result": "" }
+  ],
+  "medicines": [
+    {
+      "medicine_name": "",
+      "dosage": "",
+      "duration": "",
+      "timing": { "morning": false, "noon": false, "night": false }
+    }
+  ],
+  "diet_routines": [
+    { "time": "", "food_items": "" }
+  ],
+  "raw_text": "full extracted text"
+}
+Rules:
+- Infer medicine timing only when the document clearly indicates morning/noon/night (or BD conventions like সকাল/দুপুর/রাত).
+- Prefer ISO date YYYY-MM-DD.
+- Do not invent clinical data.
+PROMPT;
 
-        return $data;
+        $data = $this->gemini->analyzeFileJson($fullPath, $prompt, $mime, [
+            'temperature' => 0.1,
+            'max_output_tokens' => 4096,
+        ]);
+
+        return [
+            'visit_date' => (string) ($data['visit_date'] ?? ''),
+            'doctor_name' => (string) ($data['doctor_name'] ?? ''),
+            'specialty' => (string) ($data['specialty'] ?? ''),
+            'hospital_name' => (string) ($data['hospital_name'] ?? ''),
+            'phone' => (string) ($data['phone'] ?? ''),
+            'recommendations' => (string) ($data['recommendations'] ?? ''),
+            'tests' => is_array($data['tests'] ?? null) ? $data['tests'] : [],
+            'medicines' => is_array($data['medicines'] ?? null) ? $data['medicines'] : [],
+            'diet_routines' => is_array($data['diet_routines'] ?? null) ? $data['diet_routines'] : [],
+            'raw_text' => (string) ($data['raw_text'] ?? ''),
+        ];
     }
 
-    /**
-     * Extract doctor name from text
-     */
-    private function extractDoctorName(string $text): string
+    protected function withTempFile(UploadedFile $image, callable $callback): array
     {
-        // Simple regex patterns to find doctor names
-        $patterns = [
-            '/Dr\.?\s+([A-Z][a-z]+(?:\s+[A-Z][a-z]+)*)/',
-            '/Doctor\s+([A-Z][a-z]+(?:\s+[A-Z][a-z]+)*)/',
-            '/Name:\s*([A-Z][a-z]+(?:\s+[A-Z][a-z]+)*)/',
-        ];
-
-        foreach ($patterns as $pattern) {
-            if (preg_match($pattern, $text, $matches)) {
-                return trim($matches[1]);
-            }
+        if (! $this->gemini->isConfigured()) {
+            throw new RuntimeException('Gemini API key is not configured.');
         }
 
-        return '';
+        $imagePath = $image->store('temp/ocr', 'public');
+        $fullPath = Storage::disk('public')->path($imagePath);
+        $mime = $image->getMimeType() ?: (mime_content_type($fullPath) ?: 'application/octet-stream');
+
+        try {
+            return $callback($fullPath, $mime);
+        } catch (\Throwable $e) {
+            Log::error('OCR extraction failed', [
+                'error' => $e->getMessage(),
+            ]);
+            throw $e;
+        } finally {
+            Storage::disk('public')->delete($imagePath);
+        }
     }
 
-    /**
-     * Extract clinic name from text
-     */
-    private function extractClinicName(string $text): string
+    protected function resolvePath(string $path): string
     {
-        $patterns = [
-            '/Clinic:\s*([^\n\r]+)/i',
-            '/Hospital:\s*([^\n\r]+)/i',
-            '/Center:\s*([^\n\r]+)/i',
-        ];
-
-        foreach ($patterns as $pattern) {
-            if (preg_match($pattern, $text, $matches)) {
-                return trim($matches[1]);
-            }
+        if (is_file($path)) {
+            return $path;
         }
 
-        return '';
-    }
-
-    /**
-     * Extract date from text
-     */
-    private function extractDate(string $text): string
-    {
-        $patterns = [
-            '/(\d{1,2}[-\/]\d{1,2}[-\/]\d{2,4})/',
-            '/(\d{4}[-\/]\d{1,2}[-\/]\d{1,2})/',
-            '/(\d{1,2}\s+(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\s+\d{4})/i',
-        ];
-
-        foreach ($patterns as $pattern) {
-            if (preg_match($pattern, $text, $matches)) {
-                return trim($matches[1]);
-            }
+        $publicPath = Storage::disk('public')->path($path);
+        if (is_file($publicPath)) {
+            return $publicPath;
         }
 
-        return '';
+        throw new RuntimeException('OCR source file not found.');
     }
 
-    /**
-     * Extract diagnosis from text
-     */
-    private function extractDiagnosis(string $text): string
-    {
-        $patterns = [
-            '/Diagnosis:\s*([^\n\r]+)/i',
-            '/Dx:\s*([^\n\r]+)/i',
-            '/Condition:\s*([^\n\r]+)/i',
-        ];
-
-        foreach ($patterns as $pattern) {
-            if (preg_match($pattern, $text, $matches)) {
-                return trim($matches[1]);
-            }
-        }
-
-        return '';
-    }
-
-    /**
-     * Extract symptoms from text
-     */
-    private function extractSymptoms(string $text): string
-    {
-        $patterns = [
-            '/Symptoms:\s*([^\n\r]+)/i',
-            '/Complaints:\s*([^\n\r]+)/i',
-            '/Chief Complaint:\s*([^\n\r]+)/i',
-        ];
-
-        foreach ($patterns as $pattern) {
-            if (preg_match($pattern, $text, $matches)) {
-                return trim($matches[1]);
-            }
-        }
-
-        return '';
-    }
-
-    /**
-     * Extract medicines from text
-     */
-    private function extractMedicines(string $text): array
+    protected function normalizePrescription(array $data): array
     {
         $medicines = [];
-
-        // Simple medicine extraction - in production, use more sophisticated NLP
-        $lines = explode("\n", $text);
-
-        foreach ($lines as $line) {
-            $line = trim($line);
-
-            // Look for medicine patterns
-            if (preg_match('/([A-Z][a-z]+(?:\s+[A-Z][a-z]+)*)\s+(\d+\s*(?:mg|g|ml|tablet|tab|cap|capsule)s?)\s*(.*)/i', $line, $matches)) {
-                $medicines[] = [
-                    'name' => trim($matches[1]),
-                    'dosage' => trim($matches[2]),
-                    'instructions' => trim($matches[3]),
-                    'frequency' => $this->extractFrequency($line),
-                    'duration' => $this->extractDuration($line),
-                ];
+        foreach (($data['medicines'] ?? []) as $med) {
+            if (! is_array($med)) {
+                continue;
             }
+            $medicines[] = [
+                'name' => (string) ($med['name'] ?? ''),
+                'dosage' => (string) ($med['dosage'] ?? ''),
+                'frequency' => (string) ($med['frequency'] ?? ''),
+                'duration' => (string) ($med['duration'] ?? ''),
+                'instructions' => (string) ($med['instructions'] ?? ''),
+            ];
         }
 
-        return $medicines;
+        return [
+            'doctor_name' => (string) ($data['doctor_name'] ?? ''),
+            'clinic_name' => (string) ($data['clinic_name'] ?? ''),
+            'prescription_date' => (string) ($data['prescription_date'] ?? ''),
+            'diagnosis' => (string) ($data['diagnosis'] ?? ''),
+            'symptoms' => (string) ($data['symptoms'] ?? ''),
+            'medicines' => $medicines,
+            'notes' => (string) ($data['notes'] ?? ''),
+            'raw_text' => (string) ($data['raw_text'] ?? ''),
+        ];
     }
 
-    /**
-     * Extract test results from text
-     */
-    private function extractTestResults(string $text): array
+    protected function normalizeMedicalReport(array $data): array
     {
         $results = [];
-
-        // Look for test result patterns
-        $lines = explode("\n", $text);
-
-        foreach ($lines as $line) {
-            $line = trim($line);
-
-            // Pattern: Test Name: Value Unit (Normal Range)
-            if (preg_match('/([A-Za-z\s]+):\s*([0-9.]+)\s*([A-Za-z%\/]+)\s*\(([0-9.-]+)\s*-\s*([0-9.-]+)\)/i', $line, $matches)) {
-                $results[] = [
-                    'test_name' => trim($matches[1]),
-                    'value' => floatval($matches[2]),
-                    'unit' => trim($matches[3]),
-                    'normal_range' => trim($matches[4]) . ' - ' . trim($matches[5]),
-                    'status' => $this->determineTestStatus(floatval($matches[2]), floatval($matches[4]), floatval($matches[5])),
-                ];
+        foreach (($data['test_results'] ?? []) as $row) {
+            if (! is_array($row)) {
+                continue;
             }
+            $results[] = [
+                'test_name' => (string) ($row['test_name'] ?? ''),
+                'value' => $row['value'] ?? '',
+                'unit' => (string) ($row['unit'] ?? ''),
+                'normal_range' => (string) ($row['normal_range'] ?? ''),
+                'status' => (string) ($row['status'] ?? 'unknown'),
+            ];
         }
 
-        return $results;
-    }
-
-    /**
-     * Extract normal ranges from text
-     */
-    private function extractNormalRanges(string $text): array
-    {
-        // This would extract normal ranges for different tests
-        // For now, return empty array
-        return [];
-    }
-
-    /**
-     * Extract notes from text
-     */
-    private function extractNotes(string $text): string
-    {
-        $patterns = [
-            '/Notes:\s*([^\n\r]+)/i',
-            '/Remarks:\s*([^\n\r]+)/i',
-            '/Comments:\s*([^\n\r]+)/i',
+        return [
+            'report_type' => (string) ($data['report_type'] ?? 'other'),
+            'lab_name' => (string) ($data['lab_name'] ?? ''),
+            'test_date' => (string) ($data['test_date'] ?? ''),
+            'doctor_name' => (string) ($data['doctor_name'] ?? ''),
+            'test_results' => $results,
+            'normal_ranges' => is_array($data['normal_ranges'] ?? null) ? $data['normal_ranges'] : [],
+            'test_notes' => (string) ($data['test_notes'] ?? ''),
+            'raw_text' => (string) ($data['raw_text'] ?? ''),
         ];
-
-        foreach ($patterns as $pattern) {
-            if (preg_match($pattern, $text, $matches)) {
-                return trim($matches[1]);
-            }
-        }
-
-        return '';
-    }
-
-    /**
-     * Extract report type from text
-     */
-    private function extractReportType(string $text): string
-    {
-        $types = ['blood_test', 'xray', 'mri', 'ct_scan', 'ultrasound', 'ecg', 'urine_test'];
-
-        foreach ($types as $type) {
-            if (stripos($text, $type) !== false) {
-                return $type;
-            }
-        }
-
-        return 'blood_test'; // Default
-    }
-
-    /**
-     * Extract lab name from text
-     */
-    private function extractLabName(string $text): string
-    {
-        $patterns = [
-            '/Lab:\s*([^\n\r]+)/i',
-            '/Laboratory:\s*([^\n\r]+)/i',
-            '/Pathology:\s*([^\n\r]+)/i',
-        ];
-
-        foreach ($patterns as $pattern) {
-            if (preg_match($pattern, $text, $matches)) {
-                return trim($matches[1]);
-            }
-        }
-
-        return '';
-    }
-
-    /**
-     * Extract test notes from text
-     */
-    private function extractTestNotes(string $text): string
-    {
-        return $this->extractNotes($text);
-    }
-
-    /**
-     * Extract frequency from medicine line
-     */
-    private function extractFrequency(string $line): string
-    {
-        $patterns = [
-            '/(\d+\s*(?:times?|x)\s*(?:daily|day|week|month))/i',
-            '/((?:once|twice|thrice)\s*(?:daily|day|week|month))/i',
-        ];
-
-        foreach ($patterns as $pattern) {
-            if (preg_match($pattern, $line, $matches)) {
-                return trim($matches[1]);
-            }
-        }
-
-        return '';
-    }
-
-    /**
-     * Extract duration from medicine line
-     */
-    private function extractDuration(string $line): string
-    {
-        $patterns = [
-            '/(\d+\s*(?:days?|weeks?|months?|years?))/i',
-            '/(for\s+\d+\s*(?:days?|weeks?|months?|years?))/i',
-        ];
-
-        foreach ($patterns as $pattern) {
-            if (preg_match($pattern, $line, $matches)) {
-                return trim($matches[1]);
-            }
-        }
-
-        return '';
-    }
-
-    /**
-     * Determine test status based on value and normal range
-     */
-    private function determineTestStatus(float $value, float $min, float $max): string
-    {
-        if ($value < $min) {
-            return 'low';
-        } elseif ($value > $max) {
-            return 'high';
-        } else {
-            return 'normal';
-        }
     }
 }

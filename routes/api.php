@@ -31,6 +31,8 @@ use App\Http\Controllers\Admin\PayPalController;
 use App\Http\Controllers\Api\SmartCardController;
 use App\Http\Controllers\Api\ScheduleAreaController;
 use App\Http\Controllers\Api\CardOrderController;
+use App\Http\Controllers\Api\AiController;
+use App\Modules\HealthCard\Http\Controllers\AiOcrController;
 use App\Modules\HealthCard\Http\Controllers\HealthCardAuthController;
 use App\Modules\HealthCard\Http\Controllers\PatientRecordController;
 
@@ -97,6 +99,12 @@ Route::middleware('auth:sanctum')->group(function () {
         ->name('api.users.update');
 
     Route::get('/my-visitor-contacts', [QrgenController::class, 'myVisitorContacts']);
+
+    // Gemini AI assistants (Smart Card SPA)
+    Route::post('/ai/generate-resume', [AiController::class, 'generateResume'])
+        ->middleware('throttle:20,1');
+    Route::post('/ai/appointment-message', [AiController::class, 'appointmentMessage'])
+        ->middleware('throttle:30,1');
 });
 
 /*
@@ -136,6 +144,9 @@ Route::prefix('health-card')->group(function () {
         Route::get('/medical-reports/{id}', [PatientRecordController::class, 'showMedicalReport']);
         Route::put('/medical-reports/{id}', [PatientRecordController::class, 'updateMedicalReport']);
         Route::delete('/medical-reports/{id}', [PatientRecordController::class, 'destroyMedicalReport']);
+
+        Route::post('/ai/extract', [AiOcrController::class, 'extract'])
+            ->middleware('throttle:20,1');
     });
 });
 

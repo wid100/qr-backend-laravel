@@ -6,11 +6,14 @@ use App\Http\Controllers\Controller;
 use App\Models\MedicalReport;
 use App\Models\Patient;
 use App\Models\Prescription;
+use App\Services\OCRService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use Throwable;
 
 class PatientRecordController extends Controller
 {
@@ -38,6 +41,7 @@ class PatientRecordController extends Controller
             'clinic_name'        => 'nullable|string|max:255',
             'prescription_date'  => 'nullable|date',
             'notes'              => 'nullable|string',
+            'auto_ocr'           => 'nullable|boolean',
         ]);
 
         if ($validator->fails()) {
@@ -51,23 +55,50 @@ class PatientRecordController extends Controller
         $patient = $this->patientForUser();
         $path = $request->file('image')->store('patient-records/prescriptions', 'public');
 
+        $ocrData = null;
+        $autoOcr = filter_var($request->input('auto_ocr', true), FILTER_VALIDATE_BOOLEAN);
+
+        if ($autoOcr) {
+            try {
+                $ocrData = app(OCRService::class)->extractPrescriptionFromStored($path);
+            } catch (Throwable $e) {
+                Log::warning('Prescription OCR skipped', ['error' => $e->getMessage()]);
+            }
+        }
+
+        $medicines = is_array($ocrData['medicines'] ?? null) ? $ocrData['medicines'] : [];
+        $dosageInstructions = collect($medicines)->map(function ($med) {
+            return trim(implode(' ', array_filter([
+                $med['name'] ?? '',
+                $med['dosage'] ?? '',
+                $med['frequency'] ?? '',
+                $med['duration'] ?? '',
+                $med['instructions'] ?? '',
+            ])));
+        })->filter()->values()->all();
+
         $prescription = Prescription::create([
             'patient_id'           => $patient->id,
             'prescription_number'  => Prescription::generatePrescriptionNumber(),
-            'prescription_date'    => $request->input('prescription_date', now()->toDateString()),
-            'doctor_name'          => $request->input('doctor_name'),
-            'clinic_name'          => $request->input('clinic_name'),
-            'notes'                => $request->input('notes'),
+            'prescription_date'    => $request->input(
+                'prescription_date',
+                ! empty($ocrData['prescription_date']) ? $ocrData['prescription_date'] : now()->toDateString()
+            ),
+            'doctor_name'          => $request->input('doctor_name') ?: ($ocrData['doctor_name'] ?? null),
+            'clinic_name'          => $request->input('clinic_name') ?: ($ocrData['clinic_name'] ?? null),
+            'notes'                => $request->input('notes') ?: ($ocrData['notes'] ?? null),
             'original_image_path'  => $path,
             'processed_image_path' => $path,
-            'medicines'            => [],
-            'dosage_instructions'  => [],
+            'medicines'            => $medicines,
+            'dosage_instructions'  => $dosageInstructions,
+            'ocr_data'             => $ocrData,
         ]);
 
         return response()->json([
             'status'  => 'success',
             'message' => 'Prescription uploaded successfully',
             'data'    => $this->formatPrescription($prescription),
+            'ocr_applied' => $ocrData !== null,
         ], 201);
     }
 
@@ -176,12 +207,13 @@ class PatientRecordController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'image'        => 'required|file|mimes:jpeg,png,jpg,gif,webp,pdf|max:10240',
-            'report_type'  => 'required|string|max:255',
+            'report_type'  => 'nullable|string|max:255',
             'lab_name'     => 'nullable|string|max:255',
             'doctor_name'  => 'nullable|string|max:255',
             'test_date'    => 'nullable|date',
             'test_notes'   => 'nullable|string',
             'notes'        => 'nullable|string',
+            'auto_ocr'     => 'nullable|boolean',
         ]);
 
         if ($validator->fails()) {
@@ -195,24 +227,45 @@ class PatientRecordController extends Controller
         $patient = $this->patientForUser();
         $path = $request->file('image')->store('patient-records/medical-reports', 'public');
 
+        $ocrData = null;
+        $autoOcr = filter_var($request->input('auto_ocr', true), FILTER_VALIDATE_BOOLEAN);
+
+        if ($autoOcr) {
+            try {
+                $ocrData = app(OCRService::class)->extractMedicalReportFromStored($path);
+            } catch (Throwable $e) {
+                Log::warning('Medical report OCR skipped', ['error' => $e->getMessage()]);
+            }
+        }
+
+        $reportType = $request->input('report_type')
+            ?: ($ocrData['report_type'] ?? null)
+            ?: 'other';
+
         $report = MedicalReport::create([
             'patient_id'           => $patient->id,
             'report_number'        => MedicalReport::generateReportNumber(),
-            'report_type'          => $request->input('report_type'),
-            'test_date'            => $request->input('test_date', now()->toDateString()),
-            'lab_name'             => $request->input('lab_name'),
-            'doctor_name'          => $request->input('doctor_name'),
-            'test_notes'           => $request->input('test_notes', $request->input('notes')),
+            'report_type'          => $reportType,
+            'test_date'            => $request->input(
+                'test_date',
+                ! empty($ocrData['test_date']) ? $ocrData['test_date'] : now()->toDateString()
+            ),
+            'lab_name'             => $request->input('lab_name') ?: ($ocrData['lab_name'] ?? null),
+            'doctor_name'          => $request->input('doctor_name') ?: ($ocrData['doctor_name'] ?? null),
+            'test_notes'           => $request->input('test_notes', $request->input('notes'))
+                ?: ($ocrData['test_notes'] ?? null),
             'original_image_path'  => $path,
             'processed_image_path' => $path,
-            'test_results'         => [],
-            'normal_ranges'        => [],
+            'test_results'         => is_array($ocrData['test_results'] ?? null) ? $ocrData['test_results'] : [],
+            'normal_ranges'        => is_array($ocrData['normal_ranges'] ?? null) ? $ocrData['normal_ranges'] : [],
+            'ocr_data'             => $ocrData,
         ]);
 
         return response()->json([
             'status'  => 'success',
             'message' => 'Medical report uploaded successfully',
             'data'    => $this->formatMedicalReport($report),
+            'ocr_applied' => $ocrData !== null,
         ], 201);
     }
 
