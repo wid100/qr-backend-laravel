@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Modules\HealthCard\Models\HealthCard;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Carbon\Carbon;
@@ -14,8 +15,10 @@ class DashboardController extends Controller
     {
         $today = Carbon::today();
         $newUsersCount = User::whereDate('created_at', $today)->count();
-        $user = User::all()->count();
-        return view('admin.dashboard', compact('user', 'newUsersCount'));
+        $user = User::count();
+        $healthCardCount = HealthCard::count();
+
+        return view('admin.dashboard', compact('user', 'newUsersCount', 'healthCardCount'));
     }
 
     /**

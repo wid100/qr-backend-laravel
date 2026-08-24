@@ -425,6 +425,36 @@ $(function () {
     }
     // Orders Chart - END
 
+    // Hospital Card
+    if ($('#HospitalCard').length) {
+        var optionsHospital = {
+            chart: {
+                type: "bar",
+                height: 60,
+                sparkline: {
+                    enabled: !0
+                }
+            },
+            plotOptions: {
+                bar: {
+                    borderRadius: 2,
+                    columnWidth: "60%"
+                }
+            },
+            colors: [colors.primary],
+            series: [{
+                name: '',
+                data: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+            }],
+            xaxis: {
+                type: 'datetime',
+                categories: ["Jan 01 2022", "Jan 02 2022", "Jan 03 2022", "Jan 04 2022", "Jan 05 2022", "Jan 06 2022", "Jan 07 2022", "Jan 08 2022", "Jan 09 2022", "Jan 10 2022", "Jan 11 2022",],
+            },
+        };
+        new ApexCharts(document.querySelector("#HospitalCard"), optionsHospital).render();
+    }
+    // Hospital Card - END
+
     // University Card
     if ($('#university').length) {
         var options2 = {
