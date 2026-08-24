@@ -185,11 +185,32 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-6 col-md-12 col-xl-5">
-                                        <h3 class="mb-2">5,644</h3>
+                                        <h3 class="mb-2">{{ 7347 + number_format($healthCardCount) }}</h3>
 
                                     </div>
                                     <div class="col-6 col-md-12 col-xl-7">
                                         <div id="HealthCard" class="mt-md-3 mt-xl-0"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-4 grid-margin stretch-card">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-baseline">
+                                    <h6 class="card-title mb-0">Hospital</h6>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-6 col-md-12 col-xl-5">
+                                        <h3 class="mb-2">1</h3>
+
+                                    </div>
+                                    <div class="col-6 col-md-12 col-xl-7">
+                                        <div id="HospitalCard" class="mt-md-3 mt-xl-0"></div>
                                     </div>
                                 </div>
                             </div>
